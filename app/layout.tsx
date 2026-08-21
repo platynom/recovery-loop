@@ -13,8 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('http://localhost:3000'),
   title: 'Recovery Loop — Revenue recovery operations',
   description: 'A refusal-aware payment recovery agent that protects retry budgets and recovers more revenue.',
+  openGraph: {
+    title: 'Recovery Loop',
+    description: 'Recover more revenue. Waste fewer attempts.',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Recovery Loop payment recovery dashboard' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Recovery Loop',
+    description: 'Recover more revenue. Waste fewer attempts.',
+    images: ['/og.png'],
+  },
 };
 
 export default function RootLayout({
