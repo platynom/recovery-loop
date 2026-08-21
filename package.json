@@ -13,7 +13,9 @@
     "test": "node --test tests/*.test.mjs",
     "evaluate": "node eval/evaluate.mjs",
     "replay:outage": "node sim/outage-replay.mjs",
-    "replay:fixtures": "node scripts/replay-fixtures.mjs"
+    "replay:fixtures": "node scripts/replay-fixtures.mjs",
+    "test-lab:create": "node --env-file=.env.local scripts/create-test-payment-links.mjs",
+    "test-lab:collect": "node --env-file=.env.local scripts/collect-test-failures.mjs"
   },
   "dependencies": {
     "next": "16.2.6",

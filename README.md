@@ -49,6 +49,8 @@ npm test
 npm run evaluate
 npm run replay:outage
 npm run replay:fixtures
+npm run test-lab:create -- 20
+npm run test-lab:collect
 npm run build
 ```
 
@@ -83,6 +85,7 @@ See:
 - `docs/LIMITATIONS.md`
 - `docs/PROJECT_LOG.md`
 - `docs/VIDEO_SCRIPT.md`
+- `docs/TEST_FAILURE_AUTOMATION.md`
 - `docs/BUSINESS_MODEL.md`
 - `docs/SUBMISSION_CHECKLIST.md`
 
