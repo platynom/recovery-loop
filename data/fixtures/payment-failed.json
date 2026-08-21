@@ -1,0 +1,25 @@
+{
+  "entity": "event",
+  "account_id": "acc_test_recovery_loop",
+  "event": "payment.failed",
+  "contains": ["payment"],
+  "payload": {
+    "payment": {
+      "entity": {
+        "id": "pay_fixture_001",
+        "entity": "payment",
+        "amount": 129900,
+        "currency": "INR",
+        "status": "failed",
+        "method": "upi",
+        "bank": "HDFC",
+        "error_code": "GATEWAY_ERROR",
+        "error_description": "Bank gateway temporarily unavailable",
+        "error_reason": "payment_failed",
+        "created_at": 1787378400,
+        "notes": { "recovery_attempt": "1", "bank_decline_rate": "0.03" }
+      }
+    }
+  },
+  "created_at": 1787378400
+}

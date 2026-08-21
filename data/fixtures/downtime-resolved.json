@@ -1,0 +1,25 @@
+{
+  "entity": "event",
+  "account_id": "acc_test_recovery_loop",
+  "event": "payment.downtime.resolved",
+  "contains": ["payment.downtime"],
+  "payload": {
+    "payment.downtime": {
+      "entity": {
+        "id": "down_fixture_hdfc_resolved",
+        "entity": "payment.downtime",
+        "method": "upi",
+        "begin": 1787378400,
+        "end": 1787382000,
+        "status": "resolved",
+        "scheduled": false,
+        "severity": "high",
+        "instrument": { "issuer": "HDFC" },
+        "instrument_schema": ["issuer"],
+        "created_at": 1787378400,
+        "updated_at": 1787382000
+      }
+    }
+  },
+  "created_at": 1787382000
+}

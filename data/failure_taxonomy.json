@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "categories": [
+    { "category": "technical", "retryable": true, "source": "documented", "codes": ["BAD_REQUEST_ERROR", "GATEWAY_ERROR", "SERVER_ERROR"], "patterns": ["temporarily unavailable", "timed out", "technical error", "gateway"] },
+    { "category": "insufficient_funds", "retryable": true, "source": "documented", "codes": ["INSUFFICIENT_FUNDS"], "patterns": ["insufficient funds", "low balance"] },
+    { "category": "issuer_declined", "retryable": false, "source": "documented", "codes": ["PAYMENT_DECLINED", "CARD_DECLINED"], "patterns": ["declined by bank", "issuer declined"] },
+    { "category": "mandate_inactive", "retryable": false, "source": "documented", "codes": ["MANDATE_INACTIVE", "MANDATE_CANCELLED"], "patterns": ["mandate inactive", "mandate cancelled"] },
+    { "category": "customer_action", "retryable": false, "source": "documented", "codes": ["CUSTOMER_CANCELLED", "AUTHENTICATION_FAILED"], "patterns": ["customer cancelled", "authentication failed"] },
+    { "category": "fraud_risk", "retryable": false, "source": "documented", "codes": ["FRAUD_DETECTED", "RISK_CHECK_FAILED"], "patterns": ["suspected fraud", "risk check"] }
+  ],
+  "observed_codes": [],
+  "note": "Move codes into observed_codes only after capturing them from Razorpay test-mode events."
+}
