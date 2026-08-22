@@ -8,6 +8,13 @@ if (!Number.isInteger(requested) || requested < 1 || requested > 30) throw new E
 const runId = `genuine-test-${new Date().toISOString().replace(/[:.]/g, '-')}`;
 const startedAt = Math.floor(Date.now() / 1000);
 const links = [];
+const runDirectory = resolve('data', 'test_runs');
+const manifestPath = resolve(runDirectory, `${runId}.json`);
+await mkdir(runDirectory, { recursive: true });
+
+async function saveManifest() {
+  await writeFile(manifestPath, `${JSON.stringify({ runId, startedAt, target: requested, links }, null, 2)}\n`, 'utf8');
+}
 
 for (let index = 0; index < requested; index += 1) {
   const sequence = index + 1;
@@ -25,11 +32,8 @@ for (let index = 0; index < requested; index += 1) {
     }),
   });
   links.push({ sequence, referenceId, id: link.id, shortUrl: link.short_url, amount: link.amount, status: link.status });
+  await saveManifest();
   console.log(`[${sequence}/${requested}] ${link.short_url}`);
 }
 
-const runDirectory = resolve('data', 'test_runs');
-await mkdir(runDirectory, { recursive: true });
-const manifestPath = resolve(runDirectory, `${runId}.json`);
-await writeFile(manifestPath, `${JSON.stringify({ runId, startedAt, target: requested, links }, null, 2)}\n`, 'utf8');
 console.log(`Manifest: ${manifestPath}`);
