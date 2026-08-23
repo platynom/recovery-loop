@@ -1,13 +1,100 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "tuples": [
+    {
+      "error_source": "business",
+      "error_step": "payment_initiation",
+      "error_reason": "*",
+      "error_codes": ["BAD_REQUEST_ERROR"],
+      "category": "non_retryable",
+      "retryable": false,
+      "source": "observed_test_mode",
+      "simulation": {
+        "weight": 2,
+        "error_code": "BAD_REQUEST_ERROR",
+        "error_reason": "international_transaction_not_allowed",
+        "error_description": "This business accepts domestic Indian card payments only"
+      }
+    },
+    {
+      "error_source": "bank",
+      "error_step": "payment_authorization",
+      "error_reason": "insufficient_funds",
+      "error_codes": ["INSUFFICIENT_FUNDS"],
+      "category": "insufficient_funds",
+      "retryable": true,
+      "source": "simulation_assumption",
+      "simulation": {
+        "weight": 42,
+        "error_code": "INSUFFICIENT_FUNDS",
+        "error_description": "Insufficient funds in customer account"
+      }
+    },
+    {
+      "error_source": "gateway",
+      "error_step": "payment_processing",
+      "error_reason": "gateway_timeout",
+      "error_codes": ["GATEWAY_ERROR"],
+      "category": "technical",
+      "retryable": true,
+      "source": "simulation_assumption",
+      "simulation": {
+        "weight": 30,
+        "error_code": "GATEWAY_ERROR",
+        "error_description": "Bank gateway temporarily unavailable"
+      }
+    },
+    {
+      "error_source": "bank",
+      "error_step": "payment_authorization",
+      "error_reason": "payment_declined",
+      "error_codes": ["PAYMENT_DECLINED"],
+      "category": "issuer_declined",
+      "retryable": false,
+      "source": "simulation_assumption",
+      "simulation": {
+        "weight": 12,
+        "error_code": "PAYMENT_DECLINED",
+        "error_description": "Payment declined by bank"
+      }
+    },
+    {
+      "error_source": "customer",
+      "error_step": "payment_authentication",
+      "error_reason": "authentication_failed",
+      "error_codes": ["AUTHENTICATION_FAILED"],
+      "category": "customer_action",
+      "retryable": false,
+      "source": "simulation_assumption",
+      "simulation": {
+        "weight": 9,
+        "error_code": "AUTHENTICATION_FAILED",
+        "error_description": "Customer authentication failed"
+      }
+    },
+    {
+      "error_source": "bank",
+      "error_step": "payment_authorization",
+      "error_reason": "mandate_inactive",
+      "error_codes": ["MANDATE_INACTIVE"],
+      "category": "mandate_inactive",
+      "retryable": false,
+      "source": "simulation_assumption",
+      "simulation": {
+        "weight": 5,
+        "error_code": "MANDATE_INACTIVE",
+        "error_description": "Mandate inactive"
+      }
+    }
+  ],
   "categories": [
-    { "category": "technical", "retryable": true, "source": "documented", "codes": ["BAD_REQUEST_ERROR", "GATEWAY_ERROR", "SERVER_ERROR"], "patterns": ["temporarily unavailable", "timed out", "technical error", "gateway"] },
+    { "category": "technical", "retryable": true, "source": "documented", "codes": ["GATEWAY_ERROR", "SERVER_ERROR"], "patterns": ["temporarily unavailable", "timed out", "technical error", "gateway"] },
     { "category": "insufficient_funds", "retryable": true, "source": "documented", "codes": ["INSUFFICIENT_FUNDS"], "patterns": ["insufficient funds", "low balance"] },
     { "category": "issuer_declined", "retryable": false, "source": "documented", "codes": ["PAYMENT_DECLINED", "CARD_DECLINED"], "patterns": ["declined by bank", "issuer declined"] },
     { "category": "mandate_inactive", "retryable": false, "source": "documented", "codes": ["MANDATE_INACTIVE", "MANDATE_CANCELLED"], "patterns": ["mandate inactive", "mandate cancelled"] },
     { "category": "customer_action", "retryable": false, "source": "documented", "codes": ["CUSTOMER_CANCELLED", "AUTHENTICATION_FAILED"], "patterns": ["customer cancelled", "authentication failed"] },
     { "category": "fraud_risk", "retryable": false, "source": "documented", "codes": ["FRAUD_DETECTED", "RISK_CHECK_FAILED"], "patterns": ["suspected fraud", "risk check"] }
   ],
-  "observed_codes": [],
-  "note": "Move codes into observed_codes only after capturing them from Razorpay test-mode events."
+  "observed_codes": ["BAD_REQUEST_ERROR"],
+  "note": "Runtime diagnosis requires an exact error_source/error_step/error_reason tuple. Codes and descriptions are secondary evidence only and never establish retryability by themselves."
 }

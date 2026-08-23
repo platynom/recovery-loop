@@ -38,4 +38,3 @@ next-env.d.ts
 /outputs/
 /work/
 /data/test_runs/
-/data/raw_events/*.json

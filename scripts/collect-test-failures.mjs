@@ -1,6 +1,7 @@
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { basename, resolve } from 'node:path';
 import { razorpayRequest } from './lib/razorpay-test-client.mjs';
+import { redactCapturedEvent } from './lib/redact-captured-event.mjs';
 
 const runDirectory = resolve('data', 'test_runs');
 const requestedManifest = process.argv[2];
@@ -19,7 +20,7 @@ const response = await razorpayRequest(`/payments?from=${manifest.startedAt}&cou
 const failed = (response.items ?? []).filter((payment) => payment.status === 'failed' && payment.notes?.recovery_loop_run === manifest.runId);
 for (const payment of failed) {
   const outputPath = resolve(outputDirectory, `${payment.id}.observed-api.json`);
-  await writeFile(outputPath, `${JSON.stringify(payment, null, 2)}\n`, 'utf8');
+  await writeFile(outputPath, `${JSON.stringify(redactCapturedEvent(payment), null, 2)}\n`, 'utf8');
 }
 const summary = { runId: manifest.runId, manifest: basename(manifestPath), target: manifest.target, observedFailures: failed.length, paymentIds: failed.map((payment) => payment.id), collectedAt: new Date().toISOString(), source: 'Razorpay Test Payments API' };
 await writeFile(resolve(runDirectory, `${manifest.runId}.collection.json`), `${JSON.stringify(summary, null, 2)}\n`, 'utf8');
