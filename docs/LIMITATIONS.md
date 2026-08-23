@@ -1,6 +1,6 @@
 # Limitations
 
-- Dashboard outcomes are simulated and are not production claims.
+- Dashboard and evaluation outcomes are simulated and are not production claims. Fix 7 grounds selected inputs in published NPCI aggregates; it does not supply observed repeat-attempt outcomes.
 - Recovery probabilities are representative UI values, not a trained or calibrated model.
 - Bank-health statuses are demo scenarios and do not represent current bank availability.
 - The annualized commercial value is a scenario model; merchant volume, average ticket size, and real decline composition will change the result.
@@ -10,3 +10,26 @@
 - D1 persistence is configured but production durability depends on a bound Sites database or equivalent Cloudflare D1 deployment.
 - The fixture-only webhook bypass exists for local integration tests and must not be enabled on a public deployment.
 - The current attempt price is a transparent scenario model, not a contract-specific Razorpay fee calculation.
+- The evaluator previously used the model's own predicted probability to generate its recovery labels, making the evaluation circular. It now resolves every policy through a shared simulator using hidden salary dates, outage-clear times, and random outcome draws that are never passed to the model.
+- Evaluation numbers from earlier git history are not comparable with the independent-world results because the outcome-generating process changed fundamentally.
+- Fix 7 replaces the uniform four-bank choice and 42/30/12/9/5/2 top-level failure mix in calibrated runs. Bank/month weights and AutoPay BD/TD composition come from NPCI. Hidden-world recovery rules remain assumptions; the 12/9/5/2 relative split remains only inside NPCI's non-financial hard-decline bucket.
+- Five deterministic seeds expose sampling spread, but five seeds and 10,000 synthetic failures are not a substitute for confidence intervals on genuine observed payments.
+- The Fix 4 population contains only mandates whose original authorization failed. Its resulting 80–100% decline rates are not estimates of a merchant's portfolio-wide decline rate, and the frozen 15% penalty fires for every policy in every seed. A production compliance analysis must include successful original authorizations in the denominator.
+- Retry prices, the ₹415,000 decline penalty, the synthetic Merchant Advice Code mapping, and the eMandate cap are frozen scenario assumptions rather than current contract or network fee claims.
+- The Fix 5 scarcity search measures the mixed-cohort zero crossing on a discrete grid: 50-step points through 2,000 and 100-step points through 4,000. The reported 3,500 crossover is the first losing tested point, not an interpolated continuous threshold.
+- A rail-specific cohort changes applicable stop and timing rules. The Fix 5 single-rail runs retained portfolio scarcity pricing and incorrectly described 6,000 summed mandate tokens as an operating budget; those placements are superseded, not rail findings.
+- Fix 5 incorrectly treated the sum of per-mandate retry caps as a transferable rail budget and placed UPI on the pooled scarcity curve. Fix 6 corrects this: NPCI and card retry tokens belong to individual mandates, cannot be transferred, and require mandate-local evaluation.
+- The pooled curve remains valid only as a hypothetical shared operational-capacity scenario. It must not be presented as the UPI AutoPay or card-network operating point.
+- In mandate-local mode, conserving a token has value only if the same unresolved mandate can use it later. Tokens left at horizon are stranded; large strand counts explain why high rupees-per-attempt can coexist with materially lower total net revenue.
+- Issuer-health matching now normalizes issuer identifiers and logs join misses, but real payload coverage still depends on each payment method exposing a usable issuer field.
+- NPCI-backed parameters are AutoPay payer-PSP bank names, monthly volume, Approved %, BD %, and TD %; NACH destination-bank volume, success %, financial/non-financial declines, and T+0…T+4 response shares; and UPI reportable incident count and aggregate downtime. The common calibration window is January 2025–June 2026.
+- The evaluation conditions on already-failed mandates and does not estimate portfolio-wide approval prevalence.
+- No suitable public Indian card-authorization decline baseline was found. RBI's published transaction series excludes failed transactions, and NACH bulk-debit returns are structurally different. Cards are therefore excluded from NPCI calibration and evaluated only under the labelled uncalibrated simulator.
+- NPCI publishes monthly reportable incident totals, not timestamps, and omits incidents below its criteria. Exact placement is assumed, and absence from the table is not proof of zero downtime.
+- Remaining assumptions are synthetic amounts, hidden salary dates, repeat-attempt success functions/draws, uniform month sampling, financial→soft and non-financial→hard interpretation, hard-decline subtypes, MAC mapping, costs, ₹415,000 penalty, and all policy thresholds.
+- Part A found a lifecycle bug: a UPI hard refusal could carry a schedule and be attempted while Cards masked it through MAC hard stops. The final correction distinguishes terminal hard refusals from economic/outage waits. Hard refusals terminate; soft waits re-evaluate within the three-day bound.
+- The first Fix 7 result is invalidated: it used an absolute gate against bank baselines, treated NACH as Cards, and charged the decline penalty to a zero-attempt policy. Corrected evidence retains the invalidated numbers visibly and supersedes them.
+- The bank-health gate now uses each bank's current/baseline ratio. NPCI mode freezes the trigger at 7.917882×, the smallest visible bank-normalized TD elevation among reportable-incident months; the legacy 4× ratio preserves the original 12%-versus-3% intent. Monthly aggregation dilutes many short incidents, so this is a detectable-spike threshold, not a complete incident detector.
+- The decline penalty is computed only from a policy's own retry attempts and failed retries. Original cohort failures are excluded because they predate the policy; zero attempts means zero policy decline rate and no penalty.
+- Most corrected UPI waits reach the frozen three-day cap and are then decided by the plain rule. This is bounded deferral, but it also means the result is sensitive to the pre-registered cap/plain-rule mechanism; neither was changed for the final run.
+- The legacy simulated failure mix assigns 42% to insufficient funds, versus about 70% of returned items in the Minneapolis Fed's 2006 FedACH matched data (a 28-point gap). The evaluation was frozen before this different-rail benchmark was found, so the mix was documented but not retuned.
