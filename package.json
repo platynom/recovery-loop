@@ -12,6 +12,7 @@
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "test": "node --test tests/*.test.mjs",
     "evaluate": "node eval/evaluate.mjs",
+    "evaluate:fix7": "node scripts/build-npci-calibration.mjs && node scripts/evaluate-fix7.mjs",
     "replay:outage": "node sim/outage-replay.mjs",
     "replay:fixtures": "node scripts/replay-fixtures.mjs",
     "test-lab:create": "node --env-file=.env.local scripts/create-test-payment-links.mjs",
