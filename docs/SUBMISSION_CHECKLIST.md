@@ -33,18 +33,18 @@ Checked means verified in the current workspace on 23 August 2026. Unchecked ite
 - [ ] Verify a currently reachable webhook URL — the earlier Cloudflare quick tunnel was temporary and no persistent public endpoint is verified now.
 - [ ] Record the five-minute video — the final script and shot order are ready, but no recording file exists in the repository.
 - [ ] Review the recording against the final README numbers — blocked until the video is recorded.
-- [ ] Commit the final engineering and narrative changes — the working tree still contains uncommitted dashboard, evaluation, documentation, and test changes.
-- [ ] Choose a public GitHub repository destination — no Git remote is configured, and publication was explicitly deferred.
-- [ ] Publish the repository — blocked on destination approval and the final commit.
+- [x] Commit the final engineering and narrative changes — the policy, evidence, dashboard, recording assets, narrative, and tests are in Git history.
+- [x] Choose a public GitHub repository destination — [`platynom/recovery-loop`](https://github.com/platynom/recovery-loop) is the approved destination.
+- [x] Publish the repository — the complete history is public and the local branch tracks `origin/master`.
 - [ ] Deploy a stable public demo — hosting configuration exists, but no stable deployment URL has been verified.
 - [ ] Confirm the official submission deadline — it has not been verified from the official application form.
 - [ ] Submit the project — the form has not been completed and no submission receipt exists.
 
 ## Final pre-submission safety check — not yet run
 
-- [ ] Scan the final commit for secrets and personal data — this must run after the final commit, not against a changing worktree.
-- [ ] Clone the public repository into a clean directory and run install, tests, evaluation, and build — impossible until the repository is published.
-- [ ] Verify every link and source from the public README — local links are present, but public rendering cannot be checked before publication.
+- [x] Scan the final reachable history for secrets and personal data — 18 commits were scanned before publication; no Razorpay keys, secret assignments, private keys, personal emails, or JSON contact/email fields were found.
+- [ ] Clone the public repository into a clean directory and run install, tests, evaluation, and build — the earlier clean-clone proof used the local repository; repeat it from the public URL before submission.
+- [ ] Verify every link and source from the public README — GitHub rendering and all required repository artifacts are verified; a complete external-link sweep remains.
 - [ ] Confirm the video shows `Simulated`, `NPCI-calibrated`, and `Observed` labels accurately — blocked until recording.
 
 Never publish `.env.local`, Razorpay keys, the webhook secret, unredacted payloads, or live-mode credentials.
