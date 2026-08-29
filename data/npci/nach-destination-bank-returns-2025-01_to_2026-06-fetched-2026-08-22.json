@@ -1,0 +1,1870 @@
+{
+  "fetchDate": "2026-08-22",
+  "sourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+  "canonicalSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+  "scope": "Rendered HTML table: ACH Debit / Destination Bank Returns",
+  "periods": [
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "Jan",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "38.53",
+          "81.56",
+          "18.44",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "17.79",
+          "82.19",
+          "17.81",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "11.75",
+          "88.15",
+          "11.85",
+          "-"
+        ],
+        [
+          "4",
+          "BANK OF BARODA",
+          "10.86",
+          "74.84",
+          "25.16",
+          "-"
+        ],
+        [
+          "5",
+          "PUNJAB NATIONAL BANK",
+          "10.37",
+          "71.09",
+          "28.91",
+          "-"
+        ],
+        [
+          "6",
+          "AXIS BANK",
+          "10.15",
+          "78.96",
+          "21.04",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "8.79",
+          "70.69",
+          "29.31",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.45",
+          "70.97",
+          "29.03",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.01",
+          "70.23",
+          "29.77",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.48",
+          "70.91",
+          "29.09",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "Feb",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "38.61",
+          "80.90",
+          "19.10",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "17.46",
+          "82.22",
+          "17.78",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "11.49",
+          "88.07",
+          "11.93",
+          "-"
+        ],
+        [
+          "4",
+          "BANK OF BARODA",
+          "10.64",
+          "74.89",
+          "25.11",
+          "-"
+        ],
+        [
+          "5",
+          "PUNJAB NATIONAL BANK",
+          "10.30",
+          "71.30",
+          "28.70",
+          "-"
+        ],
+        [
+          "6",
+          "AXIS BANK",
+          "10.07",
+          "79.00",
+          "21.00",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "8.76",
+          "70.73",
+          "29.27",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.39",
+          "70.52",
+          "29.48",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "6.90",
+          "70.63",
+          "29.37",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.42",
+          "70.80",
+          "29.20",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "Mar",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "39.45",
+          "80.09",
+          "19.91",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "17.62",
+          "81.98",
+          "18.02",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "11.64",
+          "87.89",
+          "12.11",
+          "-"
+        ],
+        [
+          "4",
+          "BANK OF BARODA",
+          "10.60",
+          "74.82",
+          "25.18",
+          "-"
+        ],
+        [
+          "5",
+          "PUNJAB NATIONAL BANK",
+          "10.45",
+          "70.73",
+          "29.27",
+          "-"
+        ],
+        [
+          "6",
+          "AXIS BANK",
+          "10.19",
+          "78.46",
+          "21.54",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "8.84",
+          "70.67",
+          "29.33",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.45",
+          "70.37",
+          "29.63",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "6.99",
+          "70.24",
+          "29.76",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.48",
+          "70.69",
+          "29.31",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "Apr",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "39.35",
+          "80.29",
+          "19.71",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "17.53",
+          "82.33",
+          "17.67",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "11.95",
+          "88.52",
+          "11.48",
+          "-"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "10.34",
+          "71.01",
+          "28.99",
+          "-"
+        ],
+        [
+          "5",
+          "BANK OF BARODA",
+          "10.29",
+          "75.38",
+          "24.62",
+          "-"
+        ],
+        [
+          "6",
+          "AXIS BANK",
+          "10.14",
+          "78.80",
+          "21.20",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "8.70",
+          "71.48",
+          "28.52",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.28",
+          "70.79",
+          "29.21",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "6.90",
+          "71.17",
+          "28.83",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.36",
+          "71.36",
+          "28.64",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "May",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "39.88",
+          "80.29",
+          "19.71",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "17.73",
+          "81.91",
+          "18.09",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "11.63",
+          "87.97",
+          "12.03",
+          "-"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "10.50",
+          "70.99",
+          "29.01",
+          "-"
+        ],
+        [
+          "5",
+          "BANK OF BARODA",
+          "10.40",
+          "74.49",
+          "25.51",
+          "-"
+        ],
+        [
+          "6",
+          "AXIS BANK",
+          "10.25",
+          "78.61",
+          "21.39",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "8.66",
+          "71.37",
+          "28.63",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.33",
+          "70.28",
+          "29.72",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.06",
+          "69.88",
+          "30.12",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.40",
+          "70.97",
+          "29.03",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "Jun",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "40.14",
+          "80.85",
+          "19.15",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "17.79",
+          "82.58",
+          "17.42",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "11.65",
+          "88.63",
+          "11.37",
+          "-"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "10.64",
+          "71.21",
+          "28.79",
+          "-"
+        ],
+        [
+          "5",
+          "BANK OF BARODA",
+          "10.36",
+          "74.81",
+          "25.19",
+          "-"
+        ],
+        [
+          "6",
+          "AXIS BANK",
+          "10.27",
+          "79.12",
+          "20.88",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "8.80",
+          "70.85",
+          "29.15",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.32",
+          "70.50",
+          "29.50",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.03",
+          "71.20",
+          "28.80",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.42",
+          "71.12",
+          "28.88",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "Jul",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "41.00",
+          "80.92",
+          "19.08",
+          "0.00"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "18.10",
+          "82.55",
+          "17.45",
+          "0.00"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "11.88",
+          "88.92",
+          "11.08",
+          "0.00"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "10.83",
+          "71.29",
+          "28.71",
+          "0.00"
+        ],
+        [
+          "5",
+          "BANK OF BARODA",
+          "10.49",
+          "74.85",
+          "25.15",
+          "0.00"
+        ],
+        [
+          "6",
+          "AXIS BANK",
+          "10.41",
+          "79.30",
+          "20.70",
+          "0.00"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "8.87",
+          "71.72",
+          "28.28",
+          "0.00"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.37",
+          "71.01",
+          "28.99",
+          "0.00"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.15",
+          "71.41",
+          "28.59",
+          "0.00"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.47",
+          "71.22",
+          "28.78",
+          "0.00"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "Aug",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "41.51",
+          "80.41",
+          "19.59",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "18.19",
+          "81.97",
+          "18.03",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "11.92",
+          "88.70",
+          "11.30",
+          "-"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "10.91",
+          "70.95",
+          "29.05",
+          "-"
+        ],
+        [
+          "5",
+          "AXIS BANK",
+          "10.44",
+          "78.60",
+          "21.40",
+          "-"
+        ],
+        [
+          "6",
+          "BANK OF BARODA",
+          "10.42",
+          "74.63",
+          "25.37",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "8.94",
+          "71.37",
+          "28.63",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.43",
+          "70.04",
+          "29.96",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.22",
+          "70.90",
+          "29.10",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.48",
+          "71.26",
+          "28.74",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "Sep",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "42.14",
+          "80.36",
+          "19.64",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "18.37",
+          "82.02",
+          "17.98",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "12.18",
+          "88.79",
+          "11.21",
+          "-"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "11.06",
+          "70.53",
+          "29.47",
+          "-"
+        ],
+        [
+          "5",
+          "AXIS BANK",
+          "10.54",
+          "78.58",
+          "21.42",
+          "-"
+        ],
+        [
+          "6",
+          "BANK OF BARODA",
+          "10.40",
+          "74.79",
+          "25.21",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "9.08",
+          "71.05",
+          "28.95",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.37",
+          "70.04",
+          "29.96",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.32",
+          "70.95",
+          "29.05",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.57",
+          "70.84",
+          "29.16",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "Oct",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "42.14",
+          "80.36",
+          "19.64",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "18.37",
+          "82.02",
+          "17.98",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "12.18",
+          "88.79",
+          "11.21",
+          "-"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "11.06",
+          "70.53",
+          "29.47",
+          "-"
+        ],
+        [
+          "5",
+          "AXIS BANK",
+          "10.54",
+          "78.58",
+          "21.42",
+          "-"
+        ],
+        [
+          "6",
+          "BANK OF BARODA",
+          "10.40",
+          "74.79",
+          "25.21",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "9.08",
+          "71.05",
+          "28.95",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.37",
+          "70.04",
+          "29.96",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.32",
+          "70.95",
+          "29.05",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.57",
+          "70.84",
+          "29.16",
+          "-"
+        ],
+        [
+          "11",
+          "INDIAN BANK",
+          "5.62",
+          "63.02",
+          "36.98",
+          "-"
+        ],
+        [
+          "12",
+          "CENTRAL BANK OF INDIA",
+          "3.54",
+          "68.55",
+          "31.45",
+          "-"
+        ],
+        [
+          "13",
+          "IDBI BANK",
+          "2.87",
+          "80.37",
+          "19.63",
+          "-"
+        ],
+        [
+          "14",
+          "BANK OF MAHARASHTRA",
+          "2.84",
+          "70.95",
+          "29.05",
+          "-"
+        ],
+        [
+          "15",
+          "INDIAN OVERSEAS BANK",
+          "2.65",
+          "67.22",
+          "32.78",
+          "-"
+        ],
+        [
+          "16",
+          "INDUSIND BANK LIMITED",
+          "2.60",
+          "51.98",
+          "48.02",
+          "-"
+        ],
+        [
+          "17",
+          "FEDERAL BANK",
+          "2.23",
+          "65.08",
+          "34.92",
+          "-"
+        ],
+        [
+          "18",
+          "UCO BANK",
+          "1.72",
+          "68.11",
+          "31.89",
+          "-"
+        ],
+        [
+          "19",
+          "IDFC FIRST BANK LTD",
+          "1.43",
+          "69.51",
+          "30.49",
+          "-"
+        ],
+        [
+          "20",
+          "KARNATAKA BANK LTD",
+          "1.36",
+          "61.24",
+          "38.76",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "Nov",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "43.32",
+          "79.72",
+          "20.28",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "20.67",
+          "75.81",
+          "24.19",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "12.17",
+          "88.65",
+          "11.35",
+          "-"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "11.14",
+          "70.57",
+          "29.43",
+          "-"
+        ],
+        [
+          "5",
+          "AXIS BANK",
+          "10.71",
+          "77.92",
+          "22.08",
+          "-"
+        ],
+        [
+          "6",
+          "BANK OF BARODA",
+          "10.56",
+          "74.52",
+          "25.48",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "9.12",
+          "71.35",
+          "28.65",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.52",
+          "70.26",
+          "29.74",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.52",
+          "70.55",
+          "29.45",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.68",
+          "70.70",
+          "29.30",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2025,
+      "month": "Dec",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "44.39",
+          "80.10",
+          "19.90",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "19.23",
+          "80.83",
+          "19.17",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "12.37",
+          "88.96",
+          "11.04",
+          "-"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "11.29",
+          "71.46",
+          "28.54",
+          "-"
+        ],
+        [
+          "5",
+          "BANK OF BARODA",
+          "10.90",
+          "74.94",
+          "25.06",
+          "-"
+        ],
+        [
+          "6",
+          "AXIS BANK",
+          "10.88",
+          "78.30",
+          "21.70",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "9.37",
+          "71.94",
+          "28.06",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.68",
+          "70.83",
+          "29.17",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.71",
+          "70.98",
+          "29.02",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.84",
+          "71.42",
+          "28.58",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2026,
+      "month": "Jan",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "44.80",
+          "79.88",
+          "20.12",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "18.98",
+          "81.97",
+          "18.03",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "12.38",
+          "88.81",
+          "11.19",
+          "-"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "11.26",
+          "71.34",
+          "28.66",
+          "-"
+        ],
+        [
+          "5",
+          "BANK OF BARODA",
+          "10.94",
+          "74.58",
+          "25.42",
+          "-"
+        ],
+        [
+          "6",
+          "AXIS BANK",
+          "10.92",
+          "78.22",
+          "21.78",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "9.48",
+          "71.72",
+          "28.28",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.81",
+          "70.57",
+          "29.43",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.84",
+          "70.50",
+          "29.50",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.87",
+          "71.27",
+          "28.73",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2026,
+      "month": "Feb",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "44.45",
+          "79.99",
+          "20.01",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "18.75",
+          "81.99",
+          "18.01",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "12.18",
+          "88.94",
+          "11.06",
+          "-"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "11.07",
+          "71.75",
+          "28.25",
+          "-"
+        ],
+        [
+          "5",
+          "BANK OF BARODA",
+          "10.88",
+          "74.62",
+          "25.38",
+          "-"
+        ],
+        [
+          "6",
+          "AXIS BANK",
+          "10.79",
+          "78.32",
+          "21.68",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "9.45",
+          "71.28",
+          "28.72",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.70",
+          "70.63",
+          "29.37",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.78",
+          "70.54",
+          "29.46",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.81",
+          "71.28",
+          "28.72",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2026,
+      "month": "Mar",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "45.90",
+          "79.60",
+          "20.40",
+          "-"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "20.62",
+          "76.58",
+          "23.42",
+          "-"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "12.67",
+          "89.07",
+          "10.93",
+          "-"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "11.54",
+          "70.84",
+          "29.16",
+          "-"
+        ],
+        [
+          "5",
+          "AXIS BANK",
+          "11.15",
+          "78.10",
+          "21.90",
+          "-"
+        ],
+        [
+          "6",
+          "BANK OF BARODA",
+          "11.03",
+          "75.36",
+          "24.64",
+          "-"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "9.77",
+          "71.18",
+          "28.82",
+          "-"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.91",
+          "70.67",
+          "29.33",
+          "-"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "8.05",
+          "70.24",
+          "29.76",
+          "-"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "7.07",
+          "70.77",
+          "29.23",
+          "-"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2026,
+      "month": "Apr",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "45.36",
+          "79.52",
+          "20.48",
+          "0.00"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "19.05",
+          "81.82",
+          "18.18",
+          "0.00"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "12.79",
+          "89.40",
+          "10.60",
+          "0.00"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "11.21",
+          "71.30",
+          "28.70",
+          "0.00"
+        ],
+        [
+          "5",
+          "AXIS BANK",
+          "10.96",
+          "78.31",
+          "21.69",
+          "0.00"
+        ],
+        [
+          "6",
+          "BANK OF BARODA",
+          "10.85",
+          "75.48",
+          "24.52",
+          "0.00"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "9.66",
+          "71.57",
+          "28.43",
+          "0.00"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.64",
+          "71.02",
+          "28.98",
+          "0.00"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "7.93",
+          "70.52",
+          "29.48",
+          "0.00"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "6.94",
+          "71.34",
+          "28.66",
+          "0.00"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2026,
+      "month": "May",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "45.74",
+          "79.42",
+          "20.58",
+          "0.00"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "19.21",
+          "81.55",
+          "18.45",
+          "0.00"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "12.45",
+          "89.08",
+          "10.92",
+          "0.00"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "11.33",
+          "70.82",
+          "29.18",
+          "0.00"
+        ],
+        [
+          "5",
+          "AXIS BANK",
+          "11.03",
+          "77.98",
+          "22.02",
+          "0.00"
+        ],
+        [
+          "6",
+          "BANK OF BARODA",
+          "10.97",
+          "75.31",
+          "24.69",
+          "0.00"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "9.77",
+          "70.94",
+          "29.06",
+          "0.00"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.66",
+          "70.60",
+          "29.40",
+          "0.00"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "8.05",
+          "69.89",
+          "30.11",
+          "0.00"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "7.01",
+          "70.90",
+          "29.10",
+          "0.00"
+        ]
+      ]
+    },
+    {
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
+      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "fetchDate": "2026-08-22",
+      "year": 2026,
+      "month": "Jun",
+      "view": "ACH Debit / Destination Bank Returns",
+      "headers": [
+        "Sr.No.",
+        "Bank Name",
+        "Inward volume (In Mn.)",
+        "Success %",
+        "Business declines",
+        "* Financial %",
+        "** Non-financial %"
+      ],
+      "rows": [
+        [
+          "1",
+          "STATE BANK OF INDIA",
+          "46.44",
+          "79.52",
+          "20.48",
+          "0.00"
+        ],
+        [
+          "2",
+          "HDFC BANK LTD",
+          "19.23",
+          "81.84",
+          "18.16",
+          "0.00"
+        ],
+        [
+          "3",
+          "ICICI BANK LTD",
+          "12.52",
+          "89.35",
+          "10.65",
+          "0.00"
+        ],
+        [
+          "4",
+          "PUNJAB NATIONAL BANK",
+          "11.46",
+          "71.34",
+          "28.66",
+          "0.00"
+        ],
+        [
+          "5",
+          "AXIS BANK",
+          "11.07",
+          "78.32",
+          "21.68",
+          "0.00"
+        ],
+        [
+          "6",
+          "BANK OF BARODA",
+          "10.98",
+          "76.28",
+          "23.72",
+          "0.00"
+        ],
+        [
+          "7",
+          "UNION BANK OF INDIA",
+          "9.83",
+          "71.56",
+          "28.44",
+          "0.00"
+        ],
+        [
+          "8",
+          "CANARA BANK",
+          "8.76",
+          "70.68",
+          "29.32",
+          "0.00"
+        ],
+        [
+          "9",
+          "KOTAK MAHINDRA BANK LTD",
+          "8.11",
+          "70.23",
+          "29.77",
+          "0.00"
+        ],
+        [
+          "10",
+          "BANK OF INDIA",
+          "7.08",
+          "71.35",
+          "28.65",
+          "0.00"
+        ]
+      ]
+    }
+  ]
+}

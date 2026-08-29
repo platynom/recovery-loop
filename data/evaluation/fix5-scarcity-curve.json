@@ -1,0 +1,2658 @@
+{
+  "generatedAt": "2026-08-22T06:00:00.000Z",
+  "scenario": "shared transferable portfolio budget",
+  "seeds": [
+    20260818,
+    20260819,
+    20260820,
+    20260821,
+    20260822
+  ],
+  "scarcity": {
+    "budgets": [
+      50,
+      100,
+      150,
+      200,
+      250,
+      300,
+      350,
+      400,
+      450,
+      500,
+      550,
+      600,
+      650,
+      700,
+      750,
+      800,
+      850,
+      900,
+      950,
+      1000,
+      1050,
+      1100,
+      1150,
+      1200,
+      1250,
+      1300,
+      1350,
+      1400,
+      1450,
+      1500,
+      1550,
+      1600,
+      1650,
+      1700,
+      1750,
+      1800,
+      1850,
+      1900,
+      1950,
+      2000,
+      2100,
+      2200,
+      2300,
+      2400,
+      2500,
+      2600,
+      2700,
+      2800,
+      2900,
+      3000,
+      3100,
+      3200,
+      3300,
+      3400,
+      3500,
+      3600,
+      3700,
+      3800,
+      3900,
+      4000
+    ],
+    "upperCrossoverBudget": 3500,
+    "precedingWinningPoint": {
+      "attemptBudget": 3400,
+      "pairedNetDifference": {
+        "mean": 43676.77000000006,
+        "min": -46975.96999999974,
+        "max": 137858.6499999999
+      },
+      "pairedNetDifferenceWithoutDeclinePenalty": {
+        "mean": 43676.77000000011,
+        "min": -46975.96999999974,
+        "max": 137858.6499999999
+      },
+      "perSeed": [
+        {
+          "seed": 20260818,
+          "netDifference": 22696.25,
+          "netDifferenceWithoutDeclinePenalty": 22696.25
+        },
+        {
+          "seed": 20260819,
+          "netDifference": 137858.6499999999,
+          "netDifferenceWithoutDeclinePenalty": 137858.6499999999
+        },
+        {
+          "seed": 20260820,
+          "netDifference": -46975.96999999974,
+          "netDifferenceWithoutDeclinePenalty": -46975.96999999974
+        },
+        {
+          "seed": 20260821,
+          "netDifference": 34692.41000000015,
+          "netDifferenceWithoutDeclinePenalty": 34692.41000000015
+        },
+        {
+          "seed": 20260822,
+          "netDifference": 70112.51000000001,
+          "netDifferenceWithoutDeclinePenalty": 70112.51000000024
+        }
+      ]
+    },
+    "signChanges": [
+      {
+        "fromBudget": 3400,
+        "toBudget": 3500,
+        "fromMean": 43676.77000000006,
+        "toMean": -27909.429999999888
+      }
+    ],
+    "points": [
+      {
+        "attemptBudget": 50,
+        "pairedNetDifference": {
+          "mean": 1886.2479999999982,
+          "min": -3356.1900000000023,
+          "max": 7085.859999999986
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 1886.2480000000025,
+          "min": -3356.189999999995,
+          "max": 7085.860000000001
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -3356.1900000000023,
+            "netDifferenceWithoutDeclinePenalty": -3356.189999999995
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 3779.2000000000116,
+            "netDifferenceWithoutDeclinePenalty": 3779.199999999997
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 4403.880000000005,
+            "netDifferenceWithoutDeclinePenalty": 4403.880000000005
+          },
+          {
+            "seed": 20260821,
+            "netDifference": -2481.5100000000093,
+            "netDifferenceWithoutDeclinePenalty": -2481.5099999999948
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 7085.859999999986,
+            "netDifferenceWithoutDeclinePenalty": 7085.860000000001
+          }
+        ]
+      },
+      {
+        "attemptBudget": 100,
+        "pairedNetDifference": {
+          "mean": 5278.205999999994,
+          "min": -450.320000000007,
+          "max": 16262.23999999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 5278.2059999999965,
+          "min": -450.31999999999243,
+          "max": 16262.23999999999
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -450.320000000007,
+            "netDifferenceWithoutDeclinePenalty": -450.31999999999243
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 1547.7999999999884,
+            "netDifferenceWithoutDeclinePenalty": 1547.7999999999884
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 16262.23999999999,
+            "netDifferenceWithoutDeclinePenalty": 16262.23999999999
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 57.55999999999767,
+            "netDifferenceWithoutDeclinePenalty": 57.55999999999767
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 8973.75,
+            "netDifferenceWithoutDeclinePenalty": 8973.75
+          }
+        ]
+      },
+      {
+        "attemptBudget": 150,
+        "pairedNetDifference": {
+          "mean": 6083.978000000003,
+          "min": -3276.899999999965,
+          "max": 18664.70000000001
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 6083.978000000003,
+          "min": -3276.899999999994,
+          "max": 18664.699999999997
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -1898.530000000028,
+            "netDifferenceWithoutDeclinePenalty": -1898.5299999999988
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 18664.70000000001,
+            "netDifferenceWithoutDeclinePenalty": 18664.699999999997
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 6432.630000000005,
+            "netDifferenceWithoutDeclinePenalty": 6432.630000000005
+          },
+          {
+            "seed": 20260821,
+            "netDifference": -3276.899999999965,
+            "netDifferenceWithoutDeclinePenalty": -3276.899999999994
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 10497.98999999999,
+            "netDifferenceWithoutDeclinePenalty": 10497.990000000005
+          }
+        ]
+      },
+      {
+        "attemptBudget": 200,
+        "pairedNetDifference": {
+          "mean": 6977.818000000017,
+          "min": -7971.839999999967,
+          "max": 21315.350000000006
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 6977.818000000002,
+          "min": -7971.8399999999965,
+          "max": 21315.350000000006
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -7971.839999999967,
+            "netDifferenceWithoutDeclinePenalty": -7971.8399999999965
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 21315.350000000006,
+            "netDifferenceWithoutDeclinePenalty": 21315.350000000006
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 16477.26000000001,
+            "netDifferenceWithoutDeclinePenalty": 16477.26000000001
+          },
+          {
+            "seed": 20260821,
+            "netDifference": -5768.8399999999965,
+            "netDifferenceWithoutDeclinePenalty": -5768.8399999999965
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 10837.160000000033,
+            "netDifferenceWithoutDeclinePenalty": 10837.159999999989
+          }
+        ]
+      },
+      {
+        "attemptBudget": 250,
+        "pairedNetDifference": {
+          "mean": 6692.550000000006,
+          "min": -1647.2300000000105,
+          "max": 16465.75
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 6692.55,
+          "min": -1647.2300000000105,
+          "max": 16465.75
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -1647.2300000000105,
+            "netDifferenceWithoutDeclinePenalty": -1647.2300000000105
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 16465.75,
+            "netDifferenceWithoutDeclinePenalty": 16465.75
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 1674.2200000000012,
+            "netDifferenceWithoutDeclinePenalty": 1674.2200000000012
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 9431.700000000012,
+            "netDifferenceWithoutDeclinePenalty": 9431.700000000012
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 7538.310000000027,
+            "netDifferenceWithoutDeclinePenalty": 7538.309999999998
+          }
+        ]
+      },
+      {
+        "attemptBudget": 300,
+        "pairedNetDifference": {
+          "mean": 15130.45,
+          "min": -1387.0599999999977,
+          "max": 33718.67999999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 15130.450000000006,
+          "min": -1387.0599999999977,
+          "max": 33718.68000000002
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -1387.0599999999977,
+            "netDifferenceWithoutDeclinePenalty": -1387.0599999999977
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 20500.610000000015,
+            "netDifferenceWithoutDeclinePenalty": 20500.610000000015
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 33718.67999999999,
+            "netDifferenceWithoutDeclinePenalty": 33718.68000000002
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 10024.729999999981,
+            "netDifferenceWithoutDeclinePenalty": 10024.729999999981
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 12795.290000000008,
+            "netDifferenceWithoutDeclinePenalty": 12795.290000000008
+          }
+        ]
+      },
+      {
+        "attemptBudget": 350,
+        "pairedNetDifference": {
+          "mean": 9513.978,
+          "min": -5703.679999999993,
+          "max": 36061.259999999995
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 9513.978000000021,
+          "min": -5703.679999999964,
+          "max": 36061.26000000001
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -5703.679999999993,
+            "netDifferenceWithoutDeclinePenalty": -5703.679999999964
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 36061.259999999995,
+            "netDifferenceWithoutDeclinePenalty": 36061.26000000001
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 4681.1600000000035,
+            "netDifferenceWithoutDeclinePenalty": 4681.160000000033
+          },
+          {
+            "seed": 20260821,
+            "netDifference": -3540.7300000000105,
+            "netDifferenceWithoutDeclinePenalty": -3540.7299999999814
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 16071.880000000005,
+            "netDifferenceWithoutDeclinePenalty": 16071.880000000005
+          }
+        ]
+      },
+      {
+        "attemptBudget": 400,
+        "pairedNetDifference": {
+          "mean": 18877.108,
+          "min": 3230.8199999999924,
+          "max": 30434.019999999997
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 18877.107999999997,
+          "min": 3230.820000000007,
+          "max": 30434.01999999996
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 8566.200000000012,
+            "netDifferenceWithoutDeclinePenalty": 8566.200000000012
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 26715.339999999997,
+            "netDifferenceWithoutDeclinePenalty": 26715.340000000026
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 30434.019999999997,
+            "netDifferenceWithoutDeclinePenalty": 30434.01999999996
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 3230.8199999999924,
+            "netDifferenceWithoutDeclinePenalty": 3230.820000000007
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 25439.160000000003,
+            "netDifferenceWithoutDeclinePenalty": 25439.159999999974
+          }
+        ]
+      },
+      {
+        "attemptBudget": 450,
+        "pairedNetDifference": {
+          "mean": 21021.272000000004,
+          "min": -6459.849999999991,
+          "max": 55562.509999999995
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 21021.271999999986,
+          "min": -6459.850000000035,
+          "max": 55562.51000000001
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -6459.849999999991,
+            "netDifferenceWithoutDeclinePenalty": -6459.850000000035
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 55562.509999999995,
+            "netDifferenceWithoutDeclinePenalty": 55562.51000000001
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 25772.19,
+            "netDifferenceWithoutDeclinePenalty": 25772.190000000002
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 3078.5,
+            "netDifferenceWithoutDeclinePenalty": 3078.5
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 27153.01000000001,
+            "netDifferenceWithoutDeclinePenalty": 27153.00999999995
+          }
+        ]
+      },
+      {
+        "attemptBudget": 500,
+        "pairedNetDifference": {
+          "mean": 17191.744,
+          "min": -3307.4399999999996,
+          "max": 38202.34
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 17191.744000000006,
+          "min": -3307.4400000000023,
+          "max": 38202.340000000026
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 7151.439999999999,
+            "netDifferenceWithoutDeclinePenalty": 7151.440000000002
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 38202.34,
+            "netDifferenceWithoutDeclinePenalty": 38202.340000000026
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 32132.61,
+            "netDifferenceWithoutDeclinePenalty": 32132.609999999986
+          },
+          {
+            "seed": 20260821,
+            "netDifference": -3307.4399999999996,
+            "netDifferenceWithoutDeclinePenalty": -3307.4400000000023
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 11779.770000000004,
+            "netDifferenceWithoutDeclinePenalty": 11779.770000000019
+          }
+        ]
+      },
+      {
+        "attemptBudget": 550,
+        "pairedNetDifference": {
+          "mean": 27929.713999999996,
+          "min": 16740.27,
+          "max": 43170.15
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 27929.714000000014,
+          "min": 16740.27000000002,
+          "max": 43170.15000000002
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 16740.27,
+            "netDifferenceWithoutDeclinePenalty": 16740.27000000002
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 43170.15,
+            "netDifferenceWithoutDeclinePenalty": 43170.15000000002
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 25735.129999999997,
+            "netDifferenceWithoutDeclinePenalty": 25735.130000000005
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 26198.11,
+            "netDifferenceWithoutDeclinePenalty": 26198.109999999986
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 27804.91,
+            "netDifferenceWithoutDeclinePenalty": 27804.910000000033
+          }
+        ]
+      },
+      {
+        "attemptBudget": 600,
+        "pairedNetDifference": {
+          "mean": 24854.700000000004,
+          "min": 2368.6100000000006,
+          "max": 36268.12000000001
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 24854.69999999999,
+          "min": 2368.609999999986,
+          "max": 36268.119999999995
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 32426.019999999997,
+            "netDifferenceWithoutDeclinePenalty": 32426.02000000002
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 36268.12000000001,
+            "netDifferenceWithoutDeclinePenalty": 36268.119999999995
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 32714.08,
+            "netDifferenceWithoutDeclinePenalty": 32714.079999999958
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 2368.6100000000006,
+            "netDifferenceWithoutDeclinePenalty": 2368.609999999986
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 20496.670000000002,
+            "netDifferenceWithoutDeclinePenalty": 20496.669999999984
+          }
+        ]
+      },
+      {
+        "attemptBudget": 650,
+        "pairedNetDifference": {
+          "mean": 23912.345999999998,
+          "min": -2966.7300000000105,
+          "max": 67135.34999999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 23912.345999999998,
+          "min": -2966.7299999999814,
+          "max": 67135.35000000003
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -2966.7300000000105,
+            "netDifferenceWithoutDeclinePenalty": -2966.7299999999814
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 67135.34999999999,
+            "netDifferenceWithoutDeclinePenalty": 67135.35000000003
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 41686.95000000001,
+            "netDifferenceWithoutDeclinePenalty": 41686.94999999995
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 1205.5,
+            "netDifferenceWithoutDeclinePenalty": 1205.5
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 12500.66,
+            "netDifferenceWithoutDeclinePenalty": 12500.659999999974
+          }
+        ]
+      },
+      {
+        "attemptBudget": 700,
+        "pairedNetDifference": {
+          "mean": 33332.63000000001,
+          "min": 9774.319999999992,
+          "max": 65372.119999999995
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 33332.62999999999,
+          "min": 9774.319999999949,
+          "max": 65372.119999999995
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 9774.319999999992,
+            "netDifferenceWithoutDeclinePenalty": 9774.319999999949
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 65372.119999999995,
+            "netDifferenceWithoutDeclinePenalty": 65372.119999999995
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 56154.02000000002,
+            "netDifferenceWithoutDeclinePenalty": 56154.02000000002
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 21665.65000000001,
+            "netDifferenceWithoutDeclinePenalty": 21665.649999999965
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 13697.039999999997,
+            "netDifferenceWithoutDeclinePenalty": 13697.040000000037
+          }
+        ]
+      },
+      {
+        "attemptBudget": 750,
+        "pairedNetDifference": {
+          "mean": 38551.97800000001,
+          "min": 19183.48000000001,
+          "max": 74124.61000000002
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 38551.97799999999,
+          "min": 19183.47999999998,
+          "max": 74124.60999999999
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 19183.48000000001,
+            "netDifferenceWithoutDeclinePenalty": 19183.47999999998
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 74124.61000000002,
+            "netDifferenceWithoutDeclinePenalty": 74124.60999999999
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 36914.82000000001,
+            "netDifferenceWithoutDeclinePenalty": 36914.81999999995
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 29560.380000000005,
+            "netDifferenceWithoutDeclinePenalty": 29560.380000000005
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 32976.600000000006,
+            "netDifferenceWithoutDeclinePenalty": 32976.600000000035
+          }
+        ]
+      },
+      {
+        "attemptBudget": 800,
+        "pairedNetDifference": {
+          "mean": 34037.376000000004,
+          "min": 13170.220000000001,
+          "max": 45556.06999999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 34037.37600000001,
+          "min": 13170.219999999972,
+          "max": 45556.07000000001
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 13170.220000000001,
+            "netDifferenceWithoutDeclinePenalty": 13170.219999999972
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 31414.440000000002,
+            "netDifferenceWithoutDeclinePenalty": 31414.44000000006
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 44246.130000000005,
+            "netDifferenceWithoutDeclinePenalty": 44246.130000000005
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 35800.02000000002,
+            "netDifferenceWithoutDeclinePenalty": 35800.02000000002
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 45556.06999999999,
+            "netDifferenceWithoutDeclinePenalty": 45556.07000000001
+          }
+        ]
+      },
+      {
+        "attemptBudget": 850,
+        "pairedNetDifference": {
+          "mean": 33000.94,
+          "min": 4478.380000000005,
+          "max": 51647.41000000003
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 33000.94,
+          "min": 4478.380000000005,
+          "max": 51647.409999999916
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 4478.380000000005,
+            "netDifferenceWithoutDeclinePenalty": 4478.380000000005
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 25377.54999999999,
+            "netDifferenceWithoutDeclinePenalty": 25377.550000000047
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 51647.41000000003,
+            "netDifferenceWithoutDeclinePenalty": 51647.409999999916
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 42648.42000000001,
+            "netDifferenceWithoutDeclinePenalty": 42648.42000000004
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 40852.93999999999,
+            "netDifferenceWithoutDeclinePenalty": 40852.94
+          }
+        ]
+      },
+      {
+        "attemptBudget": 900,
+        "pairedNetDifference": {
+          "mean": 42252.92400000001,
+          "min": 29514.310000000056,
+          "max": 60795.70999999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 42252.924,
+          "min": 29514.310000000056,
+          "max": 60795.70999999996
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 29514.310000000056,
+            "netDifferenceWithoutDeclinePenalty": 29514.310000000056
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 49710.590000000026,
+            "netDifferenceWithoutDeclinePenalty": 49710.58999999997
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 34547.880000000005,
+            "netDifferenceWithoutDeclinePenalty": 34547.880000000005
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 36696.130000000005,
+            "netDifferenceWithoutDeclinePenalty": 36696.130000000005
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 60795.70999999999,
+            "netDifferenceWithoutDeclinePenalty": 60795.70999999996
+          }
+        ]
+      },
+      {
+        "attemptBudget": 950,
+        "pairedNetDifference": {
+          "mean": 46718.11799999999,
+          "min": 27672.409999999974,
+          "max": 68865.83000000002
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 46718.11799999997,
+          "min": 27672.410000000033,
+          "max": 68865.82999999996
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 27672.409999999974,
+            "netDifferenceWithoutDeclinePenalty": 27672.410000000033
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 68865.83000000002,
+            "netDifferenceWithoutDeclinePenalty": 68865.82999999996
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 31238.419999999984,
+            "netDifferenceWithoutDeclinePenalty": 31238.419999999925
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 51009.45999999996,
+            "netDifferenceWithoutDeclinePenalty": 51009.45999999996
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 54804.47,
+            "netDifferenceWithoutDeclinePenalty": 54804.46999999997
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1000,
+        "pairedNetDifference": {
+          "mean": 42213.03599999998,
+          "min": 14398.659999999974,
+          "max": 62984.84
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 42213.035999999964,
+          "min": 14398.659999999916,
+          "max": 62984.83999999997
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 14398.659999999974,
+            "netDifferenceWithoutDeclinePenalty": 14398.659999999916
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 61650.06999999995,
+            "netDifferenceWithoutDeclinePenalty": 61650.06999999995
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 31648.399999999965,
+            "netDifferenceWithoutDeclinePenalty": 31648.400000000023
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 40383.21000000002,
+            "netDifferenceWithoutDeclinePenalty": 40383.20999999996
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 62984.84,
+            "netDifferenceWithoutDeclinePenalty": 62984.83999999997
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1050,
+        "pairedNetDifference": {
+          "mean": 43334.612,
+          "min": 25950.159999999974,
+          "max": 82888.66000000003
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 43334.61200000001,
+          "min": 25950.160000000033,
+          "max": 82888.66000000003
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 26314.02999999997,
+            "netDifferenceWithoutDeclinePenalty": 26314.030000000028
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 40171.41000000003,
+            "netDifferenceWithoutDeclinePenalty": 40171.41000000003
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 25950.159999999974,
+            "netDifferenceWithoutDeclinePenalty": 25950.160000000033
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 41348.79999999999,
+            "netDifferenceWithoutDeclinePenalty": 41348.79999999993
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 82888.66000000003,
+            "netDifferenceWithoutDeclinePenalty": 82888.66000000003
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1100,
+        "pairedNetDifference": {
+          "mean": 38505.25199999999,
+          "min": 1673.1199999999953,
+          "max": 82202.93
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 38505.25199999996,
+          "min": 1673.1199999999953,
+          "max": 82202.92999999993
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 1673.1199999999953,
+            "netDifferenceWithoutDeclinePenalty": 1673.1199999999953
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 37199.580000000016,
+            "netDifferenceWithoutDeclinePenalty": 37199.57999999996
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 12906.589999999967,
+            "netDifferenceWithoutDeclinePenalty": 12906.589999999967
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 58544.03999999998,
+            "netDifferenceWithoutDeclinePenalty": 58544.03999999992
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 82202.93,
+            "netDifferenceWithoutDeclinePenalty": 82202.92999999993
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1150,
+        "pairedNetDifference": {
+          "mean": 37823.264000000025,
+          "min": 21224.109999999986,
+          "max": 62200.98000000004
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 37823.26400000001,
+          "min": 21224.109999999986,
+          "max": 62200.97999999998
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 21224.109999999986,
+            "netDifferenceWithoutDeclinePenalty": 21224.109999999986
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 34169.29000000004,
+            "netDifferenceWithoutDeclinePenalty": 34169.29000000004
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 24824.330000000075,
+            "netDifferenceWithoutDeclinePenalty": 24824.330000000075
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 46697.609999999986,
+            "netDifferenceWithoutDeclinePenalty": 46697.609999999986
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 62200.98000000004,
+            "netDifferenceWithoutDeclinePenalty": 62200.97999999998
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1200,
+        "pairedNetDifference": {
+          "mean": 48368.03400000001,
+          "min": 29327.47000000003,
+          "max": 70838.08999999997
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 48368.03400000001,
+          "min": 29327.47000000009,
+          "max": 70838.08999999997
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 39376.78000000003,
+            "netDifferenceWithoutDeclinePenalty": 39376.78000000003
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 70838.08999999997,
+            "netDifferenceWithoutDeclinePenalty": 70838.08999999997
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 38478.28000000003,
+            "netDifferenceWithoutDeclinePenalty": 38478.28000000003
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 29327.47000000003,
+            "netDifferenceWithoutDeclinePenalty": 29327.47000000009
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 63819.54999999999,
+            "netDifferenceWithoutDeclinePenalty": 63819.54999999993
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1250,
+        "pairedNetDifference": {
+          "mean": 57658.93999999999,
+          "min": 43067.31999999995,
+          "max": 69640.42000000004
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 57658.93999999999,
+          "min": 43067.31999999995,
+          "max": 69640.42000000004
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 59656.84999999998,
+            "netDifferenceWithoutDeclinePenalty": 59656.84999999998
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 69640.42000000004,
+            "netDifferenceWithoutDeclinePenalty": 69640.42000000004
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 53937.15000000002,
+            "netDifferenceWithoutDeclinePenalty": 53937.15000000002
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 43067.31999999995,
+            "netDifferenceWithoutDeclinePenalty": 43067.31999999995
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 61992.95999999996,
+            "netDifferenceWithoutDeclinePenalty": 61992.95999999996
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1300,
+        "pairedNetDifference": {
+          "mean": 55823.93400000001,
+          "min": 33129.66000000003,
+          "max": 86672.03999999992
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 55823.93400000005,
+          "min": 33129.66000000015,
+          "max": 86672.03999999992
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 34246.640000000014,
+            "netDifferenceWithoutDeclinePenalty": 34246.64000000013
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 79329.81000000006,
+            "netDifferenceWithoutDeclinePenalty": 79329.81000000006
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 33129.66000000003,
+            "netDifferenceWithoutDeclinePenalty": 33129.66000000015
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 45741.52000000002,
+            "netDifferenceWithoutDeclinePenalty": 45741.52000000002
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 86672.03999999992,
+            "netDifferenceWithoutDeclinePenalty": 86672.03999999992
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1350,
+        "pairedNetDifference": {
+          "mean": 53779.33999999999,
+          "min": 32552.26000000001,
+          "max": 84980.80999999994
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 53779.34000000001,
+          "min": 32552.26000000001,
+          "max": 84980.80999999994
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 38014.71999999997,
+            "netDifferenceWithoutDeclinePenalty": 38014.71999999997
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 72174.65000000002,
+            "netDifferenceWithoutDeclinePenalty": 72174.65000000014
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 32552.26000000001,
+            "netDifferenceWithoutDeclinePenalty": 32552.26000000001
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 41174.26000000001,
+            "netDifferenceWithoutDeclinePenalty": 41174.26000000001
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 84980.80999999994,
+            "netDifferenceWithoutDeclinePenalty": 84980.80999999994
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1400,
+        "pairedNetDifference": {
+          "mean": 59883.72599999998,
+          "min": 29881.959999999963,
+          "max": 85454.18999999994
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 59883.72599999998,
+          "min": 29881.959999999963,
+          "max": 85454.18999999994
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 29881.959999999963,
+            "netDifferenceWithoutDeclinePenalty": 29881.959999999963
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 81556,
+            "netDifferenceWithoutDeclinePenalty": 81556
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 34367.31999999995,
+            "netDifferenceWithoutDeclinePenalty": 34367.320000000065
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 68159.16000000003,
+            "netDifferenceWithoutDeclinePenalty": 68159.15999999992
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 85454.18999999994,
+            "netDifferenceWithoutDeclinePenalty": 85454.18999999994
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1450,
+        "pairedNetDifference": {
+          "mean": 65202.82200000002,
+          "min": 40817.67000000004,
+          "max": 90176.19999999995
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 65202.822000000066,
+          "min": 40817.67000000016,
+          "max": 90176.19999999995
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 40817.67000000004,
+            "netDifferenceWithoutDeclinePenalty": 40817.67000000016
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 90176.19999999995,
+            "netDifferenceWithoutDeclinePenalty": 90176.19999999995
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 61988.570000000065,
+            "netDifferenceWithoutDeclinePenalty": 61988.570000000065
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 57259.54999999993,
+            "netDifferenceWithoutDeclinePenalty": 57259.55000000005
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 75772.12000000011,
+            "netDifferenceWithoutDeclinePenalty": 75772.12000000011
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1500,
+        "pairedNetDifference": {
+          "mean": 72802.84599999999,
+          "min": 31150.130000000005,
+          "max": 105504.10999999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 72802.84600000002,
+          "min": 31150.13000000012,
+          "max": 105504.1100000001
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 31150.130000000005,
+            "netDifferenceWithoutDeclinePenalty": 31150.13000000012
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 105504.10999999999,
+            "netDifferenceWithoutDeclinePenalty": 105504.1100000001
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 60546.27000000002,
+            "netDifferenceWithoutDeclinePenalty": 60546.27000000002
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 86554.93000000005,
+            "netDifferenceWithoutDeclinePenalty": 86554.92999999993
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 80258.78999999992,
+            "netDifferenceWithoutDeclinePenalty": 80258.78999999992
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1550,
+        "pairedNetDifference": {
+          "mean": 68619.572,
+          "min": 25540.119999999995,
+          "max": 101490.25
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 68619.57200000001,
+          "min": 25540.12000000011,
+          "max": 101490.25
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 25540.119999999995,
+            "netDifferenceWithoutDeclinePenalty": 25540.12000000011
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 88774.59999999998,
+            "netDifferenceWithoutDeclinePenalty": 88774.6000000001
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 51564.55000000005,
+            "netDifferenceWithoutDeclinePenalty": 51564.549999999814
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 101490.25,
+            "netDifferenceWithoutDeclinePenalty": 101490.25
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 75728.33999999997,
+            "netDifferenceWithoutDeclinePenalty": 75728.34000000008
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1600,
+        "pairedNetDifference": {
+          "mean": 64083.08,
+          "min": 35956.65000000002,
+          "max": 97199.77000000002
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 64083.08000000012,
+          "min": 35956.65000000014,
+          "max": 97199.77000000002
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 35956.65000000002,
+            "netDifferenceWithoutDeclinePenalty": 35956.65000000014
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 75902.19999999995,
+            "netDifferenceWithoutDeclinePenalty": 75902.20000000019
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 43918.67000000004,
+            "netDifferenceWithoutDeclinePenalty": 43918.67000000016
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 97199.77000000002,
+            "netDifferenceWithoutDeclinePenalty": 97199.77000000002
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 67438.10999999999,
+            "netDifferenceWithoutDeclinePenalty": 67438.1100000001
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1650,
+        "pairedNetDifference": {
+          "mean": 57451.80799999998,
+          "min": 32716.329999999958,
+          "max": 75542.25
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 57451.80799999996,
+          "min": 32716.32999999984,
+          "max": 75542.25
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 39429.30999999994,
+            "netDifferenceWithoutDeclinePenalty": 39429.310000000056
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 74523.75,
+            "netDifferenceWithoutDeclinePenalty": 74523.75
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 32716.329999999958,
+            "netDifferenceWithoutDeclinePenalty": 32716.32999999984
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 75542.25,
+            "netDifferenceWithoutDeclinePenalty": 75542.25
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 65047.40000000002,
+            "netDifferenceWithoutDeclinePenalty": 65047.39999999991
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1700,
+        "pairedNetDifference": {
+          "mean": 65911.15399999998,
+          "min": 43215.71000000008,
+          "max": 94113.21999999997
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 65911.15400000001,
+          "min": 43215.70999999996,
+          "max": 94113.21999999997
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 43215.71000000008,
+            "netDifferenceWithoutDeclinePenalty": 43215.70999999996
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 94113.21999999997,
+            "netDifferenceWithoutDeclinePenalty": 94113.21999999997
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 59556.53999999992,
+            "netDifferenceWithoutDeclinePenalty": 59556.54000000004
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 67247.12,
+            "netDifferenceWithoutDeclinePenalty": 67247.11999999988
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 65423.179999999935,
+            "netDifferenceWithoutDeclinePenalty": 65423.18000000017
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1750,
+        "pairedNetDifference": {
+          "mean": 72962.61600000004,
+          "min": 45239.20000000007,
+          "max": 93511.26000000013
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 72962.61600000001,
+          "min": 45239.19999999995,
+          "max": 93511.26000000001
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 45239.20000000007,
+            "netDifferenceWithoutDeclinePenalty": 45239.19999999995
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 93511.26000000013,
+            "netDifferenceWithoutDeclinePenalty": 93511.26000000001
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 75991.09999999998,
+            "netDifferenceWithoutDeclinePenalty": 75991.1000000001
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 70233.06000000006,
+            "netDifferenceWithoutDeclinePenalty": 70233.06000000006
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 79838.45999999996,
+            "netDifferenceWithoutDeclinePenalty": 79838.45999999996
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1800,
+        "pairedNetDifference": {
+          "mean": 78380.56999999995,
+          "min": 41131.30000000005,
+          "max": 97725.8899999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 78380.57000000002,
+          "min": 41131.30000000005,
+          "max": 97725.8899999999
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 41131.30000000005,
+            "netDifferenceWithoutDeclinePenalty": 41131.30000000005
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 97725.8899999999,
+            "netDifferenceWithoutDeclinePenalty": 97725.8899999999
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 77912.73999999987,
+            "netDifferenceWithoutDeclinePenalty": 77912.73999999999
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 90774.95999999996,
+            "netDifferenceWithoutDeclinePenalty": 90774.9600000002
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 84357.95999999996,
+            "netDifferenceWithoutDeclinePenalty": 84357.95999999996
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1850,
+        "pairedNetDifference": {
+          "mean": 91271.97,
+          "min": 35291.04000000004,
+          "max": 126551.15999999992
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 91271.97000000002,
+          "min": 35291.04000000004,
+          "max": 126551.15999999992
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 35291.04000000004,
+            "netDifferenceWithoutDeclinePenalty": 35291.04000000004
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 126551.15999999992,
+            "netDifferenceWithoutDeclinePenalty": 126551.15999999992
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 84677.47999999998,
+            "netDifferenceWithoutDeclinePenalty": 84677.47999999998
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 114310.56000000006,
+            "netDifferenceWithoutDeclinePenalty": 114310.56000000006
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 95529.60999999999,
+            "netDifferenceWithoutDeclinePenalty": 95529.6100000001
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1900,
+        "pairedNetDifference": {
+          "mean": 100961.59800000004,
+          "min": 47235.919999999925,
+          "max": 148241.44000000018
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 100961.59800000009,
+          "min": 47235.919999999925,
+          "max": 148241.44000000018
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 47235.919999999925,
+            "netDifferenceWithoutDeclinePenalty": 47235.919999999925
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 148241.44000000018,
+            "netDifferenceWithoutDeclinePenalty": 148241.44000000018
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 98088.65000000014,
+            "netDifferenceWithoutDeclinePenalty": 98088.65000000014
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 143514.31999999995,
+            "netDifferenceWithoutDeclinePenalty": 143514.32000000007
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 67727.66000000003,
+            "netDifferenceWithoutDeclinePenalty": 67727.66000000015
+          }
+        ]
+      },
+      {
+        "attemptBudget": 1950,
+        "pairedNetDifference": {
+          "mean": 103057.896,
+          "min": 57242.080000000075,
+          "max": 137781.45999999996
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 103057.896,
+          "min": 57242.080000000075,
+          "max": 137781.45999999996
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 57242.080000000075,
+            "netDifferenceWithoutDeclinePenalty": 57242.080000000075
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 135462.79000000004,
+            "netDifferenceWithoutDeclinePenalty": 135462.79000000004
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 91725.26000000001,
+            "netDifferenceWithoutDeclinePenalty": 91725.26000000001
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 137781.45999999996,
+            "netDifferenceWithoutDeclinePenalty": 137781.45999999996
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 93077.8899999999,
+            "netDifferenceWithoutDeclinePenalty": 93077.8899999999
+          }
+        ]
+      },
+      {
+        "attemptBudget": 2000,
+        "pairedNetDifference": {
+          "mean": 102699.93400000004,
+          "min": 79925.77000000002,
+          "max": 125514.55000000005
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 102699.93400000004,
+          "min": 79925.77000000002,
+          "max": 125514.55000000005
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 79925.77000000002,
+            "netDifferenceWithoutDeclinePenalty": 79925.77000000002
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 125514.55000000005,
+            "netDifferenceWithoutDeclinePenalty": 125514.55000000005
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 85988.5,
+            "netDifferenceWithoutDeclinePenalty": 85988.5
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 123078.21999999997,
+            "netDifferenceWithoutDeclinePenalty": 123078.21999999997
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 98992.63000000012,
+            "netDifferenceWithoutDeclinePenalty": 98992.63000000012
+          }
+        ]
+      },
+      {
+        "attemptBudget": 2100,
+        "pairedNetDifference": {
+          "mean": 86125.27800000005,
+          "min": 32660.110000000102,
+          "max": 112430.60999999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 86125.27800000002,
+          "min": 32660.110000000102,
+          "max": 112430.60999999987
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 72388.66999999993,
+            "netDifferenceWithoutDeclinePenalty": 72388.66999999993
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 102412.38000000012,
+            "netDifferenceWithoutDeclinePenalty": 102412.38000000012
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 32660.110000000102,
+            "netDifferenceWithoutDeclinePenalty": 32660.110000000102
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 110734.62000000011,
+            "netDifferenceWithoutDeclinePenalty": 110734.62000000011
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 112430.60999999999,
+            "netDifferenceWithoutDeclinePenalty": 112430.60999999987
+          }
+        ]
+      },
+      {
+        "attemptBudget": 2200,
+        "pairedNetDifference": {
+          "mean": 92105.06400000001,
+          "min": 36268.60999999987,
+          "max": 116526.23999999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 92105.06400000001,
+          "min": 36268.60999999987,
+          "max": 116526.23999999999
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 88434.32000000007,
+            "netDifferenceWithoutDeclinePenalty": 88434.32000000007
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 114378.83000000007,
+            "netDifferenceWithoutDeclinePenalty": 114378.83000000007
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 36268.60999999987,
+            "netDifferenceWithoutDeclinePenalty": 36268.60999999987
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 104917.32000000007,
+            "netDifferenceWithoutDeclinePenalty": 104917.32000000007
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 116526.23999999999,
+            "netDifferenceWithoutDeclinePenalty": 116526.23999999999
+          }
+        ]
+      },
+      {
+        "attemptBudget": 2300,
+        "pairedNetDifference": {
+          "mean": 94793.79799999995,
+          "min": 74118.09999999986,
+          "max": 127620.57000000007
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 94793.79799999995,
+          "min": 74118.09999999986,
+          "max": 127620.57000000007
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 74118.09999999986,
+            "netDifferenceWithoutDeclinePenalty": 74118.09999999986
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 92250.68999999994,
+            "netDifferenceWithoutDeclinePenalty": 92250.68999999994
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 77973.46999999997,
+            "netDifferenceWithoutDeclinePenalty": 77973.46999999997
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 127620.57000000007,
+            "netDifferenceWithoutDeclinePenalty": 127620.57000000007
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 102006.15999999992,
+            "netDifferenceWithoutDeclinePenalty": 102006.15999999992
+          }
+        ]
+      },
+      {
+        "attemptBudget": 2400,
+        "pairedNetDifference": {
+          "mean": 86975.59399999995,
+          "min": 50936.39999999991,
+          "max": 140443.10999999987
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 86975.59399999995,
+          "min": 50936.39999999991,
+          "max": 140443.10999999987
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 50936.39999999991,
+            "netDifferenceWithoutDeclinePenalty": 50936.39999999991
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 82594.41999999993,
+            "netDifferenceWithoutDeclinePenalty": 82594.41999999993
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 70859.23999999999,
+            "netDifferenceWithoutDeclinePenalty": 70859.23999999999
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 140443.10999999987,
+            "netDifferenceWithoutDeclinePenalty": 140443.10999999987
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 90044.80000000005,
+            "netDifferenceWithoutDeclinePenalty": 90044.80000000005
+          }
+        ]
+      },
+      {
+        "attemptBudget": 2500,
+        "pairedNetDifference": {
+          "mean": 94529.87600000002,
+          "min": 62688.39000000013,
+          "max": 118008.1499999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 94529.87600000008,
+          "min": 62688.39000000013,
+          "max": 118008.15000000014
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 62688.39000000013,
+            "netDifferenceWithoutDeclinePenalty": 62688.39000000013
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 110208.31000000006,
+            "netDifferenceWithoutDeclinePenalty": 110208.31000000006
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 72013.06000000006,
+            "netDifferenceWithoutDeclinePenalty": 72013.06000000006
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 118008.1499999999,
+            "netDifferenceWithoutDeclinePenalty": 118008.15000000014
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 109731.46999999997,
+            "netDifferenceWithoutDeclinePenalty": 109731.46999999997
+          }
+        ]
+      },
+      {
+        "attemptBudget": 2600,
+        "pairedNetDifference": {
+          "mean": 105838.42399999993,
+          "min": 70761.19999999995,
+          "max": 135003.86999999988
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 105838.42399999997,
+          "min": 70761.19999999995,
+          "max": 135003.86999999988
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 81900.11999999988,
+            "netDifferenceWithoutDeclinePenalty": 81900.12000000011
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 135003.86999999988,
+            "netDifferenceWithoutDeclinePenalty": 135003.86999999988
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 70761.19999999995,
+            "netDifferenceWithoutDeclinePenalty": 70761.19999999995
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 114032.1399999999,
+            "netDifferenceWithoutDeclinePenalty": 114032.1399999999
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 127494.79000000004,
+            "netDifferenceWithoutDeclinePenalty": 127494.79000000004
+          }
+        ]
+      },
+      {
+        "attemptBudget": 2700,
+        "pairedNetDifference": {
+          "mean": 108697.41199999997,
+          "min": 91696.06000000006,
+          "max": 124133.66999999993
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 108697.41199999997,
+          "min": 91696.06000000006,
+          "max": 124133.66999999993
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 91696.06000000006,
+            "netDifferenceWithoutDeclinePenalty": 91696.06000000006
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 124133.66999999993,
+            "netDifferenceWithoutDeclinePenalty": 124133.66999999993
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 96773.09999999986,
+            "netDifferenceWithoutDeclinePenalty": 96773.09999999986
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 116009.47999999998,
+            "netDifferenceWithoutDeclinePenalty": 116009.47999999998
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 114874.75,
+            "netDifferenceWithoutDeclinePenalty": 114874.75
+          }
+        ]
+      },
+      {
+        "attemptBudget": 2800,
+        "pairedNetDifference": {
+          "mean": 112492.24199999994,
+          "min": 75526.01000000001,
+          "max": 142071.65999999992
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 112492.24200000013,
+          "min": 75526.01000000024,
+          "max": 142071.66000000015
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 75526.01000000001,
+            "netDifferenceWithoutDeclinePenalty": 75526.01000000024
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 125570.66999999993,
+            "netDifferenceWithoutDeclinePenalty": 125570.67000000039
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 101430.5,
+            "netDifferenceWithoutDeclinePenalty": 101430.5
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 142071.65999999992,
+            "netDifferenceWithoutDeclinePenalty": 142071.66000000015
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 117862.36999999988,
+            "netDifferenceWithoutDeclinePenalty": 117862.36999999988
+          }
+        ]
+      },
+      {
+        "attemptBudget": 2900,
+        "pairedNetDifference": {
+          "mean": 124926.74200000004,
+          "min": 98784.66000000015,
+          "max": 169642.80000000005
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 124926.74200000004,
+          "min": 98784.65999999968,
+          "max": 169642.80000000028
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 98784.66000000015,
+            "netDifferenceWithoutDeclinePenalty": 98784.65999999968
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 136384.51,
+            "netDifferenceWithoutDeclinePenalty": 136384.51000000024
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 117002.30000000005,
+            "netDifferenceWithoutDeclinePenalty": 117002.29999999981
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 169642.80000000005,
+            "netDifferenceWithoutDeclinePenalty": 169642.80000000028
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 102819.43999999994,
+            "netDifferenceWithoutDeclinePenalty": 102819.44000000018
+          }
+        ]
+      },
+      {
+        "attemptBudget": 3000,
+        "pairedNetDifference": {
+          "mean": 134747.30199999997,
+          "min": 94589.62000000011,
+          "max": 191818.8799999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 134747.30199999985,
+          "min": 94589.61999999965,
+          "max": 191818.8799999999
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 94589.62000000011,
+            "netDifferenceWithoutDeclinePenalty": 94589.61999999965
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 116955.8899999999,
+            "netDifferenceWithoutDeclinePenalty": 116955.88999999966
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 170709.10999999987,
+            "netDifferenceWithoutDeclinePenalty": 170709.11000000034
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 191818.8799999999,
+            "netDifferenceWithoutDeclinePenalty": 191818.8799999999
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 99663.01000000001,
+            "netDifferenceWithoutDeclinePenalty": 99663.00999999978
+          }
+        ]
+      },
+      {
+        "attemptBudget": 3100,
+        "pairedNetDifference": {
+          "mean": 137479.1440000001,
+          "min": 107201.78000000026,
+          "max": 181969.78000000003
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 137479.14400000015,
+          "min": 107201.78000000026,
+          "max": 181969.78000000026
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 108172.99999999977,
+            "netDifferenceWithoutDeclinePenalty": 108173
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 107201.78000000026,
+            "netDifferenceWithoutDeclinePenalty": 107201.78000000026
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 159176.36000000034,
+            "netDifferenceWithoutDeclinePenalty": 159176.36000000034
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 181969.78000000003,
+            "netDifferenceWithoutDeclinePenalty": 181969.78000000026
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 130874.80000000005,
+            "netDifferenceWithoutDeclinePenalty": 130874.79999999981
+          }
+        ]
+      },
+      {
+        "attemptBudget": 3200,
+        "pairedNetDifference": {
+          "mean": 130760.17999999998,
+          "min": 98293.17999999993,
+          "max": 165034.25
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 130760.18000000008,
+          "min": 98293.18000000017,
+          "max": 165034.25
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 98293.17999999993,
+            "netDifferenceWithoutDeclinePenalty": 98293.18000000017
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 110288.06999999983,
+            "netDifferenceWithoutDeclinePenalty": 110288.06999999983
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 127980.53000000003,
+            "netDifferenceWithoutDeclinePenalty": 127980.53000000026
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 152204.8700000001,
+            "netDifferenceWithoutDeclinePenalty": 152204.8700000001
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 165034.25,
+            "netDifferenceWithoutDeclinePenalty": 165034.25
+          }
+        ]
+      },
+      {
+        "attemptBudget": 3300,
+        "pairedNetDifference": {
+          "mean": 110232.60599999991,
+          "min": 26084.08999999985,
+          "max": 153560.57000000007
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 110232.60599999996,
+          "min": 26084.08999999985,
+          "max": 153560.5700000003
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 101961.75,
+            "netDifferenceWithoutDeclinePenalty": 101961.75
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 149275.71999999974,
+            "netDifferenceWithoutDeclinePenalty": 149275.71999999974
+          },
+          {
+            "seed": 20260820,
+            "netDifference": 26084.08999999985,
+            "netDifferenceWithoutDeclinePenalty": 26084.08999999985
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 120280.8999999999,
+            "netDifferenceWithoutDeclinePenalty": 120280.8999999999
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 153560.57000000007,
+            "netDifferenceWithoutDeclinePenalty": 153560.5700000003
+          }
+        ]
+      },
+      {
+        "attemptBudget": 3400,
+        "pairedNetDifference": {
+          "mean": 43676.77000000006,
+          "min": -46975.96999999974,
+          "max": 137858.6499999999
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": 43676.77000000011,
+          "min": -46975.96999999974,
+          "max": 137858.6499999999
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": 22696.25,
+            "netDifferenceWithoutDeclinePenalty": 22696.25
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 137858.6499999999,
+            "netDifferenceWithoutDeclinePenalty": 137858.6499999999
+          },
+          {
+            "seed": 20260820,
+            "netDifference": -46975.96999999974,
+            "netDifferenceWithoutDeclinePenalty": -46975.96999999974
+          },
+          {
+            "seed": 20260821,
+            "netDifference": 34692.41000000015,
+            "netDifferenceWithoutDeclinePenalty": 34692.41000000015
+          },
+          {
+            "seed": 20260822,
+            "netDifference": 70112.51000000001,
+            "netDifferenceWithoutDeclinePenalty": 70112.51000000024
+          }
+        ]
+      },
+      {
+        "attemptBudget": 3500,
+        "pairedNetDifference": {
+          "mean": -27909.429999999888,
+          "min": -113361.3999999999,
+          "max": 64676.919999999925
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": -27909.429999999888,
+          "min": -113361.3999999999,
+          "max": 64676.919999999925
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -45488.31999999983,
+            "netDifferenceWithoutDeclinePenalty": -45488.31999999983
+          },
+          {
+            "seed": 20260819,
+            "netDifference": 64676.919999999925,
+            "netDifferenceWithoutDeclinePenalty": 64676.919999999925
+          },
+          {
+            "seed": 20260820,
+            "netDifference": -113361.3999999999,
+            "netDifferenceWithoutDeclinePenalty": -113361.3999999999
+          },
+          {
+            "seed": 20260821,
+            "netDifference": -32903.689999999944,
+            "netDifferenceWithoutDeclinePenalty": -32903.689999999944
+          },
+          {
+            "seed": 20260822,
+            "netDifference": -12470.659999999683,
+            "netDifferenceWithoutDeclinePenalty": -12470.659999999683
+          }
+        ]
+      },
+      {
+        "attemptBudget": 3600,
+        "pairedNetDifference": {
+          "mean": -100033.18600000003,
+          "min": -151037.0299999998,
+          "max": -28810.730000000447
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": -100033.18600000003,
+          "min": -151037.0299999998,
+          "max": -28810.730000000447
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -128455.1799999997,
+            "netDifferenceWithoutDeclinePenalty": -128455.1799999997
+          },
+          {
+            "seed": 20260819,
+            "netDifference": -28810.730000000447,
+            "netDifferenceWithoutDeclinePenalty": -28810.730000000447
+          },
+          {
+            "seed": 20260820,
+            "netDifference": -151037.0299999998,
+            "netDifferenceWithoutDeclinePenalty": -151037.0299999998
+          },
+          {
+            "seed": 20260821,
+            "netDifference": -89325.45000000019,
+            "netDifferenceWithoutDeclinePenalty": -89325.45000000019
+          },
+          {
+            "seed": 20260822,
+            "netDifference": -102537.54000000004,
+            "netDifferenceWithoutDeclinePenalty": -102537.54000000004
+          }
+        ]
+      },
+      {
+        "attemptBudget": 3700,
+        "pairedNetDifference": {
+          "mean": -112979.45800000001,
+          "min": -151037.0299999998,
+          "max": -89325.45000000019
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": -112979.45800000001,
+          "min": -151037.0299999998,
+          "max": -89325.45000000019
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -128455.1799999997,
+            "netDifferenceWithoutDeclinePenalty": -128455.1799999997
+          },
+          {
+            "seed": 20260819,
+            "netDifference": -93542.09000000032,
+            "netDifferenceWithoutDeclinePenalty": -93542.09000000032
+          },
+          {
+            "seed": 20260820,
+            "netDifference": -151037.0299999998,
+            "netDifferenceWithoutDeclinePenalty": -151037.0299999998
+          },
+          {
+            "seed": 20260821,
+            "netDifference": -89325.45000000019,
+            "netDifferenceWithoutDeclinePenalty": -89325.45000000019
+          },
+          {
+            "seed": 20260822,
+            "netDifference": -102537.54000000004,
+            "netDifferenceWithoutDeclinePenalty": -102537.54000000004
+          }
+        ]
+      },
+      {
+        "attemptBudget": 3800,
+        "pairedNetDifference": {
+          "mean": -112979.45800000001,
+          "min": -151037.0299999998,
+          "max": -89325.45000000019
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": -112979.45800000001,
+          "min": -151037.0299999998,
+          "max": -89325.45000000019
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -128455.1799999997,
+            "netDifferenceWithoutDeclinePenalty": -128455.1799999997
+          },
+          {
+            "seed": 20260819,
+            "netDifference": -93542.09000000032,
+            "netDifferenceWithoutDeclinePenalty": -93542.09000000032
+          },
+          {
+            "seed": 20260820,
+            "netDifference": -151037.0299999998,
+            "netDifferenceWithoutDeclinePenalty": -151037.0299999998
+          },
+          {
+            "seed": 20260821,
+            "netDifference": -89325.45000000019,
+            "netDifferenceWithoutDeclinePenalty": -89325.45000000019
+          },
+          {
+            "seed": 20260822,
+            "netDifference": -102537.54000000004,
+            "netDifferenceWithoutDeclinePenalty": -102537.54000000004
+          }
+        ]
+      },
+      {
+        "attemptBudget": 3900,
+        "pairedNetDifference": {
+          "mean": -112979.45800000001,
+          "min": -151037.0299999998,
+          "max": -89325.45000000019
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": -112979.45800000001,
+          "min": -151037.0299999998,
+          "max": -89325.45000000019
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -128455.1799999997,
+            "netDifferenceWithoutDeclinePenalty": -128455.1799999997
+          },
+          {
+            "seed": 20260819,
+            "netDifference": -93542.09000000032,
+            "netDifferenceWithoutDeclinePenalty": -93542.09000000032
+          },
+          {
+            "seed": 20260820,
+            "netDifference": -151037.0299999998,
+            "netDifferenceWithoutDeclinePenalty": -151037.0299999998
+          },
+          {
+            "seed": 20260821,
+            "netDifference": -89325.45000000019,
+            "netDifferenceWithoutDeclinePenalty": -89325.45000000019
+          },
+          {
+            "seed": 20260822,
+            "netDifference": -102537.54000000004,
+            "netDifferenceWithoutDeclinePenalty": -102537.54000000004
+          }
+        ]
+      },
+      {
+        "attemptBudget": 4000,
+        "pairedNetDifference": {
+          "mean": -112979.45800000001,
+          "min": -151037.0299999998,
+          "max": -89325.45000000019
+        },
+        "pairedNetDifferenceWithoutDeclinePenalty": {
+          "mean": -112979.45800000001,
+          "min": -151037.0299999998,
+          "max": -89325.45000000019
+        },
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "netDifference": -128455.1799999997,
+            "netDifferenceWithoutDeclinePenalty": -128455.1799999997
+          },
+          {
+            "seed": 20260819,
+            "netDifference": -93542.09000000032,
+            "netDifferenceWithoutDeclinePenalty": -93542.09000000032
+          },
+          {
+            "seed": 20260820,
+            "netDifference": -151037.0299999998,
+            "netDifferenceWithoutDeclinePenalty": -151037.0299999998
+          },
+          {
+            "seed": 20260821,
+            "netDifference": -89325.45000000019,
+            "netDifferenceWithoutDeclinePenalty": -89325.45000000019
+          },
+          {
+            "seed": 20260822,
+            "netDifference": -102537.54000000004,
+            "netDifferenceWithoutDeclinePenalty": -102537.54000000004
+          }
+        ]
+      }
+    ]
+  },
+  "railOperatingPoints": [
+    {
+      "rail": "UPI AutoPay",
+      "mode": "portfolio-priced; summed mandate ceilings are not a transferable rail budget",
+      "validRailOperatingPoint": false,
+      "cohortSize": 2000,
+      "retriesPerMandate": 3,
+      "availableRetryBudget": 6000,
+      "pairedNetDifference": {
+        "mean": -252529.41799999998,
+        "min": -284439.8499999996,
+        "max": -201855.83000000007
+      },
+      "pairedNetDifferenceWithoutDeclinePenalty": {
+        "mean": -252529.41799999998,
+        "min": -284439.8499999996,
+        "max": -201855.83000000007
+      },
+      "fixedAttempts": {
+        "mean": 4094.8,
+        "min": 4039,
+        "max": 4161
+      },
+      "recoveryLoopAttempts": {
+        "mean": 3582.6,
+        "min": 3520,
+        "max": 3676
+      },
+      "perSeed": [
+        {
+          "seed": 20260818,
+          "fixedAttempts": 4119,
+          "recoveryLoopAttempts": 3596,
+          "netDifference": -201855.83000000007,
+          "netDifferenceWithoutDeclinePenalty": -201855.83000000007
+        },
+        {
+          "seed": 20260819,
+          "fixedAttempts": 4039,
+          "recoveryLoopAttempts": 3520,
+          "netDifference": -284439.8499999996,
+          "netDifferenceWithoutDeclinePenalty": -284439.8499999996
+        },
+        {
+          "seed": 20260820,
+          "fixedAttempts": 4161,
+          "recoveryLoopAttempts": 3676,
+          "netDifference": -229192.2200000002,
+          "netDifferenceWithoutDeclinePenalty": -229192.2200000002
+        },
+        {
+          "seed": 20260821,
+          "fixedAttempts": 4058,
+          "recoveryLoopAttempts": 3572,
+          "netDifference": -265779.06999999983,
+          "netDifferenceWithoutDeclinePenalty": -265779.06999999983
+        },
+        {
+          "seed": 20260822,
+          "fixedAttempts": 4097,
+          "recoveryLoopAttempts": 3549,
+          "netDifference": -281380.1200000001,
+          "netDifferenceWithoutDeclinePenalty": -281380.1200000001
+        }
+      ]
+    },
+    {
+      "rail": "Cards",
+      "mode": "portfolio-priced; summed mandate ceilings are not a transferable rail budget",
+      "validRailOperatingPoint": false,
+      "cohortSize": 2000,
+      "retriesPerMandate": 3,
+      "availableRetryBudget": 6000,
+      "pairedNetDifference": {
+        "mean": 15061.877999999933,
+        "min": 1825.8900000001304,
+        "max": 26830.209999999963
+      },
+      "pairedNetDifferenceWithoutDeclinePenalty": {
+        "mean": 15061.877999999933,
+        "min": 1825.8900000001304,
+        "max": 26830.209999999963
+      },
+      "fixedAttempts": {
+        "mean": 3584.4,
+        "min": 3523,
+        "max": 3704
+      },
+      "recoveryLoopAttempts": {
+        "mean": 3468,
+        "min": 3409,
+        "max": 3583
+      },
+      "perSeed": [
+        {
+          "seed": 20260818,
+          "fixedAttempts": 3589,
+          "recoveryLoopAttempts": 3455,
+          "netDifference": 26830.209999999963,
+          "netDifferenceWithoutDeclinePenalty": 26830.209999999963
+        },
+        {
+          "seed": 20260819,
+          "fixedAttempts": 3523,
+          "recoveryLoopAttempts": 3409,
+          "netDifference": 23099.470000000205,
+          "netDifferenceWithoutDeclinePenalty": 23099.470000000205
+        },
+        {
+          "seed": 20260820,
+          "fixedAttempts": 3704,
+          "recoveryLoopAttempts": 3583,
+          "netDifference": 5638.719999999739,
+          "netDifferenceWithoutDeclinePenalty": 5638.719999999739
+        },
+        {
+          "seed": 20260821,
+          "fixedAttempts": 3573,
+          "recoveryLoopAttempts": 3458,
+          "netDifference": 1825.8900000001304,
+          "netDifferenceWithoutDeclinePenalty": 1825.8900000001304
+        },
+        {
+          "seed": 20260822,
+          "fixedAttempts": 3533,
+          "recoveryLoopAttempts": 3435,
+          "netDifference": 17915.099999999627,
+          "netDifferenceWithoutDeclinePenalty": 17915.099999999627
+        }
+      ]
+    }
+  ]
+}

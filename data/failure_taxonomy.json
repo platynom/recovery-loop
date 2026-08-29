@@ -95,6 +95,15 @@
     { "category": "customer_action", "retryable": false, "source": "documented", "codes": ["CUSTOMER_CANCELLED", "AUTHENTICATION_FAILED"], "patterns": ["customer cancelled", "authentication failed"] },
     { "category": "fraud_risk", "retryable": false, "source": "documented", "codes": ["FRAUD_DETECTED", "RISK_CHECK_FAILED"], "patterns": ["suspected fraud", "risk check"] }
   ],
-  "observed_codes": ["BAD_REQUEST_ERROR"],
+  "observed_tuples": [
+    {
+      "error_source": "business",
+      "error_step": "payment_initiation",
+      "error_reason": "international_transaction_not_allowed",
+      "count": 15,
+      "source": "razorpay_test_payments_api",
+      "captured_on": "2026-08-22"
+    }
+  ],
   "note": "Runtime diagnosis requires an exact error_source/error_step/error_reason tuple. Codes and descriptions are secondary evidence only and never establish retryability by themselves."
 }

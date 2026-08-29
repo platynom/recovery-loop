@@ -1,0 +1,4198 @@
+{
+  "generatedAt": "2026-08-22T06:00:00.000Z",
+  "fetchDate": "2026-08-22",
+  "seeds": [
+    20260818,
+    20260819,
+    20260820,
+    20260821,
+    20260822
+  ],
+  "cohort": "2,000 already-failed mandates per seed and rail; 30-day horizon; per-mandate non-transferable caps",
+  "partA": {
+    "verdict": "Hard and soft outcomes are now separated: only hard stops terminate; economic and outage decisions wait and re-evaluate.",
+    "bugHistory": "Part A correctly stopped scheduled hard refusals, but incorrectly collapsed economic not-worth-it-now decisions into the same terminal action.",
+    "finalControlFlow": {
+      "refuseTerminal": "Issuer/MAC stop, non-retryable diagnosis, exhausted attempt cap, or expired horizon; never revisited.",
+      "wait": "Economic or outage/gate deferral; costs no attempt and re-evaluates fresh state inside the existing three-day bound.",
+      "retry": "A permitted scheduled authorization attempt; consumes one mandate-local token."
+    },
+    "correctedSynthetic": [
+      {
+        "rail": "UPI AutoPay",
+        "cohortSize": 2000,
+        "retriesPerMandate": 3,
+        "mode": "per-mandate-non-transferable",
+        "policies": [
+          {
+            "name": "T+1 / T+2 / T+3",
+            "attempts": {
+              "mean": 4002.6,
+              "min": 3944,
+              "max": 4031
+            },
+            "recovered": {
+              "mean": 1167.8,
+              "min": 1139,
+              "max": 1189
+            },
+            "grossRevenue": {
+              "mean": 3093376.6659999997,
+              "min": 2981167.89,
+              "max": 3237839.13
+            },
+            "netRevenue": {
+              "mean": 2672220.4659999995,
+              "min": 2559950.89,
+              "max": 2816674.13
+            },
+            "netRupeesPerAttempt": {
+              "mean": 667.6245411147352,
+              "min": 635.0659612999269,
+              "max": 701.5377658779573
+            },
+            "unusedAttemptsAtHorizon": {
+              "mean": 453,
+              "min": 405,
+              "max": 504
+            },
+            "unusedAttemptsAfterRecovery": {
+              "mean": 1544.4,
+              "min": 1504,
+              "max": 1580
+            },
+            "unusedAttemptsOnHardStops": {
+              "mean": 453,
+              "min": 405,
+              "max": 504
+            },
+            "initialHardRefusals": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "initialWaits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "initialRetries": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferredMandates": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferredConvertedToRetry": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferredRecovered": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          {
+            "name": "Recovery Loop",
+            "attempts": {
+              "mean": 1572.2,
+              "min": 1531,
+              "max": 1604
+            },
+            "recovered": {
+              "mean": 811.6,
+              "min": 762,
+              "max": 846
+            },
+            "grossRevenue": {
+              "mean": 2142141.1240000003,
+              "min": 1978486.14,
+              "max": 2311421.56
+            },
+            "netRevenue": {
+              "mean": 1725401.724,
+              "min": 1561784.14,
+              "max": 1894685.56
+            },
+            "netRupeesPerAttempt": {
+              "mean": 1096.8414214485842,
+              "min": 1020.1072109732222,
+              "max": 1195.3852113564658
+            },
+            "unusedAttemptsAtHorizon": {
+              "mean": 2960.2,
+              "min": 2879,
+              "max": 3108
+            },
+            "unusedAttemptsAfterRecovery": {
+              "mean": 1467.6,
+              "min": 1361,
+              "max": 1527
+            },
+            "unusedAttemptsOnHardStops": {
+              "mean": 453,
+              "min": 405,
+              "max": 504
+            },
+            "initialHardRefusals": {
+              "mean": 595,
+              "min": 566,
+              "max": 640
+            },
+            "initialWaits": {
+              "mean": 814.6,
+              "min": 791,
+              "max": 832
+            },
+            "initialRetries": {
+              "mean": 590.4,
+              "min": 554,
+              "max": 630
+            },
+            "deferredMandates": {
+              "mean": 814.6,
+              "min": 791,
+              "max": 832
+            },
+            "deferredConvertedToRetry": {
+              "mean": 814.6,
+              "min": 791,
+              "max": 832
+            },
+            "deferredRecovered": {
+              "mean": 227,
+              "min": 212,
+              "max": 237
+            },
+            "deferralCapHits": {
+              "mean": 814.6,
+              "min": 791,
+              "max": 832
+            }
+          }
+        ],
+        "pairedNetDifference": {
+          "mean": -946818.742,
+          "min": -1029403.53,
+          "max": -866532.7799999998
+        },
+        "seedsWonByRecoveryLoop": 0,
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "policies": [
+              {
+                "name": "T+1 / T+2 / T+3",
+                "attempts": 3944,
+                "totalAuthorizationAttempts": 5944,
+                "recovered": 1139,
+                "failures": 4805,
+                "grossRevenue": 3029827.55,
+                "netRevenue": 2608771.55,
+                "netRevenueWithoutDeclinePenalty": 3023771.55,
+                "attemptCost": 6056,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.7112068965517241,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 768.2118534482772,
+                "netRupeesPerAttempt": 661.4532327586221,
+                "exhaustedMandates": 693,
+                "recoveriesAvailableAtCap": 119,
+                "illegalUpiCandidates": 3944,
+                "deferredMandates": 0,
+                "initialHardRefusals": 0,
+                "initialWaits": 0,
+                "initialRetries": 0,
+                "deferredConvertedToRetry": 0,
+                "deferredRecovered": 0,
+                "deferralCapHits": 0,
+                "unusedAttemptsAtHorizon": 504,
+                "unusedAttemptsAfterRecovery": 1552,
+                "unusedAttemptsOnHardStops": 504,
+                "revenue": 3029827.55,
+                "rupeesPerAttempt": 768.2118534482772
+              },
+              {
+                "name": "Recovery Loop",
+                "attempts": 1583,
+                "totalAuthorizationAttempts": 3583,
+                "recovered": 823,
+                "failures": 2760,
+                "grossRevenue": 2158989.77,
+                "netRevenue": 1742238.77,
+                "netRevenueWithoutDeclinePenalty": 2157238.77,
+                "attemptCost": 1751,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.4801010739102969,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 1363.8596146557188,
+                "netRupeesPerAttempt": 1100.5930322173108,
+                "exhaustedMandates": 5,
+                "recoveriesAvailableAtCap": 4,
+                "illegalUpiCandidates": 819,
+                "deferredMandates": 819,
+                "initialHardRefusals": 585,
+                "initialWaits": 819,
+                "initialRetries": 596,
+                "deferredConvertedToRetry": 819,
+                "deferredRecovered": 232,
+                "deferralCapHits": 819,
+                "unusedAttemptsAtHorizon": 2929,
+                "unusedAttemptsAfterRecovery": 1488,
+                "unusedAttemptsOnHardStops": 504,
+                "revenue": 2158989.77,
+                "rupeesPerAttempt": 1363.8596146557188
+              }
+            ],
+            "pairedNetDifference": -866532.7799999998
+          },
+          {
+            "seed": 20260819,
+            "policies": [
+              {
+                "name": "T+1 / T+2 / T+3",
+                "attempts": 4031,
+                "totalAuthorizationAttempts": 6031,
+                "recovered": 1146,
+                "failures": 4885,
+                "grossRevenue": 2981167.89,
+                "netRevenue": 2559950.89,
+                "netRevenueWithoutDeclinePenalty": 2974950.89,
+                "attemptCost": 6217,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.715703299429422,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 739.5603795584235,
+                "netRupeesPerAttempt": 635.0659612999269,
+                "exhaustedMandates": 699,
+                "recoveriesAvailableAtCap": 109,
+                "illegalUpiCandidates": 4031,
+                "deferredMandates": 0,
+                "initialHardRefusals": 0,
+                "initialWaits": 0,
+                "initialRetries": 0,
+                "deferredConvertedToRetry": 0,
+                "deferredRecovered": 0,
+                "deferralCapHits": 0,
+                "unusedAttemptsAtHorizon": 465,
+                "unusedAttemptsAfterRecovery": 1504,
+                "unusedAttemptsOnHardStops": 465,
+                "revenue": 2981167.89,
+                "rupeesPerAttempt": 739.5603795584235
+              },
+              {
+                "name": "Recovery Loop",
+                "attempts": 1531,
+                "totalAuthorizationAttempts": 3531,
+                "recovered": 762,
+                "failures": 2769,
+                "grossRevenue": 1978486.14,
+                "netRevenue": 1561784.14,
+                "netRevenueWithoutDeclinePenalty": 1976784.14,
+                "attemptCost": 1702,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.5022860875244938,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 1292.2835662965404,
+                "netRupeesPerAttempt": 1020.1072109732222,
+                "exhaustedMandates": 4,
+                "recoveriesAvailableAtCap": 2,
+                "illegalUpiCandidates": 806,
+                "deferredMandates": 806,
+                "initialHardRefusals": 640,
+                "initialWaits": 806,
+                "initialRetries": 554,
+                "deferredConvertedToRetry": 806,
+                "deferredRecovered": 212,
+                "deferralCapHits": 806,
+                "unusedAttemptsAtHorizon": 3108,
+                "unusedAttemptsAfterRecovery": 1361,
+                "unusedAttemptsOnHardStops": 465,
+                "revenue": 1978486.14,
+                "rupeesPerAttempt": 1292.2835662965404
+              }
+            ],
+            "pairedNetDifference": -998166.7500000002
+          },
+          {
+            "seed": 20260820,
+            "policies": [
+              {
+                "name": "T+1 / T+2 / T+3",
+                "attempts": 4004,
+                "totalAuthorizationAttempts": 6004,
+                "recovered": 1189,
+                "failures": 4815,
+                "grossRevenue": 3095412.05,
+                "netRevenue": 2674264.05,
+                "netRevenueWithoutDeclinePenalty": 3089264.05,
+                "attemptCost": 6148,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.7030469530469531,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 773.0799325674316,
+                "netRupeesPerAttempt": 667.8981143856134,
+                "exhaustedMandates": 671,
+                "recoveriesAvailableAtCap": 112,
+                "illegalUpiCandidates": 4004,
+                "deferredMandates": 0,
+                "initialHardRefusals": 0,
+                "initialWaits": 0,
+                "initialRetries": 0,
+                "deferredConvertedToRetry": 0,
+                "deferredRecovered": 0,
+                "deferralCapHits": 0,
+                "unusedAttemptsAtHorizon": 420,
+                "unusedAttemptsAfterRecovery": 1576,
+                "unusedAttemptsOnHardStops": 420,
+                "revenue": 3095412.05,
+                "rupeesPerAttempt": 773.0799325674316
+              },
+              {
+                "name": "Recovery Loop",
+                "attempts": 1604,
+                "totalAuthorizationAttempts": 3604,
+                "recovered": 846,
+                "failures": 2758,
+                "grossRevenue": 2173048.97,
+                "netRevenue": 1756261.97,
+                "netRevenueWithoutDeclinePenalty": 2171261.97,
+                "attemptCost": 1787,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.47256857855361595,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 1354.7686845386527,
+                "netRupeesPerAttempt": 1094.9264152119692,
+                "exhaustedMandates": 4,
+                "recoveriesAvailableAtCap": 4,
+                "illegalUpiCandidates": 791,
+                "deferredMandates": 791,
+                "initialHardRefusals": 579,
+                "initialWaits": 791,
+                "initialRetries": 630,
+                "deferredConvertedToRetry": 791,
+                "deferredRecovered": 220,
+                "deferralCapHits": 791,
+                "unusedAttemptsAtHorizon": 2879,
+                "unusedAttemptsAfterRecovery": 1517,
+                "unusedAttemptsOnHardStops": 420,
+                "revenue": 2173048.97,
+                "rupeesPerAttempt": 1354.7686845386527
+              }
+            ],
+            "pairedNetDifference": -918002.0799999998
+          },
+          {
+            "seed": 20260821,
+            "policies": [
+              {
+                "name": "T+1 / T+2 / T+3",
+                "attempts": 4015,
+                "totalAuthorizationAttempts": 6015,
+                "recovered": 1187,
+                "failures": 4828,
+                "grossRevenue": 3237839.13,
+                "netRevenue": 2816674.13,
+                "netRevenueWithoutDeclinePenalty": 3231674.13,
+                "attemptCost": 6165,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.7043586550435865,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 806.4356488169361,
+                "netRupeesPerAttempt": 701.5377658779573,
+                "exhaustedMandates": 678,
+                "recoveriesAvailableAtCap": 108,
+                "illegalUpiCandidates": 4015,
+                "deferredMandates": 0,
+                "initialHardRefusals": 0,
+                "initialWaits": 0,
+                "initialRetries": 0,
+                "deferredConvertedToRetry": 0,
+                "deferredRecovered": 0,
+                "deferralCapHits": 0,
+                "unusedAttemptsAtHorizon": 405,
+                "unusedAttemptsAfterRecovery": 1580,
+                "unusedAttemptsOnHardStops": 405,
+                "revenue": 3237839.13,
+                "rupeesPerAttempt": 806.4356488169361
+              },
+              {
+                "name": "Recovery Loop",
+                "attempts": 1585,
+                "totalAuthorizationAttempts": 3585,
+                "recovered": 833,
+                "failures": 2752,
+                "grossRevenue": 2311421.56,
+                "netRevenue": 1894685.56,
+                "netRevenueWithoutDeclinePenalty": 2309685.56,
+                "attemptCost": 1736,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.4744479495268139,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 1458.3101324921124,
+                "netRupeesPerAttempt": 1195.3852113564658,
+                "exhaustedMandates": 6,
+                "recoveriesAvailableAtCap": 5,
+                "illegalUpiCandidates": 832,
+                "deferredMandates": 832,
+                "initialHardRefusals": 566,
+                "initialWaits": 832,
+                "initialRetries": 602,
+                "deferredConvertedToRetry": 832,
+                "deferredRecovered": 237,
+                "deferralCapHits": 832,
+                "unusedAttemptsAtHorizon": 2888,
+                "unusedAttemptsAfterRecovery": 1527,
+                "unusedAttemptsOnHardStops": 405,
+                "revenue": 2311421.56,
+                "rupeesPerAttempt": 1458.3101324921124
+              }
+            ],
+            "pairedNetDifference": -921988.5699999998
+          },
+          {
+            "seed": 20260822,
+            "policies": [
+              {
+                "name": "T+1 / T+2 / T+3",
+                "attempts": 4019,
+                "totalAuthorizationAttempts": 6019,
+                "recovered": 1178,
+                "failures": 4841,
+                "grossRevenue": 3122636.71,
+                "netRevenue": 2701441.71,
+                "netRevenueWithoutDeclinePenalty": 3116441.71,
+                "attemptCost": 6195,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.7068922617566559,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 776.9685767603889,
+                "netRupeesPerAttempt": 672.1676312515559,
+                "exhaustedMandates": 665,
+                "recoveriesAvailableAtCap": 103,
+                "illegalUpiCandidates": 4019,
+                "deferredMandates": 0,
+                "initialHardRefusals": 0,
+                "initialWaits": 0,
+                "initialRetries": 0,
+                "deferredConvertedToRetry": 0,
+                "deferredRecovered": 0,
+                "deferralCapHits": 0,
+                "unusedAttemptsAtHorizon": 471,
+                "unusedAttemptsAfterRecovery": 1510,
+                "unusedAttemptsOnHardStops": 471,
+                "revenue": 3122636.71,
+                "rupeesPerAttempt": 776.9685767603889
+              },
+              {
+                "name": "Recovery Loop",
+                "attempts": 1558,
+                "totalAuthorizationAttempts": 3558,
+                "recovered": 794,
+                "failures": 2764,
+                "grossRevenue": 2088759.18,
+                "netRevenue": 1672038.18,
+                "netRevenueWithoutDeclinePenalty": 2087038.18,
+                "attemptCost": 1721,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.49037227214377405,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 1340.6669961489083,
+                "netRupeesPerAttempt": 1073.1952374839534,
+                "exhaustedMandates": 10,
+                "recoveriesAvailableAtCap": 7,
+                "illegalUpiCandidates": 825,
+                "deferredMandates": 825,
+                "initialHardRefusals": 605,
+                "initialWaits": 825,
+                "initialRetries": 570,
+                "deferredConvertedToRetry": 825,
+                "deferredRecovered": 234,
+                "deferralCapHits": 825,
+                "unusedAttemptsAtHorizon": 2997,
+                "unusedAttemptsAfterRecovery": 1445,
+                "unusedAttemptsOnHardStops": 471,
+                "revenue": 2088759.18,
+                "rupeesPerAttempt": 1340.6669961489083
+              }
+            ],
+            "pairedNetDifference": -1029403.53
+          }
+        ],
+        "representativeOpportunityTable": {
+          "eventId": "sim_0002",
+          "seed": 20260818,
+          "amount": 3950.27,
+          "table": {
+            "attemptsRemaining": 3,
+            "candidateAt": 1787378400000,
+            "horizonAt": 1789970400000,
+            "rows": [
+              {
+                "daysRemaining": 30,
+                "attemptedAt": 1787378400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3813.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  1955.12,
+                  2029.5
+                ]
+              },
+              {
+                "daysRemaining": 29,
+                "attemptedAt": 1787464800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3813.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  2219.57,
+                  2433.36
+                ]
+              },
+              {
+                "daysRemaining": 28,
+                "attemptedAt": 1787551200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3813.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  2219.57,
+                  2433.36
+                ]
+              },
+              {
+                "daysRemaining": 27,
+                "attemptedAt": 1787637600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3813.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  2219.57,
+                  2433.36
+                ]
+              },
+              {
+                "daysRemaining": 26,
+                "attemptedAt": 1787724000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3813.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  2219.57,
+                  2433.36
+                ]
+              },
+              {
+                "daysRemaining": 25,
+                "attemptedAt": 1787810400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3813.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  2219.57,
+                  2433.36
+                ]
+              },
+              {
+                "daysRemaining": 24,
+                "attemptedAt": 1787896800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3813.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  2638.28,
+                  3072.81
+                ]
+              },
+              {
+                "daysRemaining": 23,
+                "attemptedAt": 1787983200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3813.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  2638.28,
+                  3072.81
+                ]
+              },
+              {
+                "daysRemaining": 22,
+                "attemptedAt": 1788069600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3813.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  2638.28,
+                  3072.81
+                ]
+              },
+              {
+                "daysRemaining": 21,
+                "attemptedAt": 1788156000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3813.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  2638.28,
+                  3072.81
+                ]
+              },
+              {
+                "daysRemaining": 20,
+                "attemptedAt": 1788242400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3813.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  2638.28,
+                  3018.32
+                ]
+              },
+              {
+                "daysRemaining": 19,
+                "attemptedAt": 1788328800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3365.52,
+                  3758.73
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  2390.6,
+                  2968.43
+                ]
+              },
+              {
+                "daysRemaining": 18,
+                "attemptedAt": 1788415200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2203.75,
+                  3117.84,
+                  3654.36
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2163.84,
+                  2824.5
+                ]
+              },
+              {
+                "daysRemaining": 17,
+                "attemptedAt": 1788501600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 16,
+                "attemptedAt": 1788588000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 15,
+                "attemptedAt": 1788674400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 14,
+                "attemptedAt": 1788760800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 13,
+                "attemptedAt": 1788847200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 12,
+                "attemptedAt": 1788933600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 11,
+                "attemptedAt": 1789020000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 10,
+                "attemptedAt": 1789106400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 9,
+                "attemptedAt": 1789192800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 8,
+                "attemptedAt": 1789279200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 7,
+                "attemptedAt": 1789365600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 6,
+                "attemptedAt": 1789452000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 5,
+                "attemptedAt": 1789538400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 4,
+                "attemptedAt": 1789624800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 3,
+                "attemptedAt": 1789711200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ]
+              },
+              {
+                "daysRemaining": 2,
+                "attemptedAt": 1789797600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3406.05
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2012.44
+                ]
+              },
+              {
+                "daysRemaining": 1,
+                "attemptedAt": 1789884000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  2643.39,
+                  3096.23
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1132.07,
+                  1548.29
+                ]
+              },
+              {
+                "daysRemaining": 0,
+                "attemptedAt": 1789970400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1453.2,
+                  1887.73,
+                  2322.26
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "rail": "Cards",
+        "cohortSize": 2000,
+        "retriesPerMandate": 3,
+        "mode": "per-mandate-non-transferable",
+        "policies": [
+          {
+            "name": "T+1 / T+2 / T+3",
+            "attempts": {
+              "mean": 3484.2,
+              "min": 3451,
+              "max": 3528
+            },
+            "recovered": {
+              "mean": 1070.2,
+              "min": 1037,
+              "max": 1096
+            },
+            "grossRevenue": {
+              "mean": 2831040.046,
+              "min": 2695104.98,
+              "max": 2999234.02
+            },
+            "netRevenue": {
+              "mean": 2410710.046,
+              "min": 2274808.98,
+              "max": 2578868.02
+            },
+            "netRupeesPerAttempt": {
+              "mean": 691.7302669403339,
+              "min": 659.173856853087,
+              "max": 733.8838986909495
+            },
+            "unusedAttemptsAtHorizon": {
+              "mean": 1084.8,
+              "min": 1014,
+              "max": 1182
+            },
+            "unusedAttemptsAfterRecovery": {
+              "mean": 1431,
+              "min": 1367,
+              "max": 1472
+            },
+            "unusedAttemptsOnHardStops": {
+              "mean": 1084.8,
+              "min": 1014,
+              "max": 1182
+            },
+            "initialHardRefusals": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "initialWaits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "initialRetries": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferredMandates": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferredConvertedToRetry": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferredRecovered": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          {
+            "name": "Recovery Loop",
+            "attempts": {
+              "mean": 1572.2,
+              "min": 1531,
+              "max": 1604
+            },
+            "recovered": {
+              "mean": 811.6,
+              "min": 762,
+              "max": 846
+            },
+            "grossRevenue": {
+              "mean": 2142141.1240000003,
+              "min": 1978486.14,
+              "max": 2311421.56
+            },
+            "netRevenue": {
+              "mean": 1725401.724,
+              "min": 1561784.14,
+              "max": 1894685.56
+            },
+            "netRupeesPerAttempt": {
+              "mean": 1096.8414214485842,
+              "min": 1020.1072109732222,
+              "max": 1195.3852113564658
+            },
+            "unusedAttemptsAtHorizon": {
+              "mean": 2960.2,
+              "min": 2879,
+              "max": 3108
+            },
+            "unusedAttemptsAfterRecovery": {
+              "mean": 1467.6,
+              "min": 1361,
+              "max": 1527
+            },
+            "unusedAttemptsOnHardStops": {
+              "mean": 1084.8,
+              "min": 1014,
+              "max": 1182
+            },
+            "initialHardRefusals": {
+              "mean": 595,
+              "min": 566,
+              "max": 640
+            },
+            "initialWaits": {
+              "mean": 814.6,
+              "min": 791,
+              "max": 832
+            },
+            "initialRetries": {
+              "mean": 590.4,
+              "min": 554,
+              "max": 630
+            },
+            "deferredMandates": {
+              "mean": 814.6,
+              "min": 791,
+              "max": 832
+            },
+            "deferredConvertedToRetry": {
+              "mean": 814.6,
+              "min": 791,
+              "max": 832
+            },
+            "deferredRecovered": {
+              "mean": 227,
+              "min": 212,
+              "max": 237
+            },
+            "deferralCapHits": {
+              "mean": 814.6,
+              "min": 791,
+              "max": 832
+            }
+          }
+        ],
+        "pairedNetDifference": {
+          "mean": -685308.322,
+          "min": -792387.78,
+          "max": -584358.98
+        },
+        "seedsWonByRecoveryLoop": 0,
+        "perSeed": [
+          {
+            "seed": 20260818,
+            "policies": [
+              {
+                "name": "T+1 / T+2 / T+3",
+                "attempts": 3466,
+                "totalAuthorizationAttempts": 5466,
+                "recovered": 1037,
+                "failures": 4429,
+                "grossRevenue": 2746894.75,
+                "netRevenue": 2326597.75,
+                "netRevenueWithoutDeclinePenalty": 2741597.75,
+                "attemptCost": 5297,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.7008078476630121,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 792.5258944027703,
+                "netRupeesPerAttempt": 671.2630553952689,
+                "exhaustedMandates": 598,
+                "recoveriesAvailableAtCap": 105,
+                "illegalUpiCandidates": 0,
+                "deferredMandates": 0,
+                "initialHardRefusals": 0,
+                "initialWaits": 0,
+                "initialRetries": 0,
+                "deferredConvertedToRetry": 0,
+                "deferredRecovered": 0,
+                "deferralCapHits": 0,
+                "unusedAttemptsAtHorizon": 1095,
+                "unusedAttemptsAfterRecovery": 1439,
+                "unusedAttemptsOnHardStops": 1095,
+                "revenue": 2746894.75,
+                "rupeesPerAttempt": 792.5258944027703
+              },
+              {
+                "name": "Recovery Loop",
+                "attempts": 1583,
+                "totalAuthorizationAttempts": 3583,
+                "recovered": 823,
+                "failures": 2760,
+                "grossRevenue": 2158989.77,
+                "netRevenue": 1742238.77,
+                "netRevenueWithoutDeclinePenalty": 2157238.77,
+                "attemptCost": 1751,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.4801010739102969,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 1363.8596146557188,
+                "netRupeesPerAttempt": 1100.5930322173108,
+                "exhaustedMandates": 5,
+                "recoveriesAvailableAtCap": 4,
+                "illegalUpiCandidates": 0,
+                "deferredMandates": 819,
+                "initialHardRefusals": 585,
+                "initialWaits": 819,
+                "initialRetries": 596,
+                "deferredConvertedToRetry": 819,
+                "deferredRecovered": 232,
+                "deferralCapHits": 819,
+                "unusedAttemptsAtHorizon": 2929,
+                "unusedAttemptsAfterRecovery": 1488,
+                "unusedAttemptsOnHardStops": 1095,
+                "revenue": 2158989.77,
+                "rupeesPerAttempt": 1363.8596146557188
+              }
+            ],
+            "pairedNetDifference": -584358.98
+          },
+          {
+            "seed": 20260819,
+            "policies": [
+              {
+                "name": "T+1 / T+2 / T+3",
+                "attempts": 3451,
+                "totalAuthorizationAttempts": 5451,
+                "recovered": 1037,
+                "failures": 4414,
+                "grossRevenue": 2695104.98,
+                "netRevenue": 2274808.98,
+                "netRevenueWithoutDeclinePenalty": 2689808.98,
+                "attemptCost": 5296,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.6995073891625616,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 780.9634830483927,
+                "netRupeesPerAttempt": 659.173856853087,
+                "exhaustedMandates": 569,
+                "recoveriesAvailableAtCap": 91,
+                "illegalUpiCandidates": 0,
+                "deferredMandates": 0,
+                "initialHardRefusals": 0,
+                "initialWaits": 0,
+                "initialRetries": 0,
+                "deferredConvertedToRetry": 0,
+                "deferredRecovered": 0,
+                "deferralCapHits": 0,
+                "unusedAttemptsAtHorizon": 1182,
+                "unusedAttemptsAfterRecovery": 1367,
+                "unusedAttemptsOnHardStops": 1182,
+                "revenue": 2695104.98,
+                "rupeesPerAttempt": 780.9634830483927
+              },
+              {
+                "name": "Recovery Loop",
+                "attempts": 1531,
+                "totalAuthorizationAttempts": 3531,
+                "recovered": 762,
+                "failures": 2769,
+                "grossRevenue": 1978486.14,
+                "netRevenue": 1561784.14,
+                "netRevenueWithoutDeclinePenalty": 1976784.14,
+                "attemptCost": 1702,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.5022860875244938,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 1292.2835662965404,
+                "netRupeesPerAttempt": 1020.1072109732222,
+                "exhaustedMandates": 4,
+                "recoveriesAvailableAtCap": 2,
+                "illegalUpiCandidates": 0,
+                "deferredMandates": 806,
+                "initialHardRefusals": 640,
+                "initialWaits": 806,
+                "initialRetries": 554,
+                "deferredConvertedToRetry": 806,
+                "deferredRecovered": 212,
+                "deferralCapHits": 806,
+                "unusedAttemptsAtHorizon": 3108,
+                "unusedAttemptsAfterRecovery": 1361,
+                "unusedAttemptsOnHardStops": 1182,
+                "revenue": 1978486.14,
+                "rupeesPerAttempt": 1292.2835662965404
+              }
+            ],
+            "pairedNetDifference": -713024.8400000001
+          },
+          {
+            "seed": 20260820,
+            "policies": [
+              {
+                "name": "T+1 / T+2 / T+3",
+                "attempts": 3462,
+                "totalAuthorizationAttempts": 5462,
+                "recovered": 1095,
+                "failures": 4367,
+                "grossRevenue": 2829130.52,
+                "netRevenue": 2408849.52,
+                "netRevenueWithoutDeclinePenalty": 2823849.52,
+                "attemptCost": 5281,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.6837088388214905,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 817.1954130560356,
+                "netRupeesPerAttempt": 695.7970883882135,
+                "exhaustedMandates": 548,
+                "recoveriesAvailableAtCap": 88,
+                "illegalUpiCandidates": 0,
+                "deferredMandates": 0,
+                "initialHardRefusals": 0,
+                "initialWaits": 0,
+                "initialRetries": 0,
+                "deferredConvertedToRetry": 0,
+                "deferredRecovered": 0,
+                "deferralCapHits": 0,
+                "unusedAttemptsAtHorizon": 1071,
+                "unusedAttemptsAfterRecovery": 1467,
+                "unusedAttemptsOnHardStops": 1071,
+                "revenue": 2829130.52,
+                "rupeesPerAttempt": 817.1954130560356
+              },
+              {
+                "name": "Recovery Loop",
+                "attempts": 1604,
+                "totalAuthorizationAttempts": 3604,
+                "recovered": 846,
+                "failures": 2758,
+                "grossRevenue": 2173048.97,
+                "netRevenue": 1756261.97,
+                "netRevenueWithoutDeclinePenalty": 2171261.97,
+                "attemptCost": 1787,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.47256857855361595,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 1354.7686845386527,
+                "netRupeesPerAttempt": 1094.9264152119692,
+                "exhaustedMandates": 4,
+                "recoveriesAvailableAtCap": 4,
+                "illegalUpiCandidates": 0,
+                "deferredMandates": 791,
+                "initialHardRefusals": 579,
+                "initialWaits": 791,
+                "initialRetries": 630,
+                "deferredConvertedToRetry": 791,
+                "deferredRecovered": 220,
+                "deferralCapHits": 791,
+                "unusedAttemptsAtHorizon": 2879,
+                "unusedAttemptsAfterRecovery": 1517,
+                "unusedAttemptsOnHardStops": 1071,
+                "revenue": 2173048.97,
+                "rupeesPerAttempt": 1354.7686845386527
+              }
+            ],
+            "pairedNetDifference": -652587.55
+          },
+          {
+            "seed": 20260821,
+            "policies": [
+              {
+                "name": "T+1 / T+2 / T+3",
+                "attempts": 3514,
+                "totalAuthorizationAttempts": 5514,
+                "recovered": 1096,
+                "failures": 4418,
+                "grossRevenue": 2999234.02,
+                "netRevenue": 2578868.02,
+                "netRevenueWithoutDeclinePenalty": 2993868.02,
+                "attemptCost": 5366,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.6881047239612976,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 853.5099658508813,
+                "netRupeesPerAttempt": 733.8838986909495,
+                "exhaustedMandates": 566,
+                "recoveriesAvailableAtCap": 83,
+                "illegalUpiCandidates": 0,
+                "deferredMandates": 0,
+                "initialHardRefusals": 0,
+                "initialWaits": 0,
+                "initialRetries": 0,
+                "deferredConvertedToRetry": 0,
+                "deferredRecovered": 0,
+                "deferralCapHits": 0,
+                "unusedAttemptsAtHorizon": 1014,
+                "unusedAttemptsAfterRecovery": 1472,
+                "unusedAttemptsOnHardStops": 1014,
+                "revenue": 2999234.02,
+                "rupeesPerAttempt": 853.5099658508813
+              },
+              {
+                "name": "Recovery Loop",
+                "attempts": 1585,
+                "totalAuthorizationAttempts": 3585,
+                "recovered": 833,
+                "failures": 2752,
+                "grossRevenue": 2311421.56,
+                "netRevenue": 1894685.56,
+                "netRevenueWithoutDeclinePenalty": 2309685.56,
+                "attemptCost": 1736,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.4744479495268139,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 1458.3101324921124,
+                "netRupeesPerAttempt": 1195.3852113564658,
+                "exhaustedMandates": 6,
+                "recoveriesAvailableAtCap": 5,
+                "illegalUpiCandidates": 0,
+                "deferredMandates": 832,
+                "initialHardRefusals": 566,
+                "initialWaits": 832,
+                "initialRetries": 602,
+                "deferredConvertedToRetry": 832,
+                "deferredRecovered": 237,
+                "deferralCapHits": 832,
+                "unusedAttemptsAtHorizon": 2888,
+                "unusedAttemptsAfterRecovery": 1527,
+                "unusedAttemptsOnHardStops": 1014,
+                "revenue": 2311421.56,
+                "rupeesPerAttempt": 1458.3101324921124
+              }
+            ],
+            "pairedNetDifference": -684182.46
+          },
+          {
+            "seed": 20260822,
+            "policies": [
+              {
+                "name": "T+1 / T+2 / T+3",
+                "attempts": 3528,
+                "totalAuthorizationAttempts": 5528,
+                "recovered": 1086,
+                "failures": 4442,
+                "grossRevenue": 2884835.96,
+                "netRevenue": 2464425.96,
+                "netRevenueWithoutDeclinePenalty": 2879425.96,
+                "attemptCost": 5410,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.6921768707482994,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 817.6972675736969,
+                "netRupeesPerAttempt": 698.5334353741505,
+                "exhaustedMandates": 560,
+                "recoveriesAvailableAtCap": 91,
+                "illegalUpiCandidates": 0,
+                "deferredMandates": 0,
+                "initialHardRefusals": 0,
+                "initialWaits": 0,
+                "initialRetries": 0,
+                "deferredConvertedToRetry": 0,
+                "deferredRecovered": 0,
+                "deferralCapHits": 0,
+                "unusedAttemptsAtHorizon": 1062,
+                "unusedAttemptsAfterRecovery": 1410,
+                "unusedAttemptsOnHardStops": 1062,
+                "revenue": 2884835.96,
+                "rupeesPerAttempt": 817.6972675736969
+              },
+              {
+                "name": "Recovery Loop",
+                "attempts": 1558,
+                "totalAuthorizationAttempts": 3558,
+                "recovered": 794,
+                "failures": 2764,
+                "grossRevenue": 2088759.18,
+                "netRevenue": 1672038.18,
+                "netRevenueWithoutDeclinePenalty": 2087038.18,
+                "attemptCost": 1721,
+                "stopSignalPenalty": 0,
+                "declinePenalty": 415000,
+                "declineRate": 0.49037227214377405,
+                "declinePenaltyTriggered": true,
+                "grossRupeesPerAttempt": 1340.6669961489083,
+                "netRupeesPerAttempt": 1073.1952374839534,
+                "exhaustedMandates": 10,
+                "recoveriesAvailableAtCap": 7,
+                "illegalUpiCandidates": 0,
+                "deferredMandates": 825,
+                "initialHardRefusals": 605,
+                "initialWaits": 825,
+                "initialRetries": 570,
+                "deferredConvertedToRetry": 825,
+                "deferredRecovered": 234,
+                "deferralCapHits": 825,
+                "unusedAttemptsAtHorizon": 2997,
+                "unusedAttemptsAfterRecovery": 1445,
+                "unusedAttemptsOnHardStops": 1062,
+                "revenue": 2088759.18,
+                "rupeesPerAttempt": 1340.6669961489083
+              }
+            ],
+            "pairedNetDifference": -792387.78
+          }
+        ],
+        "representativeOpportunityTable": {
+          "eventId": "sim_0002",
+          "seed": 20260818,
+          "amount": 3950.27,
+          "table": {
+            "attemptsRemaining": 3,
+            "candidateAt": 1787378400000,
+            "horizonAt": 1789970400000,
+            "rows": [
+              {
+                "daysRemaining": 30,
+                "attemptedAt": 1787378400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3809.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  1952.98,
+                  2027.68
+                ]
+              },
+              {
+                "daysRemaining": 29,
+                "attemptedAt": 1787464800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3809.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  2217.06,
+                  2431.05
+                ]
+              },
+              {
+                "daysRemaining": 28,
+                "attemptedAt": 1787551200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3809.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  2217.06,
+                  2431.05
+                ]
+              },
+              {
+                "daysRemaining": 27,
+                "attemptedAt": 1787637600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3809.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  2217.06,
+                  2431.05
+                ]
+              },
+              {
+                "daysRemaining": 26,
+                "attemptedAt": 1787724000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3809.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  2217.06,
+                  2431.05
+                ]
+              },
+              {
+                "daysRemaining": 25,
+                "attemptedAt": 1787810400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3809.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  2217.06,
+                  2431.05
+                ]
+              },
+              {
+                "daysRemaining": 24,
+                "attemptedAt": 1787896800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3809.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  2635.18,
+                  3069.71
+                ]
+              },
+              {
+                "daysRemaining": 23,
+                "attemptedAt": 1787983200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3809.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  2635.18,
+                  3069.71
+                ]
+              },
+              {
+                "daysRemaining": 22,
+                "attemptedAt": 1788069600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3809.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  2635.18,
+                  3069.71
+                ]
+              },
+              {
+                "daysRemaining": 21,
+                "attemptedAt": 1788156000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3809.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  2635.18,
+                  3069.71
+                ]
+              },
+              {
+                "daysRemaining": 20,
+                "attemptedAt": 1788242400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3809.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  2635.18,
+                  3015.22
+                ]
+              },
+              {
+                "daysRemaining": 19,
+                "attemptedAt": 1788328800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3361.4,
+                  3754.73
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  2387.5,
+                  2965.2
+                ]
+              },
+              {
+                "daysRemaining": 18,
+                "attemptedAt": 1788415200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  2200.65,
+                  3113.71,
+                  3650.22
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2160.15,
+                  2820.51
+                ]
+              },
+              {
+                "daysRemaining": 17,
+                "attemptedAt": 1788501600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 16,
+                "attemptedAt": 1788588000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 15,
+                "attemptedAt": 1788674400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 14,
+                "attemptedAt": 1788760800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 13,
+                "attemptedAt": 1788847200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 12,
+                "attemptedAt": 1788933600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 11,
+                "attemptedAt": 1789020000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 10,
+                "attemptedAt": 1789106400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 9,
+                "attemptedAt": 1789192800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 8,
+                "attemptedAt": 1789279200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 7,
+                "attemptedAt": 1789365600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 6,
+                "attemptedAt": 1789452000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 5,
+                "attemptedAt": 1789538400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 4,
+                "attemptedAt": 1789624800000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 3,
+                "attemptedAt": 1789711200000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ]
+              },
+              {
+                "daysRemaining": 2,
+                "attemptedAt": 1789797600000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3401.02
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2010
+                ]
+              },
+              {
+                "daysRemaining": 1,
+                "attemptedAt": 1789884000000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  2638.68,
+                  3091.86
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1130.58,
+                  1546.46
+                ]
+              },
+              {
+                "daysRemaining": 0,
+                "attemptedAt": 1789970400000,
+                "valueByAttemptsRemaining": [
+                  0,
+                  1450.1,
+                  1884.63,
+                  2319.16
+                ],
+                "opportunityCostByAttemptsRemaining": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "supersededFix7Artifact": {
+    "status": "invalidated by absolute-baseline gate, invalid NACH-to-Cards calibration, and unconditional original-failure penalty",
+    "upiPairedNetDifferenceMean": -2096896.366,
+    "cardsPairedNetDifferenceMean": -2178194.564,
+    "cardsRecoveryLoopAttemptsMean": 0
+  },
+  "npcCalibration": {
+    "periodRange": "2025-01 to 2026-06",
+    "sources": {
+      "autopay": {
+        "file": "autopay-payer-psp-execution-2025-01_to_2026-07-fetched-2026-08-22.json",
+        "sourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+        "canonicalSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay"
+      },
+      "returns": {
+        "file": "nach-destination-bank-returns-2025-01_to_2026-06-fetched-2026-08-22.json",
+        "sourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+        "canonicalSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach"
+      },
+      "response": {
+        "file": "nach-destination-bank-response-2025-01_to_2026-06-fetched-2026-08-22.json",
+        "sourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+        "canonicalSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach"
+      },
+      "incidents": {
+        "file": "upi-downtime-incidents-2025-01_to_2026-07-fetched-2026-08-22.json",
+        "sourceUrl": "https://www.npci.org.in/product/upi/product-statistics",
+        "canonicalSourceUrl": "https://www.npci.org.in/product/upi/product-statistics"
+      }
+    },
+    "backedByPublishedNpcData": [
+      "Payer-PSP bank names and monthly AutoPay volume",
+      "Monthly AutoPay approved, business-decline and technical-decline rates",
+      "Monthly NACH destination-bank success and financial/non-financial business-decline shares",
+      "Monthly NACH destination-bank response timing at T+0 through T+4",
+      "Monthly UPI reportable incident counts and total downtime",
+      "Each bank's volume-weighted AutoPay baseline decline rate over 2025-01 to 2026-06",
+      "Incident deviation trigger 7.917882x, the smallest visible bank-normalized TD elevation in a reportable-incident month"
+    ],
+    "remainingAssumptions": [
+      "The evaluation conditions on an already-failed cohort rather than simulating original approvals.",
+      "Synthetic payment amounts and hidden customer salary dates.",
+      "Hidden repeat-attempt success rules by failure category and deterministic outcome draws.",
+      "Uniform month sampling; within-month failed-cohort bank weighting uses volume times observed decline rate.",
+      "Cards have no NPCI calibration: no public India card-authorization decline baseline was found, so Cards use only the labelled uncalibrated simulator.",
+      "NACH financial/non-financial returns and response timing are used only as UPI soft/hard and response-availability proxies.",
+      "NACH financial decline is treated as soft/insufficient-funds and non-financial decline as hard.",
+      "Hard-decline subtype allocation retains the frozen 12:9:5:2 issuer/customer/mandate/configuration ratio.",
+      "NPCI publishes incident totals, not timestamps; active incidents are placed at evaluation time and use observed mean duration.",
+      "No undocumented Cards outage is synthesized.",
+      "Retry costs, decline-rate penalty, card MAC mapping, probability model and policy thresholds remain frozen scenario assumptions."
+    ]
+  },
+  "reportedRails": {
+    "upiNpcCalibrated": {
+      "rail": "UPI AutoPay",
+      "cohortSize": 2000,
+      "retriesPerMandate": 3,
+      "mode": "per-mandate-non-transferable",
+      "policies": [
+        {
+          "name": "T+1 / T+2 / T+3",
+          "attempts": {
+            "mean": 5426.6,
+            "min": 5386,
+            "max": 5463
+          },
+          "recovered": {
+            "mean": 828,
+            "min": 802,
+            "max": 853
+          },
+          "grossRevenue": {
+            "mean": 2198920.722,
+            "min": 2084615.88,
+            "max": 2302278.39
+          },
+          "netRevenue": {
+            "mean": 1775067.5219999999,
+            "min": 1660697.88,
+            "max": 1878506.39
+          },
+          "netRupeesPerAttempt": {
+            "mean": 327.2047273724835,
+            "min": 304.2128375160285,
+            "max": 348.77578722614203
+          },
+          "unusedAttemptsAtHorizon": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "unusedAttemptsAfterRecovery": {
+            "mean": 573.4,
+            "min": 537,
+            "max": 614
+          },
+          "unusedAttemptsOnHardStops": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "initialHardRefusals": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "initialWaits": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "initialRetries": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "deferredMandates": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "deferredConvertedToRetry": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "deferredRecovered": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "deferralCapHits": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "name": "Recovery Loop",
+          "attempts": {
+            "mean": 1915.4,
+            "min": 1909,
+            "max": 1929
+          },
+          "recovered": {
+            "mean": 546,
+            "min": 520,
+            "max": 568
+          },
+          "grossRevenue": {
+            "mean": 1446109.376,
+            "min": 1394941.29,
+            "max": 1552849.79
+          },
+          "netRevenue": {
+            "mean": 1029182.3760000002,
+            "min": 978025.29,
+            "max": 1135910.79
+          },
+          "netRupeesPerAttempt": {
+            "mean": 537.2433564558592,
+            "min": 511.0545388223029,
+            "max": 588.859922239503
+          },
+          "unusedAttemptsAtHorizon": {
+            "mean": 3001.8,
+            "min": 2945,
+            "max": 3051
+          },
+          "unusedAttemptsAfterRecovery": {
+            "mean": 1082.8,
+            "min": 1030,
+            "max": 1126
+          },
+          "unusedAttemptsOnHardStops": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "initialHardRefusals": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "initialWaits": {
+            "mean": 1968.6,
+            "min": 1962,
+            "max": 1978
+          },
+          "initialRetries": {
+            "mean": 31.4,
+            "min": 22,
+            "max": 38
+          },
+          "deferredMandates": {
+            "mean": 1968.6,
+            "min": 1962,
+            "max": 1978
+          },
+          "deferredConvertedToRetry": {
+            "mean": 1872.4,
+            "min": 1852,
+            "max": 1882
+          },
+          "deferredRecovered": {
+            "mean": 515.6,
+            "min": 496,
+            "max": 530
+          },
+          "deferralCapHits": {
+            "mean": 1963.8,
+            "min": 1956,
+            "max": 1974
+          }
+        }
+      ],
+      "pairedNetDifference": {
+        "mean": -745885.146,
+        "min": -828549.6599999999,
+        "max": -682672.5899999999
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "perSeed": [
+        {
+          "seed": 20260818,
+          "policies": [
+            {
+              "name": "T+1 / T+2 / T+3",
+              "attempts": 5409,
+              "totalAuthorizationAttempts": 7409,
+              "recovered": 853,
+              "failures": 6556,
+              "grossRevenue": 2283119.81,
+              "netRevenue": 1859301.81,
+              "netRevenueWithoutDeclinePenalty": 2274301.81,
+              "attemptCost": 8818,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.8422998705860603,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 422.09647069698684,
+              "netRupeesPerAttempt": 343.74224625624,
+              "exhaustedMandates": 1147,
+              "recoveriesAvailableAtCap": 141,
+              "illegalUpiCandidates": 5409,
+              "deferredMandates": 0,
+              "initialHardRefusals": 0,
+              "initialWaits": 0,
+              "initialRetries": 0,
+              "deferredConvertedToRetry": 0,
+              "deferredRecovered": 0,
+              "deferralCapHits": 0,
+              "unusedAttemptsAtHorizon": 0,
+              "unusedAttemptsAfterRecovery": 591,
+              "unusedAttemptsOnHardStops": 0,
+              "revenue": 2283119.81,
+              "rupeesPerAttempt": 422.09647069698684
+            },
+            {
+              "name": "Recovery Loop",
+              "attempts": 1929,
+              "totalAuthorizationAttempts": 3929,
+              "recovered": 568,
+              "failures": 3361,
+              "grossRevenue": 1552849.79,
+              "netRevenue": 1135910.79,
+              "netRevenueWithoutDeclinePenalty": 1550910.79,
+              "attemptCost": 1939,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.7055469155002592,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 805.0024831518929,
+              "netRupeesPerAttempt": 588.859922239503,
+              "exhaustedMandates": 0,
+              "recoveriesAvailableAtCap": 0,
+              "illegalUpiCandidates": 1875,
+              "deferredMandates": 1962,
+              "initialHardRefusals": 0,
+              "initialWaits": 1962,
+              "initialRetries": 38,
+              "deferredConvertedToRetry": 1881,
+              "deferredRecovered": 530,
+              "deferralCapHits": 1956,
+              "unusedAttemptsAtHorizon": 2945,
+              "unusedAttemptsAfterRecovery": 1126,
+              "unusedAttemptsOnHardStops": 0,
+              "revenue": 1552849.79,
+              "rupeesPerAttempt": 805.0024831518929
+            }
+          ],
+          "pairedNetDifference": -723391.02
+        },
+        {
+          "seed": 20260819,
+          "policies": [
+            {
+              "name": "T+1 / T+2 / T+3",
+              "attempts": 5416,
+              "totalAuthorizationAttempts": 7416,
+              "recovered": 834,
+              "failures": 6582,
+              "grossRevenue": 2224346.62,
+              "netRevenue": 1800514.62,
+              "netRevenueWithoutDeclinePenalty": 2215514.62,
+              "attemptCost": 8832,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.8460118168389956,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 410.6991543574601,
+              "netRupeesPerAttempt": 332.4436152141809,
+              "exhaustedMandates": 1166,
+              "recoveriesAvailableAtCap": 139,
+              "illegalUpiCandidates": 5416,
+              "deferredMandates": 0,
+              "initialHardRefusals": 0,
+              "initialWaits": 0,
+              "initialRetries": 0,
+              "deferredConvertedToRetry": 0,
+              "deferredRecovered": 0,
+              "deferralCapHits": 0,
+              "unusedAttemptsAtHorizon": 0,
+              "unusedAttemptsAfterRecovery": 584,
+              "unusedAttemptsOnHardStops": 0,
+              "revenue": 2224346.62,
+              "rupeesPerAttempt": 410.6991543574601
+            },
+            {
+              "name": "Recovery Loop",
+              "attempts": 1910,
+              "totalAuthorizationAttempts": 3910,
+              "recovered": 532,
+              "failures": 3378,
+              "grossRevenue": 1418222.41,
+              "netRevenue": 1001305.41,
+              "netRevenueWithoutDeclinePenalty": 1416305.41,
+              "attemptCost": 1917,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.7214659685863875,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 742.5248219895292,
+              "netRupeesPerAttempt": 524.2436701570685,
+              "exhaustedMandates": 0,
+              "recoveriesAvailableAtCap": 0,
+              "illegalUpiCandidates": 1866,
+              "deferredMandates": 1967,
+              "initialHardRefusals": 0,
+              "initialWaits": 1967,
+              "initialRetries": 33,
+              "deferredConvertedToRetry": 1870,
+              "deferredRecovered": 499,
+              "deferralCapHits": 1963,
+              "unusedAttemptsAtHorizon": 3033,
+              "unusedAttemptsAfterRecovery": 1057,
+              "unusedAttemptsOnHardStops": 0,
+              "revenue": 1418222.41,
+              "rupeesPerAttempt": 742.5248219895292
+            }
+          ],
+          "pairedNetDifference": -799209.2100000001
+        },
+        {
+          "seed": 20260820,
+          "policies": [
+            {
+              "name": "T+1 / T+2 / T+3",
+              "attempts": 5463,
+              "totalAuthorizationAttempts": 7463,
+              "recovered": 805,
+              "failures": 6658,
+              "grossRevenue": 2100242.91,
+              "netRevenue": 1676316.91,
+              "netRevenueWithoutDeclinePenalty": 2091316.91,
+              "attemptCost": 8926,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.8526450668131064,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 384.448638110928,
+              "netRupeesPerAttempt": 306.8491506498261,
+              "exhaustedMandates": 1195,
+              "recoveriesAvailableAtCap": 145,
+              "illegalUpiCandidates": 5463,
+              "deferredMandates": 0,
+              "initialHardRefusals": 0,
+              "initialWaits": 0,
+              "initialRetries": 0,
+              "deferredConvertedToRetry": 0,
+              "deferredRecovered": 0,
+              "deferralCapHits": 0,
+              "unusedAttemptsAtHorizon": 0,
+              "unusedAttemptsAfterRecovery": 537,
+              "unusedAttemptsOnHardStops": 0,
+              "revenue": 2100242.91,
+              "rupeesPerAttempt": 384.448638110928
+            },
+            {
+              "name": "Recovery Loop",
+              "attempts": 1919,
+              "totalAuthorizationAttempts": 3919,
+              "recovered": 520,
+              "failures": 3399,
+              "grossRevenue": 1397648.66,
+              "netRevenue": 980713.66,
+              "netRevenueWithoutDeclinePenalty": 1395713.66,
+              "attemptCost": 1935,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.7290255341323606,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 728.321344450234,
+              "netRupeesPerAttempt": 511.0545388223029,
+              "exhaustedMandates": 3,
+              "recoveriesAvailableAtCap": 3,
+              "illegalUpiCandidates": 1873,
+              "deferredMandates": 1974,
+              "initialHardRefusals": 0,
+              "initialWaits": 1974,
+              "initialRetries": 26,
+              "deferredConvertedToRetry": 1877,
+              "deferredRecovered": 496,
+              "deferralCapHits": 1970,
+              "unusedAttemptsAtHorizon": 3051,
+              "unusedAttemptsAfterRecovery": 1030,
+              "unusedAttemptsOnHardStops": 0,
+              "revenue": 1397648.66,
+              "rupeesPerAttempt": 728.321344450234
+            }
+          ],
+          "pairedNetDifference": -695603.2499999999
+        },
+        {
+          "seed": 20260821,
+          "policies": [
+            {
+              "name": "T+1 / T+2 / T+3",
+              "attempts": 5386,
+              "totalAuthorizationAttempts": 7386,
+              "recovered": 846,
+              "failures": 6540,
+              "grossRevenue": 2302278.39,
+              "netRevenue": 1878506.39,
+              "netRevenueWithoutDeclinePenalty": 2293506.39,
+              "attemptCost": 8772,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.8429261047159302,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 427.45606943928726,
+              "netRupeesPerAttempt": 348.77578722614203,
+              "exhaustedMandates": 1154,
+              "recoveriesAvailableAtCap": 144,
+              "illegalUpiCandidates": 5386,
+              "deferredMandates": 0,
+              "initialHardRefusals": 0,
+              "initialWaits": 0,
+              "initialRetries": 0,
+              "deferredConvertedToRetry": 0,
+              "deferredRecovered": 0,
+              "deferralCapHits": 0,
+              "unusedAttemptsAtHorizon": 0,
+              "unusedAttemptsAfterRecovery": 614,
+              "unusedAttemptsOnHardStops": 0,
+              "revenue": 2302278.39,
+              "rupeesPerAttempt": 427.45606943928726
+            },
+            {
+              "name": "Recovery Loop",
+              "attempts": 1909,
+              "totalAuthorizationAttempts": 3909,
+              "recovered": 559,
+              "failures": 3350,
+              "grossRevenue": 1466884.73,
+              "netRevenue": 1049956.73,
+              "netRevenueWithoutDeclinePenalty": 1464956.73,
+              "attemptCost": 1928,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.7071765322158198,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 768.4047826086955,
+              "netRupeesPerAttempt": 550.0035254059716,
+              "exhaustedMandates": 2,
+              "recoveriesAvailableAtCap": 2,
+              "illegalUpiCandidates": 1846,
+              "deferredMandates": 1962,
+              "initialHardRefusals": 0,
+              "initialWaits": 1962,
+              "initialRetries": 38,
+              "deferredConvertedToRetry": 1852,
+              "deferredRecovered": 523,
+              "deferralCapHits": 1956,
+              "unusedAttemptsAtHorizon": 2988,
+              "unusedAttemptsAfterRecovery": 1103,
+              "unusedAttemptsOnHardStops": 0,
+              "revenue": 1466884.73,
+              "rupeesPerAttempt": 768.4047826086955
+            }
+          ],
+          "pairedNetDifference": -828549.6599999999
+        },
+        {
+          "seed": 20260822,
+          "policies": [
+            {
+              "name": "T+1 / T+2 / T+3",
+              "attempts": 5459,
+              "totalAuthorizationAttempts": 7459,
+              "recovered": 802,
+              "failures": 6657,
+              "grossRevenue": 2084615.88,
+              "netRevenue": 1660697.88,
+              "netRevenueWithoutDeclinePenalty": 2075697.88,
+              "attemptCost": 8918,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.8530866459058436,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 381.8677193625205,
+              "netRupeesPerAttempt": 304.2128375160285,
+              "exhaustedMandates": 1198,
+              "recoveriesAvailableAtCap": 141,
+              "illegalUpiCandidates": 5459,
+              "deferredMandates": 0,
+              "initialHardRefusals": 0,
+              "initialWaits": 0,
+              "initialRetries": 0,
+              "deferredConvertedToRetry": 0,
+              "deferredRecovered": 0,
+              "deferralCapHits": 0,
+              "unusedAttemptsAtHorizon": 0,
+              "unusedAttemptsAfterRecovery": 541,
+              "unusedAttemptsOnHardStops": 0,
+              "revenue": 2084615.88,
+              "rupeesPerAttempt": 381.8677193625205
+            },
+            {
+              "name": "Recovery Loop",
+              "attempts": 1910,
+              "totalAuthorizationAttempts": 3910,
+              "recovered": 551,
+              "failures": 3359,
+              "grossRevenue": 1394941.29,
+              "netRevenue": 978025.29,
+              "netRevenueWithoutDeclinePenalty": 1393025.29,
+              "attemptCost": 1916,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.7115183246073299,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 730.3357539267014,
+              "netRupeesPerAttempt": 512.0551256544501,
+              "exhaustedMandates": 1,
+              "recoveriesAvailableAtCap": 0,
+              "illegalUpiCandidates": 1878,
+              "deferredMandates": 1978,
+              "initialHardRefusals": 0,
+              "initialWaits": 1978,
+              "initialRetries": 22,
+              "deferredConvertedToRetry": 1882,
+              "deferredRecovered": 530,
+              "deferralCapHits": 1974,
+              "unusedAttemptsAtHorizon": 2992,
+              "unusedAttemptsAfterRecovery": 1098,
+              "unusedAttemptsOnHardStops": 0,
+              "revenue": 1394941.29,
+              "rupeesPerAttempt": 730.3357539267014
+            }
+          ],
+          "pairedNetDifference": -682672.5899999999
+        }
+      ],
+      "representativeOpportunityTable": {
+        "eventId": "sim_0001",
+        "seed": 20260818,
+        "amount": 1267.09,
+        "table": {
+          "attemptsRemaining": 3,
+          "candidateAt": 1787378400000,
+          "horizonAt": 1789970400000,
+          "rows": [
+            {
+              "daysRemaining": 30,
+              "attemptedAt": 1787378400000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1207.01
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                605.7,
+                628.55
+              ]
+            },
+            {
+              "daysRemaining": 29,
+              "attemptedAt": 1787464800000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1207.01
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                686.8,
+                754.76
+              ]
+            },
+            {
+              "daysRemaining": 28,
+              "attemptedAt": 1787551200000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1207.01
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                686.8,
+                754.76
+              ]
+            },
+            {
+              "daysRemaining": 27,
+              "attemptedAt": 1787637600000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1207.01
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                686.8,
+                754.76
+              ]
+            },
+            {
+              "daysRemaining": 26,
+              "attemptedAt": 1787724000000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1207.01
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                686.8,
+                754.76
+              ]
+            },
+            {
+              "daysRemaining": 25,
+              "attemptedAt": 1787810400000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1207.01
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                686.8,
+                754.76
+              ]
+            },
+            {
+              "daysRemaining": 24,
+              "attemptedAt": 1787896800000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1207.01
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                815.21,
+                954.59
+              ]
+            },
+            {
+              "daysRemaining": 23,
+              "attemptedAt": 1787983200000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1207.01
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                815.21,
+                954.59
+              ]
+            },
+            {
+              "daysRemaining": 22,
+              "attemptedAt": 1788069600000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1207.01
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                815.21,
+                954.59
+              ]
+            },
+            {
+              "daysRemaining": 21,
+              "attemptedAt": 1788156000000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1207.01
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                815.21,
+                954.59
+              ]
+            },
+            {
+              "daysRemaining": 20,
+              "attemptedAt": 1788242400000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1207.01
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                815.21,
+                934.37
+              ]
+            },
+            {
+              "daysRemaining": 19,
+              "attemptedAt": 1788328800000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                1051.75,
+                1186.79
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                675.83,
+                730.95,
+                916.65
+              ]
+            },
+            {
+              "daysRemaining": 18,
+              "attemptedAt": 1788415200000,
+              "valueByAttemptsRemaining": [
+                0,
+                675.83,
+                967.49,
+                1148.85
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                657.13,
+                867.63
+              ]
+            },
+            {
+              "daysRemaining": 17,
+              "attemptedAt": 1788501600000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 16,
+              "attemptedAt": 1788588000000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 15,
+              "attemptedAt": 1788674400000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 14,
+              "attemptedAt": 1788760800000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 13,
+              "attemptedAt": 1788847200000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 12,
+              "attemptedAt": 1788933600000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 11,
+              "attemptedAt": 1789020000000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 10,
+              "attemptedAt": 1789106400000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 9,
+              "attemptedAt": 1789192800000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 8,
+              "attemptedAt": 1789279200000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 7,
+              "attemptedAt": 1789365600000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 6,
+              "attemptedAt": 1789452000000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 5,
+              "attemptedAt": 1789538400000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 4,
+              "attemptedAt": 1789624800000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 3,
+              "attemptedAt": 1789711200000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ]
+            },
+            {
+              "daysRemaining": 2,
+              "attemptedAt": 1789797600000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                1061.89
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                612.82
+              ]
+            },
+            {
+              "daysRemaining": 1,
+              "attemptedAt": 1789884000000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                809.41,
+                960.86
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                435.08,
+                339.52,
+                466.82
+              ]
+            },
+            {
+              "daysRemaining": 0,
+              "attemptedAt": 1789970400000,
+              "valueByAttemptsRemaining": [
+                0,
+                435.08,
+                574.46,
+                713.84
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cardsUncalibrated": {
+      "rail": "Cards",
+      "cohortSize": 2000,
+      "retriesPerMandate": 3,
+      "mode": "per-mandate-non-transferable",
+      "policies": [
+        {
+          "name": "T+1 / T+2 / T+3",
+          "attempts": {
+            "mean": 3484.2,
+            "min": 3451,
+            "max": 3528
+          },
+          "recovered": {
+            "mean": 1070.2,
+            "min": 1037,
+            "max": 1096
+          },
+          "grossRevenue": {
+            "mean": 2831040.046,
+            "min": 2695104.98,
+            "max": 2999234.02
+          },
+          "netRevenue": {
+            "mean": 2410710.046,
+            "min": 2274808.98,
+            "max": 2578868.02
+          },
+          "netRupeesPerAttempt": {
+            "mean": 691.7302669403339,
+            "min": 659.173856853087,
+            "max": 733.8838986909495
+          },
+          "unusedAttemptsAtHorizon": {
+            "mean": 1084.8,
+            "min": 1014,
+            "max": 1182
+          },
+          "unusedAttemptsAfterRecovery": {
+            "mean": 1431,
+            "min": 1367,
+            "max": 1472
+          },
+          "unusedAttemptsOnHardStops": {
+            "mean": 1084.8,
+            "min": 1014,
+            "max": 1182
+          },
+          "initialHardRefusals": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "initialWaits": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "initialRetries": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "deferredMandates": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "deferredConvertedToRetry": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "deferredRecovered": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "deferralCapHits": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "name": "Recovery Loop",
+          "attempts": {
+            "mean": 1572.2,
+            "min": 1531,
+            "max": 1604
+          },
+          "recovered": {
+            "mean": 811.6,
+            "min": 762,
+            "max": 846
+          },
+          "grossRevenue": {
+            "mean": 2142141.1240000003,
+            "min": 1978486.14,
+            "max": 2311421.56
+          },
+          "netRevenue": {
+            "mean": 1725401.724,
+            "min": 1561784.14,
+            "max": 1894685.56
+          },
+          "netRupeesPerAttempt": {
+            "mean": 1096.8414214485842,
+            "min": 1020.1072109732222,
+            "max": 1195.3852113564658
+          },
+          "unusedAttemptsAtHorizon": {
+            "mean": 2960.2,
+            "min": 2879,
+            "max": 3108
+          },
+          "unusedAttemptsAfterRecovery": {
+            "mean": 1467.6,
+            "min": 1361,
+            "max": 1527
+          },
+          "unusedAttemptsOnHardStops": {
+            "mean": 1084.8,
+            "min": 1014,
+            "max": 1182
+          },
+          "initialHardRefusals": {
+            "mean": 595,
+            "min": 566,
+            "max": 640
+          },
+          "initialWaits": {
+            "mean": 814.6,
+            "min": 791,
+            "max": 832
+          },
+          "initialRetries": {
+            "mean": 590.4,
+            "min": 554,
+            "max": 630
+          },
+          "deferredMandates": {
+            "mean": 814.6,
+            "min": 791,
+            "max": 832
+          },
+          "deferredConvertedToRetry": {
+            "mean": 814.6,
+            "min": 791,
+            "max": 832
+          },
+          "deferredRecovered": {
+            "mean": 227,
+            "min": 212,
+            "max": 237
+          },
+          "deferralCapHits": {
+            "mean": 814.6,
+            "min": 791,
+            "max": 832
+          }
+        }
+      ],
+      "pairedNetDifference": {
+        "mean": -685308.322,
+        "min": -792387.78,
+        "max": -584358.98
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "perSeed": [
+        {
+          "seed": 20260818,
+          "policies": [
+            {
+              "name": "T+1 / T+2 / T+3",
+              "attempts": 3466,
+              "totalAuthorizationAttempts": 5466,
+              "recovered": 1037,
+              "failures": 4429,
+              "grossRevenue": 2746894.75,
+              "netRevenue": 2326597.75,
+              "netRevenueWithoutDeclinePenalty": 2741597.75,
+              "attemptCost": 5297,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.7008078476630121,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 792.5258944027703,
+              "netRupeesPerAttempt": 671.2630553952689,
+              "exhaustedMandates": 598,
+              "recoveriesAvailableAtCap": 105,
+              "illegalUpiCandidates": 0,
+              "deferredMandates": 0,
+              "initialHardRefusals": 0,
+              "initialWaits": 0,
+              "initialRetries": 0,
+              "deferredConvertedToRetry": 0,
+              "deferredRecovered": 0,
+              "deferralCapHits": 0,
+              "unusedAttemptsAtHorizon": 1095,
+              "unusedAttemptsAfterRecovery": 1439,
+              "unusedAttemptsOnHardStops": 1095,
+              "revenue": 2746894.75,
+              "rupeesPerAttempt": 792.5258944027703
+            },
+            {
+              "name": "Recovery Loop",
+              "attempts": 1583,
+              "totalAuthorizationAttempts": 3583,
+              "recovered": 823,
+              "failures": 2760,
+              "grossRevenue": 2158989.77,
+              "netRevenue": 1742238.77,
+              "netRevenueWithoutDeclinePenalty": 2157238.77,
+              "attemptCost": 1751,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.4801010739102969,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 1363.8596146557188,
+              "netRupeesPerAttempt": 1100.5930322173108,
+              "exhaustedMandates": 5,
+              "recoveriesAvailableAtCap": 4,
+              "illegalUpiCandidates": 0,
+              "deferredMandates": 819,
+              "initialHardRefusals": 585,
+              "initialWaits": 819,
+              "initialRetries": 596,
+              "deferredConvertedToRetry": 819,
+              "deferredRecovered": 232,
+              "deferralCapHits": 819,
+              "unusedAttemptsAtHorizon": 2929,
+              "unusedAttemptsAfterRecovery": 1488,
+              "unusedAttemptsOnHardStops": 1095,
+              "revenue": 2158989.77,
+              "rupeesPerAttempt": 1363.8596146557188
+            }
+          ],
+          "pairedNetDifference": -584358.98
+        },
+        {
+          "seed": 20260819,
+          "policies": [
+            {
+              "name": "T+1 / T+2 / T+3",
+              "attempts": 3451,
+              "totalAuthorizationAttempts": 5451,
+              "recovered": 1037,
+              "failures": 4414,
+              "grossRevenue": 2695104.98,
+              "netRevenue": 2274808.98,
+              "netRevenueWithoutDeclinePenalty": 2689808.98,
+              "attemptCost": 5296,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.6995073891625616,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 780.9634830483927,
+              "netRupeesPerAttempt": 659.173856853087,
+              "exhaustedMandates": 569,
+              "recoveriesAvailableAtCap": 91,
+              "illegalUpiCandidates": 0,
+              "deferredMandates": 0,
+              "initialHardRefusals": 0,
+              "initialWaits": 0,
+              "initialRetries": 0,
+              "deferredConvertedToRetry": 0,
+              "deferredRecovered": 0,
+              "deferralCapHits": 0,
+              "unusedAttemptsAtHorizon": 1182,
+              "unusedAttemptsAfterRecovery": 1367,
+              "unusedAttemptsOnHardStops": 1182,
+              "revenue": 2695104.98,
+              "rupeesPerAttempt": 780.9634830483927
+            },
+            {
+              "name": "Recovery Loop",
+              "attempts": 1531,
+              "totalAuthorizationAttempts": 3531,
+              "recovered": 762,
+              "failures": 2769,
+              "grossRevenue": 1978486.14,
+              "netRevenue": 1561784.14,
+              "netRevenueWithoutDeclinePenalty": 1976784.14,
+              "attemptCost": 1702,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.5022860875244938,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 1292.2835662965404,
+              "netRupeesPerAttempt": 1020.1072109732222,
+              "exhaustedMandates": 4,
+              "recoveriesAvailableAtCap": 2,
+              "illegalUpiCandidates": 0,
+              "deferredMandates": 806,
+              "initialHardRefusals": 640,
+              "initialWaits": 806,
+              "initialRetries": 554,
+              "deferredConvertedToRetry": 806,
+              "deferredRecovered": 212,
+              "deferralCapHits": 806,
+              "unusedAttemptsAtHorizon": 3108,
+              "unusedAttemptsAfterRecovery": 1361,
+              "unusedAttemptsOnHardStops": 1182,
+              "revenue": 1978486.14,
+              "rupeesPerAttempt": 1292.2835662965404
+            }
+          ],
+          "pairedNetDifference": -713024.8400000001
+        },
+        {
+          "seed": 20260820,
+          "policies": [
+            {
+              "name": "T+1 / T+2 / T+3",
+              "attempts": 3462,
+              "totalAuthorizationAttempts": 5462,
+              "recovered": 1095,
+              "failures": 4367,
+              "grossRevenue": 2829130.52,
+              "netRevenue": 2408849.52,
+              "netRevenueWithoutDeclinePenalty": 2823849.52,
+              "attemptCost": 5281,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.6837088388214905,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 817.1954130560356,
+              "netRupeesPerAttempt": 695.7970883882135,
+              "exhaustedMandates": 548,
+              "recoveriesAvailableAtCap": 88,
+              "illegalUpiCandidates": 0,
+              "deferredMandates": 0,
+              "initialHardRefusals": 0,
+              "initialWaits": 0,
+              "initialRetries": 0,
+              "deferredConvertedToRetry": 0,
+              "deferredRecovered": 0,
+              "deferralCapHits": 0,
+              "unusedAttemptsAtHorizon": 1071,
+              "unusedAttemptsAfterRecovery": 1467,
+              "unusedAttemptsOnHardStops": 1071,
+              "revenue": 2829130.52,
+              "rupeesPerAttempt": 817.1954130560356
+            },
+            {
+              "name": "Recovery Loop",
+              "attempts": 1604,
+              "totalAuthorizationAttempts": 3604,
+              "recovered": 846,
+              "failures": 2758,
+              "grossRevenue": 2173048.97,
+              "netRevenue": 1756261.97,
+              "netRevenueWithoutDeclinePenalty": 2171261.97,
+              "attemptCost": 1787,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.47256857855361595,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 1354.7686845386527,
+              "netRupeesPerAttempt": 1094.9264152119692,
+              "exhaustedMandates": 4,
+              "recoveriesAvailableAtCap": 4,
+              "illegalUpiCandidates": 0,
+              "deferredMandates": 791,
+              "initialHardRefusals": 579,
+              "initialWaits": 791,
+              "initialRetries": 630,
+              "deferredConvertedToRetry": 791,
+              "deferredRecovered": 220,
+              "deferralCapHits": 791,
+              "unusedAttemptsAtHorizon": 2879,
+              "unusedAttemptsAfterRecovery": 1517,
+              "unusedAttemptsOnHardStops": 1071,
+              "revenue": 2173048.97,
+              "rupeesPerAttempt": 1354.7686845386527
+            }
+          ],
+          "pairedNetDifference": -652587.55
+        },
+        {
+          "seed": 20260821,
+          "policies": [
+            {
+              "name": "T+1 / T+2 / T+3",
+              "attempts": 3514,
+              "totalAuthorizationAttempts": 5514,
+              "recovered": 1096,
+              "failures": 4418,
+              "grossRevenue": 2999234.02,
+              "netRevenue": 2578868.02,
+              "netRevenueWithoutDeclinePenalty": 2993868.02,
+              "attemptCost": 5366,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.6881047239612976,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 853.5099658508813,
+              "netRupeesPerAttempt": 733.8838986909495,
+              "exhaustedMandates": 566,
+              "recoveriesAvailableAtCap": 83,
+              "illegalUpiCandidates": 0,
+              "deferredMandates": 0,
+              "initialHardRefusals": 0,
+              "initialWaits": 0,
+              "initialRetries": 0,
+              "deferredConvertedToRetry": 0,
+              "deferredRecovered": 0,
+              "deferralCapHits": 0,
+              "unusedAttemptsAtHorizon": 1014,
+              "unusedAttemptsAfterRecovery": 1472,
+              "unusedAttemptsOnHardStops": 1014,
+              "revenue": 2999234.02,
+              "rupeesPerAttempt": 853.5099658508813
+            },
+            {
+              "name": "Recovery Loop",
+              "attempts": 1585,
+              "totalAuthorizationAttempts": 3585,
+              "recovered": 833,
+              "failures": 2752,
+              "grossRevenue": 2311421.56,
+              "netRevenue": 1894685.56,
+              "netRevenueWithoutDeclinePenalty": 2309685.56,
+              "attemptCost": 1736,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.4744479495268139,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 1458.3101324921124,
+              "netRupeesPerAttempt": 1195.3852113564658,
+              "exhaustedMandates": 6,
+              "recoveriesAvailableAtCap": 5,
+              "illegalUpiCandidates": 0,
+              "deferredMandates": 832,
+              "initialHardRefusals": 566,
+              "initialWaits": 832,
+              "initialRetries": 602,
+              "deferredConvertedToRetry": 832,
+              "deferredRecovered": 237,
+              "deferralCapHits": 832,
+              "unusedAttemptsAtHorizon": 2888,
+              "unusedAttemptsAfterRecovery": 1527,
+              "unusedAttemptsOnHardStops": 1014,
+              "revenue": 2311421.56,
+              "rupeesPerAttempt": 1458.3101324921124
+            }
+          ],
+          "pairedNetDifference": -684182.46
+        },
+        {
+          "seed": 20260822,
+          "policies": [
+            {
+              "name": "T+1 / T+2 / T+3",
+              "attempts": 3528,
+              "totalAuthorizationAttempts": 5528,
+              "recovered": 1086,
+              "failures": 4442,
+              "grossRevenue": 2884835.96,
+              "netRevenue": 2464425.96,
+              "netRevenueWithoutDeclinePenalty": 2879425.96,
+              "attemptCost": 5410,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.6921768707482994,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 817.6972675736969,
+              "netRupeesPerAttempt": 698.5334353741505,
+              "exhaustedMandates": 560,
+              "recoveriesAvailableAtCap": 91,
+              "illegalUpiCandidates": 0,
+              "deferredMandates": 0,
+              "initialHardRefusals": 0,
+              "initialWaits": 0,
+              "initialRetries": 0,
+              "deferredConvertedToRetry": 0,
+              "deferredRecovered": 0,
+              "deferralCapHits": 0,
+              "unusedAttemptsAtHorizon": 1062,
+              "unusedAttemptsAfterRecovery": 1410,
+              "unusedAttemptsOnHardStops": 1062,
+              "revenue": 2884835.96,
+              "rupeesPerAttempt": 817.6972675736969
+            },
+            {
+              "name": "Recovery Loop",
+              "attempts": 1558,
+              "totalAuthorizationAttempts": 3558,
+              "recovered": 794,
+              "failures": 2764,
+              "grossRevenue": 2088759.18,
+              "netRevenue": 1672038.18,
+              "netRevenueWithoutDeclinePenalty": 2087038.18,
+              "attemptCost": 1721,
+              "stopSignalPenalty": 0,
+              "declinePenalty": 415000,
+              "declineRate": 0.49037227214377405,
+              "declinePenaltyTriggered": true,
+              "grossRupeesPerAttempt": 1340.6669961489083,
+              "netRupeesPerAttempt": 1073.1952374839534,
+              "exhaustedMandates": 10,
+              "recoveriesAvailableAtCap": 7,
+              "illegalUpiCandidates": 0,
+              "deferredMandates": 825,
+              "initialHardRefusals": 605,
+              "initialWaits": 825,
+              "initialRetries": 570,
+              "deferredConvertedToRetry": 825,
+              "deferredRecovered": 234,
+              "deferralCapHits": 825,
+              "unusedAttemptsAtHorizon": 2997,
+              "unusedAttemptsAfterRecovery": 1445,
+              "unusedAttemptsOnHardStops": 1062,
+              "revenue": 2088759.18,
+              "rupeesPerAttempt": 1340.6669961489083
+            }
+          ],
+          "pairedNetDifference": -792387.78
+        }
+      ],
+      "representativeOpportunityTable": {
+        "eventId": "sim_0002",
+        "seed": 20260818,
+        "amount": 3950.27,
+        "table": {
+          "attemptsRemaining": 3,
+          "candidateAt": 1787378400000,
+          "horizonAt": 1789970400000,
+          "rows": [
+            {
+              "daysRemaining": 30,
+              "attemptedAt": 1787378400000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3809.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                1952.98,
+                2027.68
+              ]
+            },
+            {
+              "daysRemaining": 29,
+              "attemptedAt": 1787464800000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3809.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                2217.06,
+                2431.05
+              ]
+            },
+            {
+              "daysRemaining": 28,
+              "attemptedAt": 1787551200000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3809.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                2217.06,
+                2431.05
+              ]
+            },
+            {
+              "daysRemaining": 27,
+              "attemptedAt": 1787637600000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3809.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                2217.06,
+                2431.05
+              ]
+            },
+            {
+              "daysRemaining": 26,
+              "attemptedAt": 1787724000000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3809.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                2217.06,
+                2431.05
+              ]
+            },
+            {
+              "daysRemaining": 25,
+              "attemptedAt": 1787810400000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3809.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                2217.06,
+                2431.05
+              ]
+            },
+            {
+              "daysRemaining": 24,
+              "attemptedAt": 1787896800000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3809.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                2635.18,
+                3069.71
+              ]
+            },
+            {
+              "daysRemaining": 23,
+              "attemptedAt": 1787983200000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3809.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                2635.18,
+                3069.71
+              ]
+            },
+            {
+              "daysRemaining": 22,
+              "attemptedAt": 1788069600000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3809.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                2635.18,
+                3069.71
+              ]
+            },
+            {
+              "daysRemaining": 21,
+              "attemptedAt": 1788156000000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3809.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                2635.18,
+                3069.71
+              ]
+            },
+            {
+              "daysRemaining": 20,
+              "attemptedAt": 1788242400000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3809.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                2635.18,
+                3015.22
+              ]
+            },
+            {
+              "daysRemaining": 19,
+              "attemptedAt": 1788328800000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3361.4,
+                3754.73
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                2200.65,
+                2387.5,
+                2965.2
+              ]
+            },
+            {
+              "daysRemaining": 18,
+              "attemptedAt": 1788415200000,
+              "valueByAttemptsRemaining": [
+                0,
+                2200.65,
+                3113.71,
+                3650.22
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                2160.15,
+                2820.51
+              ]
+            },
+            {
+              "daysRemaining": 17,
+              "attemptedAt": 1788501600000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 16,
+              "attemptedAt": 1788588000000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 15,
+              "attemptedAt": 1788674400000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 14,
+              "attemptedAt": 1788760800000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 13,
+              "attemptedAt": 1788847200000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 12,
+              "attemptedAt": 1788933600000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 11,
+              "attemptedAt": 1789020000000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 10,
+              "attemptedAt": 1789106400000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 9,
+              "attemptedAt": 1789192800000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 8,
+              "attemptedAt": 1789279200000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 7,
+              "attemptedAt": 1789365600000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 6,
+              "attemptedAt": 1789452000000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 5,
+              "attemptedAt": 1789538400000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 4,
+              "attemptedAt": 1789624800000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 3,
+              "attemptedAt": 1789711200000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ]
+            },
+            {
+              "daysRemaining": 2,
+              "attemptedAt": 1789797600000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3401.02
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2010
+              ]
+            },
+            {
+              "daysRemaining": 1,
+              "attemptedAt": 1789884000000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                2638.68,
+                3091.86
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                1450.1,
+                1130.58,
+                1546.46
+              ]
+            },
+            {
+              "daysRemaining": 0,
+              "attemptedAt": 1789970400000,
+              "valueByAttemptsRemaining": [
+                0,
+                1450.1,
+                1884.63,
+                2319.16
+              ],
+              "opportunityCostByAttemptsRemaining": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

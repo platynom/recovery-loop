@@ -1,0 +1,2234 @@
+{
+  "generatedAt": "2026-08-22",
+  "fetchDate": "2026-08-22",
+  "commonPeriodRange": "2025-01 to 2026-06",
+  "sources": {
+    "autopay": {
+      "file": "autopay-payer-psp-execution-2025-01_to_2026-07-fetched-2026-08-22.json",
+      "sourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "canonicalSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay"
+    },
+    "returns": {
+      "file": "nach-destination-bank-returns-2025-01_to_2026-06-fetched-2026-08-22.json",
+      "sourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "canonicalSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach"
+    },
+    "response": {
+      "file": "nach-destination-bank-response-2025-01_to_2026-06-fetched-2026-08-22.json",
+      "sourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "canonicalSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach"
+    },
+    "incidents": {
+      "file": "upi-downtime-incidents-2025-01_to_2026-07-fetched-2026-08-22.json",
+      "sourceUrl": "https://www.npci.org.in/product/upi/product-statistics",
+      "canonicalSourceUrl": "https://www.npci.org.in/product/upi/product-statistics"
+    }
+  },
+  "notes": [
+    "AutoPay payer-PSP approval, business-decline and technical-decline rates are published NPCI observations.",
+    "NACH financial/non-financial return shares and T+0..T+4 response shares are published NPCI observations.",
+    "UPI incident counts and downtime are NPCI reportable incidents only; absence is not proof of zero downtime.",
+    "The simulator conditions on an already-failed cohort; volume multiplied by observed decline rate supplies bank/month sampling weight.",
+    "The bank-health outage trigger is frozen at 7.917882x each bank's own baseline: the smallest visible TD elevation among NPCI reportable-incident months.",
+    "Reportable incidents without a visible monthly TD elevation are acknowledged as aggregation dilution and do not lower the trigger."
+  ],
+  "bankBaselines": {
+    "HDFC": {
+      "totalDeclineRate": 0.02235563930610209,
+      "technicalDeclineRate": 0.00016824253172975667
+    },
+    "SBI": {
+      "totalDeclineRate": 0.013212408509181185,
+      "technicalDeclineRate": 0.0009570324872661901
+    },
+    "ICICI": {
+      "totalDeclineRate": 0.021728143806789123,
+      "technicalDeclineRate": 0.0004167781143059433
+    },
+    "Axis": {
+      "totalDeclineRate": 0.02380426712823557,
+      "technicalDeclineRate": 0.00023026900216718048
+    }
+  },
+  "incidentDeviationMultiplier": 7.917882169737869,
+  "periods": [
+    {
+      "period": "2025-01",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 19.55,
+            "approvedRate": 0.9059,
+            "businessDeclineRate": 0.0941,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 17.79,
+            "successRate": 0.8219,
+            "financialBusinessDeclineRate": 0.17809999999999998,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 17.79,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 10.69,
+            "approvedRate": 0.9890000000000001,
+            "businessDeclineRate": 0.0106,
+            "technicalDeclineRate": 0.0004
+          },
+          "nachReturns": {
+            "volumeMillions": 38.53,
+            "successRate": 0.8156,
+            "financialBusinessDeclineRate": 0.1844,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 38.53,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 30.67,
+            "approvedRate": 0.9655,
+            "businessDeclineRate": 0.0344,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 11.75,
+            "successRate": 0.8815000000000001,
+            "financialBusinessDeclineRate": 0.1185,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 11.75,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 43.34,
+            "approvedRate": 0.9688,
+            "businessDeclineRate": 0.0311,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 10.15,
+            "successRate": 0.7896,
+            "financialBusinessDeclineRate": 0.2104,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.15,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2025-02",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 20.31,
+            "approvedRate": 0.9037000000000001,
+            "businessDeclineRate": 0.0962,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 17.46,
+            "successRate": 0.8222,
+            "financialBusinessDeclineRate": 0.1778,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 17.46,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 11.5,
+            "approvedRate": 0.9901000000000001,
+            "businessDeclineRate": 0.0092,
+            "technicalDeclineRate": 0.0007000000000000001
+          },
+          "nachReturns": {
+            "volumeMillions": 38.61,
+            "successRate": 0.809,
+            "financialBusinessDeclineRate": 0.191,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 38.61,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 4,
+            "downtimeMinutes": 456
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 31.6,
+            "approvedRate": 0.9645,
+            "businessDeclineRate": 0.0353,
+            "technicalDeclineRate": 0.0002
+          },
+          "nachReturns": {
+            "volumeMillions": 11.49,
+            "successRate": 0.8806999999999999,
+            "financialBusinessDeclineRate": 0.1193,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 11.49,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 44.75,
+            "approvedRate": 0.9704999999999999,
+            "businessDeclineRate": 0.0294,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 10.07,
+            "successRate": 0.79,
+            "financialBusinessDeclineRate": 0.21,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.07,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2025-03",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 21.95,
+            "approvedRate": 0.9527,
+            "businessDeclineRate": 0.0473,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 17.62,
+            "successRate": 0.8198000000000001,
+            "financialBusinessDeclineRate": 0.1802,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 17.62,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 13.21,
+            "approvedRate": 0.9904999999999999,
+            "businessDeclineRate": 0.0095,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 39.45,
+            "successRate": 0.8009000000000001,
+            "financialBusinessDeclineRate": 0.1991,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 39.45,
+            "responseRateByDay": [
+              0.9784999999999999,
+              0.0215,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 35.67,
+            "approvedRate": 0.9745,
+            "businessDeclineRate": 0.0252,
+            "technicalDeclineRate": 0.0003
+          },
+          "nachReturns": {
+            "volumeMillions": 11.64,
+            "successRate": 0.8789,
+            "financialBusinessDeclineRate": 0.1211,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 11.64,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 50.82,
+            "approvedRate": 0.9795,
+            "businessDeclineRate": 0.0203,
+            "technicalDeclineRate": 0.0003
+          },
+          "nachReturns": {
+            "volumeMillions": 10.19,
+            "successRate": 0.7846,
+            "financialBusinessDeclineRate": 0.21539999999999998,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.19,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2025-04",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 21.58,
+            "approvedRate": 0.9598,
+            "businessDeclineRate": 0.04019999999999999,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 17.53,
+            "successRate": 0.8233,
+            "financialBusinessDeclineRate": 0.17670000000000002,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 17.53,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 13.35,
+            "approvedRate": 0.9932,
+            "businessDeclineRate": 0.0068000000000000005,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 39.35,
+            "successRate": 0.8029000000000001,
+            "financialBusinessDeclineRate": 0.1971,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 39.35,
+            "responseRateByDay": [
+              0.9745999999999999,
+              0.0254,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 34.3,
+            "approvedRate": 0.9716,
+            "businessDeclineRate": 0.025099999999999997,
+            "technicalDeclineRate": 0.0033
+          },
+          "nachReturns": {
+            "volumeMillions": 11.95,
+            "successRate": 0.8852,
+            "financialBusinessDeclineRate": 0.1148,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 11.95,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 1,
+            "downtimeMinutes": 35
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 50.02,
+            "approvedRate": 0.9743999999999999,
+            "businessDeclineRate": 0.0231,
+            "technicalDeclineRate": 0.0025
+          },
+          "nachReturns": {
+            "volumeMillions": 10.14,
+            "successRate": 0.7879999999999999,
+            "financialBusinessDeclineRate": 0.212,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.14,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2025-05",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 22.78,
+            "approvedRate": 0.9840000000000001,
+            "businessDeclineRate": 0.0159,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 17.73,
+            "successRate": 0.8190999999999999,
+            "financialBusinessDeclineRate": 0.1809,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 17.73,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 14.25,
+            "approvedRate": 0.9945999999999999,
+            "businessDeclineRate": 0.0053,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 39.88,
+            "successRate": 0.8029000000000001,
+            "financialBusinessDeclineRate": 0.1971,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 39.88,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 3,
+            "downtimeMinutes": 234
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 38.69,
+            "approvedRate": 0.9799,
+            "businessDeclineRate": 0.0196,
+            "technicalDeclineRate": 0.0005
+          },
+          "nachReturns": {
+            "volumeMillions": 11.63,
+            "successRate": 0.8797,
+            "financialBusinessDeclineRate": 0.12029999999999999,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 11.63,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 55.42,
+            "approvedRate": 0.985,
+            "businessDeclineRate": 0.0147,
+            "technicalDeclineRate": 0.0003
+          },
+          "nachReturns": {
+            "volumeMillions": 10.25,
+            "successRate": 0.7861,
+            "financialBusinessDeclineRate": 0.2139,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.25,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2025-06",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 23.93,
+            "approvedRate": 0.9813,
+            "businessDeclineRate": 0.0187,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 17.79,
+            "successRate": 0.8258,
+            "financialBusinessDeclineRate": 0.17420000000000002,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 17.79,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 14.69,
+            "approvedRate": 0.9936,
+            "businessDeclineRate": 0.0063,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 40.14,
+            "successRate": 0.8085,
+            "financialBusinessDeclineRate": 0.19149999999999998,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 40.14,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 5,
+            "downtimeMinutes": 227
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 41.35,
+            "approvedRate": 0.9848,
+            "businessDeclineRate": 0.015,
+            "technicalDeclineRate": 0.0002
+          },
+          "nachReturns": {
+            "volumeMillions": 11.65,
+            "successRate": 0.8863,
+            "financialBusinessDeclineRate": 0.1137,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 11.65,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 60.5,
+            "approvedRate": 0.9623999999999999,
+            "businessDeclineRate": 0.037599999999999995,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 10.27,
+            "successRate": 0.7912,
+            "financialBusinessDeclineRate": 0.20879999999999999,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.27,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 1,
+            "downtimeMinutes": 183
+          }
+        }
+      ]
+    },
+    {
+      "period": "2025-07",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 25.74,
+            "approvedRate": 0.9812000000000001,
+            "businessDeclineRate": 0.018799999999999997,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 18.1,
+            "successRate": 0.8255,
+            "financialBusinessDeclineRate": 0.1745,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 18.1,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 15.57,
+            "approvedRate": 0.9933,
+            "businessDeclineRate": 0.006500000000000001,
+            "technicalDeclineRate": 0.0002
+          },
+          "nachReturns": {
+            "volumeMillions": 41,
+            "successRate": 0.8092,
+            "financialBusinessDeclineRate": 0.19079999999999997,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 41,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 6,
+            "downtimeMinutes": 415
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 45.05,
+            "approvedRate": 0.9829000000000001,
+            "businessDeclineRate": 0.016399999999999998,
+            "technicalDeclineRate": 0.0008
+          },
+          "nachReturns": {
+            "volumeMillions": 11.88,
+            "successRate": 0.8892,
+            "financialBusinessDeclineRate": 0.1108,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 11.88,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 63.18,
+            "approvedRate": 0.9853000000000001,
+            "businessDeclineRate": 0.014199999999999999,
+            "technicalDeclineRate": 0.0005
+          },
+          "nachReturns": {
+            "volumeMillions": 10.41,
+            "successRate": 0.7929999999999999,
+            "financialBusinessDeclineRate": 0.207,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.41,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2025-08",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 26.82,
+            "approvedRate": 0.9851000000000001,
+            "businessDeclineRate": 0.0149,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 18.19,
+            "successRate": 0.8197,
+            "financialBusinessDeclineRate": 0.18030000000000002,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 18.19,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 18.66,
+            "approvedRate": 0.9944,
+            "businessDeclineRate": 0.0054,
+            "technicalDeclineRate": 0.0002
+          },
+          "nachReturns": {
+            "volumeMillions": 41.51,
+            "successRate": 0.8040999999999999,
+            "financialBusinessDeclineRate": 0.1959,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 41.51,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 47.51,
+            "approvedRate": 0.9881,
+            "businessDeclineRate": 0.0115,
+            "technicalDeclineRate": 0.0004
+          },
+          "nachReturns": {
+            "volumeMillions": 11.92,
+            "successRate": 0.887,
+            "financialBusinessDeclineRate": 0.113,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 11.92,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 2,
+            "downtimeMinutes": 214
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 67.94,
+            "approvedRate": 0.9703,
+            "businessDeclineRate": 0.0294,
+            "technicalDeclineRate": 0.0002
+          },
+          "nachReturns": {
+            "volumeMillions": 10.44,
+            "successRate": 0.7859999999999999,
+            "financialBusinessDeclineRate": 0.214,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.44,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2025-09",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 28.66,
+            "approvedRate": 0.9821,
+            "businessDeclineRate": 0.0178,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 18.37,
+            "successRate": 0.8201999999999999,
+            "financialBusinessDeclineRate": 0.17980000000000002,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 18.37,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 23.47,
+            "approvedRate": 0.9901000000000001,
+            "businessDeclineRate": 0.0092,
+            "technicalDeclineRate": 0.0007000000000000001
+          },
+          "nachReturns": {
+            "volumeMillions": 42.14,
+            "successRate": 0.8036,
+            "financialBusinessDeclineRate": 0.19640000000000002,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 42.14,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 49.9,
+            "approvedRate": 0.9829000000000001,
+            "businessDeclineRate": 0.0169,
+            "technicalDeclineRate": 0.0002
+          },
+          "nachReturns": {
+            "volumeMillions": 12.18,
+            "successRate": 0.8879,
+            "financialBusinessDeclineRate": 0.1121,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 12.18,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 71.94,
+            "approvedRate": 0.9571,
+            "businessDeclineRate": 0.042800000000000005,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 10.54,
+            "successRate": 0.7857999999999999,
+            "financialBusinessDeclineRate": 0.21420000000000003,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.54,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2025-10",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 31.43,
+            "approvedRate": 0.983,
+            "businessDeclineRate": 0.017,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 18.37,
+            "successRate": 0.8201999999999999,
+            "financialBusinessDeclineRate": 0.17980000000000002,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 18.37,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 27.24,
+            "approvedRate": 0.9859,
+            "businessDeclineRate": 0.0131,
+            "technicalDeclineRate": 0.001
+          },
+          "nachReturns": {
+            "volumeMillions": 42.14,
+            "successRate": 0.8036,
+            "financialBusinessDeclineRate": 0.19640000000000002,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 42.14,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 55.44,
+            "approvedRate": 0.9715,
+            "businessDeclineRate": 0.0285,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 12.18,
+            "successRate": 0.8879,
+            "financialBusinessDeclineRate": 0.1121,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 12.18,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 78.31,
+            "approvedRate": 0.9632,
+            "businessDeclineRate": 0.0366,
+            "technicalDeclineRate": 0.0002
+          },
+          "nachReturns": {
+            "volumeMillions": 10.54,
+            "successRate": 0.7857999999999999,
+            "financialBusinessDeclineRate": 0.21420000000000003,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.54,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2025-11",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 32.78,
+            "approvedRate": 0.9845999999999999,
+            "businessDeclineRate": 0.015,
+            "technicalDeclineRate": 0.0003
+          },
+          "nachReturns": {
+            "volumeMillions": 20.67,
+            "successRate": 0.7581,
+            "financialBusinessDeclineRate": 0.2419,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 20.67,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 30.05,
+            "approvedRate": 0.9845999999999999,
+            "businessDeclineRate": 0.0141,
+            "technicalDeclineRate": 0.0013
+          },
+          "nachReturns": {
+            "volumeMillions": 43.32,
+            "successRate": 0.7972,
+            "financialBusinessDeclineRate": 0.2028,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 43.32,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 58.78,
+            "approvedRate": 0.9673999999999999,
+            "businessDeclineRate": 0.0315,
+            "technicalDeclineRate": 0.0011
+          },
+          "nachReturns": {
+            "volumeMillions": 12.17,
+            "successRate": 0.8865000000000001,
+            "financialBusinessDeclineRate": 0.11349999999999999,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 12.17,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 81.31,
+            "approvedRate": 0.9684,
+            "businessDeclineRate": 0.031400000000000004,
+            "technicalDeclineRate": 0.0002
+          },
+          "nachReturns": {
+            "volumeMillions": 10.71,
+            "successRate": 0.7792,
+            "financialBusinessDeclineRate": 0.2208,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.71,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2025-12",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 35.63,
+            "approvedRate": 0.988,
+            "businessDeclineRate": 0.012,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 19.23,
+            "successRate": 0.8083,
+            "financialBusinessDeclineRate": 0.1917,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 19.23,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 33.57,
+            "approvedRate": 0.9876999999999999,
+            "businessDeclineRate": 0.0115,
+            "technicalDeclineRate": 0.0007000000000000001
+          },
+          "nachReturns": {
+            "volumeMillions": 44.39,
+            "successRate": 0.8009999999999999,
+            "financialBusinessDeclineRate": 0.19899999999999998,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 44.39,
+            "responseRateByDay": [
+              0.9987999999999999,
+              0.0012,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 67.12,
+            "approvedRate": 0.975,
+            "businessDeclineRate": 0.0248,
+            "technicalDeclineRate": 0.0003
+          },
+          "nachReturns": {
+            "volumeMillions": 12.37,
+            "successRate": 0.8896,
+            "financialBusinessDeclineRate": 0.1104,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 12.37,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 92.31,
+            "approvedRate": 0.9625,
+            "businessDeclineRate": 0.0373,
+            "technicalDeclineRate": 0.0002
+          },
+          "nachReturns": {
+            "volumeMillions": 10.88,
+            "successRate": 0.7829999999999999,
+            "financialBusinessDeclineRate": 0.217,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.88,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2026-01",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 37.13,
+            "approvedRate": 0.9906,
+            "businessDeclineRate": 0.009399999999999999,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 18.98,
+            "successRate": 0.8197,
+            "financialBusinessDeclineRate": 0.18030000000000002,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 18.98,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 1,
+            "downtimeMinutes": 56
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 36.37,
+            "approvedRate": 0.9861,
+            "businessDeclineRate": 0.0127,
+            "technicalDeclineRate": 0.0012
+          },
+          "nachReturns": {
+            "volumeMillions": 44.8,
+            "successRate": 0.7988,
+            "financialBusinessDeclineRate": 0.20120000000000002,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 44.8,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 73.33,
+            "approvedRate": 0.9840000000000001,
+            "businessDeclineRate": 0.0159,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 12.38,
+            "successRate": 0.8881,
+            "financialBusinessDeclineRate": 0.1119,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 12.38,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 3,
+            "downtimeMinutes": 301
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 98.22,
+            "approvedRate": 0.987,
+            "businessDeclineRate": 0.013000000000000001,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 10.92,
+            "successRate": 0.7822,
+            "financialBusinessDeclineRate": 0.21780000000000002,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.92,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2026-02",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 35.83,
+            "approvedRate": 0.9839,
+            "businessDeclineRate": 0.0141,
+            "technicalDeclineRate": 0.0021
+          },
+          "nachReturns": {
+            "volumeMillions": 18.75,
+            "successRate": 0.8199,
+            "financialBusinessDeclineRate": 0.1801,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 18.75,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 1,
+            "downtimeMinutes": 211
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 36.27,
+            "approvedRate": 0.9854,
+            "businessDeclineRate": 0.0138,
+            "technicalDeclineRate": 0.0007000000000000001
+          },
+          "nachReturns": {
+            "volumeMillions": 44.45,
+            "successRate": 0.7998999999999999,
+            "financialBusinessDeclineRate": 0.20010000000000003,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 44.45,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 73.25,
+            "approvedRate": 0.9802,
+            "businessDeclineRate": 0.0196,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 12.18,
+            "successRate": 0.8894,
+            "financialBusinessDeclineRate": 0.1106,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 12.18,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 97.18,
+            "approvedRate": 0.9868000000000001,
+            "businessDeclineRate": 0.0131,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 10.79,
+            "successRate": 0.7831999999999999,
+            "financialBusinessDeclineRate": 0.2168,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.79,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2026-03",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 39.33,
+            "approvedRate": 0.9903,
+            "businessDeclineRate": 0.0097,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 20.62,
+            "successRate": 0.7658,
+            "financialBusinessDeclineRate": 0.23420000000000002,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 20.62,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 41.27,
+            "approvedRate": 0.9853000000000001,
+            "businessDeclineRate": 0.0139,
+            "technicalDeclineRate": 0.0008
+          },
+          "nachReturns": {
+            "volumeMillions": 45.9,
+            "successRate": 0.7959999999999999,
+            "financialBusinessDeclineRate": 0.204,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 45.9,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 2,
+            "downtimeMinutes": 79
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 83.04,
+            "approvedRate": 0.9821,
+            "businessDeclineRate": 0.0178,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 12.67,
+            "successRate": 0.8906999999999999,
+            "financialBusinessDeclineRate": 0.1093,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 12.67,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 2,
+            "downtimeMinutes": 104
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 109.3,
+            "approvedRate": 0.9849,
+            "businessDeclineRate": 0.0151,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 11.15,
+            "successRate": 0.7809999999999999,
+            "financialBusinessDeclineRate": 0.21899999999999997,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 11.15,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2026-04",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 38.12,
+            "approvedRate": 0.9914000000000001,
+            "businessDeclineRate": 0.0086,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 19.05,
+            "successRate": 0.8181999999999999,
+            "financialBusinessDeclineRate": 0.1818,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 19.05,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 40.65,
+            "approvedRate": 0.9837,
+            "businessDeclineRate": 0.0144,
+            "technicalDeclineRate": 0.0019
+          },
+          "nachReturns": {
+            "volumeMillions": 45.36,
+            "successRate": 0.7951999999999999,
+            "financialBusinessDeclineRate": 0.2048,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 45.36,
+            "responseRateByDay": [
+              0.9751000000000001,
+              0.024900000000000002,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 81.49,
+            "approvedRate": 0.9799,
+            "businessDeclineRate": 0.019799999999999998,
+            "technicalDeclineRate": 0.0002
+          },
+          "nachReturns": {
+            "volumeMillions": 12.79,
+            "successRate": 0.894,
+            "financialBusinessDeclineRate": 0.106,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 12.79,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 107.71,
+            "approvedRate": 0.9842,
+            "businessDeclineRate": 0.015600000000000001,
+            "technicalDeclineRate": 0.0002
+          },
+          "nachReturns": {
+            "volumeMillions": 10.96,
+            "successRate": 0.7831,
+            "financialBusinessDeclineRate": 0.2169,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 10.96,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2026-05",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 40.07,
+            "approvedRate": 0.9817,
+            "businessDeclineRate": 0.0182,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 19.21,
+            "successRate": 0.8155,
+            "financialBusinessDeclineRate": 0.1845,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 19.21,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 1,
+            "downtimeMinutes": 272
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 43.09,
+            "approvedRate": 0.9787,
+            "businessDeclineRate": 0.0191,
+            "technicalDeclineRate": 0.0022
+          },
+          "nachReturns": {
+            "volumeMillions": 45.74,
+            "successRate": 0.7942,
+            "financialBusinessDeclineRate": 0.20579999999999998,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 45.74,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 85.57,
+            "approvedRate": 0.9793000000000001,
+            "businessDeclineRate": 0.02,
+            "technicalDeclineRate": 0.0007000000000000001
+          },
+          "nachReturns": {
+            "volumeMillions": 12.45,
+            "successRate": 0.8908,
+            "financialBusinessDeclineRate": 0.1092,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 12.45,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 113.21,
+            "approvedRate": 0.9814,
+            "businessDeclineRate": 0.018500000000000003,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 11.03,
+            "successRate": 0.7798,
+            "financialBusinessDeclineRate": 0.2202,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 11.03,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    },
+    {
+      "period": "2026-06",
+      "banks": [
+        {
+          "bank": "HDFC",
+          "autopay": {
+            "volumeMillions": 39.65,
+            "approvedRate": 0.9909,
+            "businessDeclineRate": 0.0091,
+            "technicalDeclineRate": 0
+          },
+          "nachReturns": {
+            "volumeMillions": 19.23,
+            "successRate": 0.8184,
+            "financialBusinessDeclineRate": 0.1816,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 19.23,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "SBI",
+          "autopay": {
+            "volumeMillions": 43.36,
+            "approvedRate": 0.9852,
+            "businessDeclineRate": 0.0137,
+            "technicalDeclineRate": 0.0011
+          },
+          "nachReturns": {
+            "volumeMillions": 46.44,
+            "successRate": 0.7951999999999999,
+            "financialBusinessDeclineRate": 0.2048,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 46.44,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "ICICI",
+          "autopay": {
+            "volumeMillions": 84.16,
+            "approvedRate": 0.9793000000000001,
+            "businessDeclineRate": 0.0206,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 12.52,
+            "successRate": 0.8935,
+            "financialBusinessDeclineRate": 0.1065,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 12.52,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        },
+        {
+          "bank": "Axis",
+          "autopay": {
+            "volumeMillions": 112.67,
+            "approvedRate": 0.9804,
+            "businessDeclineRate": 0.0196,
+            "technicalDeclineRate": 0.0001
+          },
+          "nachReturns": {
+            "volumeMillions": 11.07,
+            "successRate": 0.7831999999999999,
+            "financialBusinessDeclineRate": 0.2168,
+            "nonFinancialBusinessDeclineRate": 0
+          },
+          "nachResponse": {
+            "volumeMillions": 11.07,
+            "responseRateByDay": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "upiIncidents": {
+            "incidentCount": 0,
+            "downtimeMinutes": 0
+          }
+        }
+      ]
+    }
+  ]
+}
