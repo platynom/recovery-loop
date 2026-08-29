@@ -2,6 +2,7 @@ import { createAuditEntry } from '@/src/audit/audit.mjs';
 import { normalizeIssuerText } from '@/src/diagnose/taxonomy.mjs';
 import { decideRecovery } from '@/src/policy/scheduler.mjs';
 import { getRailHealth, persistRawEvent, persistRecoveryRecord, runtimeEnv, setRailHealth } from '@/db/client';
+import { downtimeIssuerKey, paymentEntity, paymentIssuerKey, requireIssuerKey, unresolvedIssuerKey } from '@/src/integration/razorpay-issuer.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,12 +25,11 @@ function timingSafeEqualHex(a: string, b: string) {
 
 function toFailureEvent(payload: JsonObject, now: number) {
   const payloadRoot = objectValue(payload.payload);
-  const paymentEntity = objectValue(objectValue(payloadRoot.payment).entity);
+  const payment = objectValue(objectValue(payloadRoot.payment).entity);
   const subscriptionEntity = objectValue(objectValue(payloadRoot.subscription).entity);
-  const entity = Object.keys(paymentEntity).length ? paymentEntity : subscriptionEntity;
+  const entity = Object.keys(payment).length ? payment : Object.keys(subscriptionEntity).length ? subscriptionEntity : paymentEntity(payload);
   const acquirerData = objectValue(entity.acquirer_data);
   const notes = objectValue(entity.notes);
-  const inferredBank = String(acquirerData.bank_transaction_id ?? '').slice(0, 4) || 'Unknown';
   const eventType = String(payload.event ?? 'unknown');
   const downtime = eventType.startsWith('payment.downtime.');
   const id = String(entity.id ?? payload.id ?? `evt_${now}`);
@@ -37,10 +37,15 @@ function toFailureEvent(payload: JsonObject, now: number) {
     id,
     createdAt: Number(entity.created_at ? entity.created_at * 1000 : now),
     amount: Number(entity.amount ?? 0) / 100,
-    bank: String(entity.bank ?? inferredBank),
+    bank: paymentIssuerKey(payload) ?? unresolvedIssuerKey,
     rail: entity.method === 'upi' ? 'UPI AutoPay' : entity.method === 'card' ? 'Cards' : 'eMandate',
     errorCode: String(entity.error_code ?? (downtime ? 'GATEWAY_ERROR' : 'UNKNOWN')),
     errorDescription: normalizeIssuerText(String(entity.error_description ?? entity.error_reason ?? eventType)),
+    errorSource: String(entity.error_source ?? ''),
+    errorStep: String(entity.error_step ?? ''),
+    errorReason: String(entity.error_reason ?? ''),
+    mandateId: String(subscriptionEntity.id ?? entity.subscription_id ?? entity.token_id ?? notes.mandate_id ?? id),
+    merchantAdviceCode: String(entity.merchant_advice_code ?? acquirerData.merchant_advice_code ?? notes.merchant_advice_code ?? ''),
     attemptNumber: Number(notes.recovery_attempt ?? 1),
     issuerStop: /mandate.*(inactive|cancelled)|do.not.retry/i.test(`${entity.error_code ?? ''} ${entity.error_description ?? ''}`),
     outageActive: downtime,
@@ -53,9 +58,8 @@ function toFailureEvent(payload: JsonObject, now: number) {
 function downtimeHealth(payload: JsonObject, now: number) {
   const payloadRoot = objectValue(payload.payload);
   const entity = objectValue(objectValue(payloadRoot['payment.downtime']).entity);
-  const instrument = objectValue(entity.instrument);
   const eventType = String(payload.event ?? 'payment.downtime.updated');
-  const issuer = String(instrument.issuer ?? instrument.psp ?? instrument.vpa_handle ?? 'Unknown');
+  const issuer = requireIssuerKey(downtimeIssuerKey(payload), String(entity.id ?? `down_${now}`));
   const rail = entity.method === 'upi' ? 'UPI AutoPay' : entity.method === 'card' ? 'Cards' : String(entity.method ?? 'eMandate');
   const resolved = eventType.endsWith('.resolved') || entity.status === 'resolved';
   const severity = String(entity.severity ?? 'medium');
@@ -93,15 +97,17 @@ export async function POST(request: Request) {
     return Response.json({ accepted: true, persisted: Boolean(runtime.DB), railHealth: health }, { status: 202 });
   }
   const event = toFailureEvent(payload, now);
-  if (runtime.DB) {
+  const issuerJoinable = event.bank !== unresolvedIssuerKey;
+  if (!issuerJoinable) console.error('issuer_health_join_failed', { eventId: event.id, eventType, rail: event.rail, reason: 'payment payload has no issuer identifier; transaction ids are not issuer keys' });
+  if (runtime.DB && issuerJoinable) {
     const currentHealth = await getRailHealth(runtime.DB, event.bank, event.rail);
     if (currentHealth?.status === 'outage') {
       event.outageActive = true;
       event.bankDeclineRate = Number(currentHealth.decline_rate ?? 0.35);
     }
   }
-  const decision = decideRecovery(event, { monthlyBudget: 10000, remainingAttempts: 4200, maxAttempts: 3, coverageThreshold: 0.28, maxDeclineRate: 0.12 }, now);
+  const decision = decideRecovery(event, { monthlyBudget: 10000, remainingAttempts: 4200, coverageThreshold: 0.28, maxDeclineRate: 0.12 }, now);
   const audit = createAuditEntry(event, decision, now);
   if (runtime.DB) await persistRecoveryRecord(runtime.DB, { raw: { id: event.id, eventType: String(payload.event ?? 'unknown'), receivedAt: now, payload, signatureVerified: verified }, decision, audit });
-  return Response.json({ accepted: true, persisted: Boolean(runtime.DB), eventId: event.id, decision }, { status: 202 });
+  return Response.json({ accepted: true, persisted: Boolean(runtime.DB), eventId: event.id, issuerHealthJoin: issuerJoinable ? 'matched-or-no-health-row' : 'unmatched-missing-issuer', decision }, { status: 202 });
 }

@@ -1,161 +1,190 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
-type DecisionRow = { id: string; bank: string; rail: string; amount: string; status: 'Retry'|'Wait'|'Refuse'; score: string; time: string; attemptPrice?: number; expectedValue?: number; reasons?: string[]; scheduledAt?: number|null };
+type LoadState = 'loading' | 'ready' | 'empty' | 'error';
+type Screen = 'inspector' | 'stream' | 'budget' | 'health' | 'comparison';
+type Spread = { mean: number; min: number; max: number };
+type PolicyEvidence = {
+  name: string;
+  attempts: Spread;
+  recovered: Spread;
+  grossRevenue: Spread;
+  netRevenue: Spread;
+  netRupeesPerAttempt: Spread;
+  unusedAttemptsAtHorizon: Spread;
+};
+type RailEvidence = {
+  rail: string;
+  cohortSize: number;
+  retriesPerMandate: number;
+  policies: PolicyEvidence[];
+  pairedNetDifference: Spread;
+  seedsWonByRecoveryLoop: number;
+  perSeed: unknown[];
+};
+type EvaluationPayload = {
+  fix7Evidence?: { reportedRails?: { upiNpcCalibrated?: RailEvidence; cardsUncalibrated?: RailEvidence } };
+};
+type Decision = {
+  eventId: string;
+  action: 'retry' | 'wait' | 'refuse_terminal';
+  probability: number;
+  attemptPrice?: number;
+  expectedValue?: number;
+  scheduledAt?: number | null;
+  reasons?: string[];
+  gate?: { allowed: boolean; reasons: string[] };
+  event: { bank: string; rail: string; amount: number; createdAt: number; attemptsUsed?: number };
+};
+type SimulationPayload = {
+  mode: string;
+  decisions: Decision[];
+  metrics: { totalEvents: number; attempts: number; recovered: number; recoveredRevenue: number; refused: number; waiting: number };
+};
 
-const initialDecisions: DecisionRow[] = [
-  { id: 'pay_8K2M', bank: 'HDFC', rail: 'UPI AutoPay', amount: '₹1,299', status: 'Retry', score: '84%', time: '10:42' },
-  { id: 'pay_1Q7A', bank: 'SBI', rail: 'eMandate', amount: '₹499', status: 'Wait', score: '62%', time: '10:40' },
-  { id: 'pay_9P3L', bank: 'Axis', rail: 'UPI AutoPay', amount: '₹2,499', status: 'Refuse', score: '21%', time: '10:38' },
-  { id: 'pay_4N8C', bank: 'ICICI', rail: 'Cards', amount: '₹899', status: 'Retry', score: '77%', time: '10:35' },
+const screens: { id: Screen; label: string; eyebrow: string }[] = [
+  { id: 'inspector', label: 'Decision inspector', eyebrow: 'Explain one decision' },
+  { id: 'stream', label: 'Decision stream', eyebrow: 'Watch the policy act' },
+  { id: 'budget', label: 'Attempt budget', eyebrow: 'See attempts strand' },
+  { id: 'health', label: 'Issuer health', eyebrow: 'Inject an outage' },
+  { id: 'comparison', label: 'Policy comparison', eyebrow: 'Efficiency and revenue' },
 ];
 
+const inr = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
+const number = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 1 });
+const formatAction = (action: Decision['action']) => action === 'refuse_terminal' ? 'Hard refuse' : action.charAt(0).toUpperCase() + action.slice(1);
+
+function EvidenceTag({ children, tone = 'calibrated' }: { children: React.ReactNode; tone?: 'calibrated' | 'simulated' }) {
+  return <span className={`evidence-tag ${tone}`}>{children}</span>;
+}
+
+function StatePanel({ state, label, onRetry }: { state: LoadState; label: string; onRetry: () => void }) {
+  if (state === 'loading') return <div className="state-panel loading" role="status"><span className="spinner" /><strong>Loading {label}</strong><p>The API is still responding.</p></div>;
+  if (state === 'error') return <div className="state-panel error" role="alert"><span>!</span><strong>{label} fetch failed</strong><p>This is an API error, not an empty result.</p><button onClick={onRetry}>Try again</button></div>;
+  return <div className="state-panel empty"><span>○</span><strong>No {label} returned</strong><p>The API succeeded, but the result set is empty.</p><button onClick={onRetry}>Refresh</button></div>;
+}
+
+function Metric({ label, value, detail }: { label: string; value: string; detail?: string }) {
+  return <div className="metric"><span>{label}</span><strong>{value}</strong>{detail && <small>{detail}</small>}</div>;
+}
+
 export default function Home() {
+  const [screen, setScreen] = useState<Screen>('inspector');
   const [outage, setOutage] = useState(false);
-  const [selected, setSelected] = useState<DecisionRow | null>(null);
-  const [decisions, setDecisions] = useState<DecisionRow[]>(initialDecisions);
-  const [metrics, setMetrics] = useState({ recoveredRevenue: 284610, attempts: 6842, recovered: 2316, refused: 1044 });
-  const [policyRows, setPolicyRows] = useState<Record<string, number>>({ 'Recovery Loop': 41.6, 'T+1 / T+2 / T+3': 33.1, 'Payday heuristic': 27.4, 'Do nothing': 12.8 });
-  const [dataState, setDataState] = useState<'loading'|'live'|'fallback'>('loading');
-  const [coverageThreshold, setCoverageThreshold] = useState(0.28);
-  const [monthlyBudget, setMonthlyBudget] = useState(10000);
+  const [simulation, setSimulation] = useState<SimulationPayload | null>(null);
+  const [evaluation, setEvaluation] = useState<EvaluationPayload | null>(null);
+  const [simulationState, setSimulationState] = useState<LoadState>('loading');
+  const [evaluationState, setEvaluationState] = useState<LoadState>('loading');
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [simulationNonce, setSimulationNonce] = useState(0);
+  const [evaluationNonce, setEvaluationNonce] = useState(0);
+  const loadSimulation = useCallback(() => {
+    setSimulationState('loading');
+    setSimulationNonce((value) => value + 1);
+  }, []);
+  const loadEvaluation = useCallback(() => {
+    setEvaluationState('loading');
+    setEvaluationNonce((value) => value + 1);
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
-    const query = new URLSearchParams({ coverageThreshold: String(coverageThreshold), monthlyBudget: String(monthlyBudget) });
-    if (outage) query.set('outageBank', 'HDFC');
-    fetch(`/api/simulation?${query}`, { signal: controller.signal })
-      .then((response) => { if (!response.ok) throw new Error('Simulation unavailable'); return response.json(); })
-      .then((payload) => {
-        setDecisions(payload.decisions.slice(0, 8).map((item: { eventId: string; action: string; probability: number; event: { bank: string; rail: string; amount: number; createdAt: number } }) => ({
-          id: item.eventId,
-          bank: item.event.bank,
-          rail: item.event.rail,
-          amount: new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(item.event.amount),
-          status: `${item.action.charAt(0).toUpperCase()}${item.action.slice(1)}` as DecisionRow['status'],
-          score: `${Math.round(item.probability * 100)}%`,
-          time: new Date(item.event.createdAt).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }),
-          attemptPrice: Number((item as { attemptPrice?: number }).attemptPrice ?? 0),
-          expectedValue: Number((item as { expectedValue?: number }).expectedValue ?? 0),
-          reasons: (item as { reasons?: string[] }).reasons ?? [],
-          scheduledAt: (item as { scheduledAt?: number|null }).scheduledAt,
-        })));
-        setMetrics(payload.metrics);
-        setPolicyRows(Object.fromEntries(payload.evaluation.policies.map((row: { name: string; rupeesPerAttempt: number }) => [row.name, row.rupeesPerAttempt])));
-        setDataState('live');
+    fetch(`/api/simulation${outage ? '?outageBank=HDFC' : ''}`, { signal: controller.signal })
+      .then((response) => { if (!response.ok) throw new Error('Simulation request failed'); return response.json(); })
+      .then((payload: SimulationPayload) => {
+        setSimulation(payload);
+        setSimulationState(payload.decisions?.length ? 'ready' : 'empty');
+        if (payload.decisions?.length) setSelectedId((current) => current && payload.decisions.some((item) => item.eventId === current) ? current : payload.decisions[0].eventId);
       })
-      .catch((error) => { if (error.name !== 'AbortError') setDataState('fallback'); });
+      .catch((error) => { if (error.name !== 'AbortError') { setSimulation(null); setSimulationState('error'); } });
     return () => controller.abort();
-  }, [outage, coverageThreshold, monthlyBudget]);
+  }, [outage, simulationNonce]);
 
-  return (
-    <main className="app-shell">
-      <aside className="sidebar">
-        <a className="brand" href="#" aria-label="Recovery Loop home"><span className="brand-mark">RL</span><span>Recovery Loop</span></a>
-        <nav aria-label="Primary navigation">
-          <p className="nav-label">Workspace</p>
-          <a className="nav-item active" href="#overview"><span>⌁</span>Overview</a>
-          <a className="nav-item" href="#decisions"><span>↳</span>Decisions <b>12</b></a>
-          <a className="nav-item" href="#health"><span>◉</span>Bank health</a>
-          <a className="nav-item" href="#budget"><span>◇</span>Attempt budget</a>
-          <a className="nav-item" href="#evaluation"><span>▥</span>Evaluation</a>
-          <p className="nav-label second">System</p>
-          <a className="nav-item" href="#audit"><span>≡</span>Audit log</a>
-          <a className="nav-item" href="#settings"><span>⚙</span>Settings</a>
-        </nav>
-        <div className="mode-card"><span className="pulse" /><div><strong>Test mode</strong><p>Simulated payment stream</p></div></div>
-      </aside>
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch('/api/evaluation', { signal: controller.signal })
+      .then((response) => { if (!response.ok) throw new Error('Evaluation request failed'); return response.json(); })
+      .then((payload: EvaluationPayload) => {
+        const reported = payload.fix7Evidence?.reportedRails;
+        setEvaluation(payload);
+        setEvaluationState(reported?.upiNpcCalibrated && reported?.cardsUncalibrated ? 'ready' : 'empty');
+      })
+      .catch((error) => { if (error.name !== 'AbortError') { setEvaluation(null); setEvaluationState('error'); } });
+    return () => controller.abort();
+  }, [evaluationNonce]);
 
-      <section className="workspace">
-        <header className="topbar">
-          <div><p className="kicker">Recovery operations</p><h1>Good morning, Arjun.</h1></div>
-          <div className="top-actions"><span className="last-sync">● {dataState === 'loading' ? 'Recomputing' : dataState === 'live' ? 'Engine live' : 'Demo fallback'}</span><button className={outage ? 'outage active-outage' : 'outage'} onClick={() => setOutage(!outage)}><span>⚡</span>{outage ? 'End HDFC outage' : 'Simulate outage'}</button><button className="avatar" aria-label="Account menu">AK</button></div>
-        </header>
+  const decisions = useMemo(() => simulation?.decisions ?? [], [simulation]);
+  const selected = decisions.find((item) => item.eventId === selectedId) ?? decisions[0];
+  const rails = evaluation?.fix7Evidence?.reportedRails;
+  const health = useMemo(() => {
+    const issuerEvents = decisions.filter((item) => item.event.bank === 'HDFC');
+    return {
+      total: issuerEvents.length,
+      retry: issuerEvents.filter((item) => item.action === 'retry').length,
+      wait: issuerEvents.filter((item) => item.action === 'wait').length,
+      refused: issuerEvents.filter((item) => item.action === 'refuse_terminal').length,
+    };
+  }, [decisions]);
 
-        {outage && <div className="incident" role="alert"><span>!</span><div><strong>HDFC UPI outage is active</strong><p>4 pending retries were refused. Estimated attempts protected: ₹37.20</p></div><button onClick={() => setOutage(false)}>Dismiss</button></div>}
+  const showSimulationState = simulationState !== 'ready';
+  const showEvaluationState = evaluationState !== 'ready';
 
-        <section className="hero-grid" id="overview">
-          <article className="recovery-card">
-            <div className="card-heading"><div><p className="eyebrow">Recovered in current run</p><h2>{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(metrics.recoveredRevenue)}</h2></div><span className="trend">Measured</span></div>
-            <div className="chart" aria-label="Recovered revenue increased over the past 30 days">
-              <div className="chart-y"><span>₹12k</span><span>₹8k</span><span>₹4k</span><span>₹0</span></div>
-              <div className="chart-area"><i/><b/><em/><span className="chart-tag">₹11.2k</span></div>
-            </div>
-            <div className="chart-footer"><span>01 Aug</span><span>08 Aug</span><span>15 Aug</span><span>22 Aug</span></div>
-          </article>
+  return <main className="dashboard-shell">
+    <aside className="sidebar">
+      <div className="brand"><span>RL</span><div><strong>Recovery Loop</strong><small>Evidence console</small></div></div>
+      <p className="nav-heading">Demo screens</p>
+      <nav>{screens.map((item, index) => <button key={item.id} className={screen === item.id ? 'active' : ''} onClick={() => setScreen(item.id)}><i>{index + 1}</i><span><strong>{item.label}</strong><small>{item.eyebrow}</small></span></button>)}</nav>
+      <div className="sidebar-proof"><span className="live-dot" /><div><strong>Test mode</strong><small>No live payments attempted</small></div></div>
+    </aside>
 
-          <article className="budget-card" id="budget">
-            <div className="card-heading"><div><p className="eyebrow">Attempt budget</p><h3>{Math.round((metrics.attempts / monthlyBudget) * 100)}% used</h3></div><button className="dots" aria-label="Budget options">•••</button></div>
-            <div className="donut" aria-label={`${metrics.attempts} attempts used`} style={{background:`conic-gradient(var(--teal) 0 ${Math.min(100, metrics.attempts / monthlyBudget * 100)}%,#e9eeee ${Math.min(100, metrics.attempts / monthlyBudget * 100)}%)`}}><div><strong>{metrics.attempts.toLocaleString('en-IN')}</strong><span>of {monthlyBudget.toLocaleString('en-IN')}</span></div></div>
-            <div className="budget-stats"><span><i className="teal"/>Recovered <strong>{metrics.recovered.toLocaleString('en-IN')}</strong></span><span><i/>Refused <strong>{metrics.refused.toLocaleString('en-IN')}</strong></span></div>
-            <p className="budget-note"><strong>{Math.max(0, monthlyBudget - metrics.attempts).toLocaleString('en-IN')} attempts remain</strong> in the configured monthly budget.</p>
-          </article>
-        </section>
+    <section className="workspace">
+      <header className="topbar"><div><p>Razorpay Buildathon · final evidence</p><h1>{screens.find((item) => item.id === screen)?.label}</h1></div><div className="source-key"><EvidenceTag tone="simulated">Simulated</EvidenceTag><EvidenceTag>NPCI-calibrated</EvidenceTag></div></header>
 
-        <section className="metric-row">
-          <article><span className="metric-icon cyan">₹</span><div><p>Revenue / attempt</p><strong>₹{(policyRows['Recovery Loop'] ?? 0).toFixed(2)}</strong><small>vs ₹{(policyRows['T+1 / T+2 / T+3'] ?? 0).toFixed(2)} fixed ladder</small></div></article>
-          <article><span className="metric-icon green">↗</span><div><p>Recovered payments</p><strong>{metrics.recovered}</strong><small>from the current deterministic run</small></div></article>
-          <article><span className="metric-icon amber">⌛</span><div><p>Attempts protected</p><strong>{metrics.refused}</strong><small>refused by safety and value gates</small></div></article>
-        </section>
+      {screen === 'inspector' && <section className="screen">
+        <div className="screen-intro"><div><p className="eyebrow">Decision intelligence</p><h2>One decision, fully exposed.</h2><p>Probability, opportunity cost, safety gate, and action come from the runtime policy response.</p></div><EvidenceTag tone="simulated">Simulated event</EvidenceTag></div>
+        {showSimulationState ? <StatePanel state={simulationState} label="decision data" onRetry={loadSimulation} /> : selected && <div className="inspector-grid">
+          <article className="decision-summary"><div className="decision-id"><span>{selected.event.bank}</span><div><small>{selected.event.rail}</small><strong>{selected.eventId}</strong></div></div><div className={`action-orb ${selected.action}`}><small>Resulting action</small><strong>{formatAction(selected.action)}</strong></div><p>{selected.reasons?.join('. ') || 'No policy reason was returned.'}</p></article>
+          <article className="decision-math"><Metric label="p(success)" value={`${(selected.probability * 100).toFixed(1)}%`} detail="model estimate" /><Metric label="Attempt price" value={typeof selected.attemptPrice === 'number' ? inr.format(selected.attemptPrice) : 'Unavailable'} detail="mandate-local opportunity cost" /><Metric label="Expected value" value={typeof selected.expectedValue === 'number' ? inr.format(selected.expectedValue) : 'Unavailable'} detail="probability × payment value" /><Metric label="Gate verdict" value={selected.gate?.allowed ? 'Pass' : 'Defer / block'} detail={selected.gate?.reasons?.join(', ') || 'No gate reason returned'} /></article>
+          <article className="decision-timeline"><p className="eyebrow">Decision trace</p><ol><li><span>1</span><div><strong>Failure classified</strong><small>Observable failure tuple enters the policy.</small></div></li><li><span>2</span><div><strong>Safety gate {selected.gate?.allowed ? 'passed' : 'intervened'}</strong><small>{selected.gate?.reasons?.join('. ') || 'No blocking reason.'}</small></div></li><li><span>3</span><div><strong>{formatAction(selected.action)}</strong><small>{selected.scheduledAt ? new Date(selected.scheduledAt).toLocaleString('en-IN') : 'No attempt scheduled.'}</small></div></li></ol></article>
+        </div>}
+      </section>}
 
-        <section className="stream-card" id="decisions">
-          <div className="stream-head"><div><div className="stream-title"><span className="live-dot"/><h3>Live decisions</h3></div><p>Every retry, wait, and refusal—with the reason.</p></div><button>View all decisions <span>→</span></button></div>
-          <div className="table-wrap"><table><thead><tr><th>Payment</th><th>Bank & rail</th><th>Amount</th><th>Recovery odds</th><th>Decision</th><th>Time</th><th></th></tr></thead><tbody>{decisions.map((d) => { const forced = outage && d.bank === 'HDFC'; const status = forced ? 'Refuse' : d.status; return <tr key={d.id}><td><strong>{d.id}</strong></td><td><b>{d.bank}</b><span>{d.rail}</span></td><td><strong>{d.amount}</strong></td><td><div className="score"><i style={{width: forced ? '8%' : d.score}}/><span>{forced ? '8%' : d.score}</span></div></td><td><span className={`status ${status.toLowerCase()}`}>{status === 'Retry' ? '↻' : status === 'Wait' ? '◷' : '×'} {status}</span></td><td>{d.time}</td><td><button className="row-action" aria-label={`Inspect ${d.id}`} onClick={() => setSelected(d)}>›</button></td></tr>})}</tbody></table></div>
-        </section>
+      {screen === 'stream' && <section className="screen">
+        <div className="screen-intro"><div><p className="eyebrow">Runtime feed</p><h2>Every choice leaves a reason.</h2><p>Select any row to send it to the inspector.</p></div><EvidenceTag tone="simulated">Simulated stream</EvidenceTag></div>
+        {showSimulationState ? <StatePanel state={simulationState} label="decision stream" onRetry={loadSimulation} /> : <article className="stream-card"><div className="stream-meta"><span><i className="live-dot" />API connected</span><strong>{number.format(decisions.length)} decisions returned</strong></div><div className="table-wrap"><table><thead><tr><th>Event</th><th>Issuer / rail</th><th>Amount</th><th>p(success)</th><th>Gate</th><th>Action</th><th /></tr></thead><tbody>{decisions.map((decision) => <tr key={decision.eventId}><td><strong>{decision.eventId}</strong></td><td>{decision.event.bank}<small>{decision.event.rail}</small></td><td>{inr.format(decision.event.amount)}</td><td>{(decision.probability * 100).toFixed(1)}%</td><td><span className={`gate ${decision.gate?.allowed ? 'pass' : 'block'}`}>{decision.gate?.allowed ? 'Pass' : 'Intervene'}</span></td><td><span className={`action-pill ${decision.action}`}>{formatAction(decision.action)}</span></td><td><button onClick={() => { setSelectedId(decision.eventId); setScreen('inspector'); }}>Inspect →</button></td></tr>)}</tbody></table></div></article>}
+      </section>}
 
-        <section className="lower-grid">
-          <article className="health-card" id="health">
-            <div className="section-heading"><div><p className="eyebrow">Rail intelligence</p><h3>Bank health</h3></div><span className="healthy">4 rails monitored</span></div>
-            <div className="bank-list">
-              {[
-                ['HDFC', outage ? 'Outage' : 'Healthy', outage ? '38.4%' : '1.8%', outage ? 'danger' : 'good'],
-                ['SBI', 'Degraded', '7.2%', 'warn'],
-                ['ICICI', 'Healthy', '1.4%', 'good'],
-                ['Axis', 'Healthy', '2.1%', 'good'],
-              ].map(([bank, state, declines, tone]) => <div className="bank-row" key={bank}><span className={`bank-logo ${tone}`}>{bank.slice(0, 1)}</span><div><strong>{bank}</strong><small>{state}</small></div><div className="decline"><strong>{declines}</strong><small>decline rate</small></div><span className={`health-dot ${tone}`}/></div>)}
-            </div>
-          </article>
+      {screen === 'budget' && <section className="screen">
+        <div className="screen-intro"><div><p className="eyebrow">Per-mandate accounting</p><h2>Conserved attempts do not transfer.</h2><p>The unused count makes the mechanism behind the total-revenue loss visible.</p></div><EvidenceTag>Final evaluation</EvidenceTag></div>
+        {showEvaluationState ? <StatePanel state={evaluationState} label="attempt evidence" onRetry={loadEvaluation} /> : <div className="rail-grid">{[
+          { data: rails!.upiNpcCalibrated!, label: 'UPI AutoPay', tag: 'NPCI-calibrated' }, { data: rails!.cardsUncalibrated!, label: 'Cards', tag: 'Simulated' },
+        ].map(({ data, label, tag }) => {
+          const recovery = data.policies.find((item) => item.name === 'Recovery Loop')!;
+          const ladder = data.policies.find((item) => item.name !== 'Recovery Loop')!;
+          const available = data.cohortSize * data.retriesPerMandate;
+          return <article className="budget-card" key={data.rail}><div className="card-head"><div><p className="eyebrow">{label}</p><h3>{number.format(available)} mandate-local retries</h3></div><EvidenceTag tone={tag === 'Simulated' ? 'simulated' : 'calibrated'}>{tag}</EvidenceTag></div><div className="budget-policy"><strong>Recovery Loop</strong><div className="budget-bar"><i style={{ width: `${Math.min(100, recovery.attempts.mean / available * 100)}%` }} /></div><span>{number.format(recovery.attempts.mean)} used</span><b>{number.format(recovery.unusedAttemptsAtHorizon.mean)} stranded</b></div><div className="budget-policy baseline"><strong>Fixed ladder</strong><div className="budget-bar"><i style={{ width: `${Math.min(100, ladder.attempts.mean / available * 100)}%` }} /></div><span>{number.format(ladder.attempts.mean)} used</span><b>{number.format(ladder.unusedAttemptsAtHorizon.mean)} stranded</b></div><p className="mechanism">Each mandate owns its own cap of {number.format(data.retriesPerMandate)} retries. An attempt saved on one mandate cannot fund another.</p></article>;
+        })}</div>}
+      </section>}
 
-          <article className="evaluation-card" id="evaluation">
-            <div className="section-heading"><div><p className="eyebrow">Measured against fixed ladders</p><h3>Baseline comparison</h3></div><span className="trend">+26%</span></div>
-            <div className="bars" aria-label="Recovery Loop generates 41.6 rupees per attempt versus 33.1 for the fixed ladder">
-              {['Recovery Loop', 'T+1 / T+2 / T+3', 'Payday heuristic', 'Do nothing'].map((name) => { const value = policyRows[name] ?? 0; const max = Math.max(...Object.values(policyRows), 1); return <div key={name}><span>{name}</span><i><b className={name === 'Recovery Loop' ? '' : 'baseline'} style={{width:`${Math.max(2, value / max * 100)}%`}}/></i><strong>₹{value.toFixed(1)}</strong></div> })}
-            </div>
-            <p className="evidence-note"><span>i</span> Demo values use a labeled simulation. Production claims require merchant test data.</p>
-          </article>
-        </section>
+      {screen === 'health' && <section className="screen">
+        <div className="screen-intro"><div><p className="eyebrow">Issuer-health join</p><h2>See the scheduler respond to an outage.</h2><p>The scenario changes the runtime simulation; it is not a claim about a real issuer incident.</p></div><EvidenceTag tone="simulated">Simulated outage scenario</EvidenceTag></div>
+        {showSimulationState ? <StatePanel state={simulationState} label="issuer-health data" onRetry={loadSimulation} /> : <div className="health-grid"><article className={`issuer-card ${outage ? 'outage-active' : ''}`}><div className="issuer-title"><span>H</span><div><small>Simulated issuer</small><h3>HDFC</h3></div><strong>{outage ? 'Outage injected' : 'Normal state'}</strong></div><div className="health-stats"><Metric label="Events in visible stream" value={number.format(health.total)} /><Metric label="Retry" value={number.format(health.retry)} /><Metric label="Wait" value={number.format(health.wait)} /><Metric label="Hard refuse" value={number.format(health.refused)} /></div><button className={outage ? 'danger-button active' : 'danger-button'} onClick={() => { setSimulationState('loading'); setOutage((value) => !value); }}>{outage ? 'End simulated outage' : 'Inject simulated outage'}</button></article><article className="capture-note"><EvidenceTag tone="simulated">Join limitation</EvidenceTag><h3>Real captures cannot power this demo.</h3><p>The captured Razorpay test-mode failures have both <code>bank</code> and <code>card.issuer</code> set to null. They cannot join to issuer health, so this screen is explicitly simulated.</p><div><span>bank</span><strong>null</strong></div><div><span>card.issuer</span><strong>null</strong></div></article></div>}
+      </section>}
 
-        <section className="value-strip">
-          <div><p className="eyebrow">Commercial case</p><h3>Turn failed subscriptions into retained revenue.</h3><p>At 50,000 failed renewals per month, this simulation projects <strong>₹4.7L in incremental monthly recovery</strong> while avoiding 8,900 low-value attempts.</p></div>
-          <div className="value-actions"><span><b>₹56.4L</b> annualized value</span><button onClick={() => document.getElementById('decisions')?.scrollIntoView({behavior:'smooth'})}>Inspect the evidence →</button></div>
-        </section>
-
-        <section className="operations-grid">
-          <article id="audit" className="audit-card">
-            <div className="section-heading"><div><p className="eyebrow">Immutable reasoning trail</p><h3>Audit log</h3></div><span className="healthy">Policy v1.0.0</span></div>
-            <div className="audit-list">{decisions.slice(0, 4).map((decision) => <button key={decision.id} onClick={() => setSelected(decision)}><span className={`status ${decision.status.toLowerCase()}`}>{decision.status}</span><div><strong>{decision.id} · {decision.bank}</strong><small>{decision.score} recovery odds · inputs, thresholds, and reasons recorded</small></div><time>{decision.time}</time></button>)}</div>
-          </article>
-          <article id="settings" className="settings-card">
-            <div className="section-heading"><div><p className="eyebrow">Test-mode policy</p><h3>Safety controls</h3></div><span className="locked">Locked to test</span></div>
-            <label><span>Coverage threshold <b>{Math.round(coverageThreshold * 100)}%</b></span><input type="range" min="15" max="65" step="1" value={coverageThreshold * 100} onChange={(event) => setCoverageThreshold(Number(event.target.value) / 100)} /></label>
-            <label><span>Monthly attempt budget <b>{monthlyBudget.toLocaleString('en-IN')}</b></span><input type="range" min="1000" max="50000" step="1000" value={monthlyBudget} onChange={(event) => setMonthlyBudget(Number(event.target.value))} /></label>
-            <div className="policy-rules"><span>✓ Issuer stop signals always refuse</span><span>✓ Active outages never retry</span><span>✓ Maximum 3 attempts</span><span>✓ Every decision is auditable</span></div>
-          </article>
-        </section>
-      </section>
-
-      {selected && <div className="drawer-backdrop" role="presentation" onClick={() => setSelected(null)}>
-        <aside className="inspector" role="dialog" aria-modal="true" aria-labelledby="inspector-title" onClick={(e) => e.stopPropagation()}>
-          <button className="close" onClick={() => setSelected(null)} aria-label="Close inspector">×</button>
-          <p className="eyebrow">Decision inspector</p><h2 id="inspector-title">{selected.id}</h2><p className="inspector-sub">{selected.amount} · {selected.bank} {selected.rail}</p>
-          <div className="decision-call"><span className={`status ${selected.status.toLowerCase()}`}>{selected.status}</span><strong>{selected.status === 'Retry' ? `Retry ${selected.scheduledAt ? new Date(selected.scheduledAt).toLocaleString('en-IN') : 'at the best value window'}` : selected.status === 'Wait' ? 'Hold until rail stabilizes' : 'Do not spend an attempt'}</strong><p>{selected.reasons?.join('. ') || 'Computed from the configured recovery policy and safety controls.'}</p></div>
-          <h3>Decision inputs</h3>
-          <dl><div><dt>Recovery probability</dt><dd>{selected.score}</dd></div><div><dt>Attempt price</dt><dd>₹{(selected.attemptPrice ?? 9.3).toFixed(2)}</dd></div><div><dt>Expected value</dt><dd>₹{(selected.expectedValue ?? (selected.status === 'Refuse' ? 5.2 : 34.8)).toFixed(2)}</dd></div><div><dt>Coverage threshold</dt><dd>{Math.round(coverageThreshold * 100)}%</dd></div></dl>
-          <h3>Why this decision</h3><p className="explanation">{selected.reasons?.length ? selected.reasons.join('. ') : 'The bank rail, configured budget, recovery probability, and expected-value threshold were evaluated by deterministic policy code.'}</p>
-          <div className="audit-stamp"><span>✓</span><div><strong>Policy checks passed</strong><p>No issuer stop signal · attempt 1 of 3 · full audit record</p></div></div>
-        </aside>
-      </div>}
-    </main>
-  );
+      {screen === 'comparison' && <section className="screen">
+        <div className="screen-intro"><div><p className="eyebrow">Final honest comparison</p><h2>More efficient. Less total revenue.</h2><p>Both sides of the result are shown together, from the final evaluation artifact.</p></div><EvidenceTag>Final evidence</EvidenceTag></div>
+        {showEvaluationState ? <StatePanel state={evaluationState} label="policy comparison" onRetry={loadEvaluation} /> : <div className="comparison-grid">{[
+          { data: rails!.upiNpcCalibrated!, label: 'UPI AutoPay', tag: 'NPCI-calibrated' }, { data: rails!.cardsUncalibrated!, label: 'Cards', tag: 'Simulated' },
+        ].map(({ data, label, tag }) => {
+          const recovery = data.policies.find((item) => item.name === 'Recovery Loop')!;
+          const ladder = data.policies.find((item) => item.name !== 'Recovery Loop')!;
+          const recoveryEfficiency = recovery.grossRevenue.mean / recovery.attempts.mean;
+          const ladderEfficiency = ladder.grossRevenue.mean / ladder.attempts.mean;
+          const ratio = recoveryEfficiency / ladderEfficiency;
+          return <article className="comparison-card" key={data.rail}><div className="card-head"><div><p className="eyebrow">{label}</p><h3>{ratio.toFixed(1)}× efficiency lead</h3></div><EvidenceTag tone={tag === 'Simulated' ? 'simulated' : 'calibrated'}>{tag}</EvidenceTag></div><div className="comparison-pair"><section><p>Gross rupees / attempt</p><div><span>Recovery Loop</span><strong>{inr.format(recoveryEfficiency)}</strong></div><div><span>Fixed ladder</span><strong>{inr.format(ladderEfficiency)}</strong></div><em>Recovery Loop leads {ratio.toFixed(1)}×</em></section><section className="loss"><p>Total gross revenue</p><div><span>Recovery Loop</span><strong>{inr.format(recovery.grossRevenue.mean)}</strong></div><div><span>Fixed ladder</span><strong>{inr.format(ladder.grossRevenue.mean)}</strong></div><em>Recovery Loop loses {data.seedsWonByRecoveryLoop}/{data.perSeed.length} seeds</em></section></div><footer><span>Paired net difference</span><strong>{inr.format(data.pairedNetDifference.mean)}</strong><small>Recovery Loop minus fixed ladder</small></footer></article>;
+        })}</div>}
+      </section>}
+    </section>
+  </main>;
 }
