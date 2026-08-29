@@ -1,14 +1,31 @@
 import taxonomy from '../../data/failure_taxonomy.json' with { type: 'json' };
 
-export function diagnoseFailure(errorCode = '', errorDescription = '') {
-  const code = errorCode.trim().toUpperCase();
-  const text = errorDescription.trim().toLowerCase();
-  for (const entry of taxonomy.categories) {
-    if (entry.codes.includes(code) || entry.patterns.some((pattern) => text.includes(pattern))) {
-      return { category: entry.category, retryable: entry.retryable, confidence: code ? 0.98 : 0.82, source: entry.source };
-    }
-  }
-  return { category: 'unknown', retryable: false, confidence: 0.35, source: 'fallback' };
+const normalized = (value = '') => String(value).trim().toLowerCase();
+
+function diagnosisInput(input, legacyDescription = '') {
+  if (input && typeof input === 'object') return input;
+  return { errorCode: input, errorDescription: legacyDescription };
+}
+
+export function diagnoseFailure(input = {}, legacyDescription = '') {
+  const failure = diagnosisInput(input, legacyDescription);
+  const errorSource = normalized(failure.errorSource ?? failure.error_source);
+  const errorStep = normalized(failure.errorStep ?? failure.error_step);
+  const errorReason = normalized(failure.errorReason ?? failure.error_reason);
+  const errorCode = normalized(failure.errorCode ?? failure.error_code).toUpperCase();
+  const tuple = taxonomy.tuples.find((entry) => normalized(entry.error_source) === errorSource
+    && normalized(entry.error_step) === errorStep
+    && (normalized(entry.error_reason) === errorReason || entry.error_reason === '*'));
+
+  if (!tuple) return { category: 'unknown', retryable: false, confidence: 0.35, source: 'unmapped-tuple' };
+
+  const codeCorroborates = tuple.error_codes.includes(errorCode);
+  return {
+    category: tuple.category,
+    retryable: tuple.retryable,
+    confidence: codeCorroborates ? 0.99 : 0.9,
+    source: tuple.source,
+  };
 }
 
 export function normalizeIssuerText(text = '') {

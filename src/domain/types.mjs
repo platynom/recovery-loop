@@ -1,5 +1,5 @@
-/** @typedef {'technical'|'insufficient_funds'|'issuer_declined'|'mandate_inactive'|'customer_action'|'fraud_risk'|'unknown'} FailureCategory */
-/** @typedef {'retry'|'wait'|'refuse'} Action */
+/** @typedef {'technical'|'insufficient_funds'|'issuer_declined'|'mandate_inactive'|'customer_action'|'fraud_risk'|'non_retryable'|'unknown'} FailureCategory */
+/** @typedef {'retry'|'wait'|'refuse_terminal'} Action */
 
 /**
  * @typedef {Object} FailureEvent
@@ -10,6 +10,11 @@
  * @property {string} rail
  * @property {string} errorCode
  * @property {string} errorDescription
+ * @property {string} errorSource
+ * @property {string} errorStep
+ * @property {string} errorReason
+ * @property {string} mandateId
+ * @property {string} merchantAdviceCode
  * @property {number} attemptNumber
  * @property {boolean} issuerStop
  * @property {boolean} outageActive
