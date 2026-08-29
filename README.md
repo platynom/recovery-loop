@@ -134,13 +134,18 @@ Further detail: [LIMITATIONS.md](docs/LIMITATIONS.md).
 Requirements: Node.js 22.13 or newer. `[Repository configuration]` [package.json](package.json)
 
 ```bash
-npm install
+npm ci
 npm test
-npm run evaluate:fix7
 npm run dev
 ```
 
 Open `http://localhost:3000`. The dashboard reads the final evidence artifact and runtime APIs; the issuer-outage button runs a labelled simulation.
+
+To reproduce the frozen evaluation artifacts separately (optional; this rewrites the committed JSON evidence deterministically):
+
+```bash
+npm run evaluate:fix7
+```
 
 For Razorpay test-mode capture only:
 
