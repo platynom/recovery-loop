@@ -10,7 +10,7 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 ## 0:40–1:10 — The constraint
 
-*On screen: NPCI Circular `UPI OC No. 215A FY 2025-26`. Highlight the one-attempt-plus-three-retries rule and the non-peak execution requirement.*
+*On screen: NPCI's live UPI circular index. Select `2025`, search `Guidelines on usage`, and keep the official `UPI | OC No. 215 A | FY 2025-26 | Guidelines on usage of UPI APIs` row visible. NPCI's former direct PDF URL now returns 404, so preload this filtered index rather than relying on the PDF during recording.*
 
 > “On UPI AutoPay you get one attempt and three retries. That is the entire budget, per mandate, forever. So the question is not how to retry more. It is which three moments are worth spending.”
 
@@ -71,7 +71,7 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 Record these screens in this exact order. Do not begin a spoken section until the named state is visible.
 
 1. **Browser — Razorpay Payment Retries:** retry flow visible; tabs pre-opened for Payment Downtime, Optimizer Dynamic Routing, and Optimizer Recurring Payments.
-2. **Browser/PDF — NPCI AutoPay circular:** one original attempt, three retries, and non-peak execution text visible.
+2. **Browser — NPCI UPI circular index:** select `2025`, search `Guidelines on usage`, and keep the `OC No. 215 A` result visible. Do not use the former direct PDF URL; it now returns 404.
 3. **Dashboard — Decision stream:** `Simulated stream` label visible; API connected; choose a row whose action is Retry.
 4. **Dashboard — Decision inspector:** `Simulated event` label visible; probability, attempt price, expected value, gate verdict, and resulting action loaded.
 5. **Dashboard — Issuer health before injection:** `Simulated outage scenario` and `Normal state` visible.
