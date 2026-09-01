@@ -21,7 +21,7 @@ Checked on 23 August 2026 against `data/evaluation/fix7-npci-calibrated.json`, t
 | UPI stranded attempts | RL 3,001.8; ladder 0 | same | 3,001.8 | same | — | same | Match; final JSON |
 | Cards stranded attempts | RL 2,960.2; ladder 1,084.8 | same | 2,960.2 | same | — | same | Match; final JSON |
 | UPI deferral cap | 1,963.8 / 1,968.6 = 99.8% | same | 99.8% spoken | same | mechanism stated | — | Match; final JSON |
-| Observed captures | 15 | 15 | 15 | 15 | 15 | — | Match; committed event count |
+| Observed captures | 20 entities; 16 failures | 20 entities; 16 failures | 20 entities; 16 failures | — | 20 entities; 16 failures | — | Match; committed event count |
 | ONS Total / Fitness | 2.26% / 5.74%; Aug 2025; NSA; 2026 edition | same | — | — | — | — | Match; ONS workbook |
 | ACH insufficient-funds share | about 70%; 2006 | same | — | — | same | — | Match; Minneapolis Fed paper |
 | Legacy simulator insufficient-funds share | 42%; 28 percentage-point gap | same | — | — | same | — | Match; frozen generator assumption |

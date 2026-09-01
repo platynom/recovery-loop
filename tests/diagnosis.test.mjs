@@ -33,11 +33,14 @@ test('captured permanent business failures schedule zero retries', async () => {
   const fixtureNames = (await readdir(fixturesDirectory)).filter((name) => name.endsWith('.json'));
   assert.ok(fixtureNames.length > 0, 'expected captured Razorpay events');
 
-  const decisions = await Promise.all(fixtureNames.map(async (name) => {
+  const payments = await Promise.all(fixtureNames.map(async (name) => {
     const payment = JSON.parse(await readFile(`${fixturesDirectory}${name}`, 'utf8'));
-    return decideRecovery(toFailureEvent(payment), {}, Date.UTC(2026, 7, 22, 6));
+    return payment;
   }));
+  const permanentFailures = payments.filter((payment) => payment.error_source === 'business' && payment.error_step === 'payment_initiation');
+  const decisions = permanentFailures.map((payment) => decideRecovery(toFailureEvent(payment), {}, Date.UTC(2026, 7, 22, 6)));
 
+  assert.equal(permanentFailures.length, 15);
   assert.equal(decisions.filter((decision) => decision.action === 'retry').length, 0);
   assert.ok(decisions.every((decision) => decision.probability === 0));
   assert.ok(decisions.every((decision) => decision.action === 'refuse_terminal' && decision.scheduledAt === null));

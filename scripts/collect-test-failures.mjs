@@ -17,12 +17,24 @@ const outputDirectory = resolve('data', 'raw_events');
 await mkdir(outputDirectory, { recursive: true });
 
 const response = await razorpayRequest(`/payments?from=${manifest.startedAt}&count=100&skip=0`, { method: 'GET' });
-const failed = (response.items ?? []).filter((payment) => payment.status === 'failed' && payment.notes?.recovery_loop_run === manifest.runId);
-for (const payment of failed) {
+const orderIds = new Set((manifest.orders ?? []).map((order) => order.id));
+const observed = (response.items ?? []).filter((payment) => payment.notes?.recovery_loop_run === manifest.runId || orderIds.has(payment.order_id));
+for (const payment of observed) {
   const outputPath = resolve(outputDirectory, `${payment.id}.observed-api.json`);
   await writeFile(outputPath, `${JSON.stringify(redactCapturedEvent(payment), null, 2)}\n`, 'utf8');
 }
-const summary = { runId: manifest.runId, manifest: basename(manifestPath), target: manifest.target, observedFailures: failed.length, paymentIds: failed.map((payment) => payment.id), collectedAt: new Date().toISOString(), source: 'Razorpay Test Payments API' };
+const expectedAttempts = manifest.orders?.length ?? manifest.links?.length ?? manifest.target;
+const summary = {
+  runId: manifest.runId,
+  manifest: basename(manifestPath),
+  requestedTarget: manifest.target,
+  expectedAttempts,
+  observedPayments: observed.length,
+  statuses: Object.fromEntries([...new Set(observed.map((payment) => payment.status))].map((status) => [status, observed.filter((payment) => payment.status === status).length])),
+  paymentIds: observed.map((payment) => payment.id),
+  collectedAt: new Date().toISOString(),
+  source: 'Razorpay Test Payments API',
+};
 await writeFile(resolve(runDirectory, `${manifest.runId}.collection.json`), `${JSON.stringify(summary, null, 2)}\n`, 'utf8');
 console.log(JSON.stringify(summary, null, 2));
-if (failed.length < manifest.target) process.exitCode = 2;
+if (observed.length < expectedAttempts) process.exitCode = 2;

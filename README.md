@@ -75,7 +75,7 @@ WAIT and re_evaluate_later
 
 ### Captured test evidence
 
-The repository contains **15 redacted `payment.failed` entities captured on 22 August 2026 from the Razorpay Test Payments API**. `[Observed]` All 15 carry the same tuple—`business | payment_initiation | international_transaction_not_allowed`—so they verify permanent-rejection diagnosis but do not exercise retry recovery. Both `bank` and `card.issuer` are null, so the outage demo remains simulated. [Capture inventory](data/raw_events/README.md)
+The repository contains **20 redacted Razorpay test API payment entities captured on 22 August and 1 September 2026**. `[Observed]` Sixteen are failures: 15 permanent `business | payment_initiation | international_transaction_not_allowed` rejections and one `gateway | payment_authorization | payment_failed` card failure. The five domestic-card attempts carry `card.issuer: DCBL`, so issuer-health joining is now evidenced; the dashboard button still injects a simulated outage rather than replaying a measured incident. [Capture inventory](data/raw_events/README.md)
 
 ### External benchmarks (real, different rail — sanity check only)
 
@@ -115,7 +115,7 @@ The scheduler enforces NPCI non-peak execution windows before an attempt can run
 2. **The three-day deferral cap binds before the next salary cycle.** It fires for 1,963.8 of 1,968.6 UPI deferrals—**99.8%**—so the policy usually cannot reach the next salary credit, the simulator's dominant recovery mechanism for insufficient-funds failures. `[NPCI-calibrated inputs; Simulated outcomes]` [Final evidence](data/evaluation/fix7-npci-calibrated.json)
 3. Five deterministic seeds and 10,000 synthetic failures per rail expose seed spread but are not confidence intervals over merchant payments. `[Simulated]`
 4. NPCI incident data is monthly and covers reportable incidents; exact timestamps are unavailable, smaller incidents can be absent, and no listed incident does not prove zero downtime. `[NPCI-calibrated limitation]` [NPCI UPI statistics](https://www.npci.org.in/product/upi/product-statistics)
-5. The 15 observed test failures are one merchant-configuration rejection with null issuer fields; they test diagnosis, not recovery or issuer-health joins. `[Observed]` [Capture README](data/raw_events/README.md)
+5. The 20 observed test API entities contain only 16 failures and only two failure tuples; the single new gateway tuple is generic, and none measures repeat-attempt recovery. `[Observed]` [Capture README](data/raw_events/README.md)
 6. Cards are entirely uncalibrated because public NACH return rates describe bulk debit, not card authorization. `[Simulated Cards]`
 7. The ₹415,000 decline-rate penalty is a frozen stress-test offset, not a current network fine schedule. It is computed from each policy's own attempts; zero attempts incur zero penalty. `[Assumption]`
 8. The recovery score is a transparent deterministic model, not a model trained on merchant history. `[Simulated]`
@@ -160,7 +160,7 @@ Use test credentials only. Configure a signed webhook at `/api/webhooks/razorpay
 ## Sources and evidence tiers
 
 - **Real / primary — NPCI:** [AutoPay ecosystem statistics](https://www.npci.org.in/product/ecosystem-statistics/autopay), [NACH ecosystem statistics](https://www.npci.org.in/product/ecosystem-statistics/nach), [UPI product statistics](https://www.npci.org.in/product/upi/product-statistics), and the [UPI circular index](https://www.npci.org.in/circulars/upi) (select 2025 and search for `UPI | OC No. 215 A | FY 2025-26 | Guidelines on usage of UPI APIs`). Raw captures include fetch date and source URL in [`data/npci/`](data/npci/).
-- **Observed / primary — Razorpay Test API:** [15 redacted captured failures](data/raw_events/README.md) and the [observed diagnostic tuple](data/failure_taxonomy.json).
+- **Observed / primary — Razorpay Test API:** [20 redacted payment entities: 16 failures, 3 captured, and 1 created](data/raw_events/README.md), plus the [two observed diagnostic tuples](data/failure_taxonomy.json).
 - **Primary product documentation — Razorpay:** [payment retries](https://razorpay.com/docs/payments/subscriptions/payment-retries/?preferred-country=IN), [test subscription lifecycle](https://razorpay.com/docs/payments/subscriptions/test/?preferred-country=IN), [payment downtime API](https://razorpay.com/docs/api/payments/downtime/?preferred-country=IN), [Optimizer dynamic routing](https://razorpay.com/docs/payments/optimizer/dynamic-routing/?preferred-country=IN), and [Optimizer recurring limitation](https://razorpay.com/docs/payments/optimizer/recurring-payments/?preferred-country=IN).
 - **Real / primary — security boundary:** [PCI DSS](https://www.pcisecuritystandards.org/standards/pci-dss/) and [Mastercard merchant rules](https://www.mastercard.us/en-us/business/overview/support/rules.html).
 - **Documented-secondary:** [BSE Clearing non-peak notice](https://noticeblue.com/circulars/da33580c-5800-4958-b819-515cee5e80e3), [Braintree Merchant Advice Codes](https://developer.paypal.com/braintree/docs/reference/general/merchant-responses/merchant-advice-codes), and [Visa Acceptance association-code reference](https://support.visaacceptance.com/knowledgebase/knowledgearticle/?code=000003859).

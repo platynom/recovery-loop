@@ -1,4 +1,7 @@
 import { createAuditEntry } from '@/src/audit/audit.mjs';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { redactCapturedEvent } from '@/scripts/lib/redact-captured-event.mjs';
 import { normalizeIssuerText } from '@/src/diagnose/taxonomy.mjs';
 import { decideRecovery } from '@/src/policy/scheduler.mjs';
 import { getRailHealth, persistRawEvent, persistRecoveryRecord, runtimeEnv, setRailHealth } from '@/db/client';
@@ -8,6 +11,20 @@ export const dynamic = 'force-dynamic';
 
 type JsonObject = Record<string, unknown>;
 const objectValue = (value: unknown): JsonObject => value && typeof value === 'object' && !Array.isArray(value) ? value as JsonObject : {};
+
+async function persistTestLabWebhook(payload: JsonObject) {
+  if (process.env.ENABLE_RAZORPAY_TEST_LAB !== '1') return false;
+  if (!process.env.RAZORPAY_KEY_ID?.startsWith('rzp_test_')) throw new Error('Test-lab webhook capture requires an rzp_test_ key.');
+  const entity = paymentEntity(payload);
+  const notes = objectValue(entity.notes);
+  if (!/^genuine-(?:test|checkout)-/.test(String(notes.recovery_loop_run ?? ''))) return false;
+  const paymentId = String(entity.id ?? 'unknown').replace(/[^A-Za-z0-9_-]/g, '_');
+  const eventType = String(payload.event ?? 'unknown').replace(/[^A-Za-z0-9_.-]/g, '_');
+  const directory = resolve(process.cwd(), 'data', 'raw_events', 'webhook_payloads');
+  await mkdir(directory, { recursive: true });
+  await writeFile(resolve(directory, `${paymentId}.${eventType}.observed-webhook.json`), `${JSON.stringify(redactCapturedEvent(payload), null, 2)}\n`, 'utf8');
+  return true;
+}
 
 async function hmacHex(body: string, secret: string) {
   const encoder = new TextEncoder();
@@ -86,6 +103,7 @@ export async function POST(request: Request) {
   if (!verified) return Response.json({ error: 'Invalid webhook signature.' }, { status: 401 });
   let payload: JsonObject;
   try { payload = JSON.parse(body); } catch { return Response.json({ error: 'Invalid JSON.' }, { status: 400 }); }
+  await persistTestLabWebhook(payload);
   const now = Date.now();
   const eventType = String(payload.event ?? 'unknown');
   if (eventType.startsWith('payment.downtime.')) {

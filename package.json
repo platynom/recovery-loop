@@ -16,7 +16,10 @@
     "replay:outage": "node sim/outage-replay.mjs",
     "replay:fixtures": "node scripts/replay-fixtures.mjs",
     "test-lab:create": "node --env-file=.env.local scripts/create-test-payment-links.mjs",
-    "test-lab:collect": "node --env-file=.env.local scripts/collect-test-failures.mjs"
+    "test-lab:collect": "node --env-file=.env.local scripts/collect-test-failures.mjs",
+    "test-lab:checkout:create": "node --env-file=.env.local scripts/create-test-checkout-orders.mjs",
+    "test-lab:checkout:serve": "node scripts/serve-test-checkout.mjs",
+    "test-lab:checkout:assert": "node --env-file=.env.local scripts/assert-test-checkout-order.mjs"
   },
   "dependencies": {
     "next": "16.2.6",

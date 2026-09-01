@@ -1,0 +1,50 @@
+{
+  "id": "pay_TWhOJkTFdWbeK7",
+  "entity": "payment",
+  "amount": 29900,
+  "amount_captured": null,
+  "currency": "INR",
+  "status": "captured",
+  "order_id": "order_TWhK8wNXLVPqXG",
+  "invoice_id": null,
+  "international": false,
+  "method": "card",
+  "amount_refunded": 0,
+  "refund_status": null,
+  "captured": true,
+  "description": "Domestic Visa card_disabled_for_online_payments",
+  "card_id": "card_TWhOK0jLh73F3x",
+  "card": {
+    "id": "card_TWhOK0jLh73F3x",
+    "entity": "card",
+    "name": "",
+    "last4": "0006",
+    "network": "Visa",
+    "type": "debit",
+    "issuer": "DCBL",
+    "international": false,
+    "emi": false,
+    "sub_type": "consumer",
+    "token_iin": "410028000"
+  },
+  "bank": null,
+  "wallet": null,
+  "vpa": null,
+  "notes": {
+    "recovery_loop_run": "genuine-checkout-2026-09-01T07-56-06-537Z",
+    "recovery_loop_sequence": "1",
+    "expected_result": "failure",
+    "test_instrument": "UPI failure@razorpay"
+  },
+  "fee": 598,
+  "tax": 0,
+  "error_code": null,
+  "error_description": null,
+  "error_source": null,
+  "error_step": null,
+  "error_reason": null,
+  "acquirer_data": {
+    "auth_code": "764681"
+  },
+  "created_at": 1788249604
+}

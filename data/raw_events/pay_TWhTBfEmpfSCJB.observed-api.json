@@ -1,0 +1,50 @@
+{
+  "id": "pay_TWhTBfEmpfSCJB",
+  "entity": "payment",
+  "amount": 59900,
+  "amount_captured": null,
+  "currency": "INR",
+  "status": "failed",
+  "order_id": "order_TWhK9PVMpa3rc4",
+  "invoice_id": null,
+  "international": false,
+  "method": "card",
+  "amount_refunded": 0,
+  "refund_status": null,
+  "captured": false,
+  "description": "Domestic Visa card_declined",
+  "card_id": "card_TWhTBtxjJDZ5La",
+  "card": {
+    "id": "card_TWhTBtxjJDZ5La",
+    "entity": "card",
+    "name": "",
+    "last4": "0003",
+    "network": "Visa",
+    "type": "debit",
+    "issuer": "DCBL",
+    "international": false,
+    "emi": false,
+    "sub_type": "consumer",
+    "token_iin": "410028000"
+  },
+  "bank": null,
+  "wallet": null,
+  "vpa": null,
+  "notes": {
+    "recovery_loop_run": "genuine-checkout-2026-09-01T07-56-06-537Z",
+    "recovery_loop_sequence": "4",
+    "expected_result": "failure",
+    "test_instrument": "Domestic Visa card_declined"
+  },
+  "fee": null,
+  "tax": null,
+  "error_code": "BAD_REQUEST_ERROR",
+  "error_description": "Payment failed",
+  "error_source": "gateway",
+  "error_step": "payment_authorization",
+  "error_reason": "payment_failed",
+  "acquirer_data": {
+    "auth_code": null
+  },
+  "created_at": 1788249881
+}

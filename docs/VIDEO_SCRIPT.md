@@ -32,7 +32,7 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 > “Watch what happens when a bank goes down.”
 
-> “This outage is simulated. My fifteen captured test events all came back with a null issuer, so they cannot join to the downtime feed — I will come back to that.”
+> “This outage is simulated. A domestic-card test capture now identifies issuer DCBL and can join issuer health, but this button injects a simulated outage rather than replaying a measured bank incident.”
 
 > “Every retryable HDFC event visible here has moved into wait. No attempt is spent while the outage is active; each event is re-evaluated after clearance. With only three retries, firing into a known outage burns one third of that mandate's lifetime recovery budget.”
 
@@ -62,7 +62,7 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 *On screen: README → `Limitations`. Highlight the first two limitations, then finish on `What I would do next`.*
 
-> “I do not have real merchant data; card-network rules and PCI keep retry chains private. I have NPCI decline rates per bank, fifteen Razorpay test failures, and an instrument showing where refusal stops paying.”
+> “I do not have real merchant data; card-network rules and PCI keep retry chains private. I have NPCI decline rates per bank, twenty Razorpay test API payment entities—sixteen failures—and an instrument showing where refusal stops paying.”
 
 > “The three-day deferral cap binds on ninety-nine-point-eight percent of UPI deferrals, so insufficient-funds cases rarely reach salary day. Next: extend the cap, obtain merchant data, and run a capped A/B test reporting efficiency and total revenue together.”
 

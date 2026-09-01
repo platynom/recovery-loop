@@ -48,4 +48,4 @@ Only the final table above is current. Historical numeric claims not retained in
 - UPI uses published NPCI aggregate inputs with simulated repeat-attempt outcomes.
 - Cards is wholly simulated because no suitable public Indian card-authorization decline baseline was found.
 - The decline penalty, retry costs, hidden salary dates, repeat-attempt outcomes, policy thresholds, and three-day cap remain frozen assumptions.
-- The 15 captured Razorpay test failures validate ingestion and permanent-rejection diagnosis only; they do not measure recovery.
+- The 20 captured Razorpay test API entities include 16 failures across two tuples; they validate ingestion and an issuer-bearing card join, but do not measure repeat-attempt recovery.

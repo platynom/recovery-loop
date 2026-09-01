@@ -1,6 +1,6 @@
 # Submission checklist
 
-Checked means verified in the current workspace on 23 August 2026. Unchecked items include the reason they are not done; none is an aspirational tick.
+Checked means verified in the current workspace on 1 September 2026. Unchecked items include the reason they are not done; none is an aspirational tick.
 
 ## Evidence and product — verified locally
 
@@ -9,21 +9,22 @@ Checked means verified in the current workspace on 23 August 2026. Unchecked ite
 - [x] Outage control is visibly labelled `Simulated outage scenario`; loading, empty, and fetch-error states are distinct.
 - [x] Final five-seed artifact exists at `data/evaluation/fix7-npci-calibrated.json` and the dashboard reads it through the runtime API.
 - [x] NPCI AutoPay, NACH, and UPI calibration inputs are stored under `data/npci/` with fetch dates and source URLs.
-- [x] Fifteen Razorpay test-mode failures are committed in redacted form under `data/raw_events/`.
+- [x] Twenty Razorpay test-mode payment entities are committed in redacted form under `data/raw_events/`: 16 failed, 3 captured, and 1 created.
 - [x] Capture-time code removes contact and email fields, and an automated test checks every committed event.
 - [x] The observed taxonomy evidence records the tuple `business | payment_initiation | international_transaction_not_allowed`, not the generic `BAD_REQUEST_ERROR` code.
 - [x] README leads with the final loss, reports both rails, labels every evidence mode, and documents all six evaluation corrections.
 - [x] Architecture, evaluation protocol, corrected results, integration guide, and limitations documents exist.
 - [x] Five-minute spoken script, mechanical shot list, and thirty-second cut-down exist in `docs/VIDEO_SCRIPT.md`.
 - [x] Test-mode execution guard, signed webhook verification, canonical issuer join, and loud issuer-join failure logging are implemented and tested.
-- [x] ESLint, 42 relevant tests, and the production build passed after the dashboard rebuild.
+- [x] ESLint, 44 relevant tests, and the production build passed after the issuer-bearing capture update.
 - [x] `.env.local` exists locally and is excluded by `.gitignore`; no credential value is tracked.
 
 ## Evidence gaps — not complete
 
-- [ ] Capture at least 20 genuine test-mode failures — 15 are committed, so 5 more are needed to reach the target.
-- [ ] Capture retryable failure diversity — all 15 observed events are the same permanent merchant-configuration rejection and do not exercise recovery logic.
-- [ ] Capture issuer-bearing failures — all 15 have `bank: null` and `card.issuer: null`, so none can join to issuer health.
+- [ ] Capture at least 20 genuine test-mode failures — five additional genuine attempts produced only one failure, bringing the failure count to 16; three documented failure cards captured successfully and one remains `created`.
+- [ ] Capture retryable failure diversity — the new `gateway | payment_authorization | payment_failed` tuple is observed once, but it is generic and does not establish a repeat-attempt outcome.
+- [x] Capture an issuer-bearing failure — the domestic-card failure carries `card.issuer: DCBL`, which joins a matching `payment.downtime.instrument.issuer` after canonicalization.
+- [ ] Capture complete webhook envelopes for the five new attempts — the configured temporary tunnel had expired and no safe reachable receiver or dashboard delivery body was available; only complete redacted Test Payments API entities are committed.
 - [ ] Replace simulated repeat-attempt outcomes with real merchant outcomes — no public attempt-level Indian merchant dataset was found and no private merchant dataset has been supplied.
 - [ ] Calibrate Cards to an Indian authorization-decline baseline — no suitable public baseline was found; NACH bulk-debit returns are not a valid proxy.
 - [ ] Run a live A/B test — the project is intentionally locked to Razorpay test mode and has no production authorization.

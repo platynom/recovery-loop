@@ -21,7 +21,9 @@ Do not paste credentials into chat or commit `.env.local`.
 1. Run `npm run test-lab:create -- 20`. This creates 20 standard Payment Links through the real Razorpay Test API and stores an ignored local manifest.
 2. Open each generated URL and complete the test checkout as a failure. Codex can browser-drive this step after the links exist, subject to Razorpay’s test checkout controls.
 3. Keep the Recovery Loop webhook reachable over HTTPS to collect the genuine `payment.failed` events. If no tunnel is configured, the next step still collects genuine failed payment entities from Razorpay’s API.
-4. Run `npm run test-lab:collect`. It fetches failed payments created after the run began and saves untouched API entities under `data/raw_events/`.
+4. Run `npm run test-lab:collect -- <manifest-path>`. It fetches every payment belonging to the guarded run—failures and successes—and saves the complete API entity after recursive contact/email redaction under `data/raw_events/`.
+
+For test cards that require Standard Checkout, create a five-order guarded run with `npm run test-lab:checkout:create`, start the local page with `npm run test-lab:checkout:serve -- <manifest-path>`, and run `npm run test-lab:checkout:assert -- <manifest-path> <sequence>` immediately before each submission. Every command aborts unless the configured key begins with `rzp_test_`; the assertion also verifies that the remote Order belongs to the same guarded run.
 5. Review the collection summary. Only events returned by the Razorpay Test API count as observed; generated fixtures do not.
 
 ## Limits

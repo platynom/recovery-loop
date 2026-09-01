@@ -1,0 +1,50 @@
+{
+  "id": "pay_TWhTnYtdtIVT2Y",
+  "entity": "payment",
+  "amount": 69900,
+  "amount_captured": null,
+  "currency": "INR",
+  "status": "captured",
+  "order_id": "order_TWhK9YM2BZlC2F",
+  "invoice_id": null,
+  "international": false,
+  "method": "card",
+  "amount_refunded": 0,
+  "refund_status": null,
+  "captured": true,
+  "description": "Domestic Visa OTP/authentication failure",
+  "card_id": "card_TWhTnmmoyNM5Mv",
+  "card": {
+    "id": "card_TWhTnmmoyNM5Mv",
+    "entity": "card",
+    "name": "",
+    "last4": "1007",
+    "network": "Visa",
+    "type": "debit",
+    "issuer": "DCBL",
+    "international": false,
+    "emi": false,
+    "sub_type": "consumer",
+    "token_iin": "410028000"
+  },
+  "bank": null,
+  "wallet": null,
+  "vpa": null,
+  "notes": {
+    "recovery_loop_run": "genuine-checkout-2026-09-01T07-56-06-537Z",
+    "recovery_loop_sequence": "5",
+    "expected_result": "failure",
+    "test_instrument": "Domestic Visa OTP/authentication failure"
+  },
+  "fee": 1398,
+  "tax": 0,
+  "error_code": null,
+  "error_description": null,
+  "error_source": null,
+  "error_step": null,
+  "error_reason": null,
+  "acquirer_data": {
+    "auth_code": "339883"
+  },
+  "created_at": 1788249916
+}

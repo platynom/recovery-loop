@@ -9,14 +9,24 @@ async function json(path) {
 test('observations are recorded as diagnostic tuples, not generic error codes', async () => {
   const taxonomy = await json('../data/failure_taxonomy.json');
   assert.equal(Object.hasOwn(taxonomy, 'observed_codes'), false);
-  assert.deepEqual(taxonomy.observed_tuples, [{
-    error_source: 'business',
-    error_step: 'payment_initiation',
-    error_reason: 'international_transaction_not_allowed',
-    count: 15,
-    source: 'razorpay_test_payments_api',
-    captured_on: '2026-08-22',
-  }]);
+  assert.deepEqual(taxonomy.observed_tuples, [
+    {
+      error_source: 'business',
+      error_step: 'payment_initiation',
+      error_reason: 'international_transaction_not_allowed',
+      count: 15,
+      source: 'razorpay_test_payments_api',
+      captured_on: '2026-08-22',
+    },
+    {
+      error_source: 'gateway',
+      error_step: 'payment_authorization',
+      error_reason: 'payment_failed',
+      count: 1,
+      source: 'razorpay_test_payments_api',
+      captured_on: '2026-09-01',
+    },
+  ]);
 });
 
 test('final dashboard evidence supports both efficiency leads and revenue losses', async () => {

@@ -18,3 +18,11 @@ test('captured event without issuer fails loudly instead of guessing from an id'
   assert.equal(paymentIssuerKey(captured), null);
   assert.throws(() => requireIssuerKey(paymentIssuerKey(captured), captured.id), /issuer_health_join_failed.*no issuer identifier.*refusing to guess/);
 });
+
+test('captured domestic-card event joins issuer health using card.issuer', async () => {
+  const path = fileURLToPath(new URL('../data/raw_events/pay_TWhTBfEmpfSCJB.observed-api.json', import.meta.url));
+  const captured = JSON.parse(await readFile(path, 'utf8'));
+  assert.equal(captured.status, 'failed');
+  assert.equal(paymentIssuerKey(captured), 'DCBL');
+  assert.equal(downtimeIssuerKey({ payload: { 'payment.downtime': { entity: { instrument: { issuer: 'DCBL' } } } } }), 'DCBL');
+});

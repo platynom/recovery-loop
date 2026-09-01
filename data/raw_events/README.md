@@ -1,18 +1,29 @@
 # Captured Razorpay test events
 
-This directory contains **15 redacted payment records** captured on **22 August 2026** from Razorpay's **Test Payments API** (`GET /v1/payments`). They are API responses collected by `scripts/collect-test-failures.mjs`, not production payments and not synthetic fixtures.
+This directory contains **20 redacted Razorpay test API payment entities** captured from `GET /v1/payments`: 15 on **22 August 2026** and five on **1 September 2026**. They are test-mode API responses collected by `scripts/collect-test-failures.mjs`, not production payments or synthetic fixtures.
 
-All 15 records contain the same observed failure tuple:
+## Outcome and tuple inventory
 
-- `error_code`: `BAD_REQUEST_ERROR`
-- `error_source`: `business`
-- `error_step`: `payment_initiation`
-- `error_reason`: `international_transaction_not_allowed`
+| Count | Status | Observed tuple (`source | step | reason | code`) |
+|---:|---|---|
+| 15 | failed | `business | payment_initiation | international_transaction_not_allowed | BAD_REQUEST_ERROR` |
+| 1 | failed | `gateway | payment_authorization | payment_failed | BAD_REQUEST_ERROR` |
+| 3 | captured | no error tuple |
+| 1 | created | no error tuple |
 
-This is a permanent merchant-configuration rejection: the test business accepts domestic Indian cards only, while these test attempts were international. Consequently, all 15 events validate ingestion, tuple diagnosis, terminal refusal, and audit behavior, but **do not exercise retry scheduling, economic waits, outage deferral, or recovery**.
+The first 15 are one permanent merchant-configuration rejection caused by international-card attempts against a domestic-only test account. They validate ingestion, tuple diagnosis, terminal refusal, and audit behavior, but do not exercise retry recovery.
 
-The capture path recursively removes `email`, `contact`, `customer_email`, and `customer_contact` before writing a file. Existing captures were passed through the same code. Never commit API keys, webhook secrets, unredacted customer information, or live-mode data.
+The five later attempts used Razorpay Standard Checkout and domestic Visa test cards. Razorpay returned `card.issuer: "DCBL"` on all five, including the failed `card_declined` attempt. This identifier canonicalizes to `DCBL` and can join a `payment.downtime` payload whose `instrument.issuer` is `DCBL`. The intended UPI `failure@razorpay` path could not be exercised because the account's Checkout exposed UPI QR/Intent rather than a VPA-entry field; that attempt was completed with a domestic card and is recorded as a card payment. Three documented failure-scenario cards were captured successfully and one remained `created`, so this set contains **16 genuine failures, not 20**.
 
-Issuer-health limitation: every captured record has `bank: null` and `card.issuer: null`, so none can join to an issuer downtime record. A better capture must include a non-null issuer identifier that matches the downtime webhook's `instrument.issuer` after canonicalization.
+## Field coverage
 
-Files under `data/fixtures/` remain synthetic integration fixtures and must not be counted among these 15 observed failures.
+| Capture group | `bank` | `card.issuer` | `vpa` | error tuple |
+|---|---|---|---|---|
+| 15 international-card failures | null | null | null | populated; identical permanent tuple |
+| 5 domestic-card attempts | null | `DCBL` | null | populated on 1 failed payment; null on 3 captured and 1 created payment |
+
+Each file is the complete payment entity returned by the Test Payments API after recursive removal of `email`, `contact`, `customer_email`, and `customer_contact`. Redaction happens before disk write in `scripts/collect-test-failures.mjs`; the same redactor is used by the signed webhook route for future test-lab deliveries.
+
+No webhook delivery envelope was captured for these five attempts. Razorpay was still configured with an expired temporary tunnel, and no safe reachable receiver or dashboard delivery body was available during capture. The repository therefore does not pretend that an API entity is a webhook payload.
+
+Files under `data/fixtures/` remain synthetic integration fixtures and are not counted as observed evidence.

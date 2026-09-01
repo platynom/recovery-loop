@@ -7,7 +7,7 @@ This is the camera-side reference for the final demo. Evaluation values come fro
 | Razorpay fixed retry days | T+1, T+2, T+3 | Razorpay payment-retries documentation; external primary |
 | Optimizer reaction window | within 20 minutes | Razorpay Optimizer documentation; external primary |
 | UPI mandate allowance | 1 original attempt + 3 retries | NPCI AutoPay circular; external primary |
-| Captured Razorpay test failures | 15 | committed `data/raw_events/*.json`; Observed test-mode evidence |
+| Captured Razorpay test API entities | 20 total: 16 failed, 3 captured, 1 created | committed `data/raw_events/*.json`; Observed test-mode evidence |
 | Evaluation seeds | 5 | `fix7-npci-calibrated.json` |
 | Failed mandates per rail and retry horizon | 2,000; 30 days | `fix7-npci-calibrated.json` |
 | UPI gross efficiency ratio | 1.9× | computed from ₹754.99 / ₹405.21 in `fix7-npci-calibrated.json` |

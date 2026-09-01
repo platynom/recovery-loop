@@ -70,6 +70,6 @@ test('recording narratives agree with final evidence and external benchmarks', a
   assert.match(readme, /76%.*3 retries in 4 weeks.*1,000\+.*November 2019/s);
 
   const captures = (await readdir(new URL('data/raw_events/', root))).filter((name) => name.endsWith('.json'));
-  assert.equal(captures.length, 15);
-  assert.match(video, /fifteen captured test events/);
+  assert.equal(captures.length, 20);
+  assert.match(video, /twenty Razorpay test API payment entities/);
 });
