@@ -24,6 +24,7 @@ Checked means verified in the current workspace on 1 September 2026. Unchecked i
 - [ ] Capture at least 20 genuine test-mode failures — five additional genuine attempts produced only one failure, bringing the failure count to 16; three documented failure cards captured successfully and one remains `created`.
 - [ ] Capture retryable failure diversity — the new `gateway | payment_authorization | payment_failed` tuple is observed once, but it is generic and does not establish a repeat-attempt outcome.
 - [x] Capture an issuer-bearing failure — the domestic-card failure carries `card.issuer: DCBL`, which joins a matching `payment.downtime.instrument.issuer` after canonicalization.
+- [ ] Capture a UPI failure payload — documented limitation: this account's Standard Checkout exposed QR/Intent only, so `failure@razorpay` could not be entered; the attempted slot was completed with a domestic card and is not counted as UPI evidence.
 - [ ] Capture complete webhook envelopes for the five new attempts — the configured temporary tunnel had expired and no safe reachable receiver or dashboard delivery body was available; only complete redacted Test Payments API entities are committed.
 - [ ] Replace simulated repeat-attempt outcomes with real merchant outcomes — no public attempt-level Indian merchant dataset was found and no private merchant dataset has been supplied.
 - [ ] Calibrate Cards to an Indian authorization-decline baseline — no suitable public baseline was found; NACH bulk-debit returns are not a valid proxy.

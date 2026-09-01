@@ -100,6 +100,10 @@ Earlier results in git history are **not comparable** with the final artifact be
 | Zero-attempt artifact | A structural 20–40% NACH baseline was compared with an absolute outage threshold, NACH was misused as a Cards proxy, and the ₹415,000 penalty fired even when a policy made no attempt. | `[Simulated; invalidated]` Cards Recovery Loop reported 0 attempts, 0 recoveries, and −₹415,000 net. | The zero-attempt row made the artifact impossible to interpret. The gate now compares each bank with its own baseline, Cards is uncalibrated, and a zero-attempt policy has exactly ₹0 net and no decline penalty. |
 | Refuse/wait conflation | Economic `EV < price` and outage-gate decisions were terminally refused instead of deferred. | `[Simulated; invalidated]` Almost all economic cases were abandoned at the first decision; the intermediate output is not part of the final evidence artifact. | The decision breakdown exposed the unreachable wait path. Hard stops now use `refuse_terminal`; economic and gate outcomes use `wait`, producing the final UPI result of 1,915.4 attempts and 546.0 recoveries. `[NPCI-calibrated]` |
 
+## How this was built
+
+Implementation and documentation were produced with coding agents working from my direction and review. I selected the problem, challenged the evaluation design, and decided when evidence was insufficient and a result had to be invalidated or rebuilt; the agents performed substantial implementation, debugging, analysis, and writing. The correction history above records that collaboration. Commits use the agent author identity, while the repository preserves both the agent's work and my documented judgment without presenting either as solely responsible.
+
 ## Rail constraints modelled
 
 - **UPI AutoPay:** one original attempt plus at most three retries per mandate; retries are non-transferable and must execute in non-peak hours. `[Real rule]` [NPCI UPI circular index](https://www.npci.org.in/circulars/upi) — select 2025 and search for `UPI | OC No. 215 A | FY 2025-26 | Guidelines on usage of UPI APIs` (NPCI's former direct PDF URL now returns 404).
@@ -116,10 +120,11 @@ The scheduler enforces NPCI non-peak execution windows before an attempt can run
 3. Five deterministic seeds and 10,000 synthetic failures per rail expose seed spread but are not confidence intervals over merchant payments. `[Simulated]`
 4. NPCI incident data is monthly and covers reportable incidents; exact timestamps are unavailable, smaller incidents can be absent, and no listed incident does not prove zero downtime. `[NPCI-calibrated limitation]` [NPCI UPI statistics](https://www.npci.org.in/product/upi/product-statistics)
 5. The 20 observed test API entities contain only 16 failures and only two failure tuples; the single new gateway tuple is generic, and none measures repeat-attempt recovery. `[Observed]` [Capture README](data/raw_events/README.md)
-6. Cards are entirely uncalibrated because public NACH return rates describe bulk debit, not card authorization. `[Simulated Cards]`
-7. The ₹415,000 decline-rate penalty is a frozen stress-test offset, not a current network fine schedule. It is computed from each policy's own attempts; zero attempts incur zero penalty. `[Assumption]`
-8. The recovery score is a transparent deterministic model, not a model trained on merchant history. `[Simulated]`
-9. Execution is locked to Razorpay test mode; no live payment is attempted by this repository. `[Observed code boundary]` [Executor](src/execute/razorpay.mjs)
+6. A UPI failure capture could not be exercised: this test account's Standard Checkout exposed only QR/Intent, not a VPA-entry field, so the documented `failure@razorpay` test handle could not be entered. The attempted slot was completed with a domestic card and is recorded as such. `[Observed test limitation]` [Capture README](data/raw_events/README.md)
+7. Cards are entirely uncalibrated because public NACH return rates describe bulk debit, not card authorization. `[Simulated Cards]`
+8. The ₹415,000 decline-rate penalty is a frozen stress-test offset, not a current network fine schedule. It is computed from each policy's own attempts; zero attempts incur zero penalty. `[Assumption]`
+9. The recovery score is a transparent deterministic model, not a model trained on merchant history. `[Simulated]`
+10. Execution is locked to Razorpay test mode; no live payment is attempted by this repository. `[Observed code boundary]` [Executor](src/execute/razorpay.mjs)
 
 Further detail: [LIMITATIONS.md](docs/LIMITATIONS.md).
 
