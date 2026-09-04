@@ -36,6 +36,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(sessionStorage.getItem('rl-intro')==='1'||matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.setAttribute('data-intro','seen')}}catch(e){}",
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
