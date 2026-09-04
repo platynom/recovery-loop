@@ -99,7 +99,7 @@ export default function Why() {
               <h4>NPCI NACH returns &amp; incident log</h4>
               <p>Destination-bank returns split into financial and non-financial declines — the real soft/hard partition — plus response timing, and a reportable-incident log used to shape outage windows.</p>
               <p className="src-date">Covers January 2025 – June 2026 · fetched 22 August 2026</p>
-              <a href="https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics" target="_blank" rel="noreferrer">NPCI NACH statistics →</a>
+              <a href="https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card" target="_blank" rel="noreferrer">NPCI NACH statistics →</a>
             </article>
             <article>
               <span className="tier sec">External benchmark</span>
