@@ -95,7 +95,7 @@ function downtimeHealth(payload: JsonObject, now: number) {
 export async function POST(request: Request) {
   const body = await request.text();
   const signature = request.headers.get('x-razorpay-signature') ?? '';
-  const runtime = runtimeEnv();
+  const runtime = await runtimeEnv();
   const fixture = runtime.ALLOW_FIXTURE_WEBHOOKS === '1' && request.headers.get('x-recovery-loop-fixture') === '1';
   const secret = runtime.RAZORPAY_WEBHOOK_SECRET;
   if (!secret && !fixture) return Response.json({ error: 'Webhook secret is not configured.' }, { status: 503 });

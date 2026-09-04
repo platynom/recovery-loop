@@ -91,8 +91,8 @@ export default function Home() {
   useEffect(() => {
     const controller = new AbortController();
     fetch(`/api/simulation${outage ? '?outageBank=HDFC' : ''}`, { signal: controller.signal })
-      .then((response) => { if (!response.ok) throw new Error('Simulation request failed'); return response.json(); })
-      .then((payload: SimulationPayload) => {
+      .then((response) => { if (!response.ok) throw new Error('Simulation request failed'); return response.json() as Promise<SimulationPayload>; })
+      .then((payload) => {
         setSimulation(payload);
         setSimulationState(payload.decisions?.length ? 'ready' : 'empty');
         if (payload.decisions?.length) setSelectedId((current) => current && payload.decisions.some((item) => item.eventId === current) ? current : payload.decisions[0].eventId);
@@ -104,8 +104,8 @@ export default function Home() {
   useEffect(() => {
     const controller = new AbortController();
     fetch('/api/evaluation', { signal: controller.signal })
-      .then((response) => { if (!response.ok) throw new Error('Evaluation request failed'); return response.json(); })
-      .then((payload: EvaluationPayload) => {
+      .then((response) => { if (!response.ok) throw new Error('Evaluation request failed'); return response.json() as Promise<EvaluationPayload>; })
+      .then((payload) => {
         const reported = payload.headlineEvidence?.reportedRails;
         setEvaluation(payload);
         setEvaluationState(reported?.upiNpcCalibrated && reported?.cardsUncalibrated ? 'ready' : 'empty');

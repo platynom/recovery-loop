@@ -1,9 +1,15 @@
-import { env } from 'cloudflare:workers';
 import { schemaStatements } from './schema';
 
 type RuntimeEnv = Cloudflare.Env & { DB?: D1Database; RAZORPAY_WEBHOOK_SECRET?: string; ALLOW_FIXTURE_WEBHOOKS?: string };
 
-export function runtimeEnv() { return env as RuntimeEnv; }
+export async function runtimeEnv() {
+  try {
+    const { env } = await import('cloudflare:workers');
+    return env as RuntimeEnv;
+  } catch {
+    return process.env as RuntimeEnv;
+  }
+}
 
 export async function initializeDatabase(db: D1Database) {
   await db.batch(schemaStatements.map((statement) => db.prepare(statement)));
