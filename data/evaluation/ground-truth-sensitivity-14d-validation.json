@@ -1,0 +1,2928 @@
+{
+  "generatedAt": "2026-09-04T06:17:49.579Z",
+  "design": "UPI-only authored-ground-truth sensitivity at the frozen 14-day cap on the ten held-out validation seeds. Each listed rule is perturbed independently by -25% and +25%; policy parameters remain frozen.",
+  "rail": "UPI AutoPay",
+  "maxDeferralDays": 14,
+  "seeds": [
+    20260906,
+    20260907,
+    20260908,
+    20260909,
+    20260910,
+    20260911,
+    20260912,
+    20260913,
+    20260914,
+    20260915
+  ],
+  "cohortPerSeed": 2000,
+  "rules": [
+    {
+      "id": "salary_date_support",
+      "label": "Salary-date support",
+      "currentValue": "[1, 5, 15, 25], equally likely",
+      "perturbationMeaning": "multiply every support day by the factor, round, and clamp to days 1–30"
+    },
+    {
+      "id": "salary_peak_probability",
+      "label": "Salary-day recovery probability",
+      "currentValue": 0.82
+    },
+    {
+      "id": "salary_daily_decay",
+      "label": "First-three-days salary decay",
+      "currentValue": 0.1,
+      "unit": "probability points/day"
+    },
+    {
+      "id": "post_salary_base_probability",
+      "label": "Post-salary recovery base",
+      "currentValue": 0.42
+    },
+    {
+      "id": "post_salary_decay_days",
+      "label": "Post-salary exponential decay constant",
+      "currentValue": 7,
+      "unit": "days"
+    },
+    {
+      "id": "insufficient_funds_floor",
+      "label": "Insufficient-funds recovery floor",
+      "currentValue": 0.06
+    },
+    {
+      "id": "technical_during_outage_probability",
+      "label": "Technical recovery while outage is active",
+      "currentValue": 0.02
+    },
+    {
+      "id": "technical_after_clearance_probability",
+      "label": "Technical recovery after outage clearance",
+      "currentValue": 0.76
+    },
+    {
+      "id": "issuer_declined_probability",
+      "label": "Issuer-declined recovery probability",
+      "currentValue": 0.3
+    },
+    {
+      "id": "authentication_failure_probability",
+      "label": "Authentication-failure recovery probability",
+      "currentValue": 0.26
+    },
+    {
+      "id": "outage_duration",
+      "label": "Active-outage duration",
+      "currentValue": "1.0 × NPCI monthly incident mean",
+      "status": "NPCI aggregate duration; authored placement starts at evaluation time"
+    },
+    {
+      "id": "failure_class_mix",
+      "label": "Technical-versus-business failure-class odds",
+      "currentValue": "1.0 × each NPCI bank/month BD:TD mix",
+      "status": "NPCI-backed input perturbation included to test the requested failure-class mix"
+    },
+    {
+      "id": "mapped_hard_decline_share",
+      "label": "NACH non-financial share mapped to hard decline",
+      "currentValue": "1.0 × published non-financial share",
+      "status": "published partition; authored mapping to payment hardness"
+    },
+    {
+      "id": "hard_subtype_issuer_weight",
+      "label": "Hard-mix issuer-declined weight",
+      "currentValue": 12
+    },
+    {
+      "id": "hard_subtype_authentication_weight",
+      "label": "Hard-mix authentication-failure weight",
+      "currentValue": 9
+    },
+    {
+      "id": "hard_subtype_mandate_inactive_weight",
+      "label": "Hard-mix mandate-inactive weight",
+      "currentValue": 5
+    },
+    {
+      "id": "hard_subtype_non_retryable_weight",
+      "label": "Hard-mix non-retryable weight",
+      "currentValue": 2
+    },
+    {
+      "id": "mandate_inactive_probability",
+      "label": "Mandate-inactive recovery probability",
+      "currentValue": 0,
+      "invariantUnderMultiplication": true
+    },
+    {
+      "id": "non_retryable_probability",
+      "label": "Non-retryable recovery probability",
+      "currentValue": 0,
+      "invariantUnderMultiplication": true
+    }
+  ],
+  "summary": [
+    {
+      "scenario": "baseline",
+      "rule": null,
+      "factor": null,
+      "perturbation": null,
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "salary_date_support_0.75",
+      "rule": "salary_date_support",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "salary_date_support": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1342111.5869999998,
+        "min": 1159041.46,
+        "max": 1511860.3800000001
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1404853.66
+        },
+        {
+          "seed": 20260907,
+          "difference": 1328707.0499999998
+        },
+        {
+          "seed": 20260908,
+          "difference": 1401779.84
+        },
+        {
+          "seed": 20260909,
+          "difference": 1511860.3800000001
+        },
+        {
+          "seed": 20260910,
+          "difference": 1417875.3800000001
+        },
+        {
+          "seed": 20260911,
+          "difference": 1159041.46
+        },
+        {
+          "seed": 20260912,
+          "difference": 1221295.26
+        },
+        {
+          "seed": 20260913,
+          "difference": 1385343.5200000003
+        },
+        {
+          "seed": 20260914,
+          "difference": 1225591.7699999998
+        },
+        {
+          "seed": 20260915,
+          "difference": 1364767.55
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2700140.076,
+        "min": 2512040,
+        "max": 2857482.74
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1358028.489,
+        "min": 1278225.11,
+        "max": 1472139.22
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "salary_date_support_1.25",
+      "rule": "salary_date_support",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "salary_date_support": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1370193.685,
+        "min": 1176234.4599999997,
+        "max": 1531372.2200000002
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1460409.5499999998
+        },
+        {
+          "seed": 20260907,
+          "difference": 1329734.52
+        },
+        {
+          "seed": 20260908,
+          "difference": 1531372.2200000002
+        },
+        {
+          "seed": 20260909,
+          "difference": 1413127.1500000001
+        },
+        {
+          "seed": 20260910,
+          "difference": 1295158.67
+        },
+        {
+          "seed": 20260911,
+          "difference": 1176234.4599999997
+        },
+        {
+          "seed": 20260912,
+          "difference": 1285940.8800000001
+        },
+        {
+          "seed": 20260913,
+          "difference": 1468937.7599999998
+        },
+        {
+          "seed": 20260914,
+          "difference": 1358981.4100000001
+        },
+        {
+          "seed": 20260915,
+          "difference": 1382040.2300000002
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2613406.7060000002,
+        "min": 2476234.3,
+        "max": 2733710.53
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1243213.021,
+        "min": 1137691.37,
+        "max": 1332984.88
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "salary_peak_probability_0.75",
+      "rule": "salary_peak_probability",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "salary_peak_probability": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 911806.7059999999,
+        "min": 727825.8199999998,
+        "max": 1027411.5799999998
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 888651.5800000001
+        },
+        {
+          "seed": 20260907,
+          "difference": 937024.5700000003
+        },
+        {
+          "seed": 20260908,
+          "difference": 962310.2699999998
+        },
+        {
+          "seed": 20260909,
+          "difference": 1027411.5799999998
+        },
+        {
+          "seed": 20260910,
+          "difference": 993666.6399999997
+        },
+        {
+          "seed": 20260911,
+          "difference": 727825.8199999998
+        },
+        {
+          "seed": 20260912,
+          "difference": 918561.6199999999
+        },
+        {
+          "seed": 20260913,
+          "difference": 982014.1599999999
+        },
+        {
+          "seed": 20260914,
+          "difference": 790246.48
+        },
+        {
+          "seed": 20260915,
+          "difference": 890354.3400000001
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2468430.218,
+        "min": 2310495.36,
+        "max": 2594035.94
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1556623.5119999999,
+        "min": 1469007.09,
+        "max": 1631320.13
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "salary_peak_probability_1.25",
+      "rule": "salary_peak_probability",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "salary_peak_probability": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1128505.471,
+        "min": 971067.7299999997,
+        "max": 1241173.4000000001
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1163017.4800000002
+        },
+        {
+          "seed": 20260907,
+          "difference": 1192728.77
+        },
+        {
+          "seed": 20260908,
+          "difference": 1139241.4800000002
+        },
+        {
+          "seed": 20260909,
+          "difference": 1241173.4000000001
+        },
+        {
+          "seed": 20260910,
+          "difference": 1170578.27
+        },
+        {
+          "seed": 20260911,
+          "difference": 971067.7299999997
+        },
+        {
+          "seed": 20260912,
+          "difference": 1048528.8299999998
+        },
+        {
+          "seed": 20260913,
+          "difference": 1161387.0099999998
+        },
+        {
+          "seed": 20260914,
+          "difference": 1058871.55
+        },
+        {
+          "seed": 20260915,
+          "difference": 1138460.19
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 3119635.4220000003,
+        "min": 2951228.28,
+        "max": 3264519.21
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1991129.9510000001,
+        "min": 1896131.03,
+        "max": 2103132.2
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "salary_daily_decay_0.75",
+      "rule": "salary_daily_decay",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "salary_daily_decay": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1076294.8599999999,
+        "min": 870632.47,
+        "max": 1216759.5200000003
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1044268.76
+        },
+        {
+          "seed": 20260907,
+          "difference": 1148820.24
+        },
+        {
+          "seed": 20260908,
+          "difference": 1139707.66
+        },
+        {
+          "seed": 20260909,
+          "difference": 1216759.5200000003
+        },
+        {
+          "seed": 20260910,
+          "difference": 1120117.4300000002
+        },
+        {
+          "seed": 20260911,
+          "difference": 870632.47
+        },
+        {
+          "seed": 20260912,
+          "difference": 1072580.92
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140402.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 914381.5499999998
+        },
+        {
+          "seed": 20260915,
+          "difference": 1095277.6500000001
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2865378.462,
+        "min": 2667103.65,
+        "max": 3006905.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "salary_daily_decay_1.25",
+      "rule": "salary_daily_decay",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "salary_daily_decay": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1059078.1690000002,
+        "min": 844279.1399999999,
+        "max": 1203628.6300000001
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1022604.72
+        },
+        {
+          "seed": 20260907,
+          "difference": 1135942.64
+        },
+        {
+          "seed": 20260908,
+          "difference": 1128482.9000000001
+        },
+        {
+          "seed": 20260909,
+          "difference": 1203628.6300000001
+        },
+        {
+          "seed": 20260910,
+          "difference": 1099156.44
+        },
+        {
+          "seed": 20260911,
+          "difference": 844279.1399999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1048239.21
+        },
+        {
+          "seed": 20260913,
+          "difference": 1137484
+        },
+        {
+          "seed": 20260914,
+          "difference": 894716.6200000001
+        },
+        {
+          "seed": 20260915,
+          "difference": 1076247.39
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2848161.771,
+        "min": 2640750.32,
+        "max": 3003986.63
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "post_salary_base_probability_0.75",
+      "rule": "post_salary_base_probability",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "post_salary_base_probability": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1051016.6019999997,
+        "min": 849395.55,
+        "max": 1216148.5099999998
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1008734.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1126806.83
+        },
+        {
+          "seed": 20260908,
+          "difference": 1112743.9499999997
+        },
+        {
+          "seed": 20260909,
+          "difference": 1216148.5099999998
+        },
+        {
+          "seed": 20260910,
+          "difference": 1096372.7
+        },
+        {
+          "seed": 20260911,
+          "difference": 849395.55
+        },
+        {
+          "seed": 20260912,
+          "difference": 1033623.02
+        },
+        {
+          "seed": 20260913,
+          "difference": 1109987.8699999999
+        },
+        {
+          "seed": 20260914,
+          "difference": 854118.3600000001
+        },
+        {
+          "seed": 20260915,
+          "difference": 1102234.5699999998
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2715459.653,
+        "min": 2536207.6,
+        "max": 2855309.53
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1664443.051,
+        "min": 1563829.37,
+        "max": 1773216.51
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "post_salary_base_probability_1.25",
+      "rule": "post_salary_base_probability",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "post_salary_base_probability": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1113928.649,
+        "min": 902298.5000000002,
+        "max": 1244573.6600000001
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1091585.4900000002
+        },
+        {
+          "seed": 20260907,
+          "difference": 1165691.38
+        },
+        {
+          "seed": 20260908,
+          "difference": 1203805.64
+        },
+        {
+          "seed": 20260909,
+          "difference": 1244573.6600000001
+        },
+        {
+          "seed": 20260910,
+          "difference": 1122476.1699999997
+        },
+        {
+          "seed": 20260911,
+          "difference": 902298.5000000002
+        },
+        {
+          "seed": 20260912,
+          "difference": 1105433.2200000002
+        },
+        {
+          "seed": 20260913,
+          "difference": 1219748.5699999998
+        },
+        {
+          "seed": 20260914,
+          "difference": 941154.4199999999
+        },
+        {
+          "seed": 20260915,
+          "difference": 1142519.4399999997
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 3014227.3510000003,
+        "min": 2811900.95,
+        "max": 3164887.8
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1900298.702,
+        "min": 1819092.54,
+        "max": 1996976.5
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "post_salary_decay_days_0.75",
+      "rule": "post_salary_decay_days",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "post_salary_decay_days": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1083835.7259999998,
+        "min": 869355.3999999999,
+        "max": 1234126.16
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1027196.5299999998
+        },
+        {
+          "seed": 20260907,
+          "difference": 1186599.3800000001
+        },
+        {
+          "seed": 20260908,
+          "difference": 1121546.78
+        },
+        {
+          "seed": 20260909,
+          "difference": 1234126.16
+        },
+        {
+          "seed": 20260910,
+          "difference": 1127982.08
+        },
+        {
+          "seed": 20260911,
+          "difference": 869355.3999999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1072137.7799999998
+        },
+        {
+          "seed": 20260913,
+          "difference": 1161895.0999999999
+        },
+        {
+          "seed": 20260914,
+          "difference": 898300.6800000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1139217.3699999999
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2751342.568,
+        "min": 2559646.78,
+        "max": 2906290.05
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1667506.8419999997,
+        "min": 1562228.85,
+        "max": 1778481.44
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "post_salary_decay_days_1.25",
+      "rule": "post_salary_decay_days",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "post_salary_decay_days": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1093657.766,
+        "min": 896132.3799999999,
+        "max": 1218560.85
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1050587.8
+        },
+        {
+          "seed": 20260907,
+          "difference": 1152033.46
+        },
+        {
+          "seed": 20260908,
+          "difference": 1214421.48
+        },
+        {
+          "seed": 20260909,
+          "difference": 1193537.38
+        },
+        {
+          "seed": 20260910,
+          "difference": 1120025.9899999998
+        },
+        {
+          "seed": 20260911,
+          "difference": 896132.3799999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1076304.06
+        },
+        {
+          "seed": 20260913,
+          "difference": 1218560.85
+        },
+        {
+          "seed": 20260914,
+          "difference": 917229.3000000003
+        },
+        {
+          "seed": 20260915,
+          "difference": 1097744.96
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2980461.5369999995,
+        "min": 2806183,
+        "max": 3141804.98
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1886803.7710000002,
+        "min": 1800922.77,
+        "max": 1985374.44
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "insufficient_funds_floor_0.75",
+      "rule": "insufficient_funds_floor",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "insufficient_funds_floor": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1137463.6169999999,
+        "min": 912627.8200000001,
+        "max": 1276129.8199999998
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1106988.1
+        },
+        {
+          "seed": 20260907,
+          "difference": 1206917.07
+        },
+        {
+          "seed": 20260908,
+          "difference": 1179529.6000000003
+        },
+        {
+          "seed": 20260909,
+          "difference": 1276129.8199999998
+        },
+        {
+          "seed": 20260910,
+          "difference": 1210829.3599999999
+        },
+        {
+          "seed": 20260911,
+          "difference": 912627.8200000001
+        },
+        {
+          "seed": 20260912,
+          "difference": 1131743.75
+        },
+        {
+          "seed": 20260913,
+          "difference": 1244360.5299999998
+        },
+        {
+          "seed": 20260914,
+          "difference": 969129.5799999998
+        },
+        {
+          "seed": 20260915,
+          "difference": 1136380.5399999998
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2811781.071,
+        "min": 2611136.18,
+        "max": 2956277.36
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1674317.454,
+        "min": 1572790.29,
+        "max": 1765220.09
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "insufficient_funds_floor_1.25",
+      "rule": "insufficient_funds_floor",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "insufficient_funds_floor": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1014432.684,
+        "min": 816364.6400000001,
+        "max": 1107726.37
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1000931.2600000002
+        },
+        {
+          "seed": 20260907,
+          "difference": 1099269.62
+        },
+        {
+          "seed": 20260908,
+          "difference": 1070641.2000000002
+        },
+        {
+          "seed": 20260909,
+          "difference": 1107726.37
+        },
+        {
+          "seed": 20260910,
+          "difference": 1080731.03
+        },
+        {
+          "seed": 20260911,
+          "difference": 816364.6400000001
+        },
+        {
+          "seed": 20260912,
+          "difference": 998443.6799999999
+        },
+        {
+          "seed": 20260913,
+          "difference": 1106617.3499999999
+        },
+        {
+          "seed": 20260914,
+          "difference": 825163.1500000001
+        },
+        {
+          "seed": 20260915,
+          "difference": 1038438.5399999998
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2909939.388,
+        "min": 2732371.24,
+        "max": 3065261.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1895506.704,
+        "min": 1798646.28,
+        "max": 1998007.16
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "technical_during_outage_probability_0.75",
+      "rule": "technical_during_outage_probability",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "technical_during_outage_probability": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "technical_during_outage_probability_1.25",
+      "rule": "technical_during_outage_probability",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "technical_during_outage_probability": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "technical_after_clearance_probability_0.75",
+      "rule": "technical_after_clearance_probability",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "technical_after_clearance_probability": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.2289999998,
+        "min": 850537.9300000002,
+        "max": 1205356.5699999998
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.85
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.5699999998
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9300000002
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4000000001
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.95
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.2400000002
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2852434.177,
+        "min": 2643415.95,
+        "max": 2996873.2
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1784159.9479999996,
+        "min": 1681771.75,
+        "max": 1878752.7
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "technical_after_clearance_probability_1.25",
+      "rule": "technical_after_clearance_probability",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "technical_after_clearance_probability": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.7499999998
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857591.363,
+        "min": 2647033.11,
+        "max": 3006915.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789317.134,
+        "min": 1687633.23,
+        "max": 1885854.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "rule": "issuer_declined_probability",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "issuer_declined_probability": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "rule": "issuer_declined_probability",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "issuer_declined_probability": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "authentication_failure_probability_0.75",
+      "rule": "authentication_failure_probability",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "authentication_failure_probability": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "authentication_failure_probability_1.25",
+      "rule": "authentication_failure_probability",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "authentication_failure_probability": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "rule": "outage_duration",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "outage_duration": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "rule": "outage_duration",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "outage_duration": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "failure_class_mix_0.75",
+      "rule": "failure_class_mix",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "failure_class_mix": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1014603.9519999999,
+        "min": 841645.3299999998,
+        "max": 1124212.7099999997
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 841645.3299999998
+        },
+        {
+          "seed": 20260907,
+          "difference": 1040984.46
+        },
+        {
+          "seed": 20260908,
+          "difference": 1122251.36
+        },
+        {
+          "seed": 20260909,
+          "difference": 1124212.7099999997
+        },
+        {
+          "seed": 20260910,
+          "difference": 1015542.25
+        },
+        {
+          "seed": 20260911,
+          "difference": 898036.5999999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1076441.31
+        },
+        {
+          "seed": 20260913,
+          "difference": 990340.21
+        },
+        {
+          "seed": 20260914,
+          "difference": 984396
+        },
+        {
+          "seed": 20260915,
+          "difference": 1052189.29
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2784379.483,
+        "min": 2678208.34,
+        "max": 2915087.08
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1769775.531,
+        "min": 1640618.32,
+        "max": 1858040.88
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "failure_class_mix_1.25",
+      "rule": "failure_class_mix",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "failure_class_mix": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 984770.3659999998,
+        "min": 869821.8500000001,
+        "max": 1082393.4699999997
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 930748.99
+        },
+        {
+          "seed": 20260907,
+          "difference": 964101.3200000001
+        },
+        {
+          "seed": 20260908,
+          "difference": 1015707.5100000002
+        },
+        {
+          "seed": 20260909,
+          "difference": 1022608.1199999999
+        },
+        {
+          "seed": 20260910,
+          "difference": 1082393.4699999997
+        },
+        {
+          "seed": 20260911,
+          "difference": 869821.8500000001
+        },
+        {
+          "seed": 20260912,
+          "difference": 924863.5
+        },
+        {
+          "seed": 20260913,
+          "difference": 916833.2499999998
+        },
+        {
+          "seed": 20260914,
+          "difference": 1067026.8699999999
+        },
+        {
+          "seed": 20260915,
+          "difference": 1053598.7799999998
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2788423.6810000003,
+        "min": 2667364.45,
+        "max": 2889386.55
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1803653.3150000002,
+        "min": 1703295.09,
+        "max": 1959625.05
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "mapped_hard_decline_share_0.75",
+      "rule": "mapped_hard_decline_share",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "mapped_hard_decline_share": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "mapped_hard_decline_share_1.25",
+      "rule": "mapped_hard_decline_share",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "mapped_hard_decline_share": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "hard_subtype_issuer_weight_0.75",
+      "rule": "hard_subtype_issuer_weight",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "hard_subtype_issuer_weight": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "hard_subtype_issuer_weight_1.25",
+      "rule": "hard_subtype_issuer_weight",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "hard_subtype_issuer_weight": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "hard_subtype_authentication_weight_0.75",
+      "rule": "hard_subtype_authentication_weight",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "hard_subtype_authentication_weight": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "hard_subtype_authentication_weight_1.25",
+      "rule": "hard_subtype_authentication_weight",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "hard_subtype_authentication_weight": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "hard_subtype_mandate_inactive_weight_0.75",
+      "rule": "hard_subtype_mandate_inactive_weight",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "hard_subtype_mandate_inactive_weight": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "hard_subtype_mandate_inactive_weight_1.25",
+      "rule": "hard_subtype_mandate_inactive_weight",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "hard_subtype_mandate_inactive_weight": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "hard_subtype_non_retryable_weight_0.75",
+      "rule": "hard_subtype_non_retryable_weight",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "hard_subtype_non_retryable_weight": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "hard_subtype_non_retryable_weight_1.25",
+      "rule": "hard_subtype_non_retryable_weight",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "hard_subtype_non_retryable_weight": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "mandate_inactive_probability_0.75",
+      "rule": "mandate_inactive_probability",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "mandate_inactive_probability": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "mandate_inactive_probability_1.25",
+      "rule": "mandate_inactive_probability",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "mandate_inactive_probability": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "non_retryable_probability_0.75",
+      "rule": "non_retryable_probability",
+      "factor": 0.75,
+      "perturbation": {
+        "factors": {
+          "non_retryable_probability": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "non_retryable_probability_1.25",
+      "rule": "non_retryable_probability",
+      "factor": 1.25,
+      "perturbation": {
+        "factors": {
+          "non_retryable_probability": 1.25
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1068274.229,
+        "min": 850537.9299999999,
+        "max": 1205356.57
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1037749.6599999999
+        },
+        {
+          "seed": 20260907,
+          "difference": 1147477.8499999999
+        },
+        {
+          "seed": 20260908,
+          "difference": 1136634.59
+        },
+        {
+          "seed": 20260909,
+          "difference": 1205356.57
+        },
+        {
+          "seed": 20260910,
+          "difference": 1110160.75
+        },
+        {
+          "seed": 20260911,
+          "difference": 850537.9299999999
+        },
+        {
+          "seed": 20260912,
+          "difference": 1062320.35
+        },
+        {
+          "seed": 20260913,
+          "difference": 1140398.4
+        },
+        {
+          "seed": 20260914,
+          "difference": 904005.9500000002
+        },
+        {
+          "seed": 20260915,
+          "difference": 1088100.24
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2857357.831,
+        "min": 2647009.11,
+        "max": 3006901.03
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1789083.602,
+        "min": 1687615.23,
+        "max": 1885838.54
+      },
+      "reversesBaselineSign": false
+    }
+  ],
+  "signFlipsAtTwentyFivePercent": [],
+  "smallestTestedSignChangingPerturbation": null,
+  "combinedWorstCase": {
+    "selectionMethod": "For each non-invariant rule, use whichever of its independent ±25% rows produced the lower mean paired net difference; ties choose -25%.",
+    "factors": {
+      "salary_date_support": 0.75,
+      "salary_peak_probability": 0.75,
+      "salary_daily_decay": 1.25,
+      "post_salary_base_probability": 0.75,
+      "post_salary_decay_days": 0.75,
+      "insufficient_funds_floor": 1.25,
+      "technical_during_outage_probability": 0.75,
+      "technical_after_clearance_probability": 0.75,
+      "issuer_declined_probability": 0.75,
+      "authentication_failure_probability": 0.75,
+      "outage_duration": 0.75,
+      "failure_class_mix": 1.25,
+      "mapped_hard_decline_share": 0.75,
+      "hard_subtype_issuer_weight": 0.75,
+      "hard_subtype_authentication_weight": 0.75,
+      "hard_subtype_mandate_inactive_weight": 0.75,
+      "hard_subtype_non_retryable_weight": 0.75
+    },
+    "result": {
+      "scenario": "combined_worst_case",
+      "rule": "all_authored_rules",
+      "factor": null,
+      "perturbation": {
+        "factors": {
+          "salary_date_support": 0.75,
+          "salary_peak_probability": 0.75,
+          "salary_daily_decay": 1.25,
+          "post_salary_base_probability": 0.75,
+          "post_salary_decay_days": 0.75,
+          "insufficient_funds_floor": 1.25,
+          "technical_during_outage_probability": 0.75,
+          "technical_after_clearance_probability": 0.75,
+          "issuer_declined_probability": 0.75,
+          "authentication_failure_probability": 0.75,
+          "outage_duration": 0.75,
+          "failure_class_mix": 1.25,
+          "mapped_hard_decline_share": 0.75,
+          "hard_subtype_issuer_weight": 0.75,
+          "hard_subtype_authentication_weight": 0.75,
+          "hard_subtype_mandate_inactive_weight": 0.75,
+          "hard_subtype_non_retryable_weight": 0.75
+        }
+      },
+      "pairedNetDifference": {
+        "mean": 1085508.058,
+        "min": 1027086.6199999999,
+        "max": 1171469.25
+      },
+      "positiveSeeds": 10,
+      "perSeedPairedNetDifference": [
+        {
+          "seed": 20260906,
+          "difference": 1033078.77
+        },
+        {
+          "seed": 20260907,
+          "difference": 1080082.67
+        },
+        {
+          "seed": 20260908,
+          "difference": 1101191.09
+        },
+        {
+          "seed": 20260909,
+          "difference": 1027086.6199999999
+        },
+        {
+          "seed": 20260910,
+          "difference": 1137071.62
+        },
+        {
+          "seed": 20260911,
+          "difference": 1092245.36
+        },
+        {
+          "seed": 20260912,
+          "difference": 1146426.4300000002
+        },
+        {
+          "seed": 20260913,
+          "difference": 1027965.9999999998
+        },
+        {
+          "seed": 20260914,
+          "difference": 1038462.7699999998
+        },
+        {
+          "seed": 20260915,
+          "difference": 1171469.25
+        }
+      ],
+      "recoveryLoopNetRevenue": {
+        "mean": 2256607.416,
+        "min": 2110874.01,
+        "max": 2346786.66
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1171099.358,
+        "min": 1072411.24,
+        "max": 1315044.8
+      },
+      "reversesBaselineSign": false
+    }
+  },
+  "structuralAssumptionsNotMultiplicativelyPerturbed": [
+    "NPCI months are sampled uniformly.",
+    "An active incident is placed at evaluation time because NPCI does not publish incident timestamps.",
+    "Each attempt succeeds when a seeded uniform draw is below the hidden probability."
+  ],
+  "note": "This is a post-selection sensitivity analysis on the validation seeds, not a second confirmatory validation test."
+}

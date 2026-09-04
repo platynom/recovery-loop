@@ -108,20 +108,64 @@ A 50/50 stochastic logging policy assigns complete mandate trajectories. Traject
 
 The UPI gap is material enough to disclose but does not reverse the three-day loss. This is still off-policy estimation inside the authored simulator, not merchant-log validation.
 
-## Diagnostic 6: authored ground-truth sensitivity
+## Diagnostic 6: authored ground-truth sensitivity at the frozen cap
 
-Each nonzero authored hidden-world rule group was perturbed one at a time by ±25% at the three-day cap. Every scenario remains a loss and is positive in 0/5 seeds.
+The earlier five-seed, three-day sensitivity supported the superseded three-day loss. It did not test the later 14-day conclusion. The corrected analysis uses UPI only, the frozen 14-day cap, and validation seeds `20260906`–`20260915`. It reproduces the headline baseline exactly: **+₹1,068,274 mean paired net, 10/10 positive seeds**. This is a post-selection sensitivity analysis on reused validation seeds, not a second confirmatory held-out test.
 
-| Rule | UPI −25% | UPI +25% | Cards −25% | Cards +25% |
-|---|---:|---:|---:|---:|
-| Insufficient-funds probability | −₹603,467 | −₹858,234 | −₹637,024 | −₹735,752 |
-| Technical probability | −₹745,885 | −₹745,885 | −₹685,308 | −₹685,308 |
-| Issuer-declined probability | −₹745,885 | −₹745,885 | −₹619,002 | −₹739,663 |
-| Customer-action probability | −₹745,885 | −₹745,885 | −₹685,308 | −₹685,308 |
-| Salary-date placement | −₹1,039,738 | −₹980,491 | −₹835,626 | −₹799,892 |
-| Outage duration | −₹745,885 | −₹745,885 | −₹685,308 | −₹685,308 |
+### Authored rules and frozen values
 
-The default-cap sign survives, but loss magnitude is especially sensitive to salary placement. [LIMITATIONS.md](LIMITATIONS.md) lists every hidden rule and whether it is NPCI-grounded or authored.
+| Hidden-world rule | Frozen value | Evidence status |
+|---|---:|---|
+| Salary-date support | days 1, 5, 15, 25; equal weight | Authored |
+| Salary-day insufficient-funds recovery | 0.82 | Authored |
+| First-three-days salary decay | 0.10 probability points/day | Authored |
+| Post-salary recovery base | 0.42 | Authored |
+| Post-salary exponential decay constant | 7 days | Authored |
+| Insufficient-funds recovery floor | 0.06 | Authored |
+| Technical recovery during outage | 0.02 | Authored |
+| Technical recovery after clearance | 0.76 | Authored |
+| Issuer-declined recovery | 0.30, flat | Authored |
+| Authentication-failure recovery | 0.26, flat | Authored |
+| Active-outage duration | 1.0 × NPCI monthly incident mean; starts at evaluation time | NPCI duration, authored placement |
+| NACH non-financial share mapped to hard decline | 1.0 × published share | NPCI partition, authored interpretation |
+| Hard-decline subtype weights | issuer 12; authentication 9; mandate inactive 5; non-retryable 2 | Authored |
+| Mandate-inactive recovery | exactly 0 | Structural authored hard stop |
+| Non-retryable recovery | exactly 0 | Structural authored hard stop |
+| Failure-class mix | each bank/month's NPCI BD:TD odds | NPCI-backed input, perturbed as requested |
+
+NPCI months remain sampled uniformly; an active incident begins at evaluation time because timestamps are unavailable; and attempts use seeded `Uniform(0,1)` outcome draws. These are structural simulation choices without a scalar ±25% interpretation. The active-incident timing is exercised through the duration perturbation. The zero-probability hard stops remain zero under multiplicative perturbation.
+
+### One-at-a-time results
+
+Each scalar rule was multiplied independently by 0.75 and 1.25. Salary support shifts all four support days by that factor, rounded and clamped to days 1–30. Failure-class mix scales the NPCI technical-versus-business odds, preserving the published mix at 1.0.
+
+| Rule | −25% paired net / positive seeds | +25% paired net / positive seeds |
+|---|---:|---:|
+| Salary-date support | +₹1,342,112 / 10/10 | +₹1,370,194 / 10/10 |
+| Salary-day recovery probability | +₹911,807 / 10/10 | +₹1,128,505 / 10/10 |
+| First-three-days salary decay | +₹1,076,295 / 10/10 | +₹1,059,078 / 10/10 |
+| Post-salary recovery base | +₹1,051,017 / 10/10 | +₹1,113,929 / 10/10 |
+| Post-salary decay constant | +₹1,083,836 / 10/10 | +₹1,093,658 / 10/10 |
+| Insufficient-funds floor | +₹1,137,464 / 10/10 | +₹1,014,433 / 10/10 |
+| Technical recovery during outage | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Technical recovery after clearance | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Issuer-declined recovery | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Authentication-failure recovery | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Outage duration | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| NPCI failure-class mix | +₹1,014,604 / 10/10 | +₹984,770 / 10/10 |
+| Mapped hard-decline share | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Hard subtype: issuer weight | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Hard subtype: authentication weight | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Hard subtype: mandate-inactive weight | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Hard subtype: non-retryable weight | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Mandate-inactive zero | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Non-retryable zero | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+
+**The UPI win survives every independent ±25% perturbation.** The least favourable one-at-a-time row is a 25% reduction in salary-day recovery: +₹911,807 mean paired net, with all ten seeds positive and a +₹727,826 to +₹1,027,412 spread. No tested perturbation changes the sign, so a smallest sign-changing perturbation is not identified within ±25%.
+
+The mapped hard-share and hard-subtype rows are inert because these ten calibrated cohorts contain 19,654 insufficient-funds events and 346 technical events, but zero mapped hard-decline events. That is a coverage limitation, not evidence that those assumptions are harmless.
+
+For the combined worst case, every non-invariant rule was set to whichever ±25% direction had the lower one-at-a-time mean; ties use −25%. The combined result is **+₹1,085,508 mean paired net, 10/10 positive seeds**, range +₹1,027,087 to +₹1,171,469. It therefore preserves the sign, although interactions make it less adverse than the weakest single row. Full per-seed evidence and the chosen directions are in `ground-truth-sensitivity-14d-validation.json`.
 
 ## Superseded results retained for auditability
 

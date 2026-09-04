@@ -6,12 +6,13 @@ const root = new URL('../', import.meta.url);
 const text = (path) => readFile(new URL(path, root), 'utf8');
 const json = async (path) => JSON.parse(await text(path));
 test('recording narratives agree with final evidence and external benchmarks', async () => {
-  const [readme, video, results, limitations, recordingNumbers, protocol, onsNotes, onsCsv, heldout, capSweep, sensitivity] = await Promise.all([
+  const [readme, video, results, limitations, recordingNumbers, protocol, onsNotes, onsCsv, heldout, capSweep, sensitivity, frozenSensitivity] = await Promise.all([
     text('README.md'), text('docs/VIDEO_SCRIPT.md'), text('docs/EVALUATION_RESULTS.md'),
     text('docs/LIMITATIONS.md'), text('docs/RECORDING_NUMBERS.md'), text('docs/EVALUATION.md'),
     text('data/external/ons-direct-debit-failures.md'),
     text('data/external/ons-direct-debit-failures.csv'), json('data/evaluation/heldout-cap-validation.json'),
     json('data/evaluation/deferral-cap-sweep.json'), json('data/evaluation/ground-truth-sensitivity.json'),
+    json('data/evaluation/ground-truth-sensitivity-14d-validation.json'),
   ]);
   const narratives = [readme, video, results, limitations, recordingNumbers, onsNotes];
   const staleOnsValue = new RegExp('(?<!\\d)' + '2' + '\\.' + '33' + '(?:%|\\b)');
@@ -69,6 +70,17 @@ test('recording narratives agree with final evidence and external benchmarks', a
   ]);
   assert.ok(capSweep.points.length === 7, 'superseded in-sample curve must remain visible');
   assert.ok(sensitivity.summary.filter((row) => row.scenario !== 'baseline').every((row) => row.seedsWonByRecoveryLoop === 0));
+  assert.equal(frozenSensitivity.maxDeferralDays, 14);
+  assert.deepEqual(frozenSensitivity.seeds, heldout.seeds);
+  assert.equal(Math.round(frozenSensitivity.summary.find((row) => row.scenario === 'baseline').pairedNetDifference.mean), 1068274);
+  assert.ok(frozenSensitivity.summary.filter((row) => row.scenario !== 'baseline').every((row) => row.positiveSeeds === 10));
+  assert.equal(frozenSensitivity.signFlipsAtTwentyFivePercent.length, 0);
+  assert.equal(frozenSensitivity.combinedWorstCase.result.positiveSeeds, 10);
+  assert.ok(frozenSensitivity.combinedWorstCase.result.pairedNetDifference.mean > 0);
+  for (const value of ['₹911,807', '₹1,085,508', '19,654', '346']) {
+    assert.ok(results.includes(value), `results missing frozen-cap sensitivity value ${value}`);
+    assert.ok(limitations.includes(value), `limitations missing frozen-cap sensitivity value ${value}`);
+  }
 
   const captures = (await readdir(new URL('data/raw_events/', root))).filter((name) => name.endsWith('.json'));
   assert.equal(captures.length, 20);

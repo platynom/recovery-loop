@@ -51,7 +51,8 @@ export function generateFailureEvents(count = 250, options = {}) {
   const now = options.now ?? Date.UTC(2026, 7, 22, 6, 0, 0);
   return Array.from({ length: count }, (_, index) => {
     const rail = options.rail ?? rails[Math.floor(random() * rails.length)];
-    const npc = options.calibration === 'npci' ? sampleNpcFailure(rail, random, now) : null;
+    const perturbation = options.groundTruthPerturbation ?? null;
+    const npc = options.calibration === 'npci' ? sampleNpcFailure(rail, random, now, perturbation) : null;
     const bank = npc?.bank ?? banks[Math.floor(random() * banks.length)];
     const failure = npc ? failureForCategory(npc.category) : weightedFailure(random);
     const outageActive = npc?.outageActive ?? bank === outageBank;
@@ -97,17 +98,18 @@ export function generateFailureEvents(count = 250, options = {}) {
         ? now + (6 + Math.floor(random() * 43)) * 60 * 60 * 1000
         : now + DAY_MS
       : now - DAY_MS);
-    const perturbation = options.groundTruthPerturbation ?? null;
-    const outageScale = perturbation?.rule === 'outage_duration' ? perturbation.factor : 1;
+    const factors = perturbation?.factors ?? (perturbation?.rule ? { [perturbation.rule]: perturbation.factor } : {});
+    // Legacy synthetic runs scale their authored outage window here. NPCI
+    // calibrated runs scale the published monthly mean inside sampleNpcFailure.
+    const outageScale = npc ? 1 : (factors.outage_duration ?? 1);
     const outageClearsAt = unperturbedOutageClearsAt > now ? now + (unperturbedOutageClearsAt - now) * outageScale : unperturbedOutageClearsAt;
     const baseSalaryDay = [1, 5, 15, 25][Math.floor(random() * 4)];
-    const salaryDay = perturbation?.rule === 'salary_date_distribution' ? Math.max(1, Math.min(30, Math.round(baseSalaryDay * perturbation.factor))) : baseSalaryDay;
-    const probabilityScale = perturbation?.rule === `${diagnosis.category}_probability` ? perturbation.factor : 1;
+    const salaryDay = Math.max(1, Math.min(30, Math.round(baseSalaryDay * (factors.salary_date_support ?? 1))));
     registerHiddenWorld(event, {
       category: diagnosis.category,
       salaryDay,
       outageClearsAt,
-      probabilityScale,
+      groundTruthFactors: factors,
       outcomeDraws: Array.from({ length: 8 }, () => random()),
     });
     return event;

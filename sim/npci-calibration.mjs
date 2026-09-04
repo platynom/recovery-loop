@@ -9,10 +9,21 @@ function weightedPick(items, weight, random) {
   return items.at(-1);
 }
 
-function hardDeclineCategory(random) {
+function factorFor(perturbation, rule) {
+  if (!perturbation) return 1;
+  if (perturbation.rule === rule) return perturbation.factor;
+  return perturbation.factors?.[rule] ?? 1;
+}
+
+function hardDeclineCategory(random, perturbation) {
   // ASSUMPTION: NPCI does not publish the subtype composition inside hard
   // declines. Preserve the pre-registered 12:9:5:2 relative split only here.
-  const categories = [['issuer_declined', 12], ['customer_action', 9], ['mandate_inactive', 5], ['non_retryable', 2]];
+  const categories = [
+    ['issuer_declined', 12 * factorFor(perturbation, 'hard_subtype_issuer_weight')],
+    ['customer_action', 9 * factorFor(perturbation, 'hard_subtype_authentication_weight')],
+    ['mandate_inactive', 5 * factorFor(perturbation, 'hard_subtype_mandate_inactive_weight')],
+    ['non_retryable', 2 * factorFor(perturbation, 'hard_subtype_non_retryable_weight')],
+  ];
   return weightedPick(categories, (entry) => entry[1], random)[0];
 }
 
@@ -22,7 +33,7 @@ function sampleResponseDay(shares, random) {
   return weightedPick(shares.map((share, day) => ({ day, share })), (item) => item.share, random).day;
 }
 
-export function sampleNpcFailure(rail, random, now) {
+export function sampleNpcFailure(rail, random, now, perturbation = null) {
   if (rail !== 'UPI AutoPay') {
     throw new Error(`NPCI calibration supports UPI AutoPay only; ${rail} has no valid public card-authorization baseline`);
   }
@@ -35,11 +46,18 @@ export function sampleNpcFailure(rail, random, now) {
   let category;
   const totalDecline = bankRow.autopay.businessDeclineRate + bankRow.autopay.technicalDeclineRate;
   const technicalShare = totalDecline ? bankRow.autopay.technicalDeclineRate / totalDecline : 0;
-  if (random() < technicalShare) category = 'technical';
+  // Sensitivity only: scale the published technical-vs-business odds while
+  // preserving the frozen NPCI share when the factor is 1.
+  const technicalOddsFactor = factorFor(perturbation, 'failure_class_mix');
+  const perturbedTechnicalShare = technicalShare >= 1
+    ? 1
+    : (technicalShare * technicalOddsFactor) / (1 - technicalShare + technicalShare * technicalOddsFactor);
+  if (random() < perturbedTechnicalShare) category = 'technical';
   else {
     const hardShare = bankRow.nachReturns.financialBusinessDeclineRate + bankRow.nachReturns.nonFinancialBusinessDeclineRate
       ? bankRow.nachReturns.nonFinancialBusinessDeclineRate / (bankRow.nachReturns.financialBusinessDeclineRate + bankRow.nachReturns.nonFinancialBusinessDeclineRate) : 0;
-    category = random() < hardShare ? hardDeclineCategory(random) : 'insufficient_funds';
+    const perturbedHardShare = Math.min(1, hardShare * factorFor(perturbation, 'mapped_hard_decline_share'));
+    category = random() < perturbedHardShare ? hardDeclineCategory(random, perturbation) : 'insufficient_funds';
   }
 
   const responseLagDays = sampleResponseDay(bankRow.nachResponse.responseRateByDay, random);
@@ -54,7 +72,9 @@ export function sampleNpcFailure(rail, random, now) {
     outageActive = random() < conditional;
     // ASSUMPTION: exact incident timestamps are not published. An active
     // incident starts at evaluation time and lasts the observed monthly mean.
-    outageDurationMs = outageActive ? (incident.downtimeMinutes / incident.incidentCount) * 60 * 1000 : 0;
+    outageDurationMs = outageActive
+      ? (incident.downtimeMinutes / incident.incidentCount) * 60 * 1000 * factorFor(perturbation, 'outage_duration')
+      : 0;
   }
   const bankBaselineDeclineRate = calibration.bankBaselines[bankRow.bank].totalDeclineRate;
   const normalBankDeclineRate = bankRow.autopay.businessDeclineRate + bankRow.autopay.technicalDeclineRate;
