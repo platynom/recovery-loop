@@ -35,6 +35,10 @@
 - Most corrected UPI waits reach the frozen three-day cap and are then decided by the plain rule. This is bounded deferral, but it also means the result is sensitive to the pre-registered cap/plain-rule mechanism; neither was changed for the final run.
 - The legacy simulated failure mix assigns 42% to insufficient funds, versus about 70% of returned items in the Minneapolis Fed's 2006 FedACH matched data (a 28-point gap). The evaluation was frozen before this different-rail benchmark was found, so the mix was documented but not retuned.
 
+## Evaluation scope
+
+The NPCI-calibrated cohort contains only business-decline and technical-decline classes, because NPCI publishes only that split. Issuer-decline, authentication-failure, mandate-inactive and non-retryable paths are implemented and unit-tested but are not exercised by this evaluation. Across the ten validation seeds, the cohort contains 19,654 insufficient-funds events, 346 technical events, and zero events in each of those other four classes.
+
 ## Authored-world ceiling
 
 The simulator is an authored world, not an empirical estimate of repeat-payment recovery. NPCI and ONS can constrain selected inputs, but they do not publish the counterfactual outcome of retrying the same failed mandate at a different time. The hidden rules are therefore disclosed rule by rule:
