@@ -14,7 +14,7 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 > “On UPI AutoPay you get one attempt and three retries. That is the entire budget, per mandate, forever. So the question is not how to retry more. It is which three moments are worth spending.”
 
-> “And those attempts cannot move. If I save one on a mandate that never recovers, I cannot spend it on a different customer. That non-transferability turns out to decide the result.”
+> “And those attempts cannot move. If I save one on a mandate that never recovers, I cannot spend it on another customer. That non-transferability shapes the decision.”
 
 ## 1:05–1:40 — The agent
 
@@ -34,17 +34,17 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 ## 2:15–3:15 — The result
 
-*On screen: Recovery Loop → Policy comparison. Wait until both rail cards load. Keep gross rupees per attempt and total gross revenue visible side by side. Point first to UPI efficiency, then immediately to UPI total revenue; repeat for Cards.*
+*On screen: Recovery Loop → Policy comparison. Wait until both held-out rail cards load. Keep the frozen 14-day label, paired net result, and positive-seed count visible.*
 
-> “At the original three-day cap it is one-point-nine times more efficient on UPI—and recovers less money.”
+> “I used five seeds to select the cap, froze fourteen days, then ran ten new seeds once.”
 
-> “Recovery Loop uses 1,915.4 retries, recovers 546, and produces ₹1,446,109.38 gross. The ladder uses 5,426.6, recovers 828, and produces ₹2,198,920.72. It wins zero of five seeds.”
+> “On held-out UPI, Recovery Loop uses 4,491.4 attempts, recovers 1,230.4 payments, and nets ₹2,857,357.83. The ladder uses 5,406.3, recovers 838.5, and nets ₹1,789,083.60.”
 
-> “Simulated Cards repeats it: one-point-seven times the efficiency, 811.6 recoveries against 1,070.2, zero of five won.”
+> “The paired UPI advantage is ₹1,068,274.23 and every one of ten validation seeds is positive. It also stays positive at every tested cap from fourteen days through the horizon, so it is a range, not one lucky point.”
 
-> “But the cap sweep changes the conclusion. At fourteen days UPI gains 995,405 rupees and wins all five seeds. At the horizon it remains ahead by 386,271 rupees, with 55.6 stranded. Cards wins only three of five at fourteen days and loses at the horizon.”
+> “Cards is inconclusive: plus ₹20,766.87 on average, only six of ten seeds positive, and the range crosses zero. I am not calling that a win.”
 
-> “So the UPI loss was mostly manufactured by my three-day cap. Selective retry pays here only when deferral spans the simulated salary cycle.”
+> “The UPI finding is that selective retry pays here only when deferral spans the simulated salary cycle.”
 
 ## 3:15–4:20 — How it was measured
 
@@ -54,7 +54,7 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 > “I rebuilt outcomes from hidden world state the model never sees, and the advantage collapsed. Five more errors surfaced: a schema break that zeroed every result; scheduled deferrals that were discarded; a shared budget that should have been per mandate; a Cards run with zero attempts because I used the wrong baseline; and economic waits made terminal.”
 
-> “All six are documented with their impact, detection, and correction. Then this final audit found the cap-dependent reversal. Earlier git results are not comparable. The correction trail matters more than choosing the favourable row.”
+> “All six are documented. Then I caught one more weakness: I had examined seven caps on five seeds and reported the best. I registered a disjoint seed split, selected on five, froze the cap, and validated once on ten. The correction trail matters more than choosing the favourable row.”
 
 ## 4:20–5:00 — Limitations and next proof
 
@@ -62,7 +62,7 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 > “I lack merchant outcomes; card-network rules and PCI keep retry chains private. I have NPCI bank decline rates and twenty Razorpay test entities—sixteen failures.”
 
-> “The three-day cap binds on ninety-nine-point-eight percent of UPI deferrals. A complete sweep reverses UPI at fourteen days, but salary timing and outcomes remain authored. Next: merchant data and an A/B test reporting efficiency and total revenue together.”
+> “Held-out validation survives across fourteen days through the horizon, but salary timing and repeat outcomes remain authored. Next: merchant data and a live A/B test.”
 
 ## Mechanical shot list
 
@@ -74,7 +74,7 @@ Record these screens in this exact order. Do not begin a spoken section until th
 4. **Dashboard — Decision inspector:** `Simulated event` label visible; probability, attempt price, expected value, gate verdict, and resulting action loaded.
 5. **Dashboard — Issuer health before injection:** `Simulated outage scenario` and `Normal state` visible.
 6. **Dashboard — Issuer health after injection:** press the button on camera; wait through the distinct loading state; show `Outage injected`, Retry, Wait, and Hard refuse.
-7. **Dashboard — Policy comparison:** at 1280×720, confirm both the UPI AutoPay `NPCI-calibrated` and Cards `Simulated` cards are visible on one screen; keep efficiency and total revenue visible together.
+7. **Dashboard — Policy comparison:** at 1280×720, confirm the `Held-out validation` and frozen `14-day` labels are visible with both rail cards. Show UPI 10/10 positive seeds and the Cards `Inconclusive: 6/10 positive seeds` text together.
 8. **README — correction history:** all six rows visible while scrolling from circular ground truth through refuse/wait conflation.
 9. **README — limitations and next steps:** first two limitations visible, then scroll to `What I would do next` for the final sentence.
 
@@ -82,4 +82,4 @@ Record these screens in this exact order. Do not begin a spoken section until th
 
 *On screen: five-second cuts—Razorpay retry documentation, NPCI circular, decision inspector, outage injection, comparison panel, stranded-attempt count.*
 
-> “Razorpay gives a failed subscription three retries; NPCI makes them mandate-local. At a three-day cap my scheduler is one-point-nine times more efficient on NPCI-calibrated UPI but loses total revenue. A complete cap sweep overturns the interpretation: at fourteen days UPI wins all five seeds, and at the full horizon it remains ahead by 386,271 rupees. The original loss was mostly a deferral-cap artefact, not a rail property.”
+> “Razorpay gives each failed UPI mandate three retries. Five selection seeds chose a fourteen-day cap; ten untouched seeds then produced a ₹1,068,274 paired net advantage, positive in all ten. The effect holds from fourteen days through the horizon. Cards is inconclusive, and the repeat outcomes remain simulated. The result is useful because the failed evaluations and the held-out correction are documented, not hidden.”

@@ -1,12 +1,42 @@
-# Evaluation results after the six-diagnostic audit
+# Held-out evaluation results
 
-All values are five-seed simulator means over seeds `20260818`–`20260822`, 2,000 already-failed mandates per rail, and a 30-day horizon. UPI bank/month inputs are NPCI-calibrated; repeat-attempt outcomes and all Cards results are simulated. No policy threshold or probability was tuned.
+The headline uses ten held-out validation seeds, 2,000 already-failed mandates per rail, and a 30-day horizon. Five disjoint selection seeds chose the deferral cap before validation. UPI bank/month inputs are NPCI-calibrated; repeat-attempt outcomes and all Cards results are simulated. No policy threshold or probability was tuned.
 
 ## Final finding
 
-The previous headline—“refusal loses on both rails because mandate-local attempts strand”—is **superseded as a general conclusion**. It remains true at the original three-day cap, but that cap manufactures most UPI stranding. With unchanged policy parameters, UPI flips to a 5/5 net-revenue win at 14 days and remains ahead through the 30-day horizon. Cards wins only 3/5 at 14 days, then loses 0/5 at the horizon. The corrected finding is: **selective retry pays in the authored UPI world only when deferral can span the simulated salary cycle; Cards still loses at the full horizon.**
+The selection set chose 14 days by the registered UPI paired-net rule. At that frozen cap, held-out UPI validation is **+₹1,068,274 mean paired net, positive in 10/10 seeds**, with every seed between +₹850,538 and +₹1,205,357. The effect is not confined to one cap: UPI is positive in all ten seeds at 14, 21, 28, 30, and 35 days, and negative at 3 and 7.
 
-## Reference configuration: three-day cap
+Cards is **inconclusive**, not a win: +₹20,767 mean at the frozen cap, 6/10 positive seeds, and a wide −₹76,374 to +₹135,507 range. It is negative in all ten seeds at every validation cap except 14 days.
+
+## Headline validation result: frozen 14-day cap
+
+| Rail / policy | Attempts | Recoveries | Gross | Net | Net ₹/attempt | Stranded |
+|---|---:|---:|---:|---:|---:|---:|
+| UPI fixed ladder | 5,406.3 | 838.5 | ₹2,212,896.20 | ₹1,789,083.60 | ₹330.94 | 0 |
+| UPI Recovery Loop | 4,491.4 | 1,230.4 | ₹3,279,340.63 | ₹2,857,357.83 | ₹636.30 | 57.8 |
+| Cards fixed ladder | 3,527.4 | 1,065.2 | ₹2,820,726.26 | ₹2,400,311.07 | ₹680.71 | 1,081.2 |
+| Cards Recovery Loop | 2,674.1 | 1,071.4 | ₹2,840,020.74 | ₹2,421,077.94 | ₹905.73 | 1,783.8 |
+
+| Rail | Mean paired net | Validation range | Positive seeds | Interpretation |
+|---|---:|---:|---:|---|
+| UPI | +₹1,068,274.23 | +₹850,537.93 to +₹1,205,356.57 | 10/10 | Held-out effect survives |
+| Cards | +₹20,766.87 | −₹76,373.97 to +₹135,507.33 | 6/10 | Inconclusive |
+
+## Validation robustness curve
+
+| Cap | UPI paired net / positive seeds | Cards paired net / positive seeds |
+|---:|---:|---:|
+| 3 days | −₹768,571 / 0/10 | −₹714,206 / 0/10 |
+| 7 days | −₹1,390,165 / 0/10 | −₹1,003,758 / 0/10 |
+| 14 days — frozen | +₹1,068,274 / 10/10 | +₹20,767 / 6/10, inconclusive |
+| 21 days | +₹338,368 / 10/10 | −₹298,174 / 0/10 |
+| 28 days | +₹440,731 / 10/10 | −₹292,145 / 0/10 |
+| 30-day horizon | +₹440,731 / 10/10 | −₹292,145 / 0/10 |
+| 35 days | +₹440,731 / 10/10 | −₹292,145 / 0/10 |
+
+UPI is robust across the broad 14–35-day range, not one isolated point. Seven days or less remains decisively negative. The 35-day setting is non-binding and equals the 30-day horizon.
+
+## Superseded in-sample reference: three-day cap
 
 | Rail / policy | Retries | Recoveries | Gross | Net | Gross ₹/retry | Net ₹/retry | Stranded |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -17,9 +47,9 @@ The previous headline—“refusal loses on both rails because mandate-local att
 
 At three days Recovery Loop loses 0/5 seeds: paired net −₹745,885.15 on UPI (−₹828,549.66 to −₹682,672.59) and −₹685,308.32 on Cards (−₹792,387.78 to −₹584,358.98). Gross-rupees-per-attempt remains 1.9× UPI and 1.7× Cards.
 
-## Diagnostic 1: complete deferral-cap sweep
+## Superseded in-sample five-seed cap exploration
 
-| Rail | Cap | Attempts | Recoveries | Gross | Net | Net ₹/attempt | Stranded | Cap hits | Paired net | Seeds won |
+| Rail | Cap | Attempts | Recoveries | Gross | Net | Net ₹/attempt | Stranded | Cap hits | Paired net | Positive seeds |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | UPI | 3 | 1,915.4 | 546.0 | ₹1,446,109 | ₹1,029,182 | ₹537.24 | 3,001.8 | 1,963.8 | −₹745,885 | 0/5 |
 | UPI | 7 | 1,915.4 | 296.4 | ₹780,268 | ₹363,341 | ₹189.63 | 3,501.0 | 1,963.8 | −₹1,411,726 | 0/5 |
@@ -80,7 +110,7 @@ The UPI gap is material enough to disclose but does not reverse the three-day lo
 
 ## Diagnostic 6: authored ground-truth sensitivity
 
-Each nonzero authored hidden-world rule group was perturbed one at a time by ±25% at the three-day cap. Every scenario remains a loss and wins 0/5 seeds.
+Each nonzero authored hidden-world rule group was perturbed one at a time by ±25% at the three-day cap. Every scenario remains a loss and is positive in 0/5 seeds.
 
 | Rule | UPI −25% | UPI +25% | Cards −25% | Cards +25% |
 |---|---:|---:|---:|---:|
@@ -103,4 +133,4 @@ The default-cap sign survives, but loss magnitude is especially sensitive to sal
 - **Refuse/wait conflation:** economic deferrals became terminal abandonment.
 - **Three-day interpretation:** −₹745,885 UPI and −₹685,308 Cards are valid for that configuration, but no longer support a general rail conclusion.
 
-Machine-readable evidence: `fix7-npci-calibrated.json`, `deferral-cap-sweep.json`, `horizon-boundary.json`, `decision-attribution-ablation.json`, `off-policy-estimation.json`, `off-policy-logged-actions.jsonl`, `ground-truth-sensitivity.json`, and `data/npci/predictor-bank-adjustments-2026-09-04.json`.
+Headline machine-readable evidence: `heldout-cap-selection.json` and `heldout-cap-validation.json`. Superseded and diagnostic evidence: `fix7-npci-calibrated.json`, `deferral-cap-sweep.json`, `horizon-boundary.json`, `decision-attribution-ablation.json`, `off-policy-estimation.json`, `off-policy-logged-actions.jsonl`, `ground-truth-sensitivity.json`, and `data/npci/predictor-bank-adjustments-2026-09-04.json`.

@@ -29,21 +29,16 @@ test('observations are recorded as diagnostic tuples, not generic error codes', 
   ]);
 });
 
-test('final dashboard evidence supports both efficiency leads and revenue losses', async () => {
-  const evidence = await json('../data/evaluation/fix7-npci-calibrated.json');
-  const rails = [
-    [evidence.reportedRails.upiNpcCalibrated, 1.9],
-    [evidence.reportedRails.cardsUncalibrated, 1.7],
-  ];
-
-  for (const [rail, expectedRatio] of rails) {
-    const loop = rail.policies.find((policy) => policy.name === 'Recovery Loop');
-    const ladder = rail.policies.find((policy) => policy.name !== 'Recovery Loop');
-    const ratio = (loop.grossRevenue.mean / loop.attempts.mean) / (ladder.grossRevenue.mean / ladder.attempts.mean);
-    assert.equal(Number(ratio.toFixed(1)), expectedRatio);
-    assert.ok(loop.grossRevenue.mean < ladder.grossRevenue.mean);
-    assert.ok(loop.unusedAttemptsAtHorizon.mean > ladder.unusedAttemptsAtHorizon.mean);
-    assert.equal(rail.seedsWonByRecoveryLoop, 0);
-    assert.equal(rail.perSeed.length, evidence.seeds.length);
-  }
+test('dashboard headline uses frozen-cap held-out validation', async () => {
+  const evidence = await json('../data/evaluation/heldout-cap-validation.json');
+  assert.equal(evidence.runCount, 1);
+  assert.equal(evidence.frozenCapDays, 14);
+  const upi = evidence.primaryResult.rails.find((rail) => rail.rail === 'UPI AutoPay');
+  const cards = evidence.primaryResult.rails.find((rail) => rail.rail === 'Cards');
+  assert.equal(upi.seedsWonByRecoveryLoop, 10);
+  assert.ok(upi.pairedNetDifference.min > 0);
+  assert.equal(cards.seedsWonByRecoveryLoop, 6);
+  assert.ok(cards.pairedNetDifference.min < 0 && cards.pairedNetDifference.max > 0);
+  assert.ok(upi.recoveryLoop.strandedAttempts.mean > upi.fixedLadder.strandedAttempts.mean);
+  assert.ok(cards.recoveryLoop.strandedAttempts.mean > cards.fixedLadder.strandedAttempts.mean);
 });

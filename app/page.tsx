@@ -24,7 +24,7 @@ type RailEvidence = {
   perSeed: unknown[];
 };
 type EvaluationPayload = {
-  fix7Evidence?: { reportedRails?: { upiNpcCalibrated?: RailEvidence; cardsUncalibrated?: RailEvidence } };
+  headlineEvidence?: { capDays: number; label: string; reportedRails?: { upiNpcCalibrated?: RailEvidence; cardsUncalibrated?: RailEvidence } };
 };
 type Decision = {
   eventId: string;
@@ -106,7 +106,7 @@ export default function Home() {
     fetch('/api/evaluation', { signal: controller.signal })
       .then((response) => { if (!response.ok) throw new Error('Evaluation request failed'); return response.json(); })
       .then((payload: EvaluationPayload) => {
-        const reported = payload.fix7Evidence?.reportedRails;
+        const reported = payload.headlineEvidence?.reportedRails;
         setEvaluation(payload);
         setEvaluationState(reported?.upiNpcCalibrated && reported?.cardsUncalibrated ? 'ready' : 'empty');
       })
@@ -116,7 +116,7 @@ export default function Home() {
 
   const decisions = useMemo(() => simulation?.decisions ?? [], [simulation]);
   const selected = decisions.find((item) => item.eventId === selectedId) ?? decisions[0];
-  const rails = evaluation?.fix7Evidence?.reportedRails;
+  const rails = evaluation?.headlineEvidence?.reportedRails;
   const health = useMemo(() => {
     const issuerEvents = decisions.filter((item) => item.event.bank === 'HDFC');
     return {
@@ -156,7 +156,7 @@ export default function Home() {
       </section>}
 
       {screen === 'budget' && <section className="screen">
-        <div className="screen-intro"><div><p className="eyebrow">Per-mandate accounting</p><h2>Conserved attempts do not transfer.</h2><p>The unused count makes the mechanism behind the total-revenue loss visible.</p></div><EvidenceTag>Final evaluation</EvidenceTag></div>
+        <div className="screen-intro"><div><p className="eyebrow">Per-mandate accounting</p><h2>Held-out attempt use at 14 days.</h2><p>Stranded attempts are reported from the frozen-cap validation cohort.</p></div><EvidenceTag>Held-out validation</EvidenceTag></div>
         {showEvaluationState ? <StatePanel state={evaluationState} label="attempt evidence" onRetry={loadEvaluation} /> : <div className="rail-grid">{[
           { data: rails!.upiNpcCalibrated!, label: 'UPI AutoPay', tag: 'NPCI-calibrated' }, { data: rails!.cardsUncalibrated!, label: 'Cards', tag: 'Simulated' },
         ].map(({ data, label, tag }) => {
@@ -173,7 +173,7 @@ export default function Home() {
       </section>}
 
       {screen === 'comparison' && <section className="screen">
-        <div className="screen-intro"><div><p className="eyebrow">Final honest comparison</p><h2>More efficient. Less total revenue.</h2><p>Both sides of the result are shown together, from the final evaluation artifact.</p></div><EvidenceTag>Final evidence</EvidenceTag></div>
+        <div className="screen-intro"><div><p className="eyebrow">Frozen 14-day cap</p><h2>Validated on UPI. Inconclusive on Cards.</h2><p>The cap was selected on five seeds, then evaluated once on ten disjoint seeds.</p></div><EvidenceTag>Held-out validation</EvidenceTag></div>
         {showEvaluationState ? <StatePanel state={evaluationState} label="policy comparison" onRetry={loadEvaluation} /> : <div className="comparison-grid">{[
           { data: rails!.upiNpcCalibrated!, label: 'UPI AutoPay', tag: 'NPCI-calibrated' }, { data: rails!.cardsUncalibrated!, label: 'Cards', tag: 'Simulated' },
         ].map(({ data, label, tag }) => {
@@ -182,7 +182,11 @@ export default function Home() {
           const recoveryEfficiency = recovery.grossRevenue.mean / recovery.attempts.mean;
           const ladderEfficiency = ladder.grossRevenue.mean / ladder.attempts.mean;
           const ratio = recoveryEfficiency / ladderEfficiency;
-          return <article className="comparison-card compact-comparison" key={data.rail}><div className="card-head"><div><p className="eyebrow">{label}</p><h3>{ratio.toFixed(1)}× efficiency lead</h3></div><EvidenceTag tone={tag === 'Simulated' ? 'simulated' : 'calibrated'}>{tag}</EvidenceTag></div><div className="comparison-pair"><section><p>Gross rupees / attempt</p><div><span>Recovery Loop</span><strong>{inr.format(recoveryEfficiency)}</strong></div><div><span>Fixed ladder</span><strong>{inr.format(ladderEfficiency)}</strong></div><em>Recovery Loop leads {ratio.toFixed(1)}×</em></section><section className="loss"><p>Total gross revenue</p><div><span>Recovery Loop</span><strong>{inr.format(recovery.grossRevenue.mean)}</strong></div><div><span>Fixed ladder</span><strong>{inr.format(ladder.grossRevenue.mean)}</strong></div><em>Recovery Loop loses {data.seedsWonByRecoveryLoop}/{data.perSeed.length} seeds</em></section></div><footer><span>Paired net difference</span><strong>{inr.format(data.pairedNetDifference.mean)}</strong><small>Recovery Loop minus fixed ladder</small></footer></article>;
+          const validationSummary = label === 'Cards'
+            ? `Inconclusive: ${data.seedsWonByRecoveryLoop}/${data.perSeed.length} positive seeds`
+            : `Positive in ${data.seedsWonByRecoveryLoop}/${data.perSeed.length} validation seeds`;
+          const pairedRange = `${inr.format(data.pairedNetDifference.min)} to ${inr.format(data.pairedNetDifference.max)}`;
+          return <article className="comparison-card compact-comparison" key={data.rail}><div className="card-head"><div><p className="eyebrow">{label}</p><h3>{ratio.toFixed(1)}× gross efficiency</h3></div><EvidenceTag tone={tag === 'Simulated' ? 'simulated' : 'calibrated'}>{tag}</EvidenceTag></div><div className="comparison-pair"><section><p>Gross rupees / attempt</p><div><span>Recovery Loop</span><strong>{inr.format(recoveryEfficiency)}</strong></div><div><span>Fixed ladder</span><strong>{inr.format(ladderEfficiency)}</strong></div><em>Recovery Loop / ladder: {ratio.toFixed(1)}×</em></section><section><p>Total gross revenue</p><div><span>Recovery Loop</span><strong>{inr.format(recovery.grossRevenue.mean)}</strong></div><div><span>Fixed ladder</span><strong>{inr.format(ladder.grossRevenue.mean)}</strong></div><em>{validationSummary}</em></section></div><footer><span>Paired net difference</span><strong>{inr.format(data.pairedNetDifference.mean)}</strong><small>Validation range: {pairedRange}</small></footer></article>;
         })}</div>}
       </section>}
     </section>

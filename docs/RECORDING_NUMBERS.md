@@ -1,6 +1,6 @@
 # Recording numbers
 
-This is the camera-side reference for the final demo. Three-day reference values come from `data/evaluation/fix7-npci-calibrated.json`; cap-sensitivity values come from `data/evaluation/deferral-cap-sweep.json`. Figures labelled runtime-simulated are illustrative decision inputs, not performance claims.
+This is the camera-side reference for the final demo. Headline values come from the single locked run in `data/evaluation/heldout-cap-validation.json`. Earlier five-seed values remain documented as superseded and should not be spoken as findings.
 
 | On-camera claim | Final value | Source / evidence label |
 |---|---:|---|
@@ -8,23 +8,16 @@ This is the camera-side reference for the final demo. Three-day reference values
 | Optimizer reaction window | within 20 minutes | Razorpay Optimizer documentation; external primary |
 | UPI mandate allowance | 1 original attempt + 3 retries | NPCI AutoPay circular; external primary |
 | Captured Razorpay test API entities | 20 total: 16 failed, 3 captured, 1 created | committed `data/raw_events/*.json`; Observed test-mode evidence |
-| Evaluation seeds | 5 | `fix7-npci-calibrated.json` |
-| Failed mandates per rail and retry horizon | 2,000; 30 days | `fix7-npci-calibrated.json` |
-| UPI gross efficiency ratio | 1.9× | computed from ₹754.99 / ₹405.21 in `fix7-npci-calibrated.json` |
-| UPI Recovery Loop | 1,915.4 attempts; 546.0 recoveries; ₹1,446,109.38 gross; ₹1,029,182.38 net | `fix7-npci-calibrated.json`; NPCI-calibrated inputs, simulated outcomes |
-| UPI fixed ladder | 5,426.6 attempts; 828.0 recoveries; ₹2,198,920.72 gross; ₹1,775,067.52 net | `fix7-npci-calibrated.json`; NPCI-calibrated inputs, simulated outcomes |
-| UPI paired net result | −₹745,885.15; 0/5 seeds won | `fix7-npci-calibrated.json` |
-| UPI stranded unresolved attempts | 3,001.8 Recovery Loop; 0 ladder | `fix7-npci-calibrated.json` |
-| UPI deferral-cap binding | 1,963.8 / 1,968.6 = 99.8% | `fix7-npci-calibrated.json` |
-| UPI 14-day crossover | +₹995,405 paired net; 5/5 seeds won; 55.6 stranded | `deferral-cap-sweep.json`; NPCI-calibrated inputs, simulated outcomes |
-| UPI full-horizon result | +₹386,271 paired net; 5/5 seeds won; 55.6 stranded | `deferral-cap-sweep.json`; NPCI-calibrated inputs, simulated outcomes |
-| Cards gross efficiency ratio | 1.7× | computed from ₹1,362.51 / ₹812.54 in `fix7-npci-calibrated.json` |
-| Cards Recovery Loop | 1,572.2 attempts; 811.6 recoveries; ₹2,142,141.12 gross; ₹1,725,401.72 net | `fix7-npci-calibrated.json`; Simulated |
-| Cards fixed ladder | 3,484.2 attempts; 1,070.2 recoveries; ₹2,831,040.05 gross; ₹2,410,710.05 net | `fix7-npci-calibrated.json`; Simulated |
-| Cards paired net result | −₹685,308.32; 0/5 seeds won | `fix7-npci-calibrated.json` |
-| Cards stranded unresolved attempts | 2,960.2 Recovery Loop; 1,084.8 ladder | `fix7-npci-calibrated.json` |
-| Cards 14-day crossover | +₹19,557 paired net; 3/5 seeds won; 1,785.0 stranded | `deferral-cap-sweep.json`; Simulated |
-| Cards full-horizon result | −₹273,289 paired net; 0/5 seeds won; 1,785.0 stranded | `deferral-cap-sweep.json`; Simulated |
+| Seed split | 5 selection; 10 validation | `EVALUATION.md`; registered before the run |
+| Frozen cap | 14 days | selected on seeds `20260901`–`20260905`, then frozen |
+| Failed mandates per rail and horizon | 2,000; 30 days | held-out validation artifact |
+| UPI Recovery Loop | 4,491.4 attempts; 1,230.4 recoveries; ₹3,279,340.63 gross; ₹2,857,357.83 net; ₹636.30 net/attempt; 57.8 stranded | held-out validation; NPCI-calibrated inputs, simulated outcomes |
+| UPI fixed ladder | 5,406.3 attempts; 838.5 recoveries; ₹2,212,896.20 gross; ₹1,789,083.60 net; ₹330.94 net/attempt; 0 stranded | held-out validation |
+| UPI headline | +₹1,068,274.23 paired net; range +₹850,537.93 to +₹1,205,356.57; 10/10 positive seeds | held-out validation |
+| UPI robustness range | Positive at 14, 21, 28, 30, and 35 days; negative at 3 and 7 | held-out validation curve |
+| Cards Recovery Loop | 2,674.1 attempts; 1,071.4 recoveries; ₹2,840,020.74 gross; ₹2,421,077.94 net; ₹905.73 net/attempt; 1,783.8 stranded | held-out validation; Simulated |
+| Cards fixed ladder | 3,527.4 attempts; 1,065.2 recoveries; ₹2,820,726.26 gross; ₹2,400,311.07 net; ₹680.71 net/attempt; 1,081.2 stranded | held-out validation; Simulated |
+| Cards conclusion | **Inconclusive:** +₹20,766.87 paired net; range −₹76,373.97 to +₹135,507.33; 6/10 positive seeds | held-out validation; Simulated |
 | Gate ablation | UPI +1.2 attempts, −0.2 recoveries, −₹432 net; Cards exactly unchanged | `decision-attribution-ablation.json`; Simulated |
 | UPI outage-gate counterfactual | 23 blocked decisions; 7 would recover = 30.4% | `decision-attribution-ablation.json`; Simulated |
 | UPI off-policy check | IPW −3.74%; doubly robust −3.14% versus on-policy net | `off-policy-estimation.json`; Simulated |
@@ -38,4 +31,4 @@ This is the camera-side reference for the final demo. Three-day reference values
 | Decision inspector during verified local run | 71.0% p(success); ₹15 attempt price; ₹2,219 expected value; 24-hour best window | `/api/simulation`, seed `20260822`; runtime-simulated illustration, not an evaluation claim |
 | Attempt-budget panel | 6,000 mandate-local retry tokens per rail | 2,000 mandates × 3 retries in `fix7-npci-calibrated.json` |
 
-Final interpretation: the three-day loss remains a valid configuration result, but the blanket rail conclusion is superseded. UPI wins 5/5 from 14 days through the full horizon; Cards wins only 3/5 at 14 days and loses 0/5 at the horizon. Removed from camera-facing material: the old ONS value, the unsupported peak-window candidate multiplier, and circular-evaluation headline values that were not retained in committed machine-readable evidence.
+Final interpretation: held-out UPI validation is positive across the broad 14-day-through-horizon range. Cards is inconclusive and must never be described as a win. Superseded camera values include the five-seed +₹995,405 UPI row, the 1.9×/1.7× three-day ratios, and all earlier unvalidated headlines.

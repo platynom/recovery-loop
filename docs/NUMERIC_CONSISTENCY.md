@@ -1,30 +1,22 @@
 # Numeric consistency sweep
 
-Checked on 4 September 2026 against `fix7-npci-calibrated.json`, `deferral-cap-sweep.json`, the rendered dashboard runtime, committed observed-event files, and cited external sources. The dashboard deliberately remains the three-day reference configuration; the README, video, results, and recording sheet also state the cap-dependent final interpretation. All final disagreements: **none**.
+Checked on 4 September 2026 against the one-time `heldout-cap-validation.json` artifact, the rendered dashboard runtime, superseded exploratory artifacts, committed observed events, and cited external sources. All headline surfaces now use the frozen 14-day held-out result. All final disagreements: **none**.
 
 ## Cross-artifact matrix
 
 | Claim | Canonical value | README | Video script | Evaluation results | Limitations | Dashboard runtime | Status / origin |
 |---|---:|---:|---:|---:|---:|---:|---|
-| Evaluation scale | 5 seeds; 2,000 failures/rail; 30 days | same | 5 seeds | same | 5 seeds; 10,000 total/rail | — | Match; final JSON |
-| UPI gross efficiency | 1.9× | 1.9× | 1.9× spoken | 1.9× | — | 1.9× | Match; ₹754.99 / ₹405.21, final JSON |
-| Cards gross efficiency | 1.7× | 1.7× | 1.7× spoken | 1.7× | — | 1.7× | Match; ₹1,362.51 / ₹812.54, final JSON |
-| UPI Recovery Loop attempts / recoveries | 1,915.4 / 546.0 | same | same | same | — | 1,915.4 used; recoveries not shown | Match; final JSON |
-| UPI ladder attempts / recoveries | 5,426.6 / 828.0 | same | same | same | — | 5,426.6 used; recoveries not shown | Match; final JSON |
-| Cards Recovery Loop attempts / recoveries | 1,572.2 / 811.6 | same | 811.6 spoken | same | — | 1,572.2 used; recoveries not shown | Match; final JSON |
-| Cards ladder attempts / recoveries | 3,484.2 / 1,070.2 | same | 1,070.2 spoken | same | — | 3,484.2 used; recoveries not shown | Match; final JSON |
-| UPI RL / ladder gross | ₹1,446,109.38 / ₹2,198,920.72 | same | same | same | — | same | Match; final JSON |
-| Cards RL / ladder gross | ₹2,142,141.12 / ₹2,831,040.05 | same | — | same | — | same | Match; final JSON |
-| UPI paired net difference | −₹745,885.15; range −₹828,549.66 to −₹682,672.59 | same magnitude/range | total loss, 0/5 | same | — | −₹745,885 | Match; dashboard rounds to whole rupees |
-| Cards paired net difference | −₹685,308.32; range −₹792,387.78 to −₹584,358.98 | same magnitude/range | total loss, 0/5 | same | — | −₹685,308 | Match; dashboard rounds to whole rupees |
-| Seeds won | UPI 0/5; Cards 0/5 | same | same | same | — | same | Match; final JSON |
-| UPI stranded attempts | RL 3,001.8; ladder 0 | same | 3,001.8 | same | — | same | Match; final JSON |
-| Cards stranded attempts | RL 2,960.2; ladder 1,084.8 | same | 2,960.2 | same | — | same | Match; final JSON |
-| UPI deferral cap | 1,963.8 / 1,968.6 = 99.8% | same | 99.8% spoken | same | mechanism stated | — | Match; final JSON |
-| UPI 14-day result | +₹995,405; 5/5; 55.6 stranded | same | same | same | cap artefact stated | — | Match; cap sweep |
-| UPI horizon result | +₹386,271; 5/5; 55.6 stranded | same | same | same | cap artefact stated | — | Match; cap sweep |
-| Cards 14-day result | +₹19,557; 3/5; 1,785.0 stranded | same | same | same | — | — | Match; cap sweep |
-| Cards horizon result | −₹273,289; 0/5; 1,785.0 stranded | same | same | same | structural residue stated | — | Match; cap sweep |
+| Seed split | 5 selection; 10 validation | same | same | same | procedure stated | held-out label | Match; registered protocol |
+| Frozen cap | 14 days | same | same | same | same | same | Match; selection artifact |
+| UPI validation attempts / recoveries | RL 4,491.4 / 1,230.4; ladder 5,406.3 / 838.5 | same | same | same | — | same | Match; held-out validation |
+| UPI validation net | RL ₹2,857,357.83; ladder ₹1,789,083.60 | same | same | same | — | same | Match; held-out validation |
+| UPI paired validation | +₹1,068,274.23; +₹850,537.93 to +₹1,205,356.57; 10/10 positive | same | same | same | same | same | Match; held-out validation |
+| UPI robust cap range | positive at 14, 21, 28, 30, 35; negative at 3, 7 | same | same | same | same | — | Match; validation curve |
+| Cards validation | +₹20,766.87; −₹76,373.97 to +₹135,507.33; 6/10 positive; inconclusive | same | same | same | same | same | Match; held-out validation |
+| Cards attempts / recoveries | RL 2,674.1 / 1,071.4; ladder 3,527.4 / 1,065.2 | same | — | same | — | same | Match; held-out validation |
+| Cards stranded | RL 1,783.8; ladder 1,081.2 | same | — | same | — | same | Match; held-out validation |
+| Superseded three-day efficiency | UPI 1.9×; Cards 1.7× | marked superseded | removed | marked superseded | — | removed | Match; old artifact retained only for audit |
+| Superseded in-sample cap row | UPI +₹995,405 / 5 of 5 positive; Cards +₹19,557 / 3 of 5 positive | retained and marked | removed from spoken script | retained and marked | correction noted | replaced | Historical only; not headline evidence |
 | Gate ablation | UPI +1.2 attempts, −0.2 recoveries, −₹432 net; Cards 0 | — | — | same | — | — | Match; attribution artifact |
 | Off-policy gap | UPI IPW −3.74%, DR −3.14%; Cards +0.51%, −0.11% | — | — | same | — | — | Match; off-policy artifact |
 | ±25% authored-rule sensitivity | three-day conclusion survives every perturbation, 0/5 | — | — | same | same | — | Match; sensitivity artifact |

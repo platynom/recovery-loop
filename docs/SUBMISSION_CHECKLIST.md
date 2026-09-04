@@ -12,7 +12,7 @@ Checked means verified in the current workspace on 1 September 2026. Unchecked i
 - [x] Twenty Razorpay test-mode payment entities are committed in redacted form under `data/raw_events/`: 16 failed, 3 captured, and 1 created.
 - [x] Capture-time code removes contact and email fields, and an automated test checks every committed event.
 - [x] The observed taxonomy evidence records the tuple `business | payment_initiation | international_transaction_not_allowed`, not the generic `BAD_REQUEST_ERROR` code.
-- [x] README leads with the final loss, reports both rails, labels every evidence mode, and documents all six evaluation corrections.
+- [x] README leads with the held-out UPI result, labels Cards inconclusive, preserves superseded in-sample values, and documents the evaluation corrections.
 - [x] Architecture, evaluation protocol, corrected results, integration guide, and limitations documents exist.
 - [x] Five-minute spoken script, mechanical shot list, and thirty-second cut-down exist in `docs/VIDEO_SCRIPT.md`.
 - [x] Test-mode execution guard, signed webhook verification, canonical issuer join, and loud issuer-join failure logging are implemented and tested.

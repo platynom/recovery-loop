@@ -53,3 +53,9 @@ The simulator is an authored world, not an empirical estimate of repeat-payment 
 | The entire Cards failure mix, bank mix, outage process, and recovery process | **Authored judgement.** NACH is not a valid card-authorization proxy and no suitable public Indian card baseline was found. |
 
 One-at-a-time sensitivity at the frozen three-day cap perturbed insufficient-funds, technical, issuer-declined, and customer-action recovery probabilities, salary-date placement, and outage duration by -25% and +25%. Recovery Loop still lost on both rails in every scenario (0/5 seeds won). The UPI paired net loss ranged from ₹603,467 to ₹1,039,738 and the Cards loss from ₹619,002 to ₹835,626. This establishes robustness only within those perturbations and that cap; it does not remove the authored-world ceiling. The separate deferral-cap sweep is more consequential and must be read alongside this result.
+
+## Held-out cap-selection boundary
+
+The first seven-cap sweep reused five seeds and then emphasized its best row. That was in-sample model selection, so its +₹995,405 UPI value at 14 days is superseded as a headline. A registered split now selects on five disjoint seeds and validates once on ten new seeds. The frozen 14-day UPI result remains positive in 10/10 validation seeds (+₹1,068,274 mean), and UPI is positive across the broad 14–35-day validation range. This closes the immediate multiple-comparisons weakness but does not create production evidence: the cap, salary mechanism, and repeat outcomes still live inside the same authored simulator.
+
+Cards remains inconclusive. At the frozen cap its validation mean is +₹20,767, only 6/10 seeds are positive, and the paired range crosses zero (−₹76,374 to +₹135,507). At 21 days and beyond, 0/10 seeds are positive. No Cards row is described as a win.

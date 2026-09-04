@@ -1,0 +1,2061 @@
+{
+  "generatedAt": "2026-09-04T03:34:26.565Z",
+  "phase": "validation",
+  "runCount": 1,
+  "seeds": [
+    20260906,
+    20260907,
+    20260908,
+    20260909,
+    20260910,
+    20260911,
+    20260912,
+    20260913,
+    20260914,
+    20260915
+  ],
+  "frozenCapDays": 14,
+  "primaryResult": {
+    "capDays": 14,
+    "rails": [
+      {
+        "rail": "UPI AutoPay",
+        "recoveryLoop": {
+          "attempts": {
+            "mean": 4491.4,
+            "min": 4439,
+            "max": 4535
+          },
+          "recoveries": {
+            "mean": 1230.4,
+            "min": 1182,
+            "max": 1274
+          },
+          "grossRevenue": {
+            "mean": 3279340.631,
+            "min": 3069057.11,
+            "max": 3428825.03
+          },
+          "netRevenue": {
+            "mean": 2857357.831,
+            "min": 2647009.11,
+            "max": 3006901.03
+          },
+          "netRupeesPerAttempt": {
+            "mean": 636.2969533610901,
+            "min": 585.1036936339534,
+            "max": 673.8908628417765
+          },
+          "strandedAttempts": {
+            "mean": 57.8,
+            "min": 45,
+            "max": 76
+          },
+          "deferralCapHits": {
+            "mean": 1186.6,
+            "min": 1154,
+            "max": 1212
+          }
+        },
+        "fixedLadder": {
+          "attempts": {
+            "mean": 5406.3,
+            "min": 5372,
+            "max": 5437
+          },
+          "recoveries": {
+            "mean": 838.5,
+            "min": 813,
+            "max": 873
+          },
+          "grossRevenue": {
+            "mean": 2212896.202,
+            "min": 2111449.23,
+            "max": 2309646.54
+          },
+          "netRevenue": {
+            "mean": 1789083.602,
+            "min": 1687615.23,
+            "max": 1885838.54
+          },
+          "netRupeesPerAttempt": {
+            "mean": 330.9413567432687,
+            "min": 311.5405630422741,
+            "max": 348.9708623242043
+          },
+          "strandedAttempts": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "deferralCapHits": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          }
+        },
+        "pairedNetDifference": {
+          "mean": 1068274.229,
+          "min": 850537.9299999999,
+          "max": 1205356.57
+        },
+        "seedsWonByRecoveryLoop": 10,
+        "perSeedPairedNetDifference": [
+          {
+            "seed": 20260906,
+            "difference": 1037749.6599999999
+          },
+          {
+            "seed": 20260907,
+            "difference": 1147477.8499999999
+          },
+          {
+            "seed": 20260908,
+            "difference": 1136634.59
+          },
+          {
+            "seed": 20260909,
+            "difference": 1205356.57
+          },
+          {
+            "seed": 20260910,
+            "difference": 1110160.75
+          },
+          {
+            "seed": 20260911,
+            "difference": 850537.9299999999
+          },
+          {
+            "seed": 20260912,
+            "difference": 1062320.35
+          },
+          {
+            "seed": 20260913,
+            "difference": 1140398.4
+          },
+          {
+            "seed": 20260914,
+            "difference": 904005.9500000002
+          },
+          {
+            "seed": 20260915,
+            "difference": 1088100.24
+          }
+        ]
+      },
+      {
+        "rail": "Cards",
+        "recoveryLoop": {
+          "attempts": {
+            "mean": 2674.1,
+            "min": 2554,
+            "max": 2761
+          },
+          "recoveries": {
+            "mean": 1071.4,
+            "min": 1044,
+            "max": 1116
+          },
+          "grossRevenue": {
+            "mean": 2840020.739,
+            "min": 2751729.32,
+            "max": 2929396.06
+          },
+          "netRevenue": {
+            "mean": 2421077.9390000002,
+            "min": 2332826.32,
+            "max": 2510505.06
+          },
+          "netRupeesPerAttempt": {
+            "mean": 905.725700045565,
+            "min": 874.0304128938767,
+            "max": 944.5090519187368
+          },
+          "strandedAttempts": {
+            "mean": 1783.8,
+            "min": 1680,
+            "max": 1902
+          },
+          "deferralCapHits": {
+            "mean": 501.6,
+            "min": 466,
+            "max": 529
+          }
+        },
+        "fixedLadder": {
+          "attempts": {
+            "mean": 3527.4,
+            "min": 3426,
+            "max": 3618
+          },
+          "recoveries": {
+            "mean": 1065.2,
+            "min": 1033,
+            "max": 1094
+          },
+          "grossRevenue": {
+            "mean": 2820726.2649999997,
+            "min": 2769353.08,
+            "max": 2881191.09
+          },
+          "netRevenue": {
+            "mean": 2400311.0650000004,
+            "min": 2348764.08,
+            "max": 2460800.09
+          },
+          "netRupeesPerAttempt": {
+            "mean": 680.705490755159,
+            "min": 649.1885240464346,
+            "max": 702.5690610599077
+          },
+          "strandedAttempts": {
+            "mean": 1081.2,
+            "min": 1014,
+            "max": 1170
+          },
+          "deferralCapHits": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          }
+        },
+        "pairedNetDifference": {
+          "mean": 20766.87400000007,
+          "min": -76373.9700000002,
+          "max": 135507.33000000007
+        },
+        "seedsWonByRecoveryLoop": 6,
+        "perSeedPairedNetDifference": [
+          {
+            "seed": 20260906,
+            "difference": 24092.490000000224
+          },
+          {
+            "seed": 20260907,
+            "difference": 57647.57999999961
+          },
+          {
+            "seed": 20260908,
+            "difference": 37936.25
+          },
+          {
+            "seed": 20260909,
+            "difference": 119530.3500000001
+          },
+          {
+            "seed": 20260910,
+            "difference": -47602.119999999646
+          },
+          {
+            "seed": 20260911,
+            "difference": 135507.33000000007
+          },
+          {
+            "seed": 20260912,
+            "difference": 53008.79000000004
+          },
+          {
+            "seed": 20260913,
+            "difference": -76373.9700000002
+          },
+          {
+            "seed": 20260914,
+            "difference": -65598.40999999968
+          },
+          {
+            "seed": 20260915,
+            "difference": -30479.549999999814
+          }
+        ]
+      }
+    ]
+  },
+  "robustnessCurve": [
+    {
+      "capDays": 3,
+      "rails": [
+        {
+          "rail": "UPI AutoPay",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 1914.1,
+              "min": 1897,
+              "max": 1936
+            },
+            "recoveries": {
+              "mean": 544.4,
+              "min": 518,
+              "max": 570
+            },
+            "grossRevenue": {
+              "mean": 1437435.8190000001,
+              "min": 1359490.73,
+              "max": 1502317
+            },
+            "netRevenue": {
+              "mean": 1020512.1189999997,
+              "min": 942567.73,
+              "max": 1085408
+            },
+            "netRupeesPerAttempt": {
+              "mean": 533.1995545816833,
+              "min": 492.45962904911255,
+              "max": 569.4690451206717
+            },
+            "strandedAttempts": {
+              "mean": 3006.5,
+              "min": 2957,
+              "max": 3062
+            },
+            "deferralCapHits": {
+              "mean": 1965.4,
+              "min": 1957,
+              "max": 1972
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 5406.3,
+              "min": 5372,
+              "max": 5437
+            },
+            "recoveries": {
+              "mean": 838.5,
+              "min": 813,
+              "max": 873
+            },
+            "grossRevenue": {
+              "mean": 2212896.202,
+              "min": 2111449.23,
+              "max": 2309646.54
+            },
+            "netRevenue": {
+              "mean": 1789083.602,
+              "min": 1687615.23,
+              "max": 1885838.54
+            },
+            "netRupeesPerAttempt": {
+              "mean": 330.9413567432687,
+              "min": 311.5405630422741,
+              "max": 348.9708623242043
+            },
+            "strandedAttempts": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": -768571.4829999999,
+            "min": -869968.56,
+            "max": -676254.76
+          },
+          "seedsWonByRecoveryLoop": 0,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": -747301.3700000001
+            },
+            {
+              "seed": 20260907,
+              "difference": -848468.9200000002
+            },
+            {
+              "seed": 20260908,
+              "difference": -693725.7
+            },
+            {
+              "seed": 20260909,
+              "difference": -771482.72
+            },
+            {
+              "seed": 20260910,
+              "difference": -735558.21
+            },
+            {
+              "seed": 20260911,
+              "difference": -799272.72
+            },
+            {
+              "seed": 20260912,
+              "difference": -676254.76
+            },
+            {
+              "seed": 20260913,
+              "difference": -795469
+            },
+            {
+              "seed": 20260914,
+              "difference": -869968.56
+            },
+            {
+              "seed": 20260915,
+              "difference": -748212.8700000001
+            }
+          ]
+        },
+        {
+          "rail": "Cards",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 1582.2,
+              "min": 1530,
+              "max": 1637
+            },
+            "recoveries": {
+              "mean": 796,
+              "min": 761,
+              "max": 823
+            },
+            "grossRevenue": {
+              "mean": 2102863.641,
+              "min": 2018284.43,
+              "max": 2185054.53
+            },
+            "netRevenue": {
+              "mean": 1686104.641,
+              "min": 1601515.43,
+              "max": 1768264.53
+            },
+            "netRupeesPerAttempt": {
+              "mean": 1065.7364058126982,
+              "min": 1012.9231013051577,
+              "max": 1118.3377877237851
+            },
+            "strandedAttempts": {
+              "mean": 2988.4,
+              "min": 2904,
+              "max": 3070
+            },
+            "deferralCapHits": {
+              "mean": 831.6,
+              "min": 791,
+              "max": 872
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 3527.4,
+              "min": 3426,
+              "max": 3618
+            },
+            "recoveries": {
+              "mean": 1065.2,
+              "min": 1033,
+              "max": 1094
+            },
+            "grossRevenue": {
+              "mean": 2820726.2649999997,
+              "min": 2769353.08,
+              "max": 2881191.09
+            },
+            "netRevenue": {
+              "mean": 2400311.0650000004,
+              "min": 2348764.08,
+              "max": 2460800.09
+            },
+            "netRupeesPerAttempt": {
+              "mean": 680.705490755159,
+              "min": 649.1885240464346,
+              "max": 702.5690610599077
+            },
+            "strandedAttempts": {
+              "mean": 1081.2,
+              "min": 1014,
+              "max": 1170
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": -714206.4239999999,
+            "min": -807684.8600000001,
+            "max": -595821.4600000002
+          },
+          "seedsWonByRecoveryLoop": 0,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": -753916.9099999999
+            },
+            {
+              "seed": 20260907,
+              "difference": -595821.4600000002
+            },
+            {
+              "seed": 20260908,
+              "difference": -689733.3699999999
+            },
+            {
+              "seed": 20260909,
+              "difference": -684594.6299999999
+            },
+            {
+              "seed": 20260910,
+              "difference": -710071.2299999997
+            },
+            {
+              "seed": 20260911,
+              "difference": -718970.81
+            },
+            {
+              "seed": 20260912,
+              "difference": -760171.25
+            },
+            {
+              "seed": 20260913,
+              "difference": -807684.8600000001
+            },
+            {
+              "seed": 20260914,
+              "difference": -730860.2399999998
+            },
+            {
+              "seed": 20260915,
+              "difference": -690239.4799999997
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "capDays": 7,
+      "rails": [
+        {
+          "rail": "UPI AutoPay",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 1914.1,
+              "min": 1897,
+              "max": 1936
+            },
+            "recoveries": {
+              "mean": 306.3,
+              "min": 292,
+              "max": 322
+            },
+            "grossRevenue": {
+              "mean": 815842.0939999999,
+              "min": 754010.8,
+              "max": 902732.78
+            },
+            "netRevenue": {
+              "mean": 398918.39400000003,
+              "min": 337100.8,
+              "max": 485828.78
+            },
+            "netRupeesPerAttempt": {
+              "mean": 208.4771149357379,
+              "min": 177.70205587770178,
+              "max": 256.1037322087509
+            },
+            "strandedAttempts": {
+              "mean": 3482.7,
+              "min": 3444,
+              "max": 3516
+            },
+            "deferralCapHits": {
+              "mean": 1965.4,
+              "min": 1957,
+              "max": 1972
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 5406.3,
+              "min": 5372,
+              "max": 5437
+            },
+            "recoveries": {
+              "mean": 838.5,
+              "min": 813,
+              "max": 873
+            },
+            "grossRevenue": {
+              "mean": 2212896.202,
+              "min": 2111449.23,
+              "max": 2309646.54
+            },
+            "netRevenue": {
+              "mean": 1789083.602,
+              "min": 1687615.23,
+              "max": 1885838.54
+            },
+            "netRupeesPerAttempt": {
+              "mean": 330.9413567432687,
+              "min": 311.5405630422741,
+              "max": 348.9708623242043
+            },
+            "strandedAttempts": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": -1390165.208,
+            "min": -1511445.35,
+            "max": -1258287.55
+          },
+          "seedsWonByRecoveryLoop": 0,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": -1381275.1300000001
+            },
+            {
+              "seed": 20260907,
+              "difference": -1402468.61
+            },
+            {
+              "seed": 20260908,
+              "difference": -1377105.23
+            },
+            {
+              "seed": 20260909,
+              "difference": -1348312.7
+            },
+            {
+              "seed": 20260910,
+              "difference": -1411188.23
+            },
+            {
+              "seed": 20260911,
+              "difference": -1459370.38
+            },
+            {
+              "seed": 20260912,
+              "difference": -1258287.55
+            },
+            {
+              "seed": 20260913,
+              "difference": -1380673.8499999999
+            },
+            {
+              "seed": 20260914,
+              "difference": -1511445.35
+            },
+            {
+              "seed": 20260915,
+              "difference": -1371525.05
+            }
+          ]
+        },
+        {
+          "rail": "Cards",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 1594,
+              "min": 1542,
+              "max": 1650
+            },
+            "recoveries": {
+              "mean": 686.5,
+              "min": 656,
+              "max": 714
+            },
+            "grossRevenue": {
+              "mean": 1813336.1540000003,
+              "min": 1703484.81,
+              "max": 1889221.09
+            },
+            "netRevenue": {
+              "mean": 1396553.5540000002,
+              "min": 1286699.81,
+              "max": 1472401.09
+            },
+            "netRupeesPerAttempt": {
+              "mean": 876.247633847311,
+              "min": 811.7979873817048,
+              "max": 916.2421219663972
+            },
+            "strandedAttempts": {
+              "mean": 3196.6,
+              "min": 3110,
+              "max": 3266
+            },
+            "deferralCapHits": {
+              "mean": 829.9,
+              "min": 789,
+              "max": 868
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 3527.4,
+              "min": 3426,
+              "max": 3618
+            },
+            "recoveries": {
+              "mean": 1065.2,
+              "min": 1033,
+              "max": 1094
+            },
+            "grossRevenue": {
+              "mean": 2820726.2649999997,
+              "min": 2769353.08,
+              "max": 2881191.09
+            },
+            "netRevenue": {
+              "mean": 2400311.0650000004,
+              "min": 2348764.08,
+              "max": 2460800.09
+            },
+            "netRupeesPerAttempt": {
+              "mean": 680.705490755159,
+              "min": 649.1885240464346,
+              "max": 702.5690610599077
+            },
+            "strandedAttempts": {
+              "mean": 1081.2,
+              "min": 1014,
+              "max": 1170
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": -1003757.5109999997,
+            "min": -1122500.48,
+            "max": -891684.9000000001
+          },
+          "seedsWonByRecoveryLoop": 0,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": -983758.19
+            },
+            {
+              "seed": 20260907,
+              "difference": -891684.9000000001
+            },
+            {
+              "seed": 20260908,
+              "difference": -984235.1599999997
+            },
+            {
+              "seed": 20260909,
+              "difference": -934017.1099999999
+            },
+            {
+              "seed": 20260910,
+              "difference": -1018315.6699999999
+            },
+            {
+              "seed": 20260911,
+              "difference": -991146.02
+            },
+            {
+              "seed": 20260912,
+              "difference": -1039608.8699999999
+            },
+            {
+              "seed": 20260913,
+              "difference": -1122500.48
+            },
+            {
+              "seed": 20260914,
+              "difference": -1064142.42
+            },
+            {
+              "seed": 20260915,
+              "difference": -1008166.2899999998
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "capDays": 14,
+      "rails": [
+        {
+          "rail": "UPI AutoPay",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 4491.4,
+              "min": 4439,
+              "max": 4535
+            },
+            "recoveries": {
+              "mean": 1230.4,
+              "min": 1182,
+              "max": 1274
+            },
+            "grossRevenue": {
+              "mean": 3279340.631,
+              "min": 3069057.11,
+              "max": 3428825.03
+            },
+            "netRevenue": {
+              "mean": 2857357.831,
+              "min": 2647009.11,
+              "max": 3006901.03
+            },
+            "netRupeesPerAttempt": {
+              "mean": 636.2969533610901,
+              "min": 585.1036936339534,
+              "max": 673.8908628417765
+            },
+            "strandedAttempts": {
+              "mean": 57.8,
+              "min": 45,
+              "max": 76
+            },
+            "deferralCapHits": {
+              "mean": 1186.6,
+              "min": 1154,
+              "max": 1212
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 5406.3,
+              "min": 5372,
+              "max": 5437
+            },
+            "recoveries": {
+              "mean": 838.5,
+              "min": 813,
+              "max": 873
+            },
+            "grossRevenue": {
+              "mean": 2212896.202,
+              "min": 2111449.23,
+              "max": 2309646.54
+            },
+            "netRevenue": {
+              "mean": 1789083.602,
+              "min": 1687615.23,
+              "max": 1885838.54
+            },
+            "netRupeesPerAttempt": {
+              "mean": 330.9413567432687,
+              "min": 311.5405630422741,
+              "max": 348.9708623242043
+            },
+            "strandedAttempts": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": 1068274.229,
+            "min": 850537.9299999999,
+            "max": 1205356.57
+          },
+          "seedsWonByRecoveryLoop": 10,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": 1037749.6599999999
+            },
+            {
+              "seed": 20260907,
+              "difference": 1147477.8499999999
+            },
+            {
+              "seed": 20260908,
+              "difference": 1136634.59
+            },
+            {
+              "seed": 20260909,
+              "difference": 1205356.57
+            },
+            {
+              "seed": 20260910,
+              "difference": 1110160.75
+            },
+            {
+              "seed": 20260911,
+              "difference": 850537.9299999999
+            },
+            {
+              "seed": 20260912,
+              "difference": 1062320.35
+            },
+            {
+              "seed": 20260913,
+              "difference": 1140398.4
+            },
+            {
+              "seed": 20260914,
+              "difference": 904005.9500000002
+            },
+            {
+              "seed": 20260915,
+              "difference": 1088100.24
+            }
+          ]
+        },
+        {
+          "rail": "Cards",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 2674.1,
+              "min": 2554,
+              "max": 2761
+            },
+            "recoveries": {
+              "mean": 1071.4,
+              "min": 1044,
+              "max": 1116
+            },
+            "grossRevenue": {
+              "mean": 2840020.739,
+              "min": 2751729.32,
+              "max": 2929396.06
+            },
+            "netRevenue": {
+              "mean": 2421077.9390000002,
+              "min": 2332826.32,
+              "max": 2510505.06
+            },
+            "netRupeesPerAttempt": {
+              "mean": 905.725700045565,
+              "min": 874.0304128938767,
+              "max": 944.5090519187368
+            },
+            "strandedAttempts": {
+              "mean": 1783.8,
+              "min": 1680,
+              "max": 1902
+            },
+            "deferralCapHits": {
+              "mean": 501.6,
+              "min": 466,
+              "max": 529
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 3527.4,
+              "min": 3426,
+              "max": 3618
+            },
+            "recoveries": {
+              "mean": 1065.2,
+              "min": 1033,
+              "max": 1094
+            },
+            "grossRevenue": {
+              "mean": 2820726.2649999997,
+              "min": 2769353.08,
+              "max": 2881191.09
+            },
+            "netRevenue": {
+              "mean": 2400311.0650000004,
+              "min": 2348764.08,
+              "max": 2460800.09
+            },
+            "netRupeesPerAttempt": {
+              "mean": 680.705490755159,
+              "min": 649.1885240464346,
+              "max": 702.5690610599077
+            },
+            "strandedAttempts": {
+              "mean": 1081.2,
+              "min": 1014,
+              "max": 1170
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": 20766.87400000007,
+            "min": -76373.9700000002,
+            "max": 135507.33000000007
+          },
+          "seedsWonByRecoveryLoop": 6,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": 24092.490000000224
+            },
+            {
+              "seed": 20260907,
+              "difference": 57647.57999999961
+            },
+            {
+              "seed": 20260908,
+              "difference": 37936.25
+            },
+            {
+              "seed": 20260909,
+              "difference": 119530.3500000001
+            },
+            {
+              "seed": 20260910,
+              "difference": -47602.119999999646
+            },
+            {
+              "seed": 20260911,
+              "difference": 135507.33000000007
+            },
+            {
+              "seed": 20260912,
+              "difference": 53008.79000000004
+            },
+            {
+              "seed": 20260913,
+              "difference": -76373.9700000002
+            },
+            {
+              "seed": 20260914,
+              "difference": -65598.40999999968
+            },
+            {
+              "seed": 20260915,
+              "difference": -30479.549999999814
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "capDays": 21,
+      "rails": [
+        {
+          "rail": "UPI AutoPay",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 4491.4,
+              "min": 4439,
+              "max": 4535
+            },
+            "recoveries": {
+              "mean": 956.6,
+              "min": 918,
+              "max": 994
+            },
+            "grossRevenue": {
+              "mean": 2549434.449,
+              "min": 2379329.04,
+              "max": 2711253.59
+            },
+            "netRevenue": {
+              "mean": 2127451.649,
+              "min": 1957281.04,
+              "max": 2289329.59
+            },
+            "netRupeesPerAttempt": {
+              "mean": 473.77862511210213,
+              "min": 432.6439080459774,
+              "max": 513.0725212909017
+            },
+            "strandedAttempts": {
+              "mean": 57.8,
+              "min": 45,
+              "max": 76
+            },
+            "deferralCapHits": {
+              "mean": 1186.6,
+              "min": 1154,
+              "max": 1212
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 5406.3,
+              "min": 5372,
+              "max": 5437
+            },
+            "recoveries": {
+              "mean": 838.5,
+              "min": 813,
+              "max": 873
+            },
+            "grossRevenue": {
+              "mean": 2212896.202,
+              "min": 2111449.23,
+              "max": 2309646.54
+            },
+            "netRevenue": {
+              "mean": 1789083.602,
+              "min": 1687615.23,
+              "max": 1885838.54
+            },
+            "netRupeesPerAttempt": {
+              "mean": 330.9413567432687,
+              "min": 311.5405630422741,
+              "max": 348.9708623242043
+            },
+            "strandedAttempts": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": 338368.0470000001,
+            "min": 160809.8600000001,
+            "max": 435865.2699999998
+          },
+          "seedsWonByRecoveryLoop": 10,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": 300585.1399999999
+            },
+            {
+              "seed": 20260907,
+              "difference": 435865.2699999998
+            },
+            {
+              "seed": 20260908,
+              "difference": 408532.49
+            },
+            {
+              "seed": 20260909,
+              "difference": 401547.90000000014
+            },
+            {
+              "seed": 20260910,
+              "difference": 364274.66000000015
+            },
+            {
+              "seed": 20260911,
+              "difference": 160809.8600000001
+            },
+            {
+              "seed": 20260912,
+              "difference": 301213.8300000001
+            },
+            {
+              "seed": 20260913,
+              "difference": 422826.95999999996
+            },
+            {
+              "seed": 20260914,
+              "difference": 174589.11999999988
+            },
+            {
+              "seed": 20260915,
+              "difference": 413435.24
+            }
+          ]
+        },
+        {
+          "rail": "Cards",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 2674.1,
+              "min": 2554,
+              "max": 2761
+            },
+            "recoveries": {
+              "mean": 952,
+              "min": 925,
+              "max": 996
+            },
+            "grossRevenue": {
+              "mean": 2521079.98,
+              "min": 2436386.66,
+              "max": 2631994.3
+            },
+            "netRevenue": {
+              "mean": 2102137.18,
+              "min": 2017483.66,
+              "max": 2213103.3
+            },
+            "netRupeesPerAttempt": {
+              "mean": 786.4153113336679,
+              "min": 763.041253244346,
+              "max": 832.6197516930025
+            },
+            "strandedAttempts": {
+              "mean": 1783.8,
+              "min": 1680,
+              "max": 1902
+            },
+            "deferralCapHits": {
+              "mean": 501.6,
+              "min": 466,
+              "max": 529
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 3527.4,
+              "min": 3426,
+              "max": 3618
+            },
+            "recoveries": {
+              "mean": 1065.2,
+              "min": 1033,
+              "max": 1094
+            },
+            "grossRevenue": {
+              "mean": 2820726.2649999997,
+              "min": 2769353.08,
+              "max": 2881191.09
+            },
+            "netRevenue": {
+              "mean": 2400311.0650000004,
+              "min": 2348764.08,
+              "max": 2460800.09
+            },
+            "netRupeesPerAttempt": {
+              "mean": 680.705490755159,
+              "min": 649.1885240464346,
+              "max": 702.5690610599077
+            },
+            "strandedAttempts": {
+              "mean": 1081.2,
+              "min": 1014,
+              "max": 1170
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": -298173.88499999995,
+            "min": -391716.6300000001,
+            "max": -177871.41000000015
+          },
+          "seedsWonByRecoveryLoop": 0,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": -292883.25
+            },
+            {
+              "seed": 20260907,
+              "difference": -274278.4700000002
+            },
+            {
+              "seed": 20260908,
+              "difference": -291885.74999999977
+            },
+            {
+              "seed": 20260909,
+              "difference": -177871.41000000015
+            },
+            {
+              "seed": 20260910,
+              "difference": -344140.23
+            },
+            {
+              "seed": 20260911,
+              "difference": -233160.68999999994
+            },
+            {
+              "seed": 20260912,
+              "difference": -262982.04000000004
+            },
+            {
+              "seed": 20260913,
+              "difference": -391716.6300000001
+            },
+            {
+              "seed": 20260914,
+              "difference": -361941.9499999997
+            },
+            {
+              "seed": 20260915,
+              "difference": -350878.4299999997
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "capDays": 28,
+      "rails": [
+        {
+          "rail": "UPI AutoPay",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 4491.4,
+              "min": 4439,
+              "max": 4535
+            },
+            "recoveries": {
+              "mean": 992.2,
+              "min": 963,
+              "max": 1037
+            },
+            "grossRevenue": {
+              "mean": 2651797.009,
+              "min": 2538387.63,
+              "max": 2821769.52
+            },
+            "netRevenue": {
+              "mean": 2229814.209,
+              "min": 2116421.63,
+              "max": 2399891.52
+            },
+            "netRupeesPerAttempt": {
+              "mean": 496.54560798710327,
+              "min": 472.0061052166233,
+              "max": 540.6378733949084
+            },
+            "strandedAttempts": {
+              "mean": 57.8,
+              "min": 45,
+              "max": 76
+            },
+            "deferralCapHits": {
+              "mean": 57.8,
+              "min": 45,
+              "max": 76
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 5406.3,
+              "min": 5372,
+              "max": 5437
+            },
+            "recoveries": {
+              "mean": 838.5,
+              "min": 813,
+              "max": 873
+            },
+            "grossRevenue": {
+              "mean": 2212896.202,
+              "min": 2111449.23,
+              "max": 2309646.54
+            },
+            "netRevenue": {
+              "mean": 1789083.602,
+              "min": 1687615.23,
+              "max": 1885838.54
+            },
+            "netRupeesPerAttempt": {
+              "mean": 330.9413567432687,
+              "min": 311.5405630422741,
+              "max": 348.9708623242043
+            },
+            "strandedAttempts": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": 440730.607,
+            "min": 306476.77,
+            "max": 562271.9099999999
+          },
+          "seedsWonByRecoveryLoop": 10,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": 368363.20999999973
+            },
+            {
+              "seed": 20260907,
+              "difference": 562271.9099999999
+            },
+            {
+              "seed": 20260908,
+              "difference": 467436.01
+            },
+            {
+              "seed": 20260909,
+              "difference": 456801.0900000001
+            },
+            {
+              "seed": 20260910,
+              "difference": 478723.27
+            },
+            {
+              "seed": 20260911,
+              "difference": 338884.4400000002
+            },
+            {
+              "seed": 20260912,
+              "difference": 428806.3999999999
+            },
+            {
+              "seed": 20260913,
+              "difference": 459104.61000000034
+            },
+            {
+              "seed": 20260914,
+              "difference": 306476.77
+            },
+            {
+              "seed": 20260915,
+              "difference": 540438.3600000001
+            }
+          ]
+        },
+        {
+          "rail": "Cards",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 2674.1,
+              "min": 2554,
+              "max": 2761
+            },
+            "recoveries": {
+              "mean": 956.1,
+              "min": 933,
+              "max": 991
+            },
+            "grossRevenue": {
+              "mean": 2527108.4229999995,
+              "min": 2481217.04,
+              "max": 2599939.41
+            },
+            "netRevenue": {
+              "mean": 2108165.6229999997,
+              "min": 2062314.04,
+              "max": 2181048.41
+            },
+            "netRupeesPerAttempt": {
+              "mean": 788.8274781404392,
+              "min": 758.6882904744645,
+              "max": 842.4418441660142
+            },
+            "strandedAttempts": {
+              "mean": 1783.8,
+              "min": 1680,
+              "max": 1902
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 3527.4,
+              "min": 3426,
+              "max": 3618
+            },
+            "recoveries": {
+              "mean": 1065.2,
+              "min": 1033,
+              "max": 1094
+            },
+            "grossRevenue": {
+              "mean": 2820726.2649999997,
+              "min": 2769353.08,
+              "max": 2881191.09
+            },
+            "netRevenue": {
+              "mean": 2400311.0650000004,
+              "min": 2348764.08,
+              "max": 2460800.09
+            },
+            "netRupeesPerAttempt": {
+              "mean": 680.705490755159,
+              "min": 649.1885240464346,
+              "max": 702.5690610599077
+            },
+            "strandedAttempts": {
+              "mean": 1081.2,
+              "min": 1014,
+              "max": 1170
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": -292145.4419999999,
+            "min": -387815.58999999985,
+            "max": -209926.2999999998
+          },
+          "seedsWonByRecoveryLoop": 0,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": -220384.23999999976
+            },
+            {
+              "seed": 20260907,
+              "difference": -268428.3700000001
+            },
+            {
+              "seed": 20260908,
+              "difference": -259621.31999999983
+            },
+            {
+              "seed": 20260909,
+              "difference": -209926.2999999998
+            },
+            {
+              "seed": 20260910,
+              "difference": -366061.71999999974
+            },
+            {
+              "seed": 20260911,
+              "difference": -238772.4700000002
+            },
+            {
+              "seed": 20260912,
+              "difference": -259529.1499999999
+            },
+            {
+              "seed": 20260913,
+              "difference": -346886.25
+            },
+            {
+              "seed": 20260914,
+              "difference": -387815.58999999985
+            },
+            {
+              "seed": 20260915,
+              "difference": -364029.0099999998
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "capDays": 30,
+      "rails": [
+        {
+          "rail": "UPI AutoPay",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 4491.4,
+              "min": 4439,
+              "max": 4535
+            },
+            "recoveries": {
+              "mean": 992.2,
+              "min": 963,
+              "max": 1037
+            },
+            "grossRevenue": {
+              "mean": 2651797.009,
+              "min": 2538387.63,
+              "max": 2821769.52
+            },
+            "netRevenue": {
+              "mean": 2229814.209,
+              "min": 2116421.63,
+              "max": 2399891.52
+            },
+            "netRupeesPerAttempt": {
+              "mean": 496.54560798710327,
+              "min": 472.0061052166233,
+              "max": 540.6378733949084
+            },
+            "strandedAttempts": {
+              "mean": 57.8,
+              "min": 45,
+              "max": 76
+            },
+            "deferralCapHits": {
+              "mean": 57.8,
+              "min": 45,
+              "max": 76
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 5406.3,
+              "min": 5372,
+              "max": 5437
+            },
+            "recoveries": {
+              "mean": 838.5,
+              "min": 813,
+              "max": 873
+            },
+            "grossRevenue": {
+              "mean": 2212896.202,
+              "min": 2111449.23,
+              "max": 2309646.54
+            },
+            "netRevenue": {
+              "mean": 1789083.602,
+              "min": 1687615.23,
+              "max": 1885838.54
+            },
+            "netRupeesPerAttempt": {
+              "mean": 330.9413567432687,
+              "min": 311.5405630422741,
+              "max": 348.9708623242043
+            },
+            "strandedAttempts": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": 440730.607,
+            "min": 306476.77,
+            "max": 562271.9099999999
+          },
+          "seedsWonByRecoveryLoop": 10,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": 368363.20999999973
+            },
+            {
+              "seed": 20260907,
+              "difference": 562271.9099999999
+            },
+            {
+              "seed": 20260908,
+              "difference": 467436.01
+            },
+            {
+              "seed": 20260909,
+              "difference": 456801.0900000001
+            },
+            {
+              "seed": 20260910,
+              "difference": 478723.27
+            },
+            {
+              "seed": 20260911,
+              "difference": 338884.4400000002
+            },
+            {
+              "seed": 20260912,
+              "difference": 428806.3999999999
+            },
+            {
+              "seed": 20260913,
+              "difference": 459104.61000000034
+            },
+            {
+              "seed": 20260914,
+              "difference": 306476.77
+            },
+            {
+              "seed": 20260915,
+              "difference": 540438.3600000001
+            }
+          ]
+        },
+        {
+          "rail": "Cards",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 2674.1,
+              "min": 2554,
+              "max": 2761
+            },
+            "recoveries": {
+              "mean": 956.1,
+              "min": 933,
+              "max": 991
+            },
+            "grossRevenue": {
+              "mean": 2527108.4229999995,
+              "min": 2481217.04,
+              "max": 2599939.41
+            },
+            "netRevenue": {
+              "mean": 2108165.6229999997,
+              "min": 2062314.04,
+              "max": 2181048.41
+            },
+            "netRupeesPerAttempt": {
+              "mean": 788.8274781404392,
+              "min": 758.6882904744645,
+              "max": 842.4418441660142
+            },
+            "strandedAttempts": {
+              "mean": 1783.8,
+              "min": 1680,
+              "max": 1902
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 3527.4,
+              "min": 3426,
+              "max": 3618
+            },
+            "recoveries": {
+              "mean": 1065.2,
+              "min": 1033,
+              "max": 1094
+            },
+            "grossRevenue": {
+              "mean": 2820726.2649999997,
+              "min": 2769353.08,
+              "max": 2881191.09
+            },
+            "netRevenue": {
+              "mean": 2400311.0650000004,
+              "min": 2348764.08,
+              "max": 2460800.09
+            },
+            "netRupeesPerAttempt": {
+              "mean": 680.705490755159,
+              "min": 649.1885240464346,
+              "max": 702.5690610599077
+            },
+            "strandedAttempts": {
+              "mean": 1081.2,
+              "min": 1014,
+              "max": 1170
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": -292145.4419999999,
+            "min": -387815.58999999985,
+            "max": -209926.2999999998
+          },
+          "seedsWonByRecoveryLoop": 0,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": -220384.23999999976
+            },
+            {
+              "seed": 20260907,
+              "difference": -268428.3700000001
+            },
+            {
+              "seed": 20260908,
+              "difference": -259621.31999999983
+            },
+            {
+              "seed": 20260909,
+              "difference": -209926.2999999998
+            },
+            {
+              "seed": 20260910,
+              "difference": -366061.71999999974
+            },
+            {
+              "seed": 20260911,
+              "difference": -238772.4700000002
+            },
+            {
+              "seed": 20260912,
+              "difference": -259529.1499999999
+            },
+            {
+              "seed": 20260913,
+              "difference": -346886.25
+            },
+            {
+              "seed": 20260914,
+              "difference": -387815.58999999985
+            },
+            {
+              "seed": 20260915,
+              "difference": -364029.0099999998
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "capDays": 35,
+      "rails": [
+        {
+          "rail": "UPI AutoPay",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 4491.4,
+              "min": 4439,
+              "max": 4535
+            },
+            "recoveries": {
+              "mean": 992.2,
+              "min": 963,
+              "max": 1037
+            },
+            "grossRevenue": {
+              "mean": 2651797.009,
+              "min": 2538387.63,
+              "max": 2821769.52
+            },
+            "netRevenue": {
+              "mean": 2229814.209,
+              "min": 2116421.63,
+              "max": 2399891.52
+            },
+            "netRupeesPerAttempt": {
+              "mean": 496.54560798710327,
+              "min": 472.0061052166233,
+              "max": 540.6378733949084
+            },
+            "strandedAttempts": {
+              "mean": 57.8,
+              "min": 45,
+              "max": 76
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 5406.3,
+              "min": 5372,
+              "max": 5437
+            },
+            "recoveries": {
+              "mean": 838.5,
+              "min": 813,
+              "max": 873
+            },
+            "grossRevenue": {
+              "mean": 2212896.202,
+              "min": 2111449.23,
+              "max": 2309646.54
+            },
+            "netRevenue": {
+              "mean": 1789083.602,
+              "min": 1687615.23,
+              "max": 1885838.54
+            },
+            "netRupeesPerAttempt": {
+              "mean": 330.9413567432687,
+              "min": 311.5405630422741,
+              "max": 348.9708623242043
+            },
+            "strandedAttempts": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": 440730.607,
+            "min": 306476.77,
+            "max": 562271.9099999999
+          },
+          "seedsWonByRecoveryLoop": 10,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": 368363.20999999973
+            },
+            {
+              "seed": 20260907,
+              "difference": 562271.9099999999
+            },
+            {
+              "seed": 20260908,
+              "difference": 467436.01
+            },
+            {
+              "seed": 20260909,
+              "difference": 456801.0900000001
+            },
+            {
+              "seed": 20260910,
+              "difference": 478723.27
+            },
+            {
+              "seed": 20260911,
+              "difference": 338884.4400000002
+            },
+            {
+              "seed": 20260912,
+              "difference": 428806.3999999999
+            },
+            {
+              "seed": 20260913,
+              "difference": 459104.61000000034
+            },
+            {
+              "seed": 20260914,
+              "difference": 306476.77
+            },
+            {
+              "seed": 20260915,
+              "difference": 540438.3600000001
+            }
+          ]
+        },
+        {
+          "rail": "Cards",
+          "recoveryLoop": {
+            "attempts": {
+              "mean": 2674.1,
+              "min": 2554,
+              "max": 2761
+            },
+            "recoveries": {
+              "mean": 956.1,
+              "min": 933,
+              "max": 991
+            },
+            "grossRevenue": {
+              "mean": 2527108.4229999995,
+              "min": 2481217.04,
+              "max": 2599939.41
+            },
+            "netRevenue": {
+              "mean": 2108165.6229999997,
+              "min": 2062314.04,
+              "max": 2181048.41
+            },
+            "netRupeesPerAttempt": {
+              "mean": 788.8274781404392,
+              "min": 758.6882904744645,
+              "max": 842.4418441660142
+            },
+            "strandedAttempts": {
+              "mean": 1783.8,
+              "min": 1680,
+              "max": 1902
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "fixedLadder": {
+            "attempts": {
+              "mean": 3527.4,
+              "min": 3426,
+              "max": 3618
+            },
+            "recoveries": {
+              "mean": 1065.2,
+              "min": 1033,
+              "max": 1094
+            },
+            "grossRevenue": {
+              "mean": 2820726.2649999997,
+              "min": 2769353.08,
+              "max": 2881191.09
+            },
+            "netRevenue": {
+              "mean": 2400311.0650000004,
+              "min": 2348764.08,
+              "max": 2460800.09
+            },
+            "netRupeesPerAttempt": {
+              "mean": 680.705490755159,
+              "min": 649.1885240464346,
+              "max": 702.5690610599077
+            },
+            "strandedAttempts": {
+              "mean": 1081.2,
+              "min": 1014,
+              "max": 1170
+            },
+            "deferralCapHits": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "pairedNetDifference": {
+            "mean": -292145.4419999999,
+            "min": -387815.58999999985,
+            "max": -209926.2999999998
+          },
+          "seedsWonByRecoveryLoop": 0,
+          "perSeedPairedNetDifference": [
+            {
+              "seed": 20260906,
+              "difference": -220384.23999999976
+            },
+            {
+              "seed": 20260907,
+              "difference": -268428.3700000001
+            },
+            {
+              "seed": 20260908,
+              "difference": -259621.31999999983
+            },
+            {
+              "seed": 20260909,
+              "difference": -209926.2999999998
+            },
+            {
+              "seed": 20260910,
+              "difference": -366061.71999999974
+            },
+            {
+              "seed": 20260911,
+              "difference": -238772.4700000002
+            },
+            {
+              "seed": 20260912,
+              "difference": -259529.1499999999
+            },
+            {
+              "seed": 20260913,
+              "difference": -346886.25
+            },
+            {
+              "seed": 20260914,
+              "difference": -387815.58999999985
+            },
+            {
+              "seed": 20260915,
+              "difference": -364029.0099999998
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "note": "All registered caps were evaluated in this single locked validation batch. Only the frozen-cap row is confirmatory; other rows describe robustness and did not alter selection."
+}

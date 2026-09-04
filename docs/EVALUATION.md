@@ -1,5 +1,23 @@
 # Evaluation protocol
 
+## Held-out deferral-cap selection — registered before evaluation
+
+This split and selection rule were written on 4 September 2026 before either new seed set was evaluated:
+
+- **Selection seeds (5):** `20260901`, `20260902`, `20260903`, `20260904`, `20260905`.
+- **Validation seeds (10):** `20260906`, `20260907`, `20260908`, `20260909`, `20260910`, `20260911`, `20260912`, `20260913`, `20260914`, `20260915`.
+- **Candidate caps:** 3, 7, 14, 21, 28, 30, and 35 days. The 30-day value is the evaluation horizon; 35 days verifies non-binding-cap behavior.
+- **Selection rule:** choose the cap with the largest mean paired net difference (`Recovery Loop − fixed ladder`) on NPCI-calibrated UPI, the primary calibrated rail. Cards is an uncalibrated secondary analysis and cannot influence selection. Break an exact tie in favor of the smaller cap.
+- **Freeze and validation:** freeze the selected cap before reading any validation result. Execute the validation seeds once as one locked batch. The confirmatory headline is the result at the frozen cap. The same batch emits all candidate caps only to show robustness; those supplementary points cannot change the selected cap or headline test.
+
+This procedure addresses the multiple-comparisons problem created by examining seven caps on the same five seeds and then discussing the best-looking value. The earlier five-seed cap curve is retained as superseded in-sample exploration, not confirmatory evidence.
+
+### Selection result and frozen cap
+
+The registered selection sweep chose **14 days** before validation. Its mean UPI paired net difference was **+₹1,025,757**, versus +₹398,260 at 28, 30, and 35 days; +₹293,493 at 21 days; −₹775,703 at 3 days; and −₹1,420,922 at 7 days. The cap is now frozen at 14 days. No validation result was read or generated before this line was recorded.
+
+The validation batch was then executed exactly once. Its artifact records `runCount: 1`, the frozen 14-day primary row, and the supplementary all-cap robustness curve produced by that same locked execution. The cap was not changed after validation. [Selection artifact](../data/evaluation/heldout-cap-selection.json) · [validation artifact](../data/evaluation/heldout-cap-validation.json)
+
 ## Fix 7 corrected NPCI data grounding — frozen before rerun
 
 The correction fixes three modelling bugs without selecting any value from policy results. It changes no coverage threshold, candidate time, probability rule, cost, seed, or rail cap.
