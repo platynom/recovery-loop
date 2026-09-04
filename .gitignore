@@ -39,3 +39,6 @@ next-env.d.ts
 /work/
 /data/test_runs/
 /backup-export/
+
+# typescript incremental build cache
+*.tsbuildinfo

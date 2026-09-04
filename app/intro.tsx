@@ -31,6 +31,10 @@ export default function Intro({ amount, seeds }: { amount: number; seeds: number
     started.current = true;
     if (seen || reduce) {
       try { sessionStorage.setItem('rl-intro', '1'); } catch {}
+      // Deliberate: the overlay must cover the first paint, so it mounts shown
+      // and is dismissed here on the one render where we learn it was already
+      // seen. This fires once at mount, not on every render.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShow(false);
       document.documentElement.setAttribute('data-intro', 'seen');
       return;
@@ -87,7 +91,6 @@ export default function Intro({ amount, seeds }: { amount: number; seeds: number
 
   if (!show) return null;
 
-  const beat = [...BEATS].reverse().find((b) => t >= b.at);
   const revealed = t >= REVEAL;
   const p = Math.min(1, Math.max(0, (t - REVEAL) / 1800));
   const shown = amount * (1 - Math.pow(1 - p, 3));

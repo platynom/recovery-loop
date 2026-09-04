@@ -29,13 +29,13 @@ export default function Why() {
         <section>
           <p className="eyb">01 — Why this problem</p>
           <h2>Payments that fail without anyone choosing to leave.</h2>
-          <p>A subscription charge fails because a balance was low, a bank timed out, or a card expired. The customer never cancelled. The industry calls this <strong>involuntary churn</strong>, and published benchmarks put it between a fifth and two-fifths of all subscription cancellations.</p>
+          <p>A subscription charge fails because a balance was low, a bank timed out, or a card expired. The customer never cancelled. The industry calls this <strong>involuntary churn</strong>, and subscription-billing vendors such as Recurly and Chargebee commonly put it between a fifth and two-fifths of all cancellations. That range is vendor-published, not independently verified here.</p>
 
           <h3>What Razorpay does today</h3>
           <p>Their documentation is explicit about the retry model for subscriptions:</p>
           <blockquote>
             &ldquo;In a T+3 days cycle, we will retry the payment thrice. That is, once every day for 3 days, excluding the date of the charge.&rdquo; — after which the subscription moves to <code>halted</code>.
-            <cite>razorpay.com/docs/payments/subscriptions/payment-retries/ · <strong>still live and unchanged, 4 September 2026</strong> · archived screenshot in repo</cite>
+            <cite><a href="https://razorpay.com/docs/payments/subscriptions/payment-retries/" target="_blank" rel="noreferrer">razorpay.com/docs/payments/subscriptions/payment-retries/</a> · <strong>still live and quoted verbatim, 4 September 2026</strong> · <a href="https://github.com/platynom/recovery-loop/tree/master/docs/recording-assets" target="_blank" rel="noreferrer">archived screenshot</a></cite>
           </blockquote>
           <p>The same three days for every failure, whatever caused it. No signal is consumed.</p>
 
@@ -46,7 +46,7 @@ export default function Why() {
           <p>Razorpay already runs the two systems a good retry policy needs, and fences both off from retries:</p>
           <blockquote>
             &ldquo;Optimizer rules apply only for the first-time registration payment. All subsequent debits happen on the same terminal used for registration payment. Optimizer Rules will not be applicable for subsequent payments.&rdquo;
-            <cite>razorpay.com/docs/payments/optimizer/recurring-payments/ · <strong>still live and unchanged, 4 September 2026</strong></cite>
+            <cite><a href="https://razorpay.com/docs/payments/optimizer/recurring-payments/" target="_blank" rel="noreferrer">razorpay.com/docs/payments/optimizer/recurring-payments/</a> · <strong>still live and quoted verbatim, 4 September 2026</strong></cite>
           </blockquote>
           <p>Their Payment Downtime API detects issuer outages and is advisory only — the merchant is told, and decides alone. So a retry can fire straight into an outage Razorpay itself has already published.</p>
         </section>
@@ -138,9 +138,9 @@ export default function Why() {
             <div>
               <h4>What it does better</h4>
               <ul>
-                <li>Recovers ₹28.6 lakh net against the fixed ladder&apos;s ₹17.9 lakh</li>
-                <li>Spends fewer attempts — 4,491 against 5,406</li>
-                <li>Recovers more payments — 1,230 against 838</li>
+                <li>Recovers ₹28.6 lakh net against the fixed ladder&apos;s ₹17.9 lakh — <strong>+₹10,68,274</strong></li>
+                <li>Spends fewer attempts — 4,491.4 against 5,406.3 (means over 10 seeds)</li>
+                <li>Recovers more payments — 1,230.4 against 838.5</li>
                 <li>Wins on 10 of 10 held-out seeds, positive across a 14–35 day range</li>
               </ul>
             </div>

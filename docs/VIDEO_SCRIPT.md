@@ -18,13 +18,13 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 ## 1:05–1:40 — The agent
 
-*On screen: Recovery Loop → Decision inspector. Wait for the loading state to resolve. Select a retry decision from the simulated stream, then return to the inspector. Keep the `Simulated event` label visible. Point to each field as it is named.*
+*On screen: `/console` → Decision inspector. Wait for the loading state to resolve. Select a retry decision from the simulated stream, then return to the inspector. Keep the `Simulated event` label visible. Point to each field as it is named.*
 
 > “This simulated decision starts with the failure tuple; unfamiliar state is refused rather than guessed. The gate compares the bank with its own baseline. Then probability times payment value is compared with the mandate-local price of preserving this retry. If value covers price and the gate passes, retry. An outage waits; hard stops terminate. Those numbers produce the action.”
 
 ## 1:40–2:15 — The outage demo
 
-*On screen: Recovery Loop → Issuer health. Begin in `Normal state`. Keep the `Simulated outage scenario` label visible. Say the first sentence, then press `Inject simulated outage`. Wait for the loading state to resolve before continuing. Point to Retry and Wait.*
+*On screen: `/console` → Issuer health. Begin in `Normal state`. Keep the `Simulated outage scenario` label visible. Say the first sentence, then press `Inject simulated outage`. Wait for the loading state to resolve before continuing. Point to Retry and Wait.*
 
 > “Watch what happens when a bank goes down.”
 
@@ -34,7 +34,7 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 ## 2:15–3:15 — The result
 
-*On screen: Recovery Loop → Policy comparison. Wait until both held-out rail cards load. Keep the frozen 14-day label, paired net result, and positive-seed count visible.*
+*On screen: `/console` → Policy comparison. Wait until both held-out rail cards load. Keep the frozen 14-day label, paired net result, and positive-seed count visible.*
 
 > “I used five seeds to select the cap, froze fourteen days, then ran ten new seeds once.”
 
@@ -68,13 +68,19 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 Record these screens in this exact order. Do not begin a spoken section until the named state is visible.
 
+Routes: the cinematic intro and the case landing are at `/`, the written case is at `/why`, and the evidence console is at `/console`. The intro plays once per browser session and is gated by `sessionStorage`; clear site data (or use a fresh private window) before each take, or it will be skipped.
+
+0. **Intro — cold open:** load `/` in a fresh private window. Let the three beats play through the reveal without touching the keyboard. Roughly thirteen seconds end to end.
+0b. **Landing — the deferral-cap slider:** scroll to the cap control. Start at three days, where the agent loses, then drag to fourteen, where both rail cards flip. Hold on the flipped state so the `wins 10/10` pill and the `inconclusive 6/10` pill are readable in the same frame. This is the single most useful shot in the video: it shows the confound and the fix in one gesture.
+0c. **`/why` — provenance:** scroll section 02, `Where the data came from`, so the NPCI and Razorpay citations are legible.
+
 1. **Local screenshot — Razorpay Payment Retries:** open `docs/recording-assets/razorpay-payment-retries-2026-08-29.png`; keep the retry flow and the caption `Live documentation screenshot · captured 29 August 2026` visible. Do not load the external page while recording.
 2. **Local screenshot — NPCI UPI circular index:** open `docs/recording-assets/npci-upi-circular-index-2026-08-29.png`; keep the filtered `OC No. 215 A` result and the same capture-date caption visible. Do not load the external page or former PDF URL while recording.
-3. **Dashboard — Decision stream:** `Simulated stream` label visible; API connected; select `sim_0001`, the Retry row at the top. Do not scroll.
-4. **Dashboard — Decision inspector:** `Simulated event` label visible; probability, attempt price, expected value, gate verdict, and resulting action loaded.
-5. **Dashboard — Issuer health before injection:** `Simulated outage scenario` and `Normal state` visible.
-6. **Dashboard — Issuer health after injection:** press the button on camera; wait through the distinct loading state; show `Outage injected`, Retry, Wait, and Hard refuse.
-7. **Dashboard — Policy comparison:** at 1280×720, confirm the `Held-out validation` and frozen `14-day` labels are visible with both rail cards. Show UPI 10/10 positive seeds and the Cards `Inconclusive: 6/10 positive seeds` text together.
+3. **`/console` — Decision stream:** `Simulated stream` label visible; API connected; select `sim_0001`, the Retry row at the top. Do not scroll.
+4. **`/console` — Decision inspector:** `Simulated event` label visible; probability, attempt price, expected value, gate verdict, and resulting action loaded.
+5. **`/console` — Issuer health before injection:** `Simulated outage scenario` and `Normal state` visible.
+6. **`/console` — Issuer health after injection:** press the button on camera; wait through the distinct loading state; show `Outage injected`, Retry, Wait, and Hard refuse.
+7. **`/console` — Policy comparison:** at 1280×720, confirm the `Held-out validation` and frozen `14-day` labels are visible with both rail cards. Show UPI 10/10 positive seeds and the Cards `Inconclusive: 6/10 positive seeds` text together.
 8. **README — correction history:** all six rows visible while scrolling from circular ground truth through refuse/wait conflation.
 9. **README — limitations and next steps:** first two limitations visible, then scroll to `What I would do next` for the final sentence.
 

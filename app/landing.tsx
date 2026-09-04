@@ -13,6 +13,7 @@ export type Sweep = { frozenCap: number; seeds: number; points: Point[] };
 
 const inr = (n: number) => '₹' + Math.round(Math.abs(n)).toLocaleString('en-IN');
 const signed = (n: number) => (n >= 0 ? '+' : '−') + inr(n);
+const mean1 = (n: number) => n.toLocaleString('en-IN', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
 /* ── reveal-on-scroll ─────────────────────────────────────────── */
 function useReveal() {
@@ -32,12 +33,15 @@ function useReveal() {
 
 /* ── count-up ─────────────────────────────────────────────────── */
 function useCountUp(target: number, ms = 1400) {
+  // Initialised to the true value so server-rendered HTML and reduced-motion
+  // users see the real number; the animation only ever runs inside rAF.
   const [v, setV] = useState(target);
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setV(target); return; }
-    let raf = 0; const t0 = performance.now();
-    setV(0);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let raf = 0;
+    let t0 = 0;
     const tick = (t: number) => {
+      if (!t0) t0 = t;
       const p = Math.min(1, (t - t0) / ms);
       setV(target * (1 - Math.pow(1 - p, 3)));
       if (p < 1) raf = requestAnimationFrame(tick);
@@ -104,12 +108,13 @@ function RailCard({ r, seeds }: { r: Rail; seeds: number }) {
       <div className={`delta ${r.diff >= 0 ? 'win' : 'lose'}`}>{signed(r.diff)}</div>
       <div className="bar"><i className={r.diff >= 0 ? 'win' : 'lose'} style={{ width: `${pct / 2}%` }} /></div>
       <dl>
-        <div><dt>Attempts spent</dt><dd>{Math.round(r.rlAtt).toLocaleString('en-IN')}<small>vs {Math.round(r.flAtt).toLocaleString('en-IN')}</small></dd></div>
-        <div><dt>Payments recovered</dt><dd>{Math.round(r.rlRec).toLocaleString('en-IN')}<small>vs {Math.floor(r.flRec).toLocaleString('en-IN')}</small></dd></div>
+        <div><dt>Attempts spent</dt><dd>{mean1(r.rlAtt)}<small>vs {mean1(r.flAtt)}</small></dd></div>
+        <div><dt>Payments recovered</dt><dd>{mean1(r.rlRec)}<small>vs {mean1(r.flRec)}</small></dd></div>
         <div><dt>Net per attempt</dt><dd>{inr(r.rlPer)}<small>vs {inr(r.flPer)}</small></dd></div>
-        <div><dt>Attempts stranded</dt><dd>{Math.round(r.rlStr).toLocaleString('en-IN')}</dd></div>
+        <div><dt>Attempts stranded</dt><dd>{mean1(r.rlStr)}</dd></div>
       </dl>
-      {inconclusive && <p className="why" style={{ marginTop: 18, fontSize: 11.5 }}>Reported as inconclusive — the seed range crosses zero.</p>}
+      <p className="why" style={{ marginTop: 14, fontSize: 11 }}>Counts are means across {seeds} seeds, so they carry a decimal.</p>
+      {inconclusive && <p className="why" style={{ marginTop: 10, fontSize: 11.5 }}>Reported as inconclusive — the seed range crosses zero.</p>}
     </div>
   );
 }
@@ -125,11 +130,11 @@ export default function Landing({ sweep }: { sweep: Sweep }) {
   const headline = sweep.points[frozenIdx].rails.find((r) => /upi/i.test(r.rail))!.diff;
   const counted = useCountUp(headline);
 
-  const why = (cap: number, diff: number) =>
+  const why = (cap: number) =>
     cap < 14
-      ? `At ${cap} days the agent is forced to decide before the customer's next salary credit arrives. It conserves attempts it can never spend, and ${Math.round(sweep.points[idx].rails[0].rlStr).toLocaleString('en-IN')} of them expire unused.`
+      ? `At ${cap} days the agent is forced to decide before the customer's next salary credit arrives. It conserves attempts it can never spend, and on UPI ${mean1(upi.rlStr)} of them expire unused.`
       : cap === 14
-        ? 'At 14 days deferral first spans a salary cycle. The agent can wait for the credit that actually funds the payment — this is the frozen, validated cap.'
+        ? 'At 14 days, deferral first spans a salary cycle. The agent can wait for the credit that actually funds the payment — this is the frozen, validated cap.'
         : `At ${cap} days the agent can still reach payday, but waits longer than it needs to and gives back part of the gain.`;
 
   return (
@@ -162,7 +167,7 @@ export default function Landing({ sweep }: { sweep: Sweep }) {
         <div className="prob">
           <article className="rv"><i>01</i><h3>A fixed calendar</h3><p>Subscription charges retry at T+1, T+2 and T+3, then the mandate halts. The same three days for every failure, whatever caused it.</p></article>
           <article className="rv"><i>02</i><h3>A hard budget</h3><p>NPCI allows one attempt plus three retries per UPI AutoPay mandate. Non-transferable — an attempt saved on one customer cannot be spent on another.</p></article>
-          <article className="rv"><i>03</i><h3>An unused signal</h3><p>Razorpay publishes a live issuer-downtime feed and runs an ML router that reacts to a failing gateway in twenty minutes. Neither is wired to retries.</p></article>
+          <article className="rv"><i>03</i><h3>An unused signal</h3><p>Razorpay publishes a live issuer-downtime feed and runs an ML router that, <a href="https://razorpay.com/docs/payments/optimizer/dynamic-routing/" target="_blank" rel="noreferrer">by their own documentation</a>, reroutes within twenty minutes of a gateway degrading. Neither is wired to retries.</p></article>
         </div>
       </section>
 
@@ -188,7 +193,7 @@ export default function Landing({ sweep }: { sweep: Sweep }) {
                 <span key={c} className={`${i === idx ? 'on' : ''} ${c === sweep.frozenCap ? 'frozen' : ''}`} onClick={() => setIdx(i)}>{c}d</span>
               ))}
             </div>
-            <p className="why">{why(point.cap, upi.diff)}</p>
+            <p className="why">{why(point.cap)}</p>
             <div className="rails">
               {point.rails.map((r) => <RailCard key={r.rail} r={r} seeds={sweep.seeds} />)}
             </div>
@@ -236,8 +241,8 @@ export default function Landing({ sweep }: { sweep: Sweep }) {
       </section>
 
       <div className="foot">
-        <span>Recovery Loop · Razorpay AI Buildathon, Track 03</span>
-        <span>Test mode only · every figure sourced from committed evidence</span>
+        <span>Recovery Loop · Razorpay AI Buildathon, Track 03 ·</span>
+        <span>Test mode only · every figure from committed evidence: <a href="https://github.com/platynom/recovery-loop/tree/master/data/evaluation" target="_blank" rel="noreferrer">results</a> · <a href="https://github.com/platynom/recovery-loop/blob/master/docs/LIMITATIONS.md" target="_blank" rel="noreferrer">limitations</a> · <a href="https://github.com/platynom/recovery-loop" target="_blank" rel="noreferrer">repo</a></span>
       </div>
     </div>
   );
