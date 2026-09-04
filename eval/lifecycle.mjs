@@ -5,6 +5,7 @@ import { observableEventAt, simulateAttempt, simulationDayMs } from '../sim/outc
 import { baselines } from './baselines.mjs';
 
 export const evaluationHorizonDays = 30;
+export const defaultMaxDeferralDays = 3;
 export const declinePenaltyThreshold = 0.15;
 export const declinePenaltyRupees = 415000;
 
@@ -30,6 +31,10 @@ function newMandateState(event, operational) {
     hitDeferralCap: false,
     initialDecisionAction: null,
     convertedFromWaitToRetry: false,
+    reachedLastTwoDaysWithUnspentAttempts: false,
+    lastTwoDayActions: [],
+    decisionCauses: [],
+    gateCounterfactuals: [],
     attempts: [],
     attemptCap,
     hardStopped: hardStop(event),
@@ -90,7 +95,7 @@ function runSingleAttempt(event, state, context, policyName) {
 
 function runRecoveryLoop(event, state, context) {
   let observedAt = context.now;
-  const deferralCapAt = context.now + 3 * simulationDayMs;
+  const deferralCapAt = context.now + context.maxDeferralDays * simulationDayMs;
   while (!state.recovered && !state.exhausted && observedAt <= context.horizonAt && context.budget.used < context.budget.limit) {
     const freshEvent = { ...observableEventAt(event, observedAt), attemptNumber: state.attemptsConsumed };
     const decision = decideRecovery(freshEvent, {
@@ -98,6 +103,18 @@ function runRecoveryLoop(event, state, context) {
       mandateAttemptsRemaining: state.attemptCap - state.attemptsConsumed,
       evaluationHorizonAt: context.horizonAt,
     }, observedAt);
+    state.decisionCauses.push(decision.cause);
+    if (decision.cause === 'outage_gate' || decision.cause === 'distribution_gate') {
+      const attemptedAt = decision.counterfactualAttemptAt;
+      if (Number.isFinite(attemptedAt) && attemptedAt <= context.horizonAt) {
+        state.gateCounterfactuals.push({ cause: decision.cause, recovered: simulateAttempt(event, attemptedAt, state.retryAttempts + 1).recovered });
+      }
+    }
+    const daysLeft = (context.horizonAt - observedAt) / simulationDayMs;
+    if (daysLeft >= 0 && daysLeft <= 2 && state.attemptsConsumed < state.attemptCap) {
+      state.reachedLastTwoDaysWithUnspentAttempts = true;
+      state.lastTwoDayActions.push(decision.action);
+    }
     if (state.initialDecisionAction === null) state.initialDecisionAction = decision.action;
     if (decision.action === 'wait') {
       state.deferrals += 1;
@@ -161,6 +178,25 @@ function summarizePolicy(name, mandates) {
     deferredConvertedToRetry: mandates.filter((mandate) => mandate.convertedFromWaitToRetry).length,
     deferredRecovered: mandates.filter((mandate) => mandate.convertedFromWaitToRetry && mandate.recovered).length,
     deferralCapHits: mandates.filter((mandate) => mandate.hitDeferralCap).length,
+    mandatesReachedLastTwoDaysWithUnspentAttempts: mandates.filter((mandate) => mandate.reachedLastTwoDaysWithUnspentAttempts).length,
+    lastTwoDayRetryDecisions: mandates.reduce((sum, mandate) => sum + mandate.lastTwoDayActions.filter((action) => action === 'retry').length, 0),
+    lastTwoDayWaitDecisions: mandates.reduce((sum, mandate) => sum + mandate.lastTwoDayActions.filter((action) => action === 'wait').length, 0),
+    lastTwoDayTerminalRefusals: mandates.reduce((sum, mandate) => sum + mandate.lastTwoDayActions.filter((action) => action === 'refuse_terminal').length, 0),
+    decisionAttribution: {
+      hardStop: mandates.reduce((sum, mandate) => sum + mandate.decisionCauses.filter((cause) => cause === 'hard_stop').length, 0),
+      outageGate: mandates.reduce((sum, mandate) => sum + mandate.decisionCauses.filter((cause) => cause === 'outage_gate').length, 0),
+      distributionGate: mandates.reduce((sum, mandate) => sum + mandate.decisionCauses.filter((cause) => cause === 'distribution_gate').length, 0),
+      economic: mandates.reduce((sum, mandate) => sum + mandate.decisionCauses.filter((cause) => cause === 'economic').length, 0),
+      retry: mandates.reduce((sum, mandate) => sum + mandate.decisionCauses.filter((cause) => cause === 'retry').length, 0),
+    },
+    gateCounterfactuals: {
+      decisions: mandates.reduce((sum, mandate) => sum + mandate.gateCounterfactuals.length, 0),
+      wouldRecover: mandates.reduce((sum, mandate) => sum + mandate.gateCounterfactuals.filter((row) => row.recovered).length, 0),
+      outageGateDecisions: mandates.reduce((sum, mandate) => sum + mandate.gateCounterfactuals.filter((row) => row.cause === 'outage_gate').length, 0),
+      outageGateWouldRecover: mandates.reduce((sum, mandate) => sum + mandate.gateCounterfactuals.filter((row) => row.cause === 'outage_gate' && row.recovered).length, 0),
+      distributionGateDecisions: mandates.reduce((sum, mandate) => sum + mandate.gateCounterfactuals.filter((row) => row.cause === 'distribution_gate').length, 0),
+      distributionGateWouldRecover: mandates.reduce((sum, mandate) => sum + mandate.gateCounterfactuals.filter((row) => row.cause === 'distribution_gate' && row.recovered).length, 0),
+    },
     unusedAttemptsAtHorizon: mandates.filter((mandate) => !mandate.recovered).reduce((sum, mandate) => sum + Math.max(0, mandate.attemptCap - mandate.attemptsConsumed), 0),
     unusedAttemptsAfterRecovery: mandates.filter((mandate) => mandate.recovered).reduce((sum, mandate) => sum + Math.max(0, mandate.attemptCap - mandate.attemptsConsumed), 0),
     unusedAttemptsOnHardStops: mandates.filter((mandate) => !mandate.recovered && mandate.hardStopped).reduce((sum, mandate) => sum + Math.max(0, mandate.attemptCap - mandate.attemptsConsumed), 0),
@@ -172,6 +208,7 @@ export function evaluatePolicyLifecycle(name, events, options = {}) {
   const context = {
     now: options.now,
     horizonAt: options.now + evaluationHorizonDays * simulationDayMs,
+    maxDeferralDays: options.maxDeferralDays ?? defaultMaxDeferralDays,
     operational: options.operational ?? {},
     budget: { used: 0, limit: options.attemptBudget ?? Number.POSITIVE_INFINITY },
   };

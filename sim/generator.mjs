@@ -92,15 +92,22 @@ export function generateFailureEvents(count = 250, options = {}) {
     if (diagnosis.category === 'unknown' || diagnosis.source === 'unmapped-tuple') {
       throw new Error(`Generated event ${event.id} has unmapped tuple ${event.errorSource}/${event.errorStep}/${event.errorReason}`);
     }
-    const outageClearsAt = npc?.outageClearsAt ?? (outageActive
+    const unperturbedOutageClearsAt = npc?.outageClearsAt ?? (outageActive
       ? failure.category === 'technical'
         ? now + (6 + Math.floor(random() * 43)) * 60 * 60 * 1000
         : now + DAY_MS
       : now - DAY_MS);
+    const perturbation = options.groundTruthPerturbation ?? null;
+    const outageScale = perturbation?.rule === 'outage_duration' ? perturbation.factor : 1;
+    const outageClearsAt = unperturbedOutageClearsAt > now ? now + (unperturbedOutageClearsAt - now) * outageScale : unperturbedOutageClearsAt;
+    const baseSalaryDay = [1, 5, 15, 25][Math.floor(random() * 4)];
+    const salaryDay = perturbation?.rule === 'salary_date_distribution' ? Math.max(1, Math.min(30, Math.round(baseSalaryDay * perturbation.factor))) : baseSalaryDay;
+    const probabilityScale = perturbation?.rule === `${diagnosis.category}_probability` ? perturbation.factor : 1;
     registerHiddenWorld(event, {
       category: diagnosis.category,
-      salaryDay: [1, 5, 15, 25][Math.floor(random() * 4)],
+      salaryDay,
       outageClearsAt,
+      probabilityScale,
       outcomeDraws: Array.from({ length: 8 }, () => random()),
     });
     return event;
@@ -122,5 +129,5 @@ export function runRecoverySimulation(options = {}) {
 }
 
 export function recoveryOperational(options = {}) {
-  return { monthlyBudget: options.monthlyBudget ?? 10000, remainingAttempts: options.remainingAttempts ?? 4200, coverageThreshold: options.coverageThreshold ?? 0.28, maxDeclineRate: 0.12, attemptCaps: options.attemptCaps };
+  return { monthlyBudget: options.monthlyBudget ?? 10000, remainingAttempts: options.remainingAttempts ?? 4200, coverageThreshold: options.coverageThreshold ?? 0.28, maxDeclineRate: 0.12, attemptCaps: options.attemptCaps, disableOutageGate: options.disableOutageGate ?? false, disableDistributionGate: options.disableDistributionGate ?? false };
 }

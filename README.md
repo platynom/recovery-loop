@@ -6,9 +6,9 @@ Razorpay retries failed subscription charges on a fixed calendar: T+1, T+2, T+3,
 
 I built a selective retry agent that refuses to spend an attempt when the issuer is down or the state is unfamiliar, and measured it against that ladder.
 
-**It is 1.9x more efficient per attempt on UPI and 1.7x on cards — and it still recovers less money.** `[NPCI-calibrated UPI; Simulated Cards]` These are gross-rupees-per-attempt ratios computed from the final five-seed artifact. Refusing only pays if the saved attempt can be spent somewhere else. On Indian rails it cannot: NPCI gives every mandate its own three retries and they are not transferable, so what the agent conserves expires unused. Roughly 3,000 attempts per cohort strand: 3,001.8 on UPI and 2,960.2 on Cards. `[NPCI-calibrated UPI; Simulated Cards]` [Final machine-readable evidence](data/evaluation/fix7-npci-calibrated.json)
+**At the original three-day deferral cap it is 1.9x more efficient per attempt on UPI and 1.7x on cards — and still recovers less money. But that loss is not a stable rail finding.** `[NPCI-calibrated UPI; Simulated Cards]` A pre-registered cap sweep shows that UPI flips from a 0/5 loss at 3 and 7 days to a 5/5 net-revenue win at 14 days and remains ahead through the 30-day horizon. Cards wins only 3/5 at 14 days and loses at the full horizon. [Cap-sweep evidence](data/evaluation/deferral-cap-sweep.json)
 
-That is the finding. The rest of this README is how it was measured and why the measurement can be trusted.
+The corrected finding is sharper: **selective retry pays on UPI only when deferral can span the simulator's salary cycle; the first three-day design manufactured most of the reported stranding.** At 3 days, 3,001.8 UPI attempts strand; at the full horizon, only 55.6 do. Cards still strands 1,785.0 attempts and loses 0/5 at the full horizon, so its result remains structural inside the uncalibrated card simulation. The rest of this README is how that conclusion was measured and challenged.
 
 ## Results
 
@@ -24,6 +24,20 @@ Five frozen seeds (`20260818`–`20260822`), 2,000 already-failed mandates per r
 Recovery Loop loses total net revenue in **0/5 winning seeds on both rails**. Its paired mean loss is **₹745,885.15 on UPI** (seed range ₹682,672.59–₹828,549.66) and **₹685,308.32 on Cards** (₹584,358.98–₹792,387.78). `[NPCI-calibrated UPI; Simulated Cards]` [Final evidence](data/evaluation/fix7-npci-calibrated.json)
 
 The efficiency headline uses gross revenue per retry: **₹754.99 versus ₹405.21 on UPI (1.9x)** and **₹1,362.51 versus ₹812.54 on Cards (1.7x)**. `[NPCI-calibrated UPI; Simulated Cards]` Net efficiency is shown separately in the table; neither metric erases the total-revenue loss.
+
+That table is the frozen original configuration, not the final causal interpretation. The unchanged-policy cap sweep produced:
+
+| Deferral cap | UPI paired net difference / seeds won | UPI stranded | Cards paired net difference / seeds won | Cards stranded |
+|---:|---:|---:|---:|---:|
+| 3 days | −₹745,885 / 0/5 | 3,001.8 | −₹685,308 / 0/5 | 2,960.2 |
+| 7 days | −₹1,411,726 / 0/5 | 3,501.0 | −₹973,118 / 0/5 | 3,178.2 |
+| 14 days | +₹995,405 / 5/5 | 55.6 | +₹19,557 / 3/5 | 1,785.0 |
+| 21 days | +₹274,243 / 5/5 | 55.6 | −₹299,287 / 0/5 | 1,785.0 |
+| 28 days | +₹386,271 / 5/5 | 55.6 | −₹273,289 / 0/5 | 1,785.0 |
+| 30-day horizon | +₹386,271 / 5/5 | 55.6 | −₹273,289 / 0/5 | 1,785.0 |
+| 35 days | +₹386,271 / 5/5 | 55.6 | −₹273,289 / 0/5 | 1,785.0 |
+
+`[NPCI-calibrated UPI inputs; Simulated outcomes and Cards]` The 35-day row equals the 30-day row because the evaluation horizon is 30 days. The non-monotonic recovery counts are reported as measured: moving attempts changes their alignment with authored salary dates and seeded outcomes; no cap was selected for winning performance.
 
 ## How the agent decides
 
@@ -100,6 +114,15 @@ Earlier results in git history are **not comparable** with the final artifact be
 | Zero-attempt artifact | A structural 20–40% NACH baseline was compared with an absolute outage threshold, NACH was misused as a Cards proxy, and the ₹415,000 penalty fired even when a policy made no attempt. | `[Simulated; invalidated]` Cards Recovery Loop reported 0 attempts, 0 recoveries, and −₹415,000 net. | The zero-attempt row made the artifact impossible to interpret. The gate now compares each bank with its own baseline, Cards is uncalibrated, and a zero-attempt policy has exactly ₹0 net and no decline penalty. |
 | Refuse/wait conflation | Economic `EV < price` and outage-gate decisions were terminally refused instead of deferred. | `[Simulated; invalidated]` Almost all economic cases were abandoned at the first decision; the intermediate output is not part of the final evidence artifact. | The decision breakdown exposed the unreachable wait path. Hard stops now use `refuse_terminal`; economic and gate outcomes use `wait`, producing the final UPI result of 1,915.4 attempts and 546.0 recoveries. `[NPCI-calibrated]` |
 
+### Final diagnostic audit
+
+- **Deferral cap:** the full 3/7/14/21/28/30/35-day sweep overturned the general UPI-loss interpretation; the 14-day crossover is +₹995,405 and 5/5 seeds, while the horizon result is +₹386,271 and 5/5. `[Simulated outcomes]`
+- **Horizon price:** an audit found ₹8.40 UPI and ₹11.50 Cards still charged at `days_left = 0`; the corrected price is exactly zero. `[Corrected implementation]`
+- **Cause attribution:** economic pricing produces about 5,891.6 UPI waits per seed; the outage gate touches only 23 decisions across all five seeds and novelty touches none. Disabling both gates changes mean UPI net by −₹432 and Cards by ₹0. `[Simulated ablation]`
+- **Predictor fit:** UPI bank effects now equal each bank's NPCI volume-weighted approved-rate deviation from the pooled rate; category bases remain declared assumptions. `[NPCI-calibrated relative bank effect]`
+- **Off-policy check:** IPW and doubly robust estimates differ from on-policy UPI net by −3.74% and −3.14%; Cards gaps are +0.51% and −0.11%. `[Simulated logged-policy check]`
+- **Authored-world sensitivity:** all one-at-a-time ±25% perturbations preserve the three-day loss at 0/5 wins, but the cap sweep proves the broader conclusion is not stable to the deferral-bound assumption. `[Simulated sensitivity]`
+
 ## How this was built
 
 Implementation and documentation were produced with coding agents working from my direction and review. I selected the problem, challenged the evaluation design, and decided when evidence was insufficient and a result had to be invalidated or rebuilt; the agents performed substantial implementation, debugging, analysis, and writing. The correction history above records that collaboration. Commits use the agent author identity, while the repository preserves both the agent's work and my documented judgment without presenting either as solely responsible.
@@ -116,7 +139,7 @@ The scheduler enforces NPCI non-peak execution windows before an attempt can run
 ## Limitations
 
 1. **No public real merchant retry dataset was found.** The project has no attempt-level production outcomes. Card-payment records sit inside environments governed by card-network rules and PCI DSS protections; merchant retry performance is also competitively sensitive. `[Primary security constraint; competitive-sensitivity explanation is an assumption]` [PCI DSS](https://www.pcisecuritystandards.org/standards/pci-dss/) · [Mastercard rules](https://www.mastercard.us/en-us/business/overview/support/rules.html)
-2. **The three-day deferral cap binds before the next salary cycle.** It fires for 1,963.8 of 1,968.6 UPI deferrals—**99.8%**—so the policy usually cannot reach the next salary credit, the simulator's dominant recovery mechanism for insufficient-funds failures. `[NPCI-calibrated inputs; Simulated outcomes]` [Final evidence](data/evaluation/fix7-npci-calibrated.json)
+2. **The original three-day deferral cap manufactures most UPI stranding.** It fires for 1,963.8 of 1,968.6 UPI deferrals—**99.8%**—so the policy usually cannot reach the next salary credit. In the unchanged-policy full-horizon run, UPI stranding falls from 3,001.8 to 55.6 and the paired result flips from −₹745,885 to +₹386,271, winning 5/5 seeds. This is a simulator sensitivity result, not production evidence. `[NPCI-calibrated inputs; Simulated outcomes]` [Cap sweep](data/evaluation/deferral-cap-sweep.json)
 3. Five deterministic seeds and 10,000 synthetic failures per rail expose seed spread but are not confidence intervals over merchant payments. `[Simulated]`
 4. NPCI incident data is monthly and covers reportable incidents; exact timestamps are unavailable, smaller incidents can be absent, and no listed incident does not prove zero downtime. `[NPCI-calibrated limitation]` [NPCI UPI statistics](https://www.npci.org.in/product/upi/product-statistics)
 5. The 20 observed test API entities contain only 16 failures and only two failure tuples; the single new gateway tuple is generic, and none measures repeat-attempt recovery. `[Observed]` [Capture README](data/raw_events/README.md)
@@ -130,7 +153,7 @@ Further detail: [LIMITATIONS.md](docs/LIMITATIONS.md).
 
 ## What I would do next
 
-1. Raise the frozen three-day deferral bound beyond one salary cycle, pre-register the change, and rerun the same five seeds before inspecting the result. `[Proposed experiment]`
+1. Validate the now-measured longer-cap crossover against de-identified merchant retry histories; do not deploy the simulator's 14-day crossover as a production threshold. `[Proposed evidence]`
 2. Obtain de-identified merchant attempt histories containing issuer, rail, failure tuple, scheduled time, and eventual outcome under a PCI-DSS-controlled data agreement. `[Proposed evidence]`
 3. Run a live, capped A/B test against the fixed ladder with identical eligible mandates, per-mandate caps, legal execution windows, and total revenue plus rupees-per-attempt reported together. `[Proposed experiment]`
 

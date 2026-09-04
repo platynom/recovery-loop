@@ -16,17 +16,13 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 > “And those attempts cannot move. If I save one on a mandate that never recovers, I cannot spend it on a different customer. That non-transferability turns out to decide the result.”
 
-## 1:05–1:50 — The agent
+## 1:05–1:40 — The agent
 
 *On screen: Recovery Loop → Decision inspector. Wait for the loading state to resolve. Select a retry decision from the simulated stream, then return to the inspector. Keep the `Simulated event` label visible. Point to each field as it is named.*
 
-> “This simulated decision starts with the failure tuple: what failed, where, and who supplied the error. An unfamiliar tuple is refused rather than guessed.”
+> “This simulated decision starts with the failure tuple; unfamiliar state is refused rather than guessed. The gate compares the bank with its own baseline. Then probability times payment value is compared with the mandate-local price of preserving this retry. If value covers price and the gate passes, retry. An outage waits; hard stops terminate. Those numbers produce the action.”
 
-> “The gate compares the bank's decline rate with its own baseline. Recovery odds are weighed against the mandate-local price of preserving this retry for a better legal slot.”
-
-> “The rule is: probability times payment value must cover attempt price. If it does and the gate passes, retry. An outage waits for re-evaluation; unknown state, issuer stop, or an exhausted mandate is terminal. The displayed inputs produce the action.”
-
-## 1:50–2:25 — The outage demo
+## 1:40–2:15 — The outage demo
 
 *On screen: Recovery Loop → Issuer health. Begin in `Normal state`. Keep the `Simulated outage scenario` label visible. Say the first sentence, then press `Inject simulated outage`. Wait for the loading state to resolve before continuing. Point to Retry and Wait.*
 
@@ -36,19 +32,21 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 > “Every retryable HDFC event visible here has moved into wait. No attempt is spent while the outage is active; each event is re-evaluated after clearance. With only three retries, firing into a known outage burns one third of that mandate's lifetime recovery budget.”
 
-## 2:25–3:15 — The result
+## 2:15–3:15 — The result
 
 *On screen: Recovery Loop → Policy comparison. Wait until both rail cards load. Keep gross rupees per attempt and total gross revenue visible side by side. Point first to UPI efficiency, then immediately to UPI total revenue; repeat for Cards.*
 
-> “It is one-point-nine times more efficient per attempt on UPI—and it recovers less money. Both are true.”
+> “At the original three-day cap it is one-point-nine times more efficient on UPI—and recovers less money.”
 
-> “On UPI, Recovery Loop uses 1,915.4 retries, recovers 546 payments, and produces ₹1,446,109.38 gross. The ladder uses 5,426.6, recovers 828, and produces ₹2,198,920.72. Recovery Loop wins zero of five seeds on total net revenue.”
+> “Recovery Loop uses 1,915.4 retries, recovers 546, and produces ₹1,446,109.38 gross. The ladder uses 5,426.6, recovers 828, and produces ₹2,198,920.72. It wins zero of five seeds.”
 
-> “Cards is simulated but repeats the pattern: one-point-seven times the efficiency, 811.6 recoveries against 1,070.2, and zero of five seeds won.”
+> “Simulated Cards repeats it: one-point-seven times the efficiency, 811.6 recoveries against 1,070.2, zero of five won.”
 
-> “Saved attempts cannot move between mandates. Around three thousand expire—3,001.8 on UPI and 2,960.2 on Cards. That is the finding I did not expect.”
+> “But the cap sweep changes the conclusion. At fourteen days UPI gains 995,405 rupees and wins all five seeds. At the horizon it remains ahead by 386,271 rupees, with 55.6 stranded. Cards wins only three of five at fourteen days and loses at the horizon.”
 
-## 3:15–4:15 — How it was measured
+> “So the UPI loss was mostly manufactured by my three-day cap. Selective retry pays here only when deferral spans the simulated salary cycle.”
+
+## 3:15–4:20 — How it was measured
 
 *On screen: README → `How the evaluation was corrected`. Zoom so the six correction rows are legible. Track down the table as each failure is named.*
 
@@ -56,15 +54,15 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 > “I rebuilt outcomes from hidden world state the model never sees, and the advantage collapsed. Five more errors surfaced: a schema break that zeroed every result; scheduled deferrals that were discarded; a shared budget that should have been per mandate; a Cards run with zero attempts because I used the wrong baseline; and economic waits made terminal.”
 
-> “All six are documented with their impact, detection, and correction. Earlier git results are not comparable. This trail is why I trust the final loss more than the original win.”
+> “All six are documented with their impact, detection, and correction. Then this final audit found the cap-dependent reversal. Earlier git results are not comparable. The correction trail matters more than choosing the favourable row.”
 
-## 4:15–5:00 — Limitations and next proof
+## 4:20–5:00 — Limitations and next proof
 
 *On screen: README → `Limitations`. Highlight the first two limitations, then finish on `What I would do next`.*
 
-> “I do not have real merchant data; card-network rules and PCI keep retry chains private. I have NPCI decline rates per bank, twenty Razorpay test API payment entities—sixteen failures—and an instrument showing where refusal stops paying.”
+> “I lack merchant outcomes; card-network rules and PCI keep retry chains private. I have NPCI bank decline rates and twenty Razorpay test entities—sixteen failures.”
 
-> “The three-day deferral cap binds on ninety-nine-point-eight percent of UPI deferrals, so insufficient-funds cases rarely reach salary day. Next: extend the cap, obtain merchant data, and run a capped A/B test reporting efficiency and total revenue together.”
+> “The three-day cap binds on ninety-nine-point-eight percent of UPI deferrals. A complete sweep reverses UPI at fourteen days, but salary timing and outcomes remain authored. Next: merchant data and an A/B test reporting efficiency and total revenue together.”
 
 ## Mechanical shot list
 
@@ -84,4 +82,4 @@ Record these screens in this exact order. Do not begin a spoken section until th
 
 *On screen: five-second cuts—Razorpay retry documentation, NPCI circular, decision inspector, outage injection, comparison panel, stranded-attempt count.*
 
-> “Razorpay gives a failed subscription three retries; NPCI makes them per mandate and non-transferable. I built a scheduler using issuer health, failure diagnosis, and mandate-local attempt pricing. Across five seeds it is one-point-nine times more efficient on NPCI-calibrated UPI—and still recovers less money, winning zero of five seeds on total net revenue. The reason is 3,001.8 conserved attempts that expire. Refusal helps only when saved capacity can move.”
+> “Razorpay gives a failed subscription three retries; NPCI makes them mandate-local. At a three-day cap my scheduler is one-point-nine times more efficient on NPCI-calibrated UPI but loses total revenue. A complete cap sweep overturns the interpretation: at fourteen days UPI wins all five seeds, and at the full horizon it remains ahead by 386,271 rupees. The original loss was mostly a deferral-cap artefact, not a rail property.”

@@ -1,0 +1,710 @@
+{
+  "generatedAt": "2026-08-22T06:00:00.000Z",
+  "experiment": "Disable outage and distribution/novelty gates together; retain pricing, thresholds, outcome model, three-day cap, seeds, and cohorts.",
+  "seeds": [
+    20260818,
+    20260819,
+    20260820,
+    20260821,
+    20260822
+  ],
+  "cohortPerSeedPerRail": 2000,
+  "summary": [
+    {
+      "rail": "UPI AutoPay",
+      "attribution": {
+        "hardStop": {
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "outageGate": {
+          "mean": 4.6,
+          "min": 3,
+          "max": 6
+        },
+        "distributionGate": {
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "economic": {
+          "mean": 5891.6,
+          "min": 5868,
+          "max": 5923
+        },
+        "retry": {
+          "mean": 47.8,
+          "min": 32,
+          "max": 63
+        }
+      },
+      "gateCounterfactualPrecision": {
+        "decisions": 23,
+        "wouldRecover": 7,
+        "precision": 0.30434782608695654
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": {
+          "mean": 1.2,
+          "min": 0,
+          "max": 2
+        },
+        "recovered": {
+          "mean": -0.2,
+          "min": -1,
+          "max": 0
+        },
+        "grossRevenue": {
+          "mean": -429.985999999987,
+          "min": -2149.929999999935,
+          "max": 0
+        },
+        "netRevenue": {
+          "mean": -432.38599999998695,
+          "min": -2153.929999999935,
+          "max": 0
+        },
+        "strandedAttempts": {
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        }
+      }
+    },
+    {
+      "rail": "Cards",
+      "attribution": {
+        "hardStop": {
+          "mean": 595,
+          "min": 566,
+          "max": 640
+        },
+        "outageGate": {
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "distributionGate": {
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "economic": {
+          "mean": 2443.8,
+          "min": 2373,
+          "max": 2496
+        },
+        "retry": {
+          "mean": 757.6,
+          "min": 725,
+          "max": 813
+        }
+      },
+      "gateCounterfactualPrecision": {
+        "decisions": 0,
+        "wouldRecover": 0,
+        "precision": null
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": {
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "recovered": {
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "grossRevenue": {
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "netRevenue": {
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "strandedAttempts": {
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        }
+      }
+    }
+  ],
+  "perSeed": [
+    {
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "normal": {
+        "attempts": 1929,
+        "recovered": 568,
+        "grossRevenue": 1552849.79,
+        "netRevenue": 1135910.79,
+        "netRupeesPerAttempt": 588.859922239503,
+        "strandedAttempts": 2945,
+        "decisionAttribution": {
+          "hardStop": 0,
+          "outageGate": 6,
+          "distributionGate": 0,
+          "economic": 5868,
+          "retry": 54
+        },
+        "gateCounterfactuals": {
+          "decisions": 6,
+          "wouldRecover": 2,
+          "outageGateDecisions": 6,
+          "outageGateWouldRecover": 2,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "gatesDisabled": {
+        "attempts": 1931,
+        "recovered": 568,
+        "grossRevenue": 1552849.79,
+        "netRevenue": 1135906.79,
+        "netRupeesPerAttempt": 588.2479492490945,
+        "strandedAttempts": 2945,
+        "decisionAttribution": {
+          "hardStop": 0,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 5868,
+          "retry": 56
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": 2,
+        "recovered": 0,
+        "grossRevenue": 0,
+        "netRevenue": -4,
+        "strandedAttempts": 0
+      }
+    },
+    {
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "normal": {
+        "attempts": 1910,
+        "recovered": 532,
+        "grossRevenue": 1418222.41,
+        "netRevenue": 1001305.41,
+        "netRupeesPerAttempt": 524.2436701570685,
+        "strandedAttempts": 3033,
+        "decisionAttribution": {
+          "hardStop": 0,
+          "outageGate": 4,
+          "distributionGate": 0,
+          "economic": 5889,
+          "retry": 44
+        },
+        "gateCounterfactuals": {
+          "decisions": 4,
+          "wouldRecover": 2,
+          "outageGateDecisions": 4,
+          "outageGateWouldRecover": 2,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "gatesDisabled": {
+        "attempts": 1910,
+        "recovered": 532,
+        "grossRevenue": 1418222.41,
+        "netRevenue": 1001305.41,
+        "netRupeesPerAttempt": 524.2436701570685,
+        "strandedAttempts": 3033,
+        "decisionAttribution": {
+          "hardStop": 0,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 5889,
+          "retry": 44
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": 0,
+        "recovered": 0,
+        "grossRevenue": 0,
+        "netRevenue": 0,
+        "strandedAttempts": 0
+      }
+    },
+    {
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "normal": {
+        "attempts": 1919,
+        "recovered": 520,
+        "grossRevenue": 1397648.66,
+        "netRevenue": 980713.66,
+        "netRupeesPerAttempt": 511.0545388223029,
+        "strandedAttempts": 3051,
+        "decisionAttribution": {
+          "hardStop": 0,
+          "outageGate": 4,
+          "distributionGate": 0,
+          "economic": 5910,
+          "retry": 46
+        },
+        "gateCounterfactuals": {
+          "decisions": 4,
+          "wouldRecover": 0,
+          "outageGateDecisions": 4,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "gatesDisabled": {
+        "attempts": 1920,
+        "recovered": 520,
+        "grossRevenue": 1397648.66,
+        "netRevenue": 980711.66,
+        "netRupeesPerAttempt": 510.78732291666626,
+        "strandedAttempts": 3051,
+        "decisionAttribution": {
+          "hardStop": 0,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 5910,
+          "retry": 47
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": 1,
+        "recovered": 0,
+        "grossRevenue": 0,
+        "netRevenue": -2,
+        "strandedAttempts": 0
+      }
+    },
+    {
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "normal": {
+        "attempts": 1909,
+        "recovered": 559,
+        "grossRevenue": 1466884.73,
+        "netRevenue": 1049956.73,
+        "netRupeesPerAttempt": 550.0035254059716,
+        "strandedAttempts": 2988,
+        "decisionAttribution": {
+          "hardStop": 0,
+          "outageGate": 6,
+          "distributionGate": 0,
+          "economic": 5868,
+          "retry": 63
+        },
+        "gateCounterfactuals": {
+          "decisions": 6,
+          "wouldRecover": 1,
+          "outageGateDecisions": 6,
+          "outageGateWouldRecover": 1,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "gatesDisabled": {
+        "attempts": 1911,
+        "recovered": 558,
+        "grossRevenue": 1464734.8,
+        "netRevenue": 1047802.8,
+        "netRupeesPerAttempt": 548.3007849293563,
+        "strandedAttempts": 2988,
+        "decisionAttribution": {
+          "hardStop": 0,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 5868,
+          "retry": 65
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": 2,
+        "recovered": -1,
+        "grossRevenue": -2149.929999999935,
+        "netRevenue": -2153.929999999935,
+        "strandedAttempts": 0
+      }
+    },
+    {
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "normal": {
+        "attempts": 1910,
+        "recovered": 551,
+        "grossRevenue": 1394941.29,
+        "netRevenue": 978025.29,
+        "netRupeesPerAttempt": 512.0551256544501,
+        "strandedAttempts": 2992,
+        "decisionAttribution": {
+          "hardStop": 0,
+          "outageGate": 3,
+          "distributionGate": 0,
+          "economic": 5923,
+          "retry": 32
+        },
+        "gateCounterfactuals": {
+          "decisions": 3,
+          "wouldRecover": 2,
+          "outageGateDecisions": 3,
+          "outageGateWouldRecover": 2,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "gatesDisabled": {
+        "attempts": 1911,
+        "recovered": 551,
+        "grossRevenue": 1394941.29,
+        "netRevenue": 978023.29,
+        "netRupeesPerAttempt": 511.7861276818417,
+        "strandedAttempts": 2992,
+        "decisionAttribution": {
+          "hardStop": 0,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 5923,
+          "retry": 33
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": 1,
+        "recovered": 0,
+        "grossRevenue": 0,
+        "netRevenue": -2,
+        "strandedAttempts": 0
+      }
+    },
+    {
+      "rail": "Cards",
+      "seed": 20260818,
+      "normal": {
+        "attempts": 1583,
+        "recovered": 823,
+        "grossRevenue": 2158989.77,
+        "netRevenue": 1742238.77,
+        "netRupeesPerAttempt": 1100.5930322173108,
+        "strandedAttempts": 2929,
+        "decisionAttribution": {
+          "hardStop": 585,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 2457,
+          "retry": 764
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "gatesDisabled": {
+        "attempts": 1583,
+        "recovered": 823,
+        "grossRevenue": 2158989.77,
+        "netRevenue": 1742238.77,
+        "netRupeesPerAttempt": 1100.5930322173108,
+        "strandedAttempts": 2929,
+        "decisionAttribution": {
+          "hardStop": 585,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 2457,
+          "retry": 764
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": 0,
+        "recovered": 0,
+        "grossRevenue": 0,
+        "netRevenue": 0,
+        "strandedAttempts": 0
+      }
+    },
+    {
+      "rail": "Cards",
+      "seed": 20260819,
+      "normal": {
+        "attempts": 1531,
+        "recovered": 762,
+        "grossRevenue": 1978486.14,
+        "netRevenue": 1561784.14,
+        "netRupeesPerAttempt": 1020.1072109732222,
+        "strandedAttempts": 3108,
+        "decisionAttribution": {
+          "hardStop": 640,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 2418,
+          "retry": 725
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "gatesDisabled": {
+        "attempts": 1531,
+        "recovered": 762,
+        "grossRevenue": 1978486.14,
+        "netRevenue": 1561784.14,
+        "netRupeesPerAttempt": 1020.1072109732222,
+        "strandedAttempts": 3108,
+        "decisionAttribution": {
+          "hardStop": 640,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 2418,
+          "retry": 725
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": 0,
+        "recovered": 0,
+        "grossRevenue": 0,
+        "netRevenue": 0,
+        "strandedAttempts": 0
+      }
+    },
+    {
+      "rail": "Cards",
+      "seed": 20260820,
+      "normal": {
+        "attempts": 1604,
+        "recovered": 846,
+        "grossRevenue": 2173048.97,
+        "netRevenue": 1756261.97,
+        "netRupeesPerAttempt": 1094.9264152119692,
+        "strandedAttempts": 2879,
+        "decisionAttribution": {
+          "hardStop": 579,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 2373,
+          "retry": 813
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "gatesDisabled": {
+        "attempts": 1604,
+        "recovered": 846,
+        "grossRevenue": 2173048.97,
+        "netRevenue": 1756261.97,
+        "netRupeesPerAttempt": 1094.9264152119692,
+        "strandedAttempts": 2879,
+        "decisionAttribution": {
+          "hardStop": 579,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 2373,
+          "retry": 813
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": 0,
+        "recovered": 0,
+        "grossRevenue": 0,
+        "netRevenue": 0,
+        "strandedAttempts": 0
+      }
+    },
+    {
+      "rail": "Cards",
+      "seed": 20260821,
+      "normal": {
+        "attempts": 1585,
+        "recovered": 833,
+        "grossRevenue": 2311421.56,
+        "netRevenue": 1894685.56,
+        "netRupeesPerAttempt": 1195.3852113564658,
+        "strandedAttempts": 2888,
+        "decisionAttribution": {
+          "hardStop": 566,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 2496,
+          "retry": 753
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "gatesDisabled": {
+        "attempts": 1585,
+        "recovered": 833,
+        "grossRevenue": 2311421.56,
+        "netRevenue": 1894685.56,
+        "netRupeesPerAttempt": 1195.3852113564658,
+        "strandedAttempts": 2888,
+        "decisionAttribution": {
+          "hardStop": 566,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 2496,
+          "retry": 753
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": 0,
+        "recovered": 0,
+        "grossRevenue": 0,
+        "netRevenue": 0,
+        "strandedAttempts": 0
+      }
+    },
+    {
+      "rail": "Cards",
+      "seed": 20260822,
+      "normal": {
+        "attempts": 1558,
+        "recovered": 794,
+        "grossRevenue": 2088759.18,
+        "netRevenue": 1672038.18,
+        "netRupeesPerAttempt": 1073.1952374839534,
+        "strandedAttempts": 2997,
+        "decisionAttribution": {
+          "hardStop": 605,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 2475,
+          "retry": 733
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "gatesDisabled": {
+        "attempts": 1558,
+        "recovered": 794,
+        "grossRevenue": 2088759.18,
+        "netRevenue": 1672038.18,
+        "netRupeesPerAttempt": 1073.1952374839534,
+        "strandedAttempts": 2997,
+        "decisionAttribution": {
+          "hardStop": 605,
+          "outageGate": 0,
+          "distributionGate": 0,
+          "economic": 2475,
+          "retry": 733
+        },
+        "gateCounterfactuals": {
+          "decisions": 0,
+          "wouldRecover": 0,
+          "outageGateDecisions": 0,
+          "outageGateWouldRecover": 0,
+          "distributionGateDecisions": 0,
+          "distributionGateWouldRecover": 0
+        }
+      },
+      "deltaWhenGatesDisabled": {
+        "attempts": 0,
+        "recovered": 0,
+        "grossRevenue": 0,
+        "netRevenue": 0,
+        "strandedAttempts": 0
+      }
+    }
+  ]
+}

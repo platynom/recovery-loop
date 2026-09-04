@@ -17,11 +17,12 @@ function policies(rail) {
 }
 
 test('recording narratives agree with final evidence and external benchmarks', async () => {
-  const [readme, video, results, limitations, recordingNumbers, onsNotes, onsCsv, evidence] = await Promise.all([
+  const [readme, video, results, limitations, recordingNumbers, onsNotes, onsCsv, evidence, capSweep, sensitivity] = await Promise.all([
     text('README.md'), text('docs/VIDEO_SCRIPT.md'), text('docs/EVALUATION_RESULTS.md'),
     text('docs/LIMITATIONS.md'), text('docs/RECORDING_NUMBERS.md'),
     text('data/external/ons-direct-debit-failures.md'),
     text('data/external/ons-direct-debit-failures.csv'), json('data/evaluation/fix7-npci-calibrated.json'),
+    json('data/evaluation/deferral-cap-sweep.json'), json('data/evaluation/ground-truth-sensitivity.json'),
   ]);
   const narratives = [readme, video, results, limitations, recordingNumbers, onsNotes];
   const staleOnsValue = new RegExp('(?<!\\d)' + '2' + '\\.' + '33' + '(?:%|\\b)');
@@ -57,9 +58,13 @@ test('recording narratives agree with final evidence and external benchmarks', a
     }
   }
 
-  for (const value of ['1,915.4', '546', '5,426.6', '828', '₹1,446,109.38', '₹2,198,920.72', '811.6', '1,070.2', '3,001.8', '2,960.2']) {
+  for (const value of ['1,915.4', '546', '5,426.6', '828', '₹1,446,109.38', '₹2,198,920.72', '811.6', '1,070.2']) {
     assert.ok(readme.includes(value), `README missing camera value ${value}`);
     assert.ok(video.includes(value), `video missing camera value ${value}`);
+  }
+  for (const referenceOnlyValue of ['3,001.8', '2,960.2']) {
+    assert.ok(readme.includes(referenceOnlyValue), `README missing three-day reference value ${referenceOnlyValue}`);
+    assert.ok(recordingNumbers.includes(referenceOnlyValue), `recording sheet missing three-day reference value ${referenceOnlyValue}`);
   }
   const upiLoop = policies(upi).loop;
   const capRate = upiLoop.deferralCapHits.mean / upiLoop.deferredMandates.mean * 100;
@@ -69,7 +74,25 @@ test('recording narratives agree with final evidence and external benchmarks', a
   assert.match(limitations, /42%.*70%.*28-point/s);
   assert.match(readme, /76%.*3 retries in 4 weeks.*1,000\+.*November 2019/s);
 
+  const cap14 = capSweep.points.find((row) => row.capDays === 14);
+  const cap30 = capSweep.points.find((row) => row.capDays === 30);
+  assert.ok(cap14 && cap30, 'cap sweep must contain 14-day and full-horizon rows');
+  const upi14 = cap14.rails.find((row) => row.rail === 'UPI AutoPay');
+  const cards14 = cap14.rails.find((row) => row.rail === 'Cards');
+  const upi30 = cap30.rails.find((row) => row.rail === 'UPI AutoPay');
+  const cards30 = cap30.rails.find((row) => row.rail === 'Cards');
+  assert.equal(upi14.seedsWonByRecoveryLoop, 5);
+  assert.equal(cards14.seedsWonByRecoveryLoop, 3);
+  assert.equal(upi30.seedsWonByRecoveryLoop, 5);
+  assert.equal(cards30.seedsWonByRecoveryLoop, 0);
+  for (const document of [readme, video, results, recordingNumbers]) {
+    assert.match(document, /995,405/);
+    assert.match(document, /386,271/);
+    assert.match(document, /55\.6/);
+  }
+  assert.ok(sensitivity.summary.filter((row) => row.scenario !== 'baseline').every((row) => row.seedsWonByRecoveryLoop === 0));
+
   const captures = (await readdir(new URL('data/raw_events/', root))).filter((name) => name.endsWith('.json'));
   assert.equal(captures.length, 20);
-  assert.match(video, /twenty Razorpay test API payment entities/);
+  assert.match(video, /twenty Razorpay test (?:API payment )?entities/);
 });

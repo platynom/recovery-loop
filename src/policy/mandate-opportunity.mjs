@@ -48,12 +48,18 @@ export function buildMandateOpportunityTable(event, context = {}) {
     attemptedAt,
     valueByAttemptsRemaining: values[slot].map((value) => Number(value.toFixed(2))),
     opportunityCostByAttemptsRemaining: opportunities[slot].map((value) => Number(value.toFixed(2))),
+    attemptPriceByAttemptsRemaining: opportunities[slot].map((opportunityCost, remaining) => {
+      if (remaining === 0) return 0;
+      // A mandate-local token has no continuation value at the horizon. The
+      // boundary price is therefore zero: use the token now or lose it.
+      if (attemptedAt >= horizonAt) return 0;
+      return Number((baseAttemptPrice(observableFutureEvent(event, attemptedAt, cap - remaining)) + opportunityCost).toFixed(2));
+    }),
   }));
   return { attemptsRemaining, candidateAt, horizonAt, rows };
 }
 
 export function mandateOpportunityPrice(event, context = {}) {
   const table = buildMandateOpportunityTable(event, context);
-  const opportunityCost = table.rows[0]?.opportunityCostByAttemptsRemaining[table.attemptsRemaining] ?? 0;
-  return Number((baseAttemptPrice(event) + opportunityCost).toFixed(2));
+  return table.rows[0]?.attemptPriceByAttemptsRemaining[table.attemptsRemaining] ?? 0;
 }

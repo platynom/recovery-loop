@@ -1,0 +1,1712 @@
+{
+  "generatedAt": "2026-08-22T06:00:00.000Z",
+  "design": "One-at-a-time ±25% perturbations of each nonzero authored hidden-world rule group at the frozen three-day deferral cap. Permanent-zero rules remain zero under multiplicative perturbation.",
+  "rules": [
+    "insufficient_funds_probability",
+    "technical_probability",
+    "issuer_declined_probability",
+    "customer_action_probability",
+    "salary_date_distribution",
+    "outage_duration"
+  ],
+  "invariantZeroRules": [
+    "mandate_inactive probability = 0",
+    "non_retryable probability = 0"
+  ],
+  "seeds": [
+    20260818,
+    20260819,
+    20260820,
+    20260821,
+    20260822
+  ],
+  "cohortPerSeedPerRail": 2000,
+  "summary": [
+    {
+      "scenario": "baseline",
+      "perturbation": null,
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -745885.146,
+        "min": -828549.6599999999,
+        "max": -682672.5899999999
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1029182.3760000002,
+        "min": 978025.29,
+        "max": 1135910.79
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1775067.5219999999,
+        "min": 1660697.88,
+        "max": 1878506.39
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "baseline",
+      "perturbation": null,
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -685308.322,
+        "min": -792387.78,
+        "max": -584358.98
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1725401.724,
+        "min": 1561784.14,
+        "max": 1894685.56
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2410710.046,
+        "min": 2274808.98,
+        "max": 2578868.02
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "perturbation": {
+        "rule": "insufficient_funds_probability",
+        "factor": 0.75
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -603466.5120000001,
+        "min": -740485.3500000001,
+        "max": -493861.70000000007
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 685460.208,
+        "min": 624975.23,
+        "max": 818550.77
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1288926.7200000002,
+        "min": 1157011.54,
+        "max": 1421955.86
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "perturbation": {
+        "rule": "insufficient_funds_probability",
+        "factor": 0.75
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -637024.3359999999,
+        "min": -757879.53,
+        "max": -535603.52
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1571904.9500000002,
+        "min": 1426754.08,
+        "max": 1752228.57
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2208929.2860000003,
+        "min": 2092133.75,
+        "max": 2359736.52
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "perturbation": {
+        "rule": "insufficient_funds_probability",
+        "factor": 1.25
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -858234.0700000001,
+        "min": -948070.4300000002,
+        "max": -784245.5899999999
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1336836.0219999999,
+        "min": 1290812.88,
+        "max": 1454506.39
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2195070.092,
+        "min": 2075988.19,
+        "max": 2337373.49
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "perturbation": {
+        "rule": "insufficient_funds_probability",
+        "factor": 1.25
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -735751.8039999999,
+        "min": -833873.0199999998,
+        "max": -648194.1699999999
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1847900.518,
+        "min": 1693583.46,
+        "max": 2013965.3
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2583652.3219999997,
+        "min": 2447013.11,
+        "max": 2779322
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "perturbation": {
+        "rule": "technical_probability",
+        "factor": 0.75
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -745885.146,
+        "min": -828549.66,
+        "max": -682672.59
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1020426.716,
+        "min": 974188.58,
+        "max": 1124724.35
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1766311.8620000002,
+        "min": 1656861.17,
+        "max": 1867483.78
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "perturbation": {
+        "rule": "technical_probability",
+        "factor": 0.75
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -685308.3219999999,
+        "min": -792387.7799999998,
+        "max": -584358.98
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1609481.024,
+        "min": 1451519.36,
+        "max": 1767961.42
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2294789.346,
+        "min": 2164544.2,
+        "max": 2452143.88
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "perturbation": {
+        "rule": "technical_probability",
+        "factor": 1.25
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -745885.146,
+        "min": -828549.6600000001,
+        "max": -682672.59
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1030761.1300000001,
+        "min": 979199.64,
+        "max": 1135928.79
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1776646.276,
+        "min": 1661872.23,
+        "max": 1880723.08
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "perturbation": {
+        "rule": "technical_probability",
+        "factor": 1.25
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -685308.322,
+        "min": -792387.7799999998,
+        "max": -584358.98
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1742054.372,
+        "min": 1577960.18,
+        "max": 1914138.93
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2427362.694,
+        "min": 2290985.02,
+        "max": 2598321.39
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "perturbation": {
+        "rule": "issuer_declined_probability",
+        "factor": 0.75
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -745885.146,
+        "min": -828549.6599999999,
+        "max": -682672.5899999999
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1029182.3760000002,
+        "min": 978025.29,
+        "max": 1135910.79
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1775067.5219999999,
+        "min": 1660697.88,
+        "max": 1878506.39
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "perturbation": {
+        "rule": "issuer_declined_probability",
+        "factor": 0.75
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -619002.1399999999,
+        "min": -725356.76,
+        "max": -510082.2599999998
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1725401.724,
+        "min": 1561784.14,
+        "max": 1894685.56
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2344403.8639999996,
+        "min": 2211794.44,
+        "max": 2519247.36
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "perturbation": {
+        "rule": "issuer_declined_probability",
+        "factor": 1.25
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -745885.146,
+        "min": -828549.6599999999,
+        "max": -682672.5899999999
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1029182.3760000002,
+        "min": 978025.29,
+        "max": 1135910.79
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1775067.5219999999,
+        "min": 1660697.88,
+        "max": 1878506.39
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "perturbation": {
+        "rule": "issuer_declined_probability",
+        "factor": 1.25
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -739663.092,
+        "min": -837591.5999999999,
+        "max": -661856.23
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1725401.724,
+        "min": 1561784.14,
+        "max": 1894685.56
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2465064.816,
+        "min": 2348690.09,
+        "max": 2608265.79
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "perturbation": {
+        "rule": "customer_action_probability",
+        "factor": 0.75
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -745885.146,
+        "min": -828549.6599999999,
+        "max": -682672.5899999999
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1029182.3760000002,
+        "min": 978025.29,
+        "max": 1135910.79
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1775067.5219999999,
+        "min": 1660697.88,
+        "max": 1878506.39
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "perturbation": {
+        "rule": "customer_action_probability",
+        "factor": 0.75
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -685308.322,
+        "min": -792387.78,
+        "max": -584358.98
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1725401.724,
+        "min": 1561784.14,
+        "max": 1894685.56
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2410710.046,
+        "min": 2274808.98,
+        "max": 2578868.02
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "perturbation": {
+        "rule": "customer_action_probability",
+        "factor": 1.25
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -745885.146,
+        "min": -828549.6599999999,
+        "max": -682672.5899999999
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1029182.3760000002,
+        "min": 978025.29,
+        "max": 1135910.79
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1775067.5219999999,
+        "min": 1660697.88,
+        "max": 1878506.39
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "perturbation": {
+        "rule": "customer_action_probability",
+        "factor": 1.25
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -685308.322,
+        "min": -792387.78,
+        "max": -584358.98
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1725401.724,
+        "min": 1561784.14,
+        "max": 1894685.56
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2410710.046,
+        "min": 2274808.98,
+        "max": 2578868.02
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "perturbation": {
+        "rule": "salary_date_distribution",
+        "factor": 0.75
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -1039738,
+        "min": -1120242.57,
+        "max": -936818.01
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 263118.728,
+        "min": 205888.81,
+        "max": 341112.52
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1302856.7280000001,
+        "min": 1199560.69,
+        "max": 1461355.09
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "perturbation": {
+        "rule": "salary_date_distribution",
+        "factor": 0.75
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -835626.4400000001,
+        "min": -929996.96,
+        "max": -766354.0100000002
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1388512.136,
+        "min": 1214058.81,
+        "max": 1554531.45
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2224138.576,
+        "min": 2090014.28,
+        "max": 2381300.99
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "perturbation": {
+        "rule": "salary_date_distribution",
+        "factor": 1.25
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -980490.898,
+        "min": -1065437.74,
+        "max": -939741.0200000001
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 228508.45,
+        "min": 152620.2,
+        "max": 276923.7
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1208999.348,
+        "min": 1119489.21,
+        "max": 1342361.44
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "perturbation": {
+        "rule": "salary_date_distribution",
+        "factor": 1.25
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -799892.218,
+        "min": -882177.3800000001,
+        "max": -721823.94
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1380803.526,
+        "min": 1278765.17,
+        "max": 1528077.21
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2180695.744,
+        "min": 2110528.37,
+        "max": 2345888.41
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "perturbation": {
+        "rule": "outage_duration",
+        "factor": 0.75
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -745885.146,
+        "min": -828549.6599999999,
+        "max": -682672.5899999999
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1029182.3760000002,
+        "min": 978025.29,
+        "max": 1135910.79
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1775067.5219999999,
+        "min": 1660697.88,
+        "max": 1878506.39
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "perturbation": {
+        "rule": "outage_duration",
+        "factor": 0.75
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -685308.322,
+        "min": -792387.78,
+        "max": -584358.98
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1725401.724,
+        "min": 1561784.14,
+        "max": 1894685.56
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2410710.046,
+        "min": 2274808.98,
+        "max": 2578868.02
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "perturbation": {
+        "rule": "outage_duration",
+        "factor": 1.25
+      },
+      "rail": "UPI AutoPay",
+      "pairedNetDifference": {
+        "mean": -745885.146,
+        "min": -828549.6599999999,
+        "max": -682672.5899999999
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1029182.3760000002,
+        "min": 978025.29,
+        "max": 1135910.79
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 1775067.5219999999,
+        "min": 1660697.88,
+        "max": 1878506.39
+      },
+      "reversesBaselineSign": false
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "perturbation": {
+        "rule": "outage_duration",
+        "factor": 1.25
+      },
+      "rail": "Cards",
+      "pairedNetDifference": {
+        "mean": -685308.322,
+        "min": -792387.78,
+        "max": -584358.98
+      },
+      "seedsWonByRecoveryLoop": 0,
+      "recoveryLoopNetRevenue": {
+        "mean": 1725401.724,
+        "min": 1561784.14,
+        "max": 1894685.56
+      },
+      "fixedLadderNetRevenue": {
+        "mean": 2410710.046,
+        "min": 2274808.98,
+        "max": 2578868.02
+      },
+      "reversesBaselineSign": false
+    }
+  ],
+  "perSeed": [
+    {
+      "scenario": "baseline",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -723391.02,
+      "recoveryLoopNetRevenue": 1135910.79,
+      "fixedLadderNetRevenue": 1859301.81
+    },
+    {
+      "scenario": "baseline",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -799209.2100000001,
+      "recoveryLoopNetRevenue": 1001305.41,
+      "fixedLadderNetRevenue": 1800514.62
+    },
+    {
+      "scenario": "baseline",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -695603.2499999999,
+      "recoveryLoopNetRevenue": 980713.66,
+      "fixedLadderNetRevenue": 1676316.91
+    },
+    {
+      "scenario": "baseline",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -828549.6599999999,
+      "recoveryLoopNetRevenue": 1049956.73,
+      "fixedLadderNetRevenue": 1878506.39
+    },
+    {
+      "scenario": "baseline",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -682672.5899999999,
+      "recoveryLoopNetRevenue": 978025.29,
+      "fixedLadderNetRevenue": 1660697.88
+    },
+    {
+      "scenario": "baseline",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -584358.98,
+      "recoveryLoopNetRevenue": 1742238.77,
+      "fixedLadderNetRevenue": 2326597.75
+    },
+    {
+      "scenario": "baseline",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -713024.8400000001,
+      "recoveryLoopNetRevenue": 1561784.14,
+      "fixedLadderNetRevenue": 2274808.98
+    },
+    {
+      "scenario": "baseline",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -652587.55,
+      "recoveryLoopNetRevenue": 1756261.97,
+      "fixedLadderNetRevenue": 2408849.52
+    },
+    {
+      "scenario": "baseline",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -684182.46,
+      "recoveryLoopNetRevenue": 1894685.56,
+      "fixedLadderNetRevenue": 2578868.02
+    },
+    {
+      "scenario": "baseline",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -792387.78,
+      "recoveryLoopNetRevenue": 1672038.18,
+      "fixedLadderNetRevenue": 2464425.96
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -552454.44,
+      "recoveryLoopNetRevenue": 818550.77,
+      "fixedLadderNetRevenue": 1371005.21
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -604459.6000000001,
+      "recoveryLoopNetRevenue": 639154.69,
+      "fixedLadderNetRevenue": 1243614.29
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -626071.47,
+      "recoveryLoopNetRevenue": 624975.23,
+      "fixedLadderNetRevenue": 1251046.7
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -740485.3500000001,
+      "recoveryLoopNetRevenue": 681470.51,
+      "fixedLadderNetRevenue": 1421955.86
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -493861.70000000007,
+      "recoveryLoopNetRevenue": 663149.84,
+      "fixedLadderNetRevenue": 1157011.54
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -535603.52,
+      "recoveryLoopNetRevenue": 1586618.29,
+      "fixedLadderNetRevenue": 2122221.81
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -665379.6699999999,
+      "recoveryLoopNetRevenue": 1426754.08,
+      "fixedLadderNetRevenue": 2092133.75
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -618751.01,
+      "recoveryLoopNetRevenue": 1588866.78,
+      "fixedLadderNetRevenue": 2207617.79
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -607507.95,
+      "recoveryLoopNetRevenue": 1752228.57,
+      "fixedLadderNetRevenue": 2359736.52
+    },
+    {
+      "scenario": "insufficient_funds_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -757879.53,
+      "recoveryLoopNetRevenue": 1505057.03,
+      "fixedLadderNetRevenue": 2262936.56
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -882867.1000000003,
+      "recoveryLoopNetRevenue": 1454506.39,
+      "fixedLadderNetRevenue": 2337373.49
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -867765.72,
+      "recoveryLoopNetRevenue": 1314349.61,
+      "fixedLadderNetRevenue": 2182115.33
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -808221.5100000002,
+      "recoveryLoopNetRevenue": 1290812.88,
+      "fixedLadderNetRevenue": 2099034.39
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -948070.4300000002,
+      "recoveryLoopNetRevenue": 1332768.63,
+      "fixedLadderNetRevenue": 2280839.06
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -784245.5899999999,
+      "recoveryLoopNetRevenue": 1291742.6,
+      "fixedLadderNetRevenue": 2075988.19
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -648194.1699999999,
+      "recoveryLoopNetRevenue": 1866725,
+      "fixedLadderNetRevenue": 2514919.17
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -753429.6499999999,
+      "recoveryLoopNetRevenue": 1693583.46,
+      "fixedLadderNetRevenue": 2447013.11
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -677905.4799999997,
+      "recoveryLoopNetRevenue": 1879216.07,
+      "fixedLadderNetRevenue": 2557121.55
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -765356.7,
+      "recoveryLoopNetRevenue": 2013965.3,
+      "fixedLadderNetRevenue": 2779322
+    },
+    {
+      "scenario": "insufficient_funds_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -833873.0199999998,
+      "recoveryLoopNetRevenue": 1786012.76,
+      "fixedLadderNetRevenue": 2619885.78
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -723391.02,
+      "recoveryLoopNetRevenue": 1124724.35,
+      "fixedLadderNetRevenue": 1848115.37
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -799209.21,
+      "recoveryLoopNetRevenue": 984982.03,
+      "fixedLadderNetRevenue": 1784191.24
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -695603.25,
+      "recoveryLoopNetRevenue": 979304.5,
+      "fixedLadderNetRevenue": 1674907.75
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -828549.66,
+      "recoveryLoopNetRevenue": 1038934.12,
+      "fixedLadderNetRevenue": 1867483.78
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -682672.59,
+      "recoveryLoopNetRevenue": 974188.58,
+      "fixedLadderNetRevenue": 1656861.17
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -584358.98,
+      "recoveryLoopNetRevenue": 1638448.04,
+      "fixedLadderNetRevenue": 2222807.02
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -713024.8400000001,
+      "recoveryLoopNetRevenue": 1451519.36,
+      "fixedLadderNetRevenue": 2164544.2
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -652587.55,
+      "recoveryLoopNetRevenue": 1630674.8,
+      "fixedLadderNetRevenue": 2283262.35
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -684182.46,
+      "recoveryLoopNetRevenue": 1767961.42,
+      "fixedLadderNetRevenue": 2452143.88
+    },
+    {
+      "scenario": "technical_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -792387.7799999998,
+      "recoveryLoopNetRevenue": 1558801.5,
+      "fixedLadderNetRevenue": 2351189.28
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -723391.02,
+      "recoveryLoopNetRevenue": 1135928.79,
+      "fixedLadderNetRevenue": 1859319.81
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -799209.2100000001,
+      "recoveryLoopNetRevenue": 1001317.41,
+      "fixedLadderNetRevenue": 1800526.62
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -695603.2499999999,
+      "recoveryLoopNetRevenue": 985186.39,
+      "fixedLadderNetRevenue": 1680789.64
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -828549.6600000001,
+      "recoveryLoopNetRevenue": 1052173.42,
+      "fixedLadderNetRevenue": 1880723.08
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -682672.59,
+      "recoveryLoopNetRevenue": 979199.64,
+      "fixedLadderNetRevenue": 1661872.23
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -584358.98,
+      "recoveryLoopNetRevenue": 1758502.06,
+      "fixedLadderNetRevenue": 2342861.04
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -713024.8400000001,
+      "recoveryLoopNetRevenue": 1577960.18,
+      "fixedLadderNetRevenue": 2290985.02
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -652587.5500000003,
+      "recoveryLoopNetRevenue": 1767438.9,
+      "fixedLadderNetRevenue": 2420026.45
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -684182.4600000002,
+      "recoveryLoopNetRevenue": 1914138.93,
+      "fixedLadderNetRevenue": 2598321.39
+    },
+    {
+      "scenario": "technical_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -792387.7799999998,
+      "recoveryLoopNetRevenue": 1692231.79,
+      "fixedLadderNetRevenue": 2484619.57
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -723391.02,
+      "recoveryLoopNetRevenue": 1135910.79,
+      "fixedLadderNetRevenue": 1859301.81
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -799209.2100000001,
+      "recoveryLoopNetRevenue": 1001305.41,
+      "fixedLadderNetRevenue": 1800514.62
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -695603.2499999999,
+      "recoveryLoopNetRevenue": 980713.66,
+      "fixedLadderNetRevenue": 1676316.91
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -828549.6599999999,
+      "recoveryLoopNetRevenue": 1049956.73,
+      "fixedLadderNetRevenue": 1878506.39
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -682672.5899999999,
+      "recoveryLoopNetRevenue": 978025.29,
+      "fixedLadderNetRevenue": 1660697.88
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -510082.2599999998,
+      "recoveryLoopNetRevenue": 1742238.77,
+      "fixedLadderNetRevenue": 2252321.03
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -650010.3,
+      "recoveryLoopNetRevenue": 1561784.14,
+      "fixedLadderNetRevenue": 2211794.44
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -584999.5799999998,
+      "recoveryLoopNetRevenue": 1756261.97,
+      "fixedLadderNetRevenue": 2341261.55
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -624561.7999999998,
+      "recoveryLoopNetRevenue": 1894685.56,
+      "fixedLadderNetRevenue": 2519247.36
+    },
+    {
+      "scenario": "issuer_declined_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -725356.76,
+      "recoveryLoopNetRevenue": 1672038.18,
+      "fixedLadderNetRevenue": 2397394.94
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -723391.02,
+      "recoveryLoopNetRevenue": 1135910.79,
+      "fixedLadderNetRevenue": 1859301.81
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -799209.2100000001,
+      "recoveryLoopNetRevenue": 1001305.41,
+      "fixedLadderNetRevenue": 1800514.62
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -695603.2499999999,
+      "recoveryLoopNetRevenue": 980713.66,
+      "fixedLadderNetRevenue": 1676316.91
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -828549.6599999999,
+      "recoveryLoopNetRevenue": 1049956.73,
+      "fixedLadderNetRevenue": 1878506.39
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -682672.5899999999,
+      "recoveryLoopNetRevenue": 978025.29,
+      "fixedLadderNetRevenue": 1660697.88
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -661856.23,
+      "recoveryLoopNetRevenue": 1742238.77,
+      "fixedLadderNetRevenue": 2404095
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -786905.95,
+      "recoveryLoopNetRevenue": 1561784.14,
+      "fixedLadderNetRevenue": 2348690.09
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -698381.45,
+      "recoveryLoopNetRevenue": 1756261.97,
+      "fixedLadderNetRevenue": 2454643.42
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -713580.23,
+      "recoveryLoopNetRevenue": 1894685.56,
+      "fixedLadderNetRevenue": 2608265.79
+    },
+    {
+      "scenario": "issuer_declined_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -837591.5999999999,
+      "recoveryLoopNetRevenue": 1672038.18,
+      "fixedLadderNetRevenue": 2509629.78
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -723391.02,
+      "recoveryLoopNetRevenue": 1135910.79,
+      "fixedLadderNetRevenue": 1859301.81
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -799209.2100000001,
+      "recoveryLoopNetRevenue": 1001305.41,
+      "fixedLadderNetRevenue": 1800514.62
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -695603.2499999999,
+      "recoveryLoopNetRevenue": 980713.66,
+      "fixedLadderNetRevenue": 1676316.91
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -828549.6599999999,
+      "recoveryLoopNetRevenue": 1049956.73,
+      "fixedLadderNetRevenue": 1878506.39
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -682672.5899999999,
+      "recoveryLoopNetRevenue": 978025.29,
+      "fixedLadderNetRevenue": 1660697.88
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -584358.98,
+      "recoveryLoopNetRevenue": 1742238.77,
+      "fixedLadderNetRevenue": 2326597.75
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -713024.8400000001,
+      "recoveryLoopNetRevenue": 1561784.14,
+      "fixedLadderNetRevenue": 2274808.98
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -652587.55,
+      "recoveryLoopNetRevenue": 1756261.97,
+      "fixedLadderNetRevenue": 2408849.52
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -684182.46,
+      "recoveryLoopNetRevenue": 1894685.56,
+      "fixedLadderNetRevenue": 2578868.02
+    },
+    {
+      "scenario": "customer_action_probability_0.75",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -792387.78,
+      "recoveryLoopNetRevenue": 1672038.18,
+      "fixedLadderNetRevenue": 2464425.96
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -723391.02,
+      "recoveryLoopNetRevenue": 1135910.79,
+      "fixedLadderNetRevenue": 1859301.81
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -799209.2100000001,
+      "recoveryLoopNetRevenue": 1001305.41,
+      "fixedLadderNetRevenue": 1800514.62
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -695603.2499999999,
+      "recoveryLoopNetRevenue": 980713.66,
+      "fixedLadderNetRevenue": 1676316.91
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -828549.6599999999,
+      "recoveryLoopNetRevenue": 1049956.73,
+      "fixedLadderNetRevenue": 1878506.39
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -682672.5899999999,
+      "recoveryLoopNetRevenue": 978025.29,
+      "fixedLadderNetRevenue": 1660697.88
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -584358.98,
+      "recoveryLoopNetRevenue": 1742238.77,
+      "fixedLadderNetRevenue": 2326597.75
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -713024.8400000001,
+      "recoveryLoopNetRevenue": 1561784.14,
+      "fixedLadderNetRevenue": 2274808.98
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -652587.55,
+      "recoveryLoopNetRevenue": 1756261.97,
+      "fixedLadderNetRevenue": 2408849.52
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -684182.46,
+      "recoveryLoopNetRevenue": 1894685.56,
+      "fixedLadderNetRevenue": 2578868.02
+    },
+    {
+      "scenario": "customer_action_probability_1.25",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -792387.78,
+      "recoveryLoopNetRevenue": 1672038.18,
+      "fixedLadderNetRevenue": 2464425.96
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -1120242.57,
+      "recoveryLoopNetRevenue": 341112.52,
+      "fixedLadderNetRevenue": 1461355.09
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -1064889.85,
+      "recoveryLoopNetRevenue": 247946.14,
+      "fixedLadderNetRevenue": 1312835.99
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -1011928.8199999998,
+      "recoveryLoopNetRevenue": 205888.81,
+      "fixedLadderNetRevenue": 1217817.63
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -1064810.75,
+      "recoveryLoopNetRevenue": 257903.49,
+      "fixedLadderNetRevenue": 1322714.24
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -936818.01,
+      "recoveryLoopNetRevenue": 262742.68,
+      "fixedLadderNetRevenue": 1199560.69
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -766354.0100000002,
+      "recoveryLoopNetRevenue": 1420300.19,
+      "fixedLadderNetRevenue": 2186654.2
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -875955.47,
+      "recoveryLoopNetRevenue": 1214058.81,
+      "fixedLadderNetRevenue": 2090014.28
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -779056.2199999997,
+      "recoveryLoopNetRevenue": 1441914.81,
+      "fixedLadderNetRevenue": 2220971.03
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -826769.5400000003,
+      "recoveryLoopNetRevenue": 1554531.45,
+      "fixedLadderNetRevenue": 2381300.99
+    },
+    {
+      "scenario": "salary_date_distribution_0.75",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -929996.96,
+      "recoveryLoopNetRevenue": 1311755.42,
+      "fixedLadderNetRevenue": 2241752.38
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -939741.0200000001,
+      "recoveryLoopNetRevenue": 274463.85,
+      "fixedLadderNetRevenue": 1214204.87
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -981922.38,
+      "recoveryLoopNetRevenue": 241989.91,
+      "fixedLadderNetRevenue": 1223912.29
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -966869.01,
+      "recoveryLoopNetRevenue": 152620.2,
+      "fixedLadderNetRevenue": 1119489.21
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -1065437.74,
+      "recoveryLoopNetRevenue": 276923.7,
+      "fixedLadderNetRevenue": 1342361.44
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -948484.34,
+      "recoveryLoopNetRevenue": 196544.59,
+      "fixedLadderNetRevenue": 1145028.93
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -721823.94,
+      "recoveryLoopNetRevenue": 1405111.38,
+      "fixedLadderNetRevenue": 2126935.32
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -831763.2000000002,
+      "recoveryLoopNetRevenue": 1278765.17,
+      "fixedLadderNetRevenue": 2110528.37
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -745885.3699999999,
+      "recoveryLoopNetRevenue": 1406325.03,
+      "fixedLadderNetRevenue": 2152210.4
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -817811.2000000002,
+      "recoveryLoopNetRevenue": 1528077.21,
+      "fixedLadderNetRevenue": 2345888.41
+    },
+    {
+      "scenario": "salary_date_distribution_1.25",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -882177.3800000001,
+      "recoveryLoopNetRevenue": 1285738.84,
+      "fixedLadderNetRevenue": 2167916.22
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -723391.02,
+      "recoveryLoopNetRevenue": 1135910.79,
+      "fixedLadderNetRevenue": 1859301.81
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -799209.2100000001,
+      "recoveryLoopNetRevenue": 1001305.41,
+      "fixedLadderNetRevenue": 1800514.62
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -695603.2499999999,
+      "recoveryLoopNetRevenue": 980713.66,
+      "fixedLadderNetRevenue": 1676316.91
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -828549.6599999999,
+      "recoveryLoopNetRevenue": 1049956.73,
+      "fixedLadderNetRevenue": 1878506.39
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -682672.5899999999,
+      "recoveryLoopNetRevenue": 978025.29,
+      "fixedLadderNetRevenue": 1660697.88
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -584358.98,
+      "recoveryLoopNetRevenue": 1742238.77,
+      "fixedLadderNetRevenue": 2326597.75
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -713024.8400000001,
+      "recoveryLoopNetRevenue": 1561784.14,
+      "fixedLadderNetRevenue": 2274808.98
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -652587.55,
+      "recoveryLoopNetRevenue": 1756261.97,
+      "fixedLadderNetRevenue": 2408849.52
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -684182.46,
+      "recoveryLoopNetRevenue": 1894685.56,
+      "fixedLadderNetRevenue": 2578868.02
+    },
+    {
+      "scenario": "outage_duration_0.75",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -792387.78,
+      "recoveryLoopNetRevenue": 1672038.18,
+      "fixedLadderNetRevenue": 2464425.96
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "pairedNetDifference": -723391.02,
+      "recoveryLoopNetRevenue": 1135910.79,
+      "fixedLadderNetRevenue": 1859301.81
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "pairedNetDifference": -799209.2100000001,
+      "recoveryLoopNetRevenue": 1001305.41,
+      "fixedLadderNetRevenue": 1800514.62
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "pairedNetDifference": -695603.2499999999,
+      "recoveryLoopNetRevenue": 980713.66,
+      "fixedLadderNetRevenue": 1676316.91
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "pairedNetDifference": -828549.6599999999,
+      "recoveryLoopNetRevenue": 1049956.73,
+      "fixedLadderNetRevenue": 1878506.39
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "pairedNetDifference": -682672.5899999999,
+      "recoveryLoopNetRevenue": 978025.29,
+      "fixedLadderNetRevenue": 1660697.88
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "rail": "Cards",
+      "seed": 20260818,
+      "pairedNetDifference": -584358.98,
+      "recoveryLoopNetRevenue": 1742238.77,
+      "fixedLadderNetRevenue": 2326597.75
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "rail": "Cards",
+      "seed": 20260819,
+      "pairedNetDifference": -713024.8400000001,
+      "recoveryLoopNetRevenue": 1561784.14,
+      "fixedLadderNetRevenue": 2274808.98
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "rail": "Cards",
+      "seed": 20260820,
+      "pairedNetDifference": -652587.55,
+      "recoveryLoopNetRevenue": 1756261.97,
+      "fixedLadderNetRevenue": 2408849.52
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "rail": "Cards",
+      "seed": 20260821,
+      "pairedNetDifference": -684182.46,
+      "recoveryLoopNetRevenue": 1894685.56,
+      "fixedLadderNetRevenue": 2578868.02
+    },
+    {
+      "scenario": "outage_duration_1.25",
+      "rail": "Cards",
+      "seed": 20260822,
+      "pairedNetDifference": -792387.78,
+      "recoveryLoopNetRevenue": 1672038.18,
+      "fixedLadderNetRevenue": 2464425.96
+    }
+  ]
+}

@@ -1,0 +1,474 @@
+{
+  "generatedAt": "2026-08-22T06:00:00.000Z",
+  "design": {
+    "unit": "mandate lifecycle trajectory",
+    "loggingActions": [
+      "Recovery Loop",
+      "T+1 / T+2 / T+3"
+    ],
+    "propensities": {
+      "Recovery Loop": 0.5,
+      "T+1 / T+2 / T+3": 0.5
+    },
+    "estimator": "Trajectory-level IPW and two-fold cross-fitted doubly robust estimation. The outcome regression uses observable failure category, bank, and fixed ₹1,000 amount bands with exact-cell n>=5, then category and global fallbacks.",
+    "caveat": "This is off-policy estimation inside the authored simulator, not evidence from merchant production logs."
+  },
+  "seeds": [
+    20260818,
+    20260819,
+    20260820,
+    20260821,
+    20260822
+  ],
+  "cohortPerSeedPerRail": 2000,
+  "summary": [
+    {
+      "rail": "UPI AutoPay",
+      "onPolicyNetRevenue": {
+        "mean": 1029182.3760000002,
+        "min": 978025.29,
+        "max": 1135910.79
+      },
+      "ipwNetRevenue": {
+        "mean": 990688.7520000003,
+        "min": 845270.7600000012,
+        "max": 1167106.9200000006
+      },
+      "doublyRobustNetRevenue": {
+        "mean": 996884.2362621179,
+        "min": 894893.4706141145,
+        "max": 1180342.4690309889
+      },
+      "ipwGapFromOnPolicy": {
+        "mean": -38493.6239999996,
+        "min": -156034.64999999886,
+        "max": 31196.130000000587
+      },
+      "doublyRobustGapFromOnPolicy": {
+        "mean": -32298.139737882186,
+        "min": -106411.93938588549,
+        "max": 44431.67903098883
+      },
+      "targetAssignments": {
+        "mean": 999,
+        "min": 956,
+        "max": 1023
+      }
+    },
+    {
+      "rail": "Cards",
+      "onPolicyNetRevenue": {
+        "mean": 1725401.724,
+        "min": 1561784.14,
+        "max": 1894685.56
+      },
+      "ipwNetRevenue": {
+        "mean": 1734140.7959999994,
+        "min": 1512645.419999998,
+        "max": 1913503.4599999986
+      },
+      "doublyRobustNetRevenue": {
+        "mean": 1723566.4911644342,
+        "min": 1575740.4632665964,
+        "max": 1920879.5533685107
+      },
+      "ipwGapFromOnPolicy": {
+        "mean": 8739.071999999182,
+        "min": -54159.910000001546,
+        "max": 81737.20000000042
+      },
+      "doublyRobustGapFromOnPolicy": {
+        "mean": -1835.2328355656937,
+        "min": -37878.02163084224,
+        "max": 26193.993368510623
+      },
+      "targetAssignments": {
+        "mean": 999,
+        "min": 956,
+        "max": 1023
+      }
+    }
+  ],
+  "perSeed": [
+    {
+      "rail": "UPI AutoPay",
+      "seed": 20260818,
+      "loggingCounts": {
+        "target": 1000,
+        "control": 1000
+      },
+      "onPolicy": {
+        "grossRevenue": 1552849.79,
+        "attemptCost": 1939,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1929,
+        "failures": 1361,
+        "declineRate": 0.7055469155002592,
+        "declinePenalty": 415000,
+        "netRevenue": 1135910.79
+      },
+      "ipw": {
+        "grossRevenue": 1584050.9200000006,
+        "attemptCost": 1944,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1930,
+        "failures": 1344,
+        "declineRate": 0.6963730569948187,
+        "declinePenalty": 415000,
+        "netRevenue": 1167106.9200000006
+      },
+      "doublyRobust": {
+        "grossRevenue": 1597276.913277042,
+        "attemptCost": 1934.4442460533455,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1922.3609127200118,
+        "failures": 1338.0632876882714,
+        "declineRate": 0.6960520674523087,
+        "declinePenalty": 415000,
+        "netRevenue": 1180342.4690309889
+      }
+    },
+    {
+      "rail": "UPI AutoPay",
+      "seed": 20260819,
+      "loggingCounts": {
+        "target": 956,
+        "control": 1044
+      },
+      "onPolicy": {
+        "grossRevenue": 1418222.41,
+        "attemptCost": 1917,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1910,
+        "failures": 1378,
+        "declineRate": 0.7214659685863875,
+        "declinePenalty": 415000,
+        "netRevenue": 1001305.41
+      },
+      "ipw": {
+        "grossRevenue": 1262132.7600000012,
+        "attemptCost": 1862,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1854,
+        "failures": 1368,
+        "declineRate": 0.7378640776699029,
+        "declinePenalty": 415000,
+        "netRevenue": 845270.7600000012
+      },
+      "doublyRobust": {
+        "grossRevenue": 1311830.9908020715,
+        "attemptCost": 1937.5201879570527,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1930.0201879570518,
+        "failures": 1426.429656389259,
+        "declineRate": 0.7390749927331853,
+        "declinePenalty": 415000,
+        "netRevenue": 894893.4706141145
+      }
+    },
+    {
+      "rail": "UPI AutoPay",
+      "seed": 20260820,
+      "loggingCounts": {
+        "target": 997,
+        "control": 1003
+      },
+      "onPolicy": {
+        "grossRevenue": 1397648.66,
+        "attemptCost": 1935,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1919,
+        "failures": 1399,
+        "declineRate": 0.7290255341323606,
+        "declinePenalty": 415000,
+        "netRevenue": 980713.66
+      },
+      "ipw": {
+        "grossRevenue": 1372524.2199999997,
+        "attemptCost": 1950,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1932,
+        "failures": 1418,
+        "declineRate": 0.7339544513457557,
+        "declinePenalty": 415000,
+        "netRevenue": 955574.2199999997
+      },
+      "doublyRobust": {
+        "grossRevenue": 1360356.6486746273,
+        "attemptCost": 1953.8571966606723,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1938.6488633273386,
+        "failures": 1423.107347455557,
+        "declineRate": 0.7340717416010302,
+        "declinePenalty": 415000,
+        "netRevenue": 943402.7914779666
+      }
+    },
+    {
+      "rail": "UPI AutoPay",
+      "seed": 20260821,
+      "loggingCounts": {
+        "target": 1019,
+        "control": 981
+      },
+      "onPolicy": {
+        "grossRevenue": 1466884.73,
+        "attemptCost": 1928,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1909,
+        "failures": 1350,
+        "declineRate": 0.7071765322158198,
+        "declinePenalty": 415000,
+        "netRevenue": 1049956.73
+      },
+      "ipw": {
+        "grossRevenue": 1479153.2200000007,
+        "attemptCost": 1974,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1944,
+        "failures": 1378,
+        "declineRate": 0.7088477366255144,
+        "declinePenalty": 415000,
+        "netRevenue": 1062179.2200000007
+      },
+      "doublyRobust": {
+        "grossRevenue": 1469428.053292373,
+        "attemptCost": 1937.2640174465687,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1910.9003810829354,
+        "failures": 1354.8998321341855,
+        "declineRate": 0.7090373970025292,
+        "declinePenalty": 415000,
+        "netRevenue": 1052490.7892749263
+      }
+    },
+    {
+      "rail": "UPI AutoPay",
+      "seed": 20260822,
+      "loggingCounts": {
+        "target": 1023,
+        "control": 977
+      },
+      "onPolicy": {
+        "grossRevenue": 1394941.29,
+        "attemptCost": 1916,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1910,
+        "failures": 1359,
+        "declineRate": 0.7115183246073299,
+        "declinePenalty": 415000,
+        "netRevenue": 978025.29
+      },
+      "ipw": {
+        "grossRevenue": 1340266.64,
+        "attemptCost": 1954,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1944,
+        "failures": 1402,
+        "declineRate": 0.7211934156378601,
+        "declinePenalty": 415000,
+        "netRevenue": 923312.6399999999
+      },
+      "doublyRobust": {
+        "grossRevenue": 1330201.2144660256,
+        "attemptCost": 1909.553553432594,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1900.3035534325938,
+        "failures": 1372.8548170964398,
+        "declineRate": 0.7224397463324201,
+        "declinePenalty": 415000,
+        "netRevenue": 913291.6609125929
+      }
+    },
+    {
+      "rail": "Cards",
+      "seed": 20260818,
+      "loggingCounts": {
+        "target": 1000,
+        "control": 1000
+      },
+      "onPolicy": {
+        "grossRevenue": 2158989.77,
+        "attemptCost": 1751,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1583,
+        "failures": 760,
+        "declineRate": 0.4801010739102969,
+        "declinePenalty": 415000,
+        "netRevenue": 1742238.77
+      },
+      "ipw": {
+        "grossRevenue": 2104812.8599999985,
+        "attemptCost": 1734,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1566,
+        "failures": 750,
+        "declineRate": 0.4789272030651341,
+        "declinePenalty": 415000,
+        "netRevenue": 1688078.8599999985
+      },
+      "doublyRobust": {
+        "grossRevenue": 2121117.7959851795,
+        "attemptCost": 1757.0476160215505,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1589.9984258215588,
+        "failures": 771.6173117044535,
+        "declineRate": 0.4852943871977456,
+        "declinePenalty": 415000,
+        "netRevenue": 1704360.7483691578
+      }
+    },
+    {
+      "rail": "Cards",
+      "seed": 20260819,
+      "loggingCounts": {
+        "target": 956,
+        "control": 1044
+      },
+      "onPolicy": {
+        "grossRevenue": 1978486.14,
+        "attemptCost": 1702,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1531,
+        "failures": 769,
+        "declineRate": 0.5022860875244938,
+        "declinePenalty": 415000,
+        "netRevenue": 1561784.14
+      },
+      "ipw": {
+        "grossRevenue": 1929257.419999998,
+        "attemptCost": 1612,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1454,
+        "failures": 708,
+        "declineRate": 0.48693259972489683,
+        "declinePenalty": 415000,
+        "netRevenue": 1512645.419999998
+      },
+      "doublyRobust": {
+        "grossRevenue": 1992391.4159800343,
+        "attemptCost": 1650.9527134379314,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1502.1065419563333,
+        "failures": 729.9329518308834,
+        "declineRate": 0.48593953321062283,
+        "declinePenalty": 415000,
+        "netRevenue": 1575740.4632665964
+      }
+    },
+    {
+      "rail": "Cards",
+      "seed": 20260820,
+      "loggingCounts": {
+        "target": 997,
+        "control": 1003
+      },
+      "onPolicy": {
+        "grossRevenue": 2173048.97,
+        "attemptCost": 1787,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1604,
+        "failures": 758,
+        "declineRate": 0.47256857855361595,
+        "declinePenalty": 415000,
+        "netRevenue": 1756261.97
+      },
+      "ipw": {
+        "grossRevenue": 2219476.8600000003,
+        "attemptCost": 1776,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1588,
+        "failures": 740,
+        "declineRate": 0.4659949622166247,
+        "declinePenalty": 415000,
+        "netRevenue": 1802700.8600000003
+      },
+      "doublyRobust": {
+        "grossRevenue": 2168750.281246926,
+        "attemptCost": 1777.4045602545634,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1599.780785880784,
+        "failures": 761.2351010101002,
+        "declineRate": 0.47583713201742855,
+        "declinePenalty": 415000,
+        "netRevenue": 1751972.8766866717
+      }
+    },
+    {
+      "rail": "Cards",
+      "seed": 20260821,
+      "loggingCounts": {
+        "target": 1019,
+        "control": 981
+      },
+      "onPolicy": {
+        "grossRevenue": 2311421.56,
+        "attemptCost": 1736,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1585,
+        "failures": 752,
+        "declineRate": 0.4744479495268139,
+        "declinePenalty": 415000,
+        "netRevenue": 1894685.56
+      },
+      "ipw": {
+        "grossRevenue": 2330257.4599999986,
+        "attemptCost": 1754,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1604,
+        "failures": 764,
+        "declineRate": 0.4763092269326683,
+        "declinePenalty": 415000,
+        "netRevenue": 1913503.4599999986
+      },
+      "doublyRobust": {
+        "grossRevenue": 2337615.5143016307,
+        "attemptCost": 1735.9609331200268,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1581.4355932552114,
+        "failures": 744.1701473062545,
+        "declineRate": 0.47056620609787975,
+        "declinePenalty": 415000,
+        "netRevenue": 1920879.5533685107
+      }
+    },
+    {
+      "rail": "Cards",
+      "seed": 20260822,
+      "loggingCounts": {
+        "target": 1023,
+        "control": 977
+      },
+      "onPolicy": {
+        "grossRevenue": 2088759.18,
+        "attemptCost": 1721,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1558,
+        "failures": 764,
+        "declineRate": 0.49037227214377405,
+        "declinePenalty": 415000,
+        "netRevenue": 1672038.18
+      },
+      "ipw": {
+        "grossRevenue": 2170583.3800000004,
+        "attemptCost": 1808,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1612,
+        "failures": 790,
+        "declineRate": 0.49007444168734493,
+        "declinePenalty": 415000,
+        "netRevenue": 1753775.3800000004
+      },
+      "doublyRobust": {
+        "grossRevenue": 2081613.2559977015,
+        "attemptCost": 1734.441866466871,
+        "stopSignalPenalty": 0,
+        "retryAttempts": 1564.1792374292381,
+        "failures": 771.8683667209958,
+        "declineRate": 0.4934654215136994,
+        "declinePenalty": 415000,
+        "netRevenue": 1664878.8141312348
+      }
+    }
+  ]
+}

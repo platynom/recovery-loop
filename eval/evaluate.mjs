@@ -143,8 +143,8 @@ export function evaluatePerMandateRails(options = {}) {
     const perSeed = seeds.map((seed) => {
       const events = generateFailureEvents(cohortSize, { ...options, now, seed, rail });
       const operational = { ...recoveryOperational(options), attemptBudgetMode: 'per-mandate' };
-      const fixed = evaluatePolicyLifecycle('T+1 / T+2 / T+3', events, { now, operational });
-      const recovery = evaluatePolicyLifecycle('Recovery Loop', events, { now, operational });
+      const fixed = evaluatePolicyLifecycle('T+1 / T+2 / T+3', events, { now, operational, maxDeferralDays: options.maxDeferralDays });
+      const recovery = evaluatePolicyLifecycle('Recovery Loop', events, { now, operational, maxDeferralDays: options.maxDeferralDays });
       return {
         seed,
         policies: [publicPolicy(fixed), publicPolicy(recovery)],
@@ -170,6 +170,20 @@ export function evaluatePerMandateRails(options = {}) {
         deferredConvertedToRetry: spread(samples.map((sample) => sample.deferredConvertedToRetry)),
         deferredRecovered: spread(samples.map((sample) => sample.deferredRecovered)),
         deferralCapHits: spread(samples.map((sample) => sample.deferralCapHits)),
+        mandatesReachedLastTwoDaysWithUnspentAttempts: spread(samples.map((sample) => sample.mandatesReachedLastTwoDaysWithUnspentAttempts)),
+        lastTwoDayRetryDecisions: spread(samples.map((sample) => sample.lastTwoDayRetryDecisions)),
+        lastTwoDayWaitDecisions: spread(samples.map((sample) => sample.lastTwoDayWaitDecisions)),
+        lastTwoDayTerminalRefusals: spread(samples.map((sample) => sample.lastTwoDayTerminalRefusals)),
+        decisionAttribution: Object.fromEntries(['hardStop', 'outageGate', 'distributionGate', 'economic', 'retry'].map((cause) => [cause, spread(samples.map((sample) => sample.decisionAttribution[cause]))])),
+        gateCounterfactuals: {
+          decisions: spread(samples.map((sample) => sample.gateCounterfactuals.decisions)),
+          wouldRecover: spread(samples.map((sample) => sample.gateCounterfactuals.wouldRecover)),
+          precision: spread(samples.map((sample) => sample.gateCounterfactuals.decisions ? sample.gateCounterfactuals.wouldRecover / sample.gateCounterfactuals.decisions : 0)),
+          outageGateDecisions: spread(samples.map((sample) => sample.gateCounterfactuals.outageGateDecisions)),
+          outageGateWouldRecover: spread(samples.map((sample) => sample.gateCounterfactuals.outageGateWouldRecover)),
+          distributionGateDecisions: spread(samples.map((sample) => sample.gateCounterfactuals.distributionGateDecisions)),
+          distributionGateWouldRecover: spread(samples.map((sample) => sample.gateCounterfactuals.distributionGateWouldRecover)),
+        },
       };
     });
     const tableEvent = generateFailureEvents(100, { ...options, now, seed: seeds[0], rail })

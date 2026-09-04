@@ -21,6 +21,47 @@ Fix 6 corrects a constraint-category error without changing any policy threshold
 - The Fix 5 curve remains a **pooled portfolio-budget scenario**. Its attempts are transferable across mandates and it is not used to locate UPI AutoPay or card operation.
 - Per-mandate mode has no shared attempt pool. Each UPI AutoPay and card mandate independently begins with three retry tokens after its original failure; tokens cannot move between mandates.
 - Recovery Loop replaces the pooled scarcity surcharge only in per-mandate mode. For every candidate slot it computes a finite-horizon Bellman table over `(attempts_remaining, days_remaining)` using observable model probabilities only. At each state, `V = max(wait, attempt)`, where `attempt = p × amount − network_cost + (1 − p) × V(next_day, attempts_remaining − 1)`. The opportunity-cost surcharge is `max(0, V(next_day, attempts_remaining) − (1 − p) × V(next_day, attempts_remaining − 1))`.
+- The horizon boundary was audited after the deferral-cap sweep. Previously the opportunity-cost component reached zero but the compared attempt price retained the base network cost. The corrected boundary sets the mandate-local attempt price to exactly zero at `days_left = 0`, and considers an immediate boundary attempt only when no ordinary future candidate remains and rail timing rules permit it. Full machine-readable tables and late-horizon counts are in `data/evaluation/horizon-boundary.json`.
+
+### Full mandate-local attempt-price tables
+
+These are the complete tables for the representative seed-`20260818` events retained by the evaluator: NPCI-calibrated UPI `sim_0001` (₹1,267.09) and simulated Cards `sim_0002` (₹3,950.27). Values are rupees indexed by days left and mandate-local retry tokens remaining; `R0` is always zero and is omitted. They are diagnostic tables, not fitted fees.
+
+| Days left | UPI R1 | UPI R2 | UPI R3 | Cards R1 | Cards R2 | Cards R3 |
+|---:|---:|---:|---:|---:|---:|---:|
+| 30 | 684.23 | 614.10 | 636.95 | 2,212.15 | 1,964.48 | 2,039.18 |
+| 29 | 684.23 | 695.20 | 763.16 | 2,212.15 | 2,228.56 | 2,442.55 |
+| 28 | 684.23 | 695.20 | 763.16 | 2,212.15 | 2,228.56 | 2,442.55 |
+| 27 | 684.23 | 695.20 | 763.16 | 2,212.15 | 2,228.56 | 2,442.55 |
+| 26 | 684.23 | 695.20 | 763.16 | 2,212.15 | 2,228.56 | 2,442.55 |
+| 25 | 684.23 | 695.20 | 763.16 | 2,212.15 | 2,228.56 | 2,442.55 |
+| 24 | 684.23 | 823.61 | 962.99 | 2,212.15 | 2,646.68 | 3,081.21 |
+| 23 | 684.23 | 823.61 | 962.99 | 2,212.15 | 2,646.68 | 3,081.21 |
+| 22 | 684.23 | 823.61 | 962.99 | 2,212.15 | 2,646.68 | 3,081.21 |
+| 21 | 684.23 | 823.61 | 962.99 | 2,212.15 | 2,646.68 | 3,081.21 |
+| 20 | 684.23 | 823.61 | 942.77 | 2,212.15 | 2,646.68 | 3,026.72 |
+| 19 | 684.23 | 739.35 | 925.05 | 2,212.15 | 2,399.00 | 2,976.70 |
+| 18 | 443.48 | 665.53 | 876.03 | 1,461.60 | 2,171.65 | 2,832.01 |
+| 17 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 16 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 15 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 14 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 13 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 12 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 11 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 10 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 9 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 8 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 7 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 6 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 5 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 4 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 3 | 443.48 | 582.86 | 722.24 | 1,461.60 | 1,896.13 | 2,330.66 |
+| 2 | 443.48 | 582.86 | 621.22 | 1,461.60 | 1,896.13 | 2,021.50 |
+| 1 | 443.48 | 347.92 | 475.22 | 1,461.60 | 1,142.08 | 1,557.96 |
+| 0 | **0** | **0** | **0** | **0** | **0** | **0** |
+
+At the frozen three-day deferral cap, **zero mandates on either rail reach `days_left <= 2` with an unspent token**: the cap fires first. With a 35-day cap, UPI averages 55.6 such mandates; they generate 444.8 wait decisions in the last two days, zero retries, and strand 55.6 tokens because the horizon lands inside an NPCI-prohibited window. Cards still has zero mandates reaching the last-two-day decision state; applicable decisions resolve earlier or no MAC-compliant future slot remains. `[NPCI-calibrated UPI; Simulated Cards; five-seed means]`
 - The table uses at most three remaining attempts and the days left in the frozen 30-day horizon. No hidden outcome state enters pricing. A representative exact table for each rail is emitted with the results.
 - An unused stranded attempt is a retry token remaining at horizon on an unresolved mandate. Retry capacity left after a successful recovery is reported separately and is not called stranded.
 - The same five seeds and 2,000-event single-rail cohorts are evaluated for UPI AutoPay and cards. Fixed T+1/T+2/T+3 and Recovery Loop receive identical events and independent mandate-local caps.

@@ -34,3 +34,22 @@
 - The decline penalty is computed only from a policy's own retry attempts and failed retries. Original cohort failures are excluded because they predate the policy; zero attempts means zero policy decline rate and no penalty.
 - Most corrected UPI waits reach the frozen three-day cap and are then decided by the plain rule. This is bounded deferral, but it also means the result is sensitive to the pre-registered cap/plain-rule mechanism; neither was changed for the final run.
 - The legacy simulated failure mix assigns 42% to insufficient funds, versus about 70% of returned items in the Minneapolis Fed's 2006 FedACH matched data (a 28-point gap). The evaluation was frozen before this different-rail benchmark was found, so the mix was documented but not retuned.
+
+## Authored-world ceiling
+
+The simulator is an authored world, not an empirical estimate of repeat-payment recovery. NPCI and ONS can constrain selected inputs, but they do not publish the counterfactual outcome of retrying the same failed mandate at a different time. The hidden rules are therefore disclosed rule by rule:
+
+| Hidden-world rule | Status and justification |
+| --- | --- |
+| Salary dates are drawn from days 1, 5, 15, and 25 | **Authored judgement.** ONS Direct Debit tables segment household characteristics but do not identify proximity to payday, so they do not validate this timing rule. |
+| Insufficient-funds recovery is 0.82 on salary day, falls by 0.10 per day for three days, then decays from a 0.42 base with a 0.06 floor | **Authored judgement.** The qualitative payday mechanism is plausible, but neither NPCI nor ONS supplies these repeat-attempt probabilities. |
+| A technical failure recovers with probability 0.02 while an outage is active and 0.76 after it clears | **Authored judgement.** NPCI supplies bank-level technical-decline aggregates and reportable-incident duration, not retry recovery odds. |
+| UPI outage duration is sampled from NPCI aggregate incident duration; exact within-month placement is generated | **Partly NPCI-grounded, partly authored.** NPCI grounds aggregate incident count and downtime; synthetic placement is required because timestamps are not published. Card outage timing is entirely authored. |
+| Issuer-declined recovery is a flat 0.30 | **Authored judgement.** No public Indian repeat-attempt outcome series was found. |
+| Customer-action recovery is a flat 0.26 | **Authored judgement.** No public repeat-attempt outcome series was found. |
+| Mandate-inactive and non-retryable failures recover with probability exactly zero | **Structural diagnosis assumption.** This encodes a hard-stop interpretation; it is not an estimated recovery rate. |
+| Each scheduled attempt succeeds when a seeded uniform draw is below the hidden probability | **Authored simulation mechanism.** Multiple seeds measure Monte Carlo spread inside this world, not uncertainty against merchant data. |
+| UPI bank/month selection and top-level business/technical composition follow NPCI AutoPay volume and BD/TD aggregates | **NPCI-grounded.** The financial-to-soft and non-financial-to-hard mapping and the 12:9:5:2 hard-decline subtype split remain authored. |
+| The entire Cards failure mix, bank mix, outage process, and recovery process | **Authored judgement.** NACH is not a valid card-authorization proxy and no suitable public Indian card baseline was found. |
+
+One-at-a-time sensitivity at the frozen three-day cap perturbed insufficient-funds, technical, issuer-declined, and customer-action recovery probabilities, salary-date placement, and outage duration by -25% and +25%. Recovery Loop still lost on both rails in every scenario (0/5 seeds won). The UPI paired net loss ranged from ₹603,467 to ₹1,039,738 and the Cards loss from ₹619,002 to ₹835,626. This establishes robustness only within those perturbations and that cap; it does not remove the authored-world ceiling. The separate deferral-cap sweep is more consequential and must be read alongside this result.

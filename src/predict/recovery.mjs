@@ -1,4 +1,5 @@
 import { diagnoseFailure } from '../diagnose/taxonomy.mjs';
+import fittedBankEffects from '../../data/npci/predictor-bank-adjustments-2026-09-04.json' with { type: 'json' };
 
 const categoryBase = {
   technical: 0.72,
@@ -11,17 +12,19 @@ const categoryBase = {
   unknown: 0,
 };
 
-const bankAdjustments = { HDFC: 0.03, ICICI: 0.04, SBI: -0.02, Axis: 0.01 };
+const bankAdjustments = Object.fromEntries(Object.entries(fittedBankEffects.banks).map(([bank, fit]) => [bank, fit.probabilityAdjustment]));
+export const PREDICTOR_VERSION = 'rule-based-assumptions+npci-relative-bank/2.0.0';
 
 function clamp(value, min = 0.01, max = 0.95) { return Math.min(max, Math.max(min, value)); }
 
 export function predictRecovery(event, delayHours = 4) {
   const diagnosis = diagnoseFailure(event);
   if (!diagnosis.retryable) {
-    return { probability: 0, diagnosis, modelVersion: 'calibrated-simulator/1.0.0' };
+    return { probability: 0, diagnosis, modelVersion: PREDICTOR_VERSION };
   }
   let probability = categoryBase[diagnosis.category] ?? categoryBase.unknown;
-  probability += bankAdjustments[event.bank] ?? 0;
+  const npciCalibratedUpi = event.rail === 'UPI AutoPay' && event.calibrationSource === 'NPCI published monthly aggregate';
+  probability += npciCalibratedUpi ? bankAdjustments[event.bank] ?? 0 : 0;
   probability -= Math.max(0, event.attemptNumber - 1) * 0.11;
   probability -= Math.max(0, event.bankDeclineRate - 0.04) * 1.9;
   if (diagnosis.category === 'insufficient_funds') {
@@ -32,5 +35,5 @@ export function predictRecovery(event, delayHours = 4) {
   if (diagnosis.category === 'technical') probability += delayHours >= 2 && delayHours <= 8 ? 0.08 : 0;
   if (event.outageActive) probability *= 0.12;
   if (event.issuerStop) probability = 0.01;
-  return { probability: Number(clamp(probability).toFixed(4)), diagnosis, modelVersion: 'calibrated-simulator/1.0.0' };
+  return { probability: Number(clamp(probability).toFixed(4)), diagnosis, modelVersion: PREDICTOR_VERSION };
 }

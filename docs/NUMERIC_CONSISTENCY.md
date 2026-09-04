@@ -1,6 +1,6 @@
 # Numeric consistency sweep
 
-Checked on 23 August 2026 against `data/evaluation/fix7-npci-calibrated.json`, the rendered dashboard runtime, committed observed-event files, and the cited external sources. A dash means the artifact does not make that claim. All final disagreements: **none**.
+Checked on 4 September 2026 against `fix7-npci-calibrated.json`, `deferral-cap-sweep.json`, the rendered dashboard runtime, committed observed-event files, and cited external sources. The dashboard deliberately remains the three-day reference configuration; the README, video, results, and recording sheet also state the cap-dependent final interpretation. All final disagreements: **none**.
 
 ## Cross-artifact matrix
 
@@ -21,6 +21,13 @@ Checked on 23 August 2026 against `data/evaluation/fix7-npci-calibrated.json`, t
 | UPI stranded attempts | RL 3,001.8; ladder 0 | same | 3,001.8 | same | — | same | Match; final JSON |
 | Cards stranded attempts | RL 2,960.2; ladder 1,084.8 | same | 2,960.2 | same | — | same | Match; final JSON |
 | UPI deferral cap | 1,963.8 / 1,968.6 = 99.8% | same | 99.8% spoken | same | mechanism stated | — | Match; final JSON |
+| UPI 14-day result | +₹995,405; 5/5; 55.6 stranded | same | same | same | cap artefact stated | — | Match; cap sweep |
+| UPI horizon result | +₹386,271; 5/5; 55.6 stranded | same | same | same | cap artefact stated | — | Match; cap sweep |
+| Cards 14-day result | +₹19,557; 3/5; 1,785.0 stranded | same | same | same | — | — | Match; cap sweep |
+| Cards horizon result | −₹273,289; 0/5; 1,785.0 stranded | same | same | same | structural residue stated | — | Match; cap sweep |
+| Gate ablation | UPI +1.2 attempts, −0.2 recoveries, −₹432 net; Cards 0 | — | — | same | — | — | Match; attribution artifact |
+| Off-policy gap | UPI IPW −3.74%, DR −3.14%; Cards +0.51%, −0.11% | — | — | same | — | — | Match; off-policy artifact |
+| ±25% authored-rule sensitivity | three-day conclusion survives every perturbation, 0/5 | — | — | same | same | — | Match; sensitivity artifact |
 | Observed captures | 20 entities; 16 failures | 20 entities; 16 failures | 20 entities; 16 failures | — | 20 entities; 16 failures | — | Match; committed event count |
 | ONS Total / Fitness | 2.26% / 5.74%; Aug 2025; NSA; 2026 edition | same | — | — | — | — | Match; ONS workbook |
 | ACH insufficient-funds share | about 70%; 2006 | same | — | — | same | — | Match; Minneapolis Fed paper |

@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-09-04T02:16:45.436Z",
+  "source": "data/npci/calibration-2026-08-22.json",
+  "sourceFetchDate": "2026-08-22",
+  "periodRange": "2025-01 to 2026-06",
+  "method": "For each payer-PSP bank, compute the AutoPay-volume-weighted approved rate over the common window and subtract the all-bank pooled volume-weighted approved rate. Validate approved = 1 - business decline - technical decline for every row. Apply the centered additive effect only to NPCI-calibrated UPI events.",
+  "identityValidation": {
+    "maxIdentityRoundingError": 0.00010000000000010001,
+    "publishedRoundingTolerance": 0.00011
+  },
+  "interpretation": "Published initial-approval relative bank effect used as a proxy adjustment; not a fitted repeat-attempt recovery rate.",
+  "pooled": {
+    "volumeMillions": 3423.6,
+    "approvedRate": 0.9784857836780001,
+    "businessDeclineRate": 0.021137904837013673,
+    "technicalDeclineRate": 0.00037505169996494906
+  },
+  "banks": {
+    "Axis": {
+      "volumeMillions": 1398.13,
+      "approvedRate": 0.9762022873409482,
+      "businessDeclineRate": 0.023573998126068387,
+      "technicalDeclineRate": 0.00023026900216718048,
+      "probabilityAdjustment": -0.002283496337051938
+    },
+    "HDFC": {
+      "volumeMillions": 541.29,
+      "approvedRate": 0.9776353341092577,
+      "businessDeclineRate": 0.022187396774372335,
+      "technicalDeclineRate": 0.00016824253172975667,
+      "probabilityAdjustment": -0.0008504495687423619
+    },
+    "ICICI": {
+      "volumeMillions": 1016.92,
+      "approvedRate": 0.9782731217794909,
+      "businessDeclineRate": 0.021311365692483184,
+      "technicalDeclineRate": 0.0004167781143059433,
+      "probabilityAdjustment": -0.00021266189850921435
+    },
+    "SBI": {
+      "volumeMillions": 467.26,
+      "approvedRate": 0.9867664512262982,
+      "businessDeclineRate": 0.012255376021914994,
+      "technicalDeclineRate": 0.0009570324872661901,
+      "probabilityAdjustment": 0.008280667548298148
+    }
+  }
+}

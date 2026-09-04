@@ -91,6 +91,90 @@
             "mean": 0,
             "min": 0,
             "max": 0
+          },
+          "mandatesReachedLastTwoDaysWithUnspentAttempts": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayRetryDecisions": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayWaitDecisions": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayTerminalRefusals": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "decisionAttribution": {
+            "hardStop": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "outageGate": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGate": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "economic": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "retry": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "gateCounterfactuals": {
+            "decisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "wouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "precision": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "outageGateDecisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "outageGateWouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGateDecisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGateWouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
           }
         },
         {
@@ -169,6 +253,90 @@
             "mean": 814.6,
             "min": 791,
             "max": 832
+          },
+          "mandatesReachedLastTwoDaysWithUnspentAttempts": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayRetryDecisions": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayWaitDecisions": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayTerminalRefusals": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "decisionAttribution": {
+            "hardStop": {
+              "mean": 595,
+              "min": 566,
+              "max": 640
+            },
+            "outageGate": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGate": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "economic": {
+              "mean": 2443.8,
+              "min": 2373,
+              "max": 2496
+            },
+            "retry": {
+              "mean": 757.6,
+              "min": 725,
+              "max": 813
+            }
+          },
+          "gateCounterfactuals": {
+            "decisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "wouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "precision": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "outageGateDecisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "outageGateWouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGateDecisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGateWouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
           }
         }
       ],
@@ -208,6 +376,25 @@
               "deferredConvertedToRetry": 0,
               "deferredRecovered": 0,
               "deferralCapHits": 0,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 0,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 0,
+                "retry": 0
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 504,
               "unusedAttemptsAfterRecovery": 1552,
               "unusedAttemptsOnHardStops": 504,
@@ -240,6 +427,25 @@
               "deferredConvertedToRetry": 819,
               "deferredRecovered": 232,
               "deferralCapHits": 819,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 585,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 2457,
+                "retry": 764
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 2929,
               "unusedAttemptsAfterRecovery": 1488,
               "unusedAttemptsOnHardStops": 504,
@@ -278,6 +484,25 @@
               "deferredConvertedToRetry": 0,
               "deferredRecovered": 0,
               "deferralCapHits": 0,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 0,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 0,
+                "retry": 0
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 465,
               "unusedAttemptsAfterRecovery": 1504,
               "unusedAttemptsOnHardStops": 465,
@@ -310,6 +535,25 @@
               "deferredConvertedToRetry": 806,
               "deferredRecovered": 212,
               "deferralCapHits": 806,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 640,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 2418,
+                "retry": 725
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 3108,
               "unusedAttemptsAfterRecovery": 1361,
               "unusedAttemptsOnHardStops": 465,
@@ -348,6 +592,25 @@
               "deferredConvertedToRetry": 0,
               "deferredRecovered": 0,
               "deferralCapHits": 0,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 0,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 0,
+                "retry": 0
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 420,
               "unusedAttemptsAfterRecovery": 1576,
               "unusedAttemptsOnHardStops": 420,
@@ -380,6 +643,25 @@
               "deferredConvertedToRetry": 791,
               "deferredRecovered": 220,
               "deferralCapHits": 791,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 579,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 2373,
+                "retry": 813
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 2879,
               "unusedAttemptsAfterRecovery": 1517,
               "unusedAttemptsOnHardStops": 420,
@@ -418,6 +700,25 @@
               "deferredConvertedToRetry": 0,
               "deferredRecovered": 0,
               "deferralCapHits": 0,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 0,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 0,
+                "retry": 0
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 405,
               "unusedAttemptsAfterRecovery": 1580,
               "unusedAttemptsOnHardStops": 405,
@@ -450,6 +751,25 @@
               "deferredConvertedToRetry": 832,
               "deferredRecovered": 237,
               "deferralCapHits": 832,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 566,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 2496,
+                "retry": 753
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 2888,
               "unusedAttemptsAfterRecovery": 1527,
               "unusedAttemptsOnHardStops": 405,
@@ -488,6 +808,25 @@
               "deferredConvertedToRetry": 0,
               "deferredRecovered": 0,
               "deferralCapHits": 0,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 0,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 0,
+                "retry": 0
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 471,
               "unusedAttemptsAfterRecovery": 1510,
               "unusedAttemptsOnHardStops": 471,
@@ -520,6 +859,25 @@
               "deferredConvertedToRetry": 825,
               "deferredRecovered": 234,
               "deferralCapHits": 825,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 605,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 2475,
+                "retry": 733
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 2997,
               "unusedAttemptsAfterRecovery": 1445,
               "unusedAttemptsOnHardStops": 471,
@@ -544,15 +902,21 @@
               "attemptedAt": 1787378400000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3813.22
+                2085.24,
+                3270.46,
+                3771.92
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                1955.12,
-                2029.5
+                2085.24,
+                1873.35,
+                1940.46
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                1881.75,
+                1948.86
               ]
             },
             {
@@ -560,15 +924,21 @@
               "attemptedAt": 1787464800000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3813.22
+                2085.24,
+                3270.46,
+                3771.92
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                2219.57,
-                2433.36
+                2085.24,
+                2123.58,
+                2332.92
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2131.98,
+                2341.32
               ]
             },
             {
@@ -576,15 +946,21 @@
               "attemptedAt": 1787551200000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3813.22
+                2085.24,
+                3270.46,
+                3771.92
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                2219.57,
-                2433.36
+                2085.24,
+                2123.58,
+                2332.92
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2131.98,
+                2341.32
               ]
             },
             {
@@ -592,15 +968,21 @@
               "attemptedAt": 1787637600000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3813.22
+                2085.24,
+                3270.46,
+                3771.92
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                2219.57,
-                2433.36
+                2085.24,
+                2123.58,
+                2332.92
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2131.98,
+                2341.32
               ]
             },
             {
@@ -608,15 +990,21 @@
               "attemptedAt": 1787724000000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3813.22
+                2085.24,
+                3270.46,
+                3771.92
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                2219.57,
-                2433.36
+                2085.24,
+                2123.58,
+                2332.92
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2131.98,
+                2341.32
               ]
             },
             {
@@ -624,15 +1012,21 @@
               "attemptedAt": 1787810400000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3813.22
+                2085.24,
+                3270.46,
+                3771.92
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                2219.57,
-                2433.36
+                2085.24,
+                2123.58,
+                2332.92
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2131.98,
+                2341.32
               ]
             },
             {
@@ -640,15 +1034,21 @@
               "attemptedAt": 1787896800000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3813.22
+                2085.24,
+                3270.46,
+                3771.92
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                2638.28,
-                3072.81
+                2085.24,
+                2519.77,
+                2954.3
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2528.17,
+                2962.7
               ]
             },
             {
@@ -656,15 +1056,21 @@
               "attemptedAt": 1787983200000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3813.22
+                2085.24,
+                3270.46,
+                3771.92
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                2638.28,
-                3072.81
+                2085.24,
+                2519.77,
+                2954.3
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2528.17,
+                2962.7
               ]
             },
             {
@@ -672,15 +1078,21 @@
               "attemptedAt": 1788069600000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3813.22
+                2085.24,
+                3270.46,
+                3771.92
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                2638.28,
-                3072.81
+                2085.24,
+                2519.77,
+                2954.3
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2528.17,
+                2962.7
               ]
             },
             {
@@ -688,15 +1100,21 @@
               "attemptedAt": 1788156000000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3813.22
+                2085.24,
+                3270.46,
+                3771.92
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                2638.28,
-                3072.81
+                2085.24,
+                2519.77,
+                2954.3
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2528.17,
+                2962.7
               ]
             },
             {
@@ -704,15 +1122,21 @@
               "attemptedAt": 1788242400000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3813.22
+                2085.24,
+                3270.46,
+                3771.92
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                2638.28,
-                3018.32
+                2085.24,
+                2519.77,
+                2886.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2528.17,
+                2895.15
               ]
             },
             {
@@ -720,15 +1144,21 @@
               "attemptedAt": 1788328800000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3365.52,
-                3758.73
+                2085.24,
+                3270.46,
+                3704.37
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2203.75,
-                2390.6,
-                2968.43
+                2085.24,
+                2249.57,
+                2830.06
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2257.97,
+                2838.46
               ]
             },
             {
@@ -736,15 +1166,21 @@
               "attemptedAt": 1788415200000,
               "valueByAttemptsRemaining": [
                 0,
-                2203.75,
-                3117.84,
-                3654.36
+                2085.24,
+                3000.26,
+                3580.13
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                2163.84,
-                2824.5
+                1334.69,
+                2022.81,
+                2679.38
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                2031.21,
+                2687.78
               ]
             },
             {
@@ -752,15 +1188,21 @@
               "attemptedAt": 1788501600000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -768,15 +1210,21 @@
               "attemptedAt": 1788588000000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -784,15 +1232,21 @@
               "attemptedAt": 1788674400000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -800,15 +1254,21 @@
               "attemptedAt": 1788760800000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -816,15 +1276,21 @@
               "attemptedAt": 1788847200000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -832,15 +1298,21 @@
               "attemptedAt": 1788933600000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -848,15 +1320,21 @@
               "attemptedAt": 1789020000000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -864,15 +1342,21 @@
               "attemptedAt": 1789106400000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -880,15 +1364,21 @@
               "attemptedAt": 1789192800000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -896,15 +1386,21 @@
               "attemptedAt": 1789279200000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -912,15 +1408,21 @@
               "attemptedAt": 1789365600000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -928,15 +1430,21 @@
               "attemptedAt": 1789452000000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -944,15 +1452,21 @@
               "attemptedAt": 1789538400000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -960,15 +1474,21 @@
               "attemptedAt": 1789624800000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -976,15 +1496,21 @@
               "attemptedAt": 1789711200000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -992,15 +1518,21 @@
               "attemptedAt": 1789797600000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3406.05
+                1334.69,
+                2503.3,
+                3305.2
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2012.44
+                1334.69,
+                1769.22,
+                1880.76
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                1889.16
               ]
             },
             {
@@ -1008,15 +1540,21 @@
               "attemptedAt": 1789884000000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                2643.39,
-                3096.23
+                1334.69,
+                2503.3,
+                2982.21
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1453.2,
-                1132.07,
-                1548.29
+                1334.69,
+                1035.14,
+                1425.29
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1043.54,
+                1433.69
               ]
             },
             {
@@ -1024,11 +1562,17 @@
               "attemptedAt": 1789970400000,
               "valueByAttemptsRemaining": [
                 0,
-                1453.2,
-                1887.73,
-                2322.26
+                1334.69,
+                1769.22,
+                2203.75
               ],
               "opportunityCostByAttemptsRemaining": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "attemptPriceByAttemptsRemaining": [
                 0,
                 0,
                 0,
@@ -1121,6 +1665,90 @@
             "mean": 0,
             "min": 0,
             "max": 0
+          },
+          "mandatesReachedLastTwoDaysWithUnspentAttempts": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayRetryDecisions": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayWaitDecisions": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayTerminalRefusals": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "decisionAttribution": {
+            "hardStop": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "outageGate": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGate": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "economic": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "retry": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
+          },
+          "gateCounterfactuals": {
+            "decisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "wouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "precision": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "outageGateDecisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "outageGateWouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGateDecisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGateWouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
           }
         },
         {
@@ -1199,6 +1827,90 @@
             "mean": 814.6,
             "min": 791,
             "max": 832
+          },
+          "mandatesReachedLastTwoDaysWithUnspentAttempts": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayRetryDecisions": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayWaitDecisions": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "lastTwoDayTerminalRefusals": {
+            "mean": 0,
+            "min": 0,
+            "max": 0
+          },
+          "decisionAttribution": {
+            "hardStop": {
+              "mean": 595,
+              "min": 566,
+              "max": 640
+            },
+            "outageGate": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGate": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "economic": {
+              "mean": 2443.8,
+              "min": 2373,
+              "max": 2496
+            },
+            "retry": {
+              "mean": 757.6,
+              "min": 725,
+              "max": 813
+            }
+          },
+          "gateCounterfactuals": {
+            "decisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "wouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "precision": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "outageGateDecisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "outageGateWouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGateDecisions": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            },
+            "distributionGateWouldRecover": {
+              "mean": 0,
+              "min": 0,
+              "max": 0
+            }
           }
         }
       ],
@@ -1238,6 +1950,25 @@
               "deferredConvertedToRetry": 0,
               "deferredRecovered": 0,
               "deferralCapHits": 0,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 0,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 0,
+                "retry": 0
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 1095,
               "unusedAttemptsAfterRecovery": 1439,
               "unusedAttemptsOnHardStops": 1095,
@@ -1270,6 +2001,25 @@
               "deferredConvertedToRetry": 819,
               "deferredRecovered": 232,
               "deferralCapHits": 819,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 585,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 2457,
+                "retry": 764
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 2929,
               "unusedAttemptsAfterRecovery": 1488,
               "unusedAttemptsOnHardStops": 1095,
@@ -1308,6 +2058,25 @@
               "deferredConvertedToRetry": 0,
               "deferredRecovered": 0,
               "deferralCapHits": 0,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 0,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 0,
+                "retry": 0
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 1182,
               "unusedAttemptsAfterRecovery": 1367,
               "unusedAttemptsOnHardStops": 1182,
@@ -1340,6 +2109,25 @@
               "deferredConvertedToRetry": 806,
               "deferredRecovered": 212,
               "deferralCapHits": 806,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 640,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 2418,
+                "retry": 725
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 3108,
               "unusedAttemptsAfterRecovery": 1361,
               "unusedAttemptsOnHardStops": 1182,
@@ -1378,6 +2166,25 @@
               "deferredConvertedToRetry": 0,
               "deferredRecovered": 0,
               "deferralCapHits": 0,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 0,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 0,
+                "retry": 0
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 1071,
               "unusedAttemptsAfterRecovery": 1467,
               "unusedAttemptsOnHardStops": 1071,
@@ -1410,6 +2217,25 @@
               "deferredConvertedToRetry": 791,
               "deferredRecovered": 220,
               "deferralCapHits": 791,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 579,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 2373,
+                "retry": 813
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 2879,
               "unusedAttemptsAfterRecovery": 1517,
               "unusedAttemptsOnHardStops": 1071,
@@ -1448,6 +2274,25 @@
               "deferredConvertedToRetry": 0,
               "deferredRecovered": 0,
               "deferralCapHits": 0,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 0,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 0,
+                "retry": 0
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 1014,
               "unusedAttemptsAfterRecovery": 1472,
               "unusedAttemptsOnHardStops": 1014,
@@ -1480,6 +2325,25 @@
               "deferredConvertedToRetry": 832,
               "deferredRecovered": 237,
               "deferralCapHits": 832,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 566,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 2496,
+                "retry": 753
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 2888,
               "unusedAttemptsAfterRecovery": 1527,
               "unusedAttemptsOnHardStops": 1014,
@@ -1518,6 +2382,25 @@
               "deferredConvertedToRetry": 0,
               "deferredRecovered": 0,
               "deferralCapHits": 0,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 0,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 0,
+                "retry": 0
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 1062,
               "unusedAttemptsAfterRecovery": 1410,
               "unusedAttemptsOnHardStops": 1062,
@@ -1550,6 +2433,25 @@
               "deferredConvertedToRetry": 825,
               "deferredRecovered": 234,
               "deferralCapHits": 825,
+              "mandatesReachedLastTwoDaysWithUnspentAttempts": 0,
+              "lastTwoDayRetryDecisions": 0,
+              "lastTwoDayWaitDecisions": 0,
+              "lastTwoDayTerminalRefusals": 0,
+              "decisionAttribution": {
+                "hardStop": 605,
+                "outageGate": 0,
+                "distributionGate": 0,
+                "economic": 2475,
+                "retry": 733
+              },
+              "gateCounterfactuals": {
+                "decisions": 0,
+                "wouldRecover": 0,
+                "outageGateDecisions": 0,
+                "outageGateWouldRecover": 0,
+                "distributionGateDecisions": 0,
+                "distributionGateWouldRecover": 0
+              },
               "unusedAttemptsAtHorizon": 2997,
               "unusedAttemptsAfterRecovery": 1445,
               "unusedAttemptsOnHardStops": 1062,
@@ -1574,15 +2476,21 @@
               "attemptedAt": 1787378400000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3809.22
+                2082.14,
+                3266.24,
+                3767.76
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                1952.98,
-                2027.68
+                2082.14,
+                1871.21,
+                1938.67
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                1882.71,
+                1950.17
               ]
             },
             {
@@ -1590,15 +2498,21 @@
               "attemptedAt": 1787464800000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3809.22
+                2082.14,
+                3266.24,
+                3767.76
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                2217.06,
-                2431.05
+                2082.14,
+                2121.07,
+                2330.62
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2132.57,
+                2342.12
               ]
             },
             {
@@ -1606,15 +2520,21 @@
               "attemptedAt": 1787551200000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3809.22
+                2082.14,
+                3266.24,
+                3767.76
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                2217.06,
-                2431.05
+                2082.14,
+                2121.07,
+                2330.62
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2132.57,
+                2342.12
               ]
             },
             {
@@ -1622,15 +2542,21 @@
               "attemptedAt": 1787637600000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3809.22
+                2082.14,
+                3266.24,
+                3767.76
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                2217.06,
-                2431.05
+                2082.14,
+                2121.07,
+                2330.62
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2132.57,
+                2342.12
               ]
             },
             {
@@ -1638,15 +2564,21 @@
               "attemptedAt": 1787724000000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3809.22
+                2082.14,
+                3266.24,
+                3767.76
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                2217.06,
-                2431.05
+                2082.14,
+                2121.07,
+                2330.62
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2132.57,
+                2342.12
               ]
             },
             {
@@ -1654,15 +2586,21 @@
               "attemptedAt": 1787810400000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3809.22
+                2082.14,
+                3266.24,
+                3767.76
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                2217.06,
-                2431.05
+                2082.14,
+                2121.07,
+                2330.62
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2132.57,
+                2342.12
               ]
             },
             {
@@ -1670,15 +2608,21 @@
               "attemptedAt": 1787896800000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3809.22
+                2082.14,
+                3266.24,
+                3767.76
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                2635.18,
-                3069.71
+                2082.14,
+                2516.67,
+                2951.2
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2528.17,
+                2962.7
               ]
             },
             {
@@ -1686,15 +2630,21 @@
               "attemptedAt": 1787983200000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3809.22
+                2082.14,
+                3266.24,
+                3767.76
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                2635.18,
-                3069.71
+                2082.14,
+                2516.67,
+                2951.2
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2528.17,
+                2962.7
               ]
             },
             {
@@ -1702,15 +2652,21 @@
               "attemptedAt": 1788069600000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3809.22
+                2082.14,
+                3266.24,
+                3767.76
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                2635.18,
-                3069.71
+                2082.14,
+                2516.67,
+                2951.2
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2528.17,
+                2962.7
               ]
             },
             {
@@ -1718,15 +2674,21 @@
               "attemptedAt": 1788156000000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3809.22
+                2082.14,
+                3266.24,
+                3767.76
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                2635.18,
-                3069.71
+                2082.14,
+                2516.67,
+                2951.2
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2528.17,
+                2962.7
               ]
             },
             {
@@ -1734,15 +2696,21 @@
               "attemptedAt": 1788242400000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3809.22
+                2082.14,
+                3266.24,
+                3767.76
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                2635.18,
-                3015.22
+                2082.14,
+                2516.67,
+                2883.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2528.17,
+                2895.15
               ]
             },
             {
@@ -1750,15 +2718,21 @@
               "attemptedAt": 1788328800000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3361.4,
-                3754.73
+                2082.14,
+                3266.24,
+                3700.21
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                2200.65,
-                2387.5,
-                2965.2
+                2082.14,
+                2246.47,
+                2826.82
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                2093.64,
+                2257.97,
+                2838.32
               ]
             },
             {
@@ -1766,15 +2740,21 @@
               "attemptedAt": 1788415200000,
               "valueByAttemptsRemaining": [
                 0,
-                2200.65,
-                3113.71,
-                3650.22
+                2082.14,
+                2996.05,
+                3575.83
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                2160.15,
-                2820.51
+                1331.59,
+                2019.12,
+                2675.37
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                2030.62,
+                2686.87
               ]
             },
             {
@@ -1782,15 +2762,21 @@
               "attemptedAt": 1788501600000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1798,15 +2784,21 @@
               "attemptedAt": 1788588000000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1814,15 +2806,21 @@
               "attemptedAt": 1788674400000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1830,15 +2828,21 @@
               "attemptedAt": 1788760800000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1846,15 +2850,21 @@
               "attemptedAt": 1788847200000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1862,15 +2872,21 @@
               "attemptedAt": 1788933600000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1878,15 +2894,21 @@
               "attemptedAt": 1789020000000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1894,15 +2916,21 @@
               "attemptedAt": 1789106400000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1910,15 +2938,21 @@
               "attemptedAt": 1789192800000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1926,15 +2960,21 @@
               "attemptedAt": 1789279200000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1942,15 +2982,21 @@
               "attemptedAt": 1789365600000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1958,15 +3004,21 @@
               "attemptedAt": 1789452000000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1974,15 +3026,21 @@
               "attemptedAt": 1789538400000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -1990,15 +3048,21 @@
               "attemptedAt": 1789624800000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -2006,15 +3070,21 @@
               "attemptedAt": 1789711200000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                2212.15
               ]
             },
             {
@@ -2022,15 +3092,21 @@
               "attemptedAt": 1789797600000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3401.02
+                1331.59,
+                2498.5,
+                3299.99
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2010
+                1331.59,
+                1766.12,
+                1878.41
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1777.62,
+                1889.91
               ]
             },
             {
@@ -2038,15 +3114,21 @@
               "attemptedAt": 1789884000000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                2638.68,
-                3091.86
+                1331.59,
+                2498.5,
+                2977.74
               ],
               "opportunityCostByAttemptsRemaining": [
                 0,
-                1450.1,
-                1130.58,
-                1546.46
+                1331.59,
+                1033.75,
+                1423.56
+              ],
+              "attemptPriceByAttemptsRemaining": [
+                0,
+                1343.09,
+                1045.25,
+                1435.06
               ]
             },
             {
@@ -2054,11 +3136,17 @@
               "attemptedAt": 1789970400000,
               "valueByAttemptsRemaining": [
                 0,
-                1450.1,
-                1884.63,
-                2319.16
+                1331.59,
+                1766.12,
+                2200.65
               ],
               "opportunityCostByAttemptsRemaining": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "attemptPriceByAttemptsRemaining": [
                 0,
                 0,
                 0,
