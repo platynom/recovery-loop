@@ -1,6 +1,6 @@
 {
   "fetchDate": "2026-08-22",
-  "sourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+  "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
   "canonicalSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
   "scope": "Rendered HTML table: PSP Wise execution / Payer PSP Performance",
   "remarks": [
@@ -10,7 +10,7 @@
   "periods": [
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "Jan",
@@ -108,7 +108,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "Feb",
@@ -206,7 +206,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "Mar",
@@ -304,7 +304,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "Apr",
@@ -402,7 +402,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "May",
@@ -532,7 +532,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "Jun",
@@ -670,7 +670,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "Jul",
@@ -816,7 +816,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "Aug",
@@ -962,7 +962,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "Sep",
@@ -1108,7 +1108,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "Oct",
@@ -1254,7 +1254,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "Nov",
@@ -1400,7 +1400,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2025,
       "month": "Dec",
@@ -1546,7 +1546,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2026,
       "month": "Jan",
@@ -1644,7 +1644,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2026,
       "month": "Feb",
@@ -1742,7 +1742,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2026,
       "month": "Mar",
@@ -1840,7 +1840,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2026,
       "month": "Apr",
@@ -1938,7 +1938,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2026,
       "month": "May",
@@ -2108,7 +2108,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2026,
       "month": "Jun",
@@ -2270,7 +2270,7 @@
     },
     {
       "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
-      "requestedSourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "requestedSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "fetchDate": "2026-08-22",
       "year": 2026,
       "month": "Jul",

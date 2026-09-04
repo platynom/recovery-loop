@@ -5,17 +5,17 @@
   "sources": {
     "autopay": {
       "file": "autopay-payer-psp-execution-2025-01_to_2026-07-fetched-2026-08-22.json",
-      "sourceUrl": "https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics",
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay",
       "canonicalSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/autopay"
     },
     "returns": {
       "file": "nach-destination-bank-returns-2025-01_to_2026-06-fetched-2026-08-22.json",
-      "sourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
       "canonicalSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach"
     },
     "response": {
       "file": "nach-destination-bank-response-2025-01_to_2026-06-fetched-2026-08-22.json",
-      "sourceUrl": "https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card",
+      "sourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach",
       "canonicalSourceUrl": "https://www.npci.org.in/product/ecosystem-statistics/nach"
     },
     "incidents": {

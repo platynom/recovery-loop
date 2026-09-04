@@ -92,14 +92,17 @@ export default function Why() {
               <h4>NPCI UPI AutoPay statistics</h4>
               <p>Monthly, per payer PSP: volume, approved %, business-decline % and technical-decline %. This is auto-debit mandate data specifically — the same object this agent operates on. Per-bank baselines are fitted from it.</p>
               <p className="src-date">Covers January 2025 – July 2026 · fetched 22 August 2026</p>
-              <a href="https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics" target="_blank" rel="noreferrer">NPCI AutoPay statistics →</a>
+              <p className="src-note">NPCI moved its statistics to <code>/product/</code> paths; the older <code>/what-we-do/</code> URLs now 404. Both the live page and our capture are linked.</p>
+              <a href="https://www.npci.org.in/product/ecosystem-statistics/autopay" target="_blank" rel="noreferrer">NPCI AutoPay statistics →</a>
+              <a className="alt" href="https://github.com/platynom/recovery-loop/blob/master/data/npci/autopay-payer-psp-execution-2025-01_to_2026-07-fetched-2026-08-22.json" target="_blank" rel="noreferrer">Our captured data →</a>
             </article>
             <article>
               <span className="tier real">Real · calibration</span>
               <h4>NPCI NACH returns &amp; incident log</h4>
               <p>Destination-bank returns split into financial and non-financial declines — the real soft/hard partition — plus response timing, and a reportable-incident log used to shape outage windows.</p>
               <p className="src-date">Covers January 2025 – June 2026 · fetched 22 August 2026</p>
-              <a href="https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card" target="_blank" rel="noreferrer">NPCI NACH statistics →</a>
+              <p className="src-note">Source: NPCI, <em>NACH Ecosystem Statistics — Destination Bankwise</em> (npci.org.in). Captured and committed for the same reason.</p>
+              <a href="https://github.com/platynom/recovery-loop/blob/master/data/npci/nach-destination-bank-returns-2025-01_to_2026-06-fetched-2026-08-22.json" target="_blank" rel="noreferrer">See the captured data →</a>
             </article>
             <article>
               <span className="tier sec">External benchmark</span>

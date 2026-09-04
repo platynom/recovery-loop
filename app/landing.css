@@ -172,3 +172,9 @@ html{scrollbar-gutter:stable}
 html:not([data-intro="seen"]) body{overflow:hidden}
 .lp{overflow-x:clip;overflow-y:visible}
 .doc,.doc-hero,.lp section{overflow:visible}
+
+.src-note{font-size:10.5px!important;line-height:1.55;color:#8398a0!important;margin:0 0 9px!important}
+.src-note em{font-style:italic;color:#6d858c}
+
+.srcs a.alt{display:block;margin-top:6px;color:#8398a0;font-weight:700}
+.srcs a.alt:hover{color:var(--tl2)}

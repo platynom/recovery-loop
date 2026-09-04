@@ -7,9 +7,10 @@ import { join } from 'node:path';
    A 404 in front of a judge is worse than a missing citation, so the
    allowlist is explicit: adding a link means verifying it first. */
 const VERIFIED = new Set([
+  'https://www.npci.org.in/product/ecosystem-statistics/autopay',
   'https://github.com/platynom/recovery-loop/tree/master/data/raw_events',
-  'https://www.npci.org.in/what-we-do/autopay/ecosystem-statistics',
-  'https://www.npci.org.in/what-we-do/nach/nach-ecosystem-statistics/destination-bankwise-debit-card',
+  'https://github.com/platynom/recovery-loop/blob/master/data/npci/autopay-payer-psp-execution-2025-01_to_2026-07-fetched-2026-08-22.json',
+  'https://github.com/platynom/recovery-loop/blob/master/data/npci/nach-destination-bank-returns-2025-01_to_2026-06-fetched-2026-08-22.json',
   'https://www.ons.gov.uk/economy/economicoutputandproductivity/output/datasets/monthlydirectdebitfailurerateandaveragetransactionamount',
 ]);
 
