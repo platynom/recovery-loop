@@ -1,5 +1,7 @@
 # Recovery Loop
 
+**Live demo:** https://recovery-loop-mu.vercel.app
+
 **When is it worth retrying a failed payment — and when is refusing better?**
 
 Razorpay retries failed subscription charges on a fixed calendar: T+1, T+2, T+3, then the subscription halts. It consumes no signal. Meanwhile Razorpay publishes a live issuer-downtime feed and runs an ML router that reacts to a degrading gateway within twenty minutes — and neither is wired to the retry scheduler. [Razorpay documents three retries before `halted`, a payment-downtime API, twenty-minute Optimizer downtimes, and that Optimizer rules do not apply to subsequent recurring debits.](https://razorpay.com/docs/payments/subscriptions/notifications/) ([downtime](https://razorpay.com/docs/api/payments/downtime/?preferred-country=IN), [routing](https://razorpay.com/docs/payments/optimizer/dynamic-routing/?preferred-country=IN), [recurring exclusion](https://razorpay.com/docs/payments/optimizer/recurring-payments/?preferred-country=IN))
