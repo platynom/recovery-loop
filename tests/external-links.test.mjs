@@ -7,6 +7,7 @@ import { join } from 'node:path';
    A 404 in front of a judge is worse than a missing citation, so the
    allowlist is explicit: adding a link means verifying it first. */
 const VERIFIED = new Set([
+  'https://razorpay.com/agent-studio/',
   'https://www.npci.org.in/product/ecosystem-statistics/autopay',
   'https://github.com/platynom/recovery-loop/tree/master/data/raw_events',
   'https://github.com/platynom/recovery-loop/blob/master/data/npci/autopay-payer-psp-execution-2025-01_to_2026-07-fetched-2026-08-22.json',

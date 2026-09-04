@@ -32,10 +32,11 @@ function useReveal() {
 
 /* ── count-up ─────────────────────────────────────────────────── */
 function useCountUp(target: number, ms = 1400) {
-  const [v, setV] = useState(0);
+  const [v, setV] = useState(target);
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setV(target); return; }
     let raf = 0; const t0 = performance.now();
+    setV(0);
     const tick = (t: number) => {
       const p = Math.min(1, (t - t0) / ms);
       setV(target * (1 - Math.pow(1 - p, 3)));
@@ -104,7 +105,7 @@ function RailCard({ r, seeds }: { r: Rail; seeds: number }) {
       <div className="bar"><i className={r.diff >= 0 ? 'win' : 'lose'} style={{ width: `${pct / 2}%` }} /></div>
       <dl>
         <div><dt>Attempts spent</dt><dd>{Math.round(r.rlAtt).toLocaleString('en-IN')}<small>vs {Math.round(r.flAtt).toLocaleString('en-IN')}</small></dd></div>
-        <div><dt>Payments recovered</dt><dd>{Math.round(r.rlRec).toLocaleString('en-IN')}<small>vs {Math.round(r.flRec).toLocaleString('en-IN')}</small></dd></div>
+        <div><dt>Payments recovered</dt><dd>{Math.round(r.rlRec).toLocaleString('en-IN')}<small>vs {Math.floor(r.flRec).toLocaleString('en-IN')}</small></dd></div>
         <div><dt>Net per attempt</dt><dd>{inr(r.rlPer)}<small>vs {inr(r.flPer)}</small></dd></div>
         <div><dt>Attempts stranded</dt><dd>{Math.round(r.rlStr).toLocaleString('en-IN')}</dd></div>
       </dl>
@@ -140,7 +141,7 @@ export default function Landing({ sweep }: { sweep: Sweep }) {
         <div className="hero-in">
           <span className="badge"><i />Razorpay AI Buildathon · Revenue Recovery</span>
           <h1>When is it worth retrying<br />a failed payment — and<br />when is <em>refusing</em> better?</h1>
-          <p>Razorpay retries on a fixed calendar: day one, day two, day three, then it halts. NPCI gives each UPI mandate three retries, non-transferable. This agent decides which three are worth spending.</p>
+          <p>Razorpay retries on a fixed calendar: day one, day two, day three, then it halts. NPCI gives each UPI mandate one attempt plus three retries, non-transferable. This agent decides which of them are worth spending.</p>
           <div className="proof">
             <b>{signed(counted)}</b>
             <span>net revenue · {sweep.seeds} of {sweep.seeds} held-out seeds</span>

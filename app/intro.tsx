@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 const BEATS = [
   { at: 0,    line: 'Every month, subscription payments fail.' },
   { at: 3200, line: 'Nobody chose to cancel.' },
-  { at: 6400, line: 'You get three attempts to win them back.' },
+  { at: 6400, line: 'You get one attempt and three retries. That is all.' },
 ];
 const REVEAL = 9600;
 const END = 13200;

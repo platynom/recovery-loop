@@ -40,7 +40,7 @@ export default function Why() {
           <p>The same three days for every failure, whatever caused it. No signal is consumed.</p>
 
           <h3>Why that matters more in India than elsewhere</h3>
-          <p>NPCI allows <strong>one attempt plus three retries per UPI AutoPay mandate</strong>, and those attempts are non-transferable — an attempt saved on one customer cannot be spent on another. Executions are also barred during peak windows. These caps took effect on <strong>1 August 2025</strong> under NPCI&apos;s UPI API guidelines, and the RBI rewrote India&apos;s recurring-payment rules on <strong>21 April 2026</strong> — repealing eight earlier circulars. The regime this agent is built against is under five months old. Card rails elsewhere allow far more attempts, so Western retry engines optimise a problem India does not have.</p>
+          <p>NPCI allows <strong>one attempt plus three retries per UPI AutoPay mandate</strong>, and those attempts are non-transferable — an attempt saved on one customer cannot be spent on another. Executions are also barred during peak windows. These caps took effect on <strong>1 August 2025</strong> under NPCI&apos;s UPI API guidelines, and the RBI rewrote India&apos;s recurring-payment rules on <strong>21 April 2026</strong> — repealing eight earlier circulars. The RBI framework this agent is built against is under five months old. Card rails elsewhere allow far more attempts, so Western retry engines optimise under a constraint India does not share.</p>
 
           <h3>The gap that made this worth building</h3>
           <p>Razorpay already runs the two systems a good retry policy needs, and fences both off from retries:</p>
@@ -55,29 +55,29 @@ export default function Why() {
         <section>
           <p className="eyb">01b — Is this still a problem?</p>
           <h2>Razorpay says it is. Twice.</h2>
-          <p>A fair objection to any hackathon entry is that the gap may have closed while it was being built. Two independent things say it has not.</p>
+          <p>A fair objection to any hackathon entry is that the gap may have closed while it was being built. Three independent things say it has not.</p>
 
           <h3>1. The documentation is unchanged today</h3>
           <p>Both quotes above were re-fetched from the live pages on <strong>4 September 2026</strong> — the day this was written, not weeks earlier. The T+3 ladder still stands. The Optimizer exclusion still stands. The retry documentation still contains <strong>no mention of downtime signals, issuer health, or configurable retry logic</strong>. Nothing has been fixed while this was being built.</p>
 
           <h3>2. Razorpay announced a product to fix it — and is still building it</h3>
-          <p>On <strong>12 March 2026</strong> Razorpay launched Agent Studio, described as built on Anthropic&apos;s Claude Agent SDK. Its catalogue lists an agent that is <strong>still in early access nearly six months later</strong>:</p>
+          <p>On <strong>12 March 2026</strong> Razorpay launched Agent Studio, described as built on Anthropic&apos;s Claude Agent SDK. Its catalogue still lists this as a prebuilt agent, with no general-availability or pricing page for it <strong>as of 4 September 2026</strong>:</p>
           <blockquote>
             &ldquo;<strong>Subscription Recovery</strong> — Analyzes failed subscription payments, apply smarter retry logic, and trigger targeted customer nudges.&rdquo;
-            <cite>razorpay.com/agent-studio · announced 12 March 2026 · <strong>still early access on 4 September 2026</strong></cite>
+            <cite><a href="https://razorpay.com/agent-studio/" target="_blank" rel="noreferrer">razorpay.com/agent-studio</a> · announced 12 March 2026 · <strong>catalogue checked 4 September 2026</strong></cite>
           </blockquote>
-          <p>Companies do not announce products for problems they have already solved. Six months from announcement to still-unreleased is Razorpay stating, in its own words and on its own site, that this gap is open right now.</p>
+          <p>Announced in March and still not generally available in September is a reasonable signal that the gap is open.</p>
 
           <h3>3. What they have shipped is a rule engine, not a decision system</h3>
           <p>Their UPI AutoPay &ldquo;Intelligent Revenue-Protect&rdquo;, announced the same day — <strong>12 March 2026</strong> — lets merchants &ldquo;configure their own retry strategies&rdquo; and &ldquo;define retry cadence, choose predefined templates, or create custom templates&rdquo;. That is a better calendar. Their published material for it mentions no downtime signal, no prediction, no confidence, and no attempt budgeting.</p>
-          <p className="dateline">This project does not claim Razorpay is unaware of the problem. It claims something narrower and checkable: the signals to solve it are already published, they are not wired to retries, and the parameter that decides whether refusing pays has not been measured anywhere public.</p>
+          <p className="dateline">This project does not claim Razorpay is unaware of the problem. It claims something narrower and checkable: the signals to solve it are already published, they are not wired to retries, and I could not find the parameter that decides whether refusing pays measured anywhere public.</p>
         </section>
 
         {/* DATA */}
         <section>
           <p className="eyb">02 — Where the data came from</p>
           <h2>What is real, and what is not.</h2>
-          <p>Transaction-level retry data does not exist publicly. Card network rules treat authorisation responses as confidential scheme data, and PCI-DSS makes the card token — the only key that links a retry chain — unpublishable. Every source below was checked and is labelled by tier.</p>
+          <p>I could not find transaction-level retry data published anywhere public. Card network rules treat authorisation responses as confidential scheme data, and no processor publishes retry chains at transaction level. Every source below was checked and is labelled by tier.</p>
 
           <div className="srcs">
             <article>
@@ -126,12 +126,12 @@ export default function Why() {
             <li><i>2</i><div><strong>Diagnose</strong><p>The failure is classified on the tuple <code>(error_source, error_step, error_reason)</code> — not the error code alone, which is a generic 400 bucket. An unmapped tuple is refused, never guessed.</p></div></li>
             <li><i>3</i><div><strong>Check the issuer</strong><p>Is this bank in an active outage, or declining well above its own NPCI-published baseline? This is the signal nothing currently consumes.</p></div></li>
             <li><i>4</i><div><strong>Estimate</strong><p>Recovery probability from the failure class, issuer health, elapsed time, and proximity to the customer&apos;s salary credit.</p></div></li>
-            <li><i>5</i><div><strong>Price the attempt</strong><p>With three attempts and a closing horizon, spending one now means not having it later. That opportunity cost is computed by backward induction and falls to zero at the horizon.</p></div></li>
+            <li><i>5</i><div><strong>Price the attempt</strong><p>With one attempt and three retries and a closing horizon, spending one now means not having it later. That opportunity cost is computed by backward induction and falls to zero at the horizon.</p></div></li>
             <li><i>6</i><div><strong>Act, or refuse</strong><p>Retry, wait and re-evaluate, or stop permanently. Hard stops are terminal; economic refusals are not. Every decision is logged with its inputs.</p></div></li>
           </ol>
 
           <h3>The parameter that turned out to decide the result</h3>
-          <p>How long the agent may defer before being forced to act. The first design capped it at three days — and lost on both rails. Insufficient-funds failures recover on <strong>salary day</strong>, so a three-day bound means the agent can never wait for the credit that actually funds the payment. It conserves attempts it can never spend, and roughly three thousand per cohort expire unused.</p>
+          <p>How long the agent may defer before being forced to act. The first design capped it at three days — and lost on both rails. Insufficient-funds failures cluster around <strong>salary day</strong>, so a three-day bound means the agent can never wait for the credit that actually funds the payment. It conserves attempts it can never spend, and roughly three thousand per cohort expire unused.</p>
           <p>Raise the bound past a pay cycle and the same agent, unchanged, wins on 10 of 10 held-out seeds. The cap was chosen on one set of seeds, frozen, and validated once on ten it had never seen.</p>
 
           <div className="split">
