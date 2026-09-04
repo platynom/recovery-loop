@@ -147,25 +147,44 @@ Each scalar rule was multiplied independently by 0.75 and 1.25. Salary support s
 | Post-salary recovery base | +₹1,051,017 / 10/10 | +₹1,113,929 / 10/10 |
 | Post-salary decay constant | +₹1,083,836 / 10/10 | +₹1,093,658 / 10/10 |
 | Insufficient-funds floor | +₹1,137,464 / 10/10 | +₹1,014,433 / 10/10 |
-| Technical recovery during outage | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
-| Technical recovery after clearance | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
-| Issuer-declined recovery | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
-| Authentication-failure recovery | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
-| Outage duration | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Technical recovery during outage | No effect — no authorization occurred during an active outage | No effect — no authorization occurred during an active outage |
+| Technical recovery after clearance | No paired effect — both policies moved equally | No paired effect — both policies moved equally |
+| Issuer-declined recovery | No effect — class absent from cohort | No effect — class absent from cohort |
+| Authentication-failure recovery | No effect — class absent from cohort | No effect — class absent from cohort |
+| Outage duration | No effect — no decision or attempt crossed a scaled clearance boundary | No effect — no decision or attempt crossed a scaled clearance boundary |
 | NPCI failure-class mix | +₹1,014,604 / 10/10 | +₹984,770 / 10/10 |
-| Mapped hard-decline share | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
-| Hard subtype: issuer weight | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
-| Hard subtype: authentication weight | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
-| Hard subtype: mandate-inactive weight | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
-| Hard subtype: non-retryable weight | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
-| Mandate-inactive zero | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
-| Non-retryable zero | +₹1,068,274 / 10/10 | +₹1,068,274 / 10/10 |
+| Mapped hard-decline share | No effect — published base produced zero mapped-hard events | No effect — published base produced zero mapped-hard events |
+| Hard subtype: issuer weight | No effect — mapped-hard class absent | No effect — mapped-hard class absent |
+| Hard subtype: authentication weight | No effect — mapped-hard class absent | No effect — mapped-hard class absent |
+| Hard subtype: mandate-inactive weight | No effect — mapped-hard class absent | No effect — mapped-hard class absent |
+| Hard subtype: non-retryable weight | No effect — mapped-hard class absent | No effect — mapped-hard class absent |
+| Mandate-inactive zero | No effect — class absent; multiplicative zero remains zero | No effect — class absent; multiplicative zero remains zero |
+| Non-retryable zero | No effect — class absent; multiplicative zero remains zero | No effect — class absent; multiplicative zero remains zero |
 
-**The UPI win survives every independent ±25% perturbation.** The least favourable one-at-a-time row is a 25% reduction in salary-day recovery: +₹911,807 mean paired net, with all ten seeds positive and a +₹727,826 to +₹1,027,412 spread. No tested perturbation changes the sign, so a smallest sign-changing perturbation is not identified within ±25%.
+Fourteen of the 38 independent perturbation rows actually change the paired result to the nearest rupee; all 14 remain positive in 10/10 seeds. The least favourable moved row is a 25% reduction in salary-day recovery: +₹911,807 mean paired net, with all ten seeds positive and a +₹727,826 to +₹1,027,412 spread. No moved row changes the sign, so a smallest sign-changing perturbation is not identified within ±25%. The other 24 rows are not counted as robustness evidence: 22 leave both policy totals unchanged, while the two post-clearance technical rows change both policies equally and therefore cancel in the paired contrast.
 
-The mapped hard-share and hard-subtype rows are inert because these ten calibrated cohorts contain 19,654 insufficient-funds events and 346 technical events, but zero mapped hard-decline events. That is a coverage limitation, not evidence that those assumptions are harmless.
+The technical factors do propagate. Changing post-clearance recovery from 0.76 to 0.57 lowers each policy's mean net by ₹4,923.65; changing it to 0.95 raises each by ₹233.53. The paired difference is unchanged because both policies attempt the same 346 technical events at the same times. Of those events, 51 begin in an outage, but neither policy authorizes during the active window and the ±25% duration changes do not cross a decision or attempt boundary. The mapped hard-share and subtype rows are unexercised because these cohorts contain 19,654 insufficient-funds events, 346 technical events, and zero mapped-hard events. None of these unchanged rows is evidence of robustness to that rule.
 
-For the combined worst case, every non-invariant rule was set to whichever ±25% direction had the lower one-at-a-time mean; ties use −25%. The combined result is **+₹1,085,508 mean paired net, 10/10 positive seeds**, range +₹1,027,087 to +₹1,171,469. It therefore preserves the sign, although interactions make it less adverse than the weakest single row. Full per-seed evidence and the chosen directions are in `ground-truth-sensitivity-14d-validation.json`.
+The first combined calculation incorrectly chose the lower of two directions even when neither was adverse; its +₹1,085,508 result is superseded. The corrected direction audit is:
+
+| Rule | Combined direction |
+|---|---|
+| Salary-date support | Baseline — both perturbations increase advantage |
+| Salary-day probability | −25% |
+| First-three-days decay | +25% |
+| Post-salary base | −25% |
+| Post-salary decay constant | Baseline — both perturbations increase advantage |
+| Insufficient-funds floor | +25% |
+| Technical during outage | Baseline — no paired effect |
+| Technical after clearance | Baseline — symmetric paired cancellation |
+| Issuer-declined recovery | Baseline — class absent |
+| Authentication-failure recovery | Baseline — class absent |
+| Outage duration | Baseline — no timing boundary crossed |
+| NPCI failure-class mix | +25% technical odds |
+| Mapped hard share | Baseline — class absent |
+| Each of four hard-subtype weights | Baseline — class absent |
+
+Only independently adverse directions enter the corrected combined case. It yields **+₹720,091 mean paired net, 10/10 positive seeds**, range +₹653,050 to +₹815,793. The true tested combined worst case therefore remains positive in every seed. Full per-seed evidence and the direction audit are in `ground-truth-sensitivity-14d-validation.json`.
 
 ## Superseded results retained for auditability
 

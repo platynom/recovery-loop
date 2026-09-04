@@ -77,7 +77,16 @@ test('recording narratives agree with final evidence and external benchmarks', a
   assert.equal(frozenSensitivity.signFlipsAtTwentyFivePercent.length, 0);
   assert.equal(frozenSensitivity.combinedWorstCase.result.positiveSeeds, 10);
   assert.ok(frozenSensitivity.combinedWorstCase.result.pairedNetDifference.mean > 0);
-  for (const value of ['₹911,807', '₹1,085,508', '19,654', '346']) {
+  assert.equal(frozenSensitivity.summary.filter((row) => row.rule && row.pairedResultMoved).length, 14);
+  assert.equal(frozenSensitivity.summary.filter((row) => row.rule && !row.pairedResultMoved && row.policyOutcomesMoved).length, 2);
+  assert.deepEqual(frozenSensitivity.combinedWorstCase.factors, {
+    salary_peak_probability: 0.75,
+    salary_daily_decay: 1.25,
+    post_salary_base_probability: 0.75,
+    insufficient_funds_floor: 1.25,
+    failure_class_mix: 1.25,
+  });
+  for (const value of ['₹911,807', '₹720,091', '19,654', '346']) {
     assert.ok(results.includes(value), `results missing frozen-cap sensitivity value ${value}`);
     assert.ok(limitations.includes(value), `limitations missing frozen-cap sensitivity value ${value}`);
   }

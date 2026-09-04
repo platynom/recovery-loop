@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T06:17:49.579Z",
+  "generatedAt": "2026-09-04T10:12:05.554Z",
   "design": "UPI-only authored-ground-truth sensitivity at the frozen 14-day cap on the ten held-out validation seeds. Each listed rule is perturbed independently by -25% and +25%; policy parameters remain frozen.",
   "rail": "UPI AutoPay",
   "maxDeferralDays": 14,
@@ -185,7 +185,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "salary_date_support_0.75",
@@ -254,7 +256,9 @@
         "min": 1278225.11,
         "max": 1472139.22
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "salary_date_support_1.25",
@@ -323,7 +327,9 @@
         "min": 1137691.37,
         "max": 1332984.88
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "salary_peak_probability_0.75",
@@ -392,7 +398,9 @@
         "min": 1469007.09,
         "max": 1631320.13
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "salary_peak_probability_1.25",
@@ -461,7 +469,9 @@
         "min": 1896131.03,
         "max": 2103132.2
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "salary_daily_decay_0.75",
@@ -530,7 +540,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "salary_daily_decay_1.25",
@@ -599,7 +611,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "post_salary_base_probability_0.75",
@@ -668,7 +682,9 @@
         "min": 1563829.37,
         "max": 1773216.51
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "post_salary_base_probability_1.25",
@@ -737,7 +753,9 @@
         "min": 1819092.54,
         "max": 1996976.5
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "post_salary_decay_days_0.75",
@@ -806,7 +824,9 @@
         "min": 1562228.85,
         "max": 1778481.44
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "post_salary_decay_days_1.25",
@@ -875,7 +895,9 @@
         "min": 1800922.77,
         "max": 1985374.44
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "insufficient_funds_floor_0.75",
@@ -944,7 +966,9 @@
         "min": 1572790.29,
         "max": 1765220.09
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "insufficient_funds_floor_1.25",
@@ -1013,7 +1037,9 @@
         "min": 1798646.28,
         "max": 1998007.16
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "technical_during_outage_probability_0.75",
@@ -1082,7 +1108,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "technical_during_outage_probability_1.25",
@@ -1151,7 +1179,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "technical_after_clearance_probability_0.75",
@@ -1220,7 +1250,9 @@
         "min": 1681771.75,
         "max": 1878752.7
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "technical_after_clearance_probability_1.25",
@@ -1289,7 +1321,9 @@
         "min": 1687633.23,
         "max": 1885854.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "issuer_declined_probability_0.75",
@@ -1358,7 +1392,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "issuer_declined_probability_1.25",
@@ -1427,7 +1463,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "authentication_failure_probability_0.75",
@@ -1496,7 +1534,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "authentication_failure_probability_1.25",
@@ -1565,7 +1605,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "outage_duration_0.75",
@@ -1634,7 +1676,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "outage_duration_1.25",
@@ -1703,7 +1747,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "failure_class_mix_0.75",
@@ -1772,7 +1818,9 @@
         "min": 1640618.32,
         "max": 1858040.88
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "failure_class_mix_1.25",
@@ -1841,7 +1889,9 @@
         "min": 1703295.09,
         "max": 1959625.05
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": true,
+      "policyOutcomesMoved": true
     },
     {
       "scenario": "mapped_hard_decline_share_0.75",
@@ -1910,7 +1960,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "mapped_hard_decline_share_1.25",
@@ -1979,7 +2031,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "hard_subtype_issuer_weight_0.75",
@@ -2048,7 +2102,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "hard_subtype_issuer_weight_1.25",
@@ -2117,7 +2173,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "hard_subtype_authentication_weight_0.75",
@@ -2186,7 +2244,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "hard_subtype_authentication_weight_1.25",
@@ -2255,7 +2315,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "hard_subtype_mandate_inactive_weight_0.75",
@@ -2324,7 +2386,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "hard_subtype_mandate_inactive_weight_1.25",
@@ -2393,7 +2457,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "hard_subtype_non_retryable_weight_0.75",
@@ -2462,7 +2528,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "hard_subtype_non_retryable_weight_1.25",
@@ -2531,7 +2599,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "mandate_inactive_probability_0.75",
@@ -2600,7 +2670,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "mandate_inactive_probability_1.25",
@@ -2669,7 +2741,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "non_retryable_probability_0.75",
@@ -2738,7 +2812,9 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     },
     {
       "scenario": "non_retryable_probability_1.25",
@@ -2807,31 +2883,125 @@
         "min": 1687615.23,
         "max": 1885838.54
       },
-      "reversesBaselineSign": false
+      "reversesBaselineSign": false,
+      "pairedResultMoved": false,
+      "policyOutcomesMoved": false
     }
   ],
   "signFlipsAtTwentyFivePercent": [],
   "smallestTestedSignChangingPerturbation": null,
   "combinedWorstCase": {
-    "selectionMethod": "For each non-invariant rule, use whichever of its independent ±25% rows produced the lower mean paired net difference; ties choose -25%.",
+    "selectionMethod": "Include a perturbation only if its independent ±25% row reduces mean paired advantage below baseline; choose the lower adverse direction. Rules for which neither direction is adverse remain at factor 1.",
+    "directionAudit": [
+      {
+        "rule": "salary_date_support",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      },
+      {
+        "rule": "salary_peak_probability",
+        "factor": 0.75,
+        "direction": "-25%",
+        "independentMean": 911806.7059999999
+      },
+      {
+        "rule": "salary_daily_decay",
+        "factor": 1.25,
+        "direction": "+25%",
+        "independentMean": 1059078.1690000002
+      },
+      {
+        "rule": "post_salary_base_probability",
+        "factor": 0.75,
+        "direction": "-25%",
+        "independentMean": 1051016.6019999997
+      },
+      {
+        "rule": "post_salary_decay_days",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      },
+      {
+        "rule": "insufficient_funds_floor",
+        "factor": 1.25,
+        "direction": "+25%",
+        "independentMean": 1014432.684
+      },
+      {
+        "rule": "technical_during_outage_probability",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      },
+      {
+        "rule": "technical_after_clearance_probability",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      },
+      {
+        "rule": "issuer_declined_probability",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      },
+      {
+        "rule": "authentication_failure_probability",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      },
+      {
+        "rule": "outage_duration",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      },
+      {
+        "rule": "failure_class_mix",
+        "factor": 1.25,
+        "direction": "+25%",
+        "independentMean": 984770.3659999998
+      },
+      {
+        "rule": "mapped_hard_decline_share",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      },
+      {
+        "rule": "hard_subtype_issuer_weight",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      },
+      {
+        "rule": "hard_subtype_authentication_weight",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      },
+      {
+        "rule": "hard_subtype_mandate_inactive_weight",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      },
+      {
+        "rule": "hard_subtype_non_retryable_weight",
+        "factor": 1,
+        "direction": "baseline; neither perturbation reduced the paired advantage",
+        "independentMean": 1068274.229
+      }
+    ],
     "factors": {
-      "salary_date_support": 0.75,
       "salary_peak_probability": 0.75,
       "salary_daily_decay": 1.25,
       "post_salary_base_probability": 0.75,
-      "post_salary_decay_days": 0.75,
       "insufficient_funds_floor": 1.25,
-      "technical_during_outage_probability": 0.75,
-      "technical_after_clearance_probability": 0.75,
-      "issuer_declined_probability": 0.75,
-      "authentication_failure_probability": 0.75,
-      "outage_duration": 0.75,
-      "failure_class_mix": 1.25,
-      "mapped_hard_decline_share": 0.75,
-      "hard_subtype_issuer_weight": 0.75,
-      "hard_subtype_authentication_weight": 0.75,
-      "hard_subtype_mandate_inactive_weight": 0.75,
-      "hard_subtype_non_retryable_weight": 0.75
+      "failure_class_mix": 1.25
     },
     "result": {
       "scenario": "combined_worst_case",
@@ -2839,82 +3009,70 @@
       "factor": null,
       "perturbation": {
         "factors": {
-          "salary_date_support": 0.75,
           "salary_peak_probability": 0.75,
           "salary_daily_decay": 1.25,
           "post_salary_base_probability": 0.75,
-          "post_salary_decay_days": 0.75,
           "insufficient_funds_floor": 1.25,
-          "technical_during_outage_probability": 0.75,
-          "technical_after_clearance_probability": 0.75,
-          "issuer_declined_probability": 0.75,
-          "authentication_failure_probability": 0.75,
-          "outage_duration": 0.75,
-          "failure_class_mix": 1.25,
-          "mapped_hard_decline_share": 0.75,
-          "hard_subtype_issuer_weight": 0.75,
-          "hard_subtype_authentication_weight": 0.75,
-          "hard_subtype_mandate_inactive_weight": 0.75,
-          "hard_subtype_non_retryable_weight": 0.75
+          "failure_class_mix": 1.25
         }
       },
       "pairedNetDifference": {
-        "mean": 1085508.058,
-        "min": 1027086.6199999999,
-        "max": 1171469.25
+        "mean": 720091.3729999999,
+        "min": 653049.5999999999,
+        "max": 815793.2699999998
       },
       "positiveSeeds": 10,
       "perSeedPairedNetDifference": [
         {
           "seed": 20260906,
-          "difference": 1033078.77
+          "difference": 654314.4400000002
         },
         {
           "seed": 20260907,
-          "difference": 1080082.67
+          "difference": 697751.3599999999
         },
         {
           "seed": 20260908,
-          "difference": 1101191.09
+          "difference": 735864.98
         },
         {
           "seed": 20260909,
-          "difference": 1027086.6199999999
+          "difference": 783084.0800000001
         },
         {
           "seed": 20260910,
-          "difference": 1137071.62
+          "difference": 789989.7700000003
         },
         {
           "seed": 20260911,
-          "difference": 1092245.36
+          "difference": 683396.97
         },
         {
           "seed": 20260912,
-          "difference": 1146426.4300000002
+          "difference": 653049.5999999999
         },
         {
           "seed": 20260913,
-          "difference": 1027965.9999999998
+          "difference": 678560.2699999998
         },
         {
           "seed": 20260914,
-          "difference": 1038462.7699999998
+          "difference": 709108.99
         },
         {
           "seed": 20260915,
-          "difference": 1171469.25
+          "difference": 815793.2699999998
         }
       ],
       "recoveryLoopNetRevenue": {
-        "mean": 2256607.416,
-        "min": 2110874.01,
-        "max": 2346786.66
+        "mean": 2276255.305,
+        "min": 2117231.52,
+        "max": 2394585.99
       },
       "fixedLadderNetRevenue": {
-        "mean": 1171099.358,
-        "min": 1072411.24,
-        "max": 1315044.8
+        "mean": 1556163.932,
+        "min": 1408122.53,
+        "max": 1715072.86
       },
       "reversesBaselineSign": false
     }

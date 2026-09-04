@@ -88,14 +88,28 @@ const perSeed = await runPool(jobs);
 const summary = scenarios.map((scenario) => priorByScenario.get(scenario.name)
   ?? summarize(scenario, perSeed.filter((row) => row.scenario === scenario.name)));
 const baseline = summary.find((row) => row.scenario === 'baseline');
-for (const row of summary) row.reversesBaselineSign = Math.sign(row.pairedNetDifference.mean) !== Math.sign(baseline.pairedNetDifference.mean);
+const sameRupee = (left, right) => Math.round(left) === Math.round(right);
+for (const row of summary) {
+  row.reversesBaselineSign = Math.sign(row.pairedNetDifference.mean) !== Math.sign(baseline.pairedNetDifference.mean);
+  row.pairedResultMoved = !sameRupee(row.pairedNetDifference.mean, baseline.pairedNetDifference.mean);
+  row.policyOutcomesMoved = !sameRupee(row.recoveryLoopNetRevenue.mean, baseline.recoveryLoopNetRevenue.mean)
+    || !sameRupee(row.fixedLadderNetRevenue.mean, baseline.fixedLadderNetRevenue.mean);
+}
 
 const activeRules = rules.filter((rule) => !rule.invariantUnderMultiplication);
-const leastFavourableFactors = Object.fromEntries(activeRules.map((rule) => {
+const directionAudit = activeRules.map((rule) => {
   const candidates = summary.filter((row) => row.rule === rule.id);
   candidates.sort((a, b) => a.pairedNetDifference.mean - b.pairedNetDifference.mean || a.factor - b.factor);
-  return [rule.id, candidates[0].factor];
-}));
+  const adverse = !sameRupee(candidates[0].pairedNetDifference.mean, baseline.pairedNetDifference.mean)
+    && candidates[0].pairedNetDifference.mean < baseline.pairedNetDifference.mean;
+  return {
+    rule: rule.id,
+    factor: adverse ? candidates[0].factor : 1,
+    direction: adverse ? (candidates[0].factor < 1 ? '-25%' : '+25%') : 'baseline; neither perturbation reduced the paired advantage',
+    independentMean: adverse ? candidates[0].pairedNetDifference.mean : baseline.pairedNetDifference.mean,
+  };
+});
+const leastFavourableFactors = Object.fromEntries(directionAudit.filter((row) => row.factor !== 1).map((row) => [row.rule, row.factor]));
 const combinedScenario = {
   name: 'combined_worst_case',
   rule: 'all_authored_rules',
@@ -119,7 +133,8 @@ const output = {
   signFlipsAtTwentyFivePercent: signFlips.map((row) => ({ rule: row.rule, factor: row.factor, pairedNetDifference: row.pairedNetDifference, positiveSeeds: row.positiveSeeds })),
   smallestTestedSignChangingPerturbation: signFlips.length ? 'At most 25%; only the registered ±25% points were evaluated.' : null,
   combinedWorstCase: {
-    selectionMethod: 'For each non-invariant rule, use whichever of its independent ±25% rows produced the lower mean paired net difference; ties choose -25%.',
+    selectionMethod: 'Include a perturbation only if its independent ±25% row reduces mean paired advantage below baseline; choose the lower adverse direction. Rules for which neither direction is adverse remain at factor 1.',
+    directionAudit,
     factors: leastFavourableFactors,
     result: combinedWorstCase,
   },
