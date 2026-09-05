@@ -157,6 +157,18 @@ export default function Why() {
         </section>
 
         <section>
+          <p className="eyb">04</p>
+          <h2>What this does not do yet</h2>
+          <p>Real merchant outcome logs would make the next stage possible: learning from actual retry outcomes, validating cards, and testing recovery in production.</p>
+          <h3>A learned policy, with merchant evidence.</h3>
+          <p>The predictor is deliberately rule-based and the scheduler uses expected-value arithmetic. Training only on an authored simulator could optimise its assumptions; that would not establish a real-world improvement. With permissioned merchant logs, a budgeted contextual bandit is a possible next step: retry windows are the choices, each execution keeps its own limited retry allowance, and recovered revenue minus actual attempt costs provides the reward. The mandate-local pricing model provides a starting point for opportunity-cost accounting; sequential effects and selection bias would still need validation.</p>
+          <h3>Resolve the cards result.</h3>
+          <p>This project has not found a suitable public Indian card-authorisation decline baseline. Cards therefore remains uncalibrated and inconclusive at six of ten seeds. Merchant or card-network decline and retry-outcome data would support calibration and a new independent evaluation, not guarantee a win.</p>
+          <h3>Validate with a controlled live test.</h3>
+          <p>The project is locked to Razorpay test mode. With merchant permission and production safeguards, the next proof would be an A/B test against an agreed baseline, such as the fixed T+1/T+2/T+3 ladder where applicable. Measure total net recovered revenue alongside revenue per attempt, while enforcing execution limits and hard stops. No live trial has been run.</p>
+        </section>
+
+        <section>
           <h2>See it decide.</h2>
           <p>The console runs the same policy on a live decision stream. Take a bank down and watch pending retries become deferrals.</p>
           <div className="cta" style={{ justifyContent: 'flex-start', marginTop: 22 }}>

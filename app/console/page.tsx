@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 type LoadState = 'loading' | 'ready' | 'empty' | 'error';
-type Screen = 'inspector' | 'stream' | 'budget' | 'health' | 'comparison';
+type Screen = 'inspector' | 'stream' | 'budget' | 'health' | 'comparison' | 'future';
 type Spread = { mean: number; min: number; max: number };
 type PolicyEvidence = {
   name: string;
@@ -49,6 +49,7 @@ const screens: { id: Screen; label: string; eyebrow: string }[] = [
   { id: 'budget', label: 'Attempt budget', eyebrow: 'See attempts strand' },
   { id: 'health', label: 'Issuer health', eyebrow: 'Inject an outage' },
   { id: 'comparison', label: 'Policy comparison', eyebrow: 'Efficiency and revenue' },
+  { id: 'future', label: 'Future improvements', eyebrow: 'What merchant data unlocks' },
 ];
 
 const inr = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
@@ -139,7 +140,7 @@ export default function Home() {
     </aside>
 
     <section className="workspace">
-      <header className="topbar"><div><p>Razorpay Buildathon · final evidence</p><h1>{screens.find((item) => item.id === screen)?.label}</h1></div><div className="source-key"><EvidenceTag tone="simulated">Simulated</EvidenceTag><EvidenceTag>NPCI-calibrated</EvidenceTag></div></header>
+      <header className="topbar"><div><p>Razorpay Buildathon · final evidence</p><h1>{screens.find((item) => item.id === screen)?.label}</h1></div><div className="source-key">{screen === 'future' ? <EvidenceTag tone="simulated">Proposed · not implemented</EvidenceTag> : <><EvidenceTag tone="simulated">Simulated</EvidenceTag><EvidenceTag>NPCI-calibrated</EvidenceTag></>}</div></header>
 
       {screen === 'inspector' && <section className="screen">
         <div className="screen-intro"><div><p className="eyebrow">Runtime policy output</p><h2>One decision, fully exposed.</h2><p>Probability, opportunity cost, safety gate, and action come from the runtime policy response.</p></div><EvidenceTag tone="simulated">Simulated event</EvidenceTag></div>
@@ -188,6 +189,14 @@ export default function Home() {
           const pairedRange = `${inr.format(data.pairedNetDifference.min)} to ${inr.format(data.pairedNetDifference.max)}`;
           return <article className="comparison-card compact-comparison" key={data.rail}><div className="card-head"><div><p className="eyebrow">{label}</p><h3>{ratio.toFixed(1)}× gross efficiency</h3></div><EvidenceTag tone={tag === 'Simulated' ? 'simulated' : 'calibrated'}>{tag}</EvidenceTag></div><div className="comparison-pair"><section><p>Gross rupees / attempt</p><div><span>Recovery Loop</span><strong>{inr.format(recoveryEfficiency)}</strong></div><div><span>Fixed ladder</span><strong>{inr.format(ladderEfficiency)}</strong></div><em>Recovery Loop / ladder: {ratio.toFixed(1)}×</em></section><section><p>Total gross revenue</p><div><span>Recovery Loop</span><strong>{inr.format(recovery.grossRevenue.mean)}</strong></div><div><span>Fixed ladder</span><strong>{inr.format(ladder.grossRevenue.mean)}</strong></div><em>{validationSummary}</em></section></div><footer><span>Paired net difference</span><strong className={data.pairedNetDifference.mean >= 0 ? 'pos' : ''}>{data.pairedNetDifference.mean >= 0 ? '+' : '−'}{inr.format(data.pairedNetDifference.mean)}</strong><small>Validation range: {pairedRange}</small></footer></article>;
         })}</div>}
+      </section>}
+      {screen === 'future' && <section className="screen">
+        <div className="screen-intro"><div><p className="eyebrow">What merchant data unlocks</p><h2>A path from simulation to merchant evidence.</h2><p>These are possible next steps, not completed capabilities or promised gains. They require permissioned outcome logs and independent validation.</p></div></div>
+        <div className="rail-grid">
+          <article className="capture-note"><h3>Learn from real outcomes.</h3><p>The predictor is rule-based and the scheduler uses expected-value arithmetic. Training only on our own simulator could optimise its assumptions without proving a merchant benefit.</p><p>With real logs, a budgeted contextual bandit could learn which retry windows work: windows are the choices, each execution retains its own retry allowance, and recovered revenue minus actual attempt costs is the reward. Mandate-local pricing provides a starting point for opportunity-cost accounting; sequential effects and selection bias still need validation.</p></article>
+          <article className="capture-note"><h3>Resolve the cards result.</h3><p>We have not found a suitable public Indian card-authorisation decline baseline. Cards remains uncalibrated and inconclusive in the held-out evaluation.</p><p>Merchant or card-network logs with decline reasons, issuer, attempt times and eventual outcomes could support calibration and an independent evaluation. More evidence could change the conclusion in either direction.</p></article>
+          <article className="capture-note"><h3>Run a controlled live trial.</h3><p>The project is locked to test mode. Merchant approval and production safeguards would be required before an A/B test against an agreed baseline, such as the fixed ladder where applicable.</p><p>Measure total net recovered revenue alongside revenue per attempt, preserving execution limits and hard stops. No live trial has been run.</p></article>
+        </div>
       </section>}
     </section>
   </main>;
