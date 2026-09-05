@@ -19,8 +19,8 @@ export default function Why() {
       <header className="doc-hero">
         <p className="eyb">The case</p>
         <h1>Why this problem, where the<br />data came from, and how it&apos;s solved.</h1>
-        <p>Recovery Loop was not chosen because retries are interesting. It was chosen because Razorpay publishes every signal needed to retry well, and none of it reaches the retry scheduler.</p>
-        <p className="dateline"><strong>Still open as of 4 September 2026.</strong> Every claim below was re-checked against the live pages on that date, not taken from an earlier reading. Razorpay&apos;s documentation carries no publication date, so where a page is quoted it is also archived as a dated screenshot in the repository — the quote can be checked against the live page today.</p>
+        <p>Recovery Loop investigates whether failure reasons and issuer health can improve retry timing under per-mandate limits. It does not claim access to Razorpay&apos;s internal retry implementation.</p>
+        <p className="dateline">The routing documentation establishes a limitation on subsequent recurring debits. It does not prove that issuer-health signals are absent from every Razorpay retry system.</p>
       </header>
 
       <div className="doc">
@@ -37,40 +37,40 @@ export default function Why() {
             &ldquo;In a T+3 days cycle, we will retry the payment thrice. That is, once every day for 3 days, excluding the date of the charge.&rdquo; — after which the subscription moves to <code>halted</code>.
             <cite><a href="https://razorpay.com/docs/payments/subscriptions/payment-retries/" target="_blank" rel="noreferrer">razorpay.com/docs/payments/subscriptions/payment-retries/</a> · <strong>still live and quoted verbatim, 4 September 2026</strong> · <a href="https://github.com/platynom/recovery-loop/tree/master/docs/recording-assets" target="_blank" rel="noreferrer">archived screenshot</a></cite>
           </blockquote>
-          <p>The same three days for every failure, whatever caused it. No signal is consumed.</p>
+          <p>This documented calendar is the evaluation baseline. A published schedule alone does not establish which internal signals a production system consumes.</p>
 
           <h3>Why that matters more in India than elsewhere</h3>
           <p>NPCI allows <strong>one attempt plus three retries per UPI AutoPay mandate</strong>, and those attempts are non-transferable — an attempt saved on one customer cannot be spent on another. Executions are also barred during peak windows. These caps took effect on <strong>1 August 2025</strong> under NPCI&apos;s UPI API guidelines, and the RBI rewrote India&apos;s recurring-payment rules on <strong>21 April 2026</strong> — repealing eight earlier circulars. The RBI framework this agent is built against is under five months old. Card rails elsewhere allow far more attempts, so Western retry engines optimise under a constraint India does not share.</p>
 
           <h3>The gap that made this worth building</h3>
-          <p>Razorpay already runs the two systems a good retry policy needs, and fences both off from retries:</p>
+          <p>Razorpay documents a specific limitation on Optimizer rules for recurring payments:</p>
           <blockquote>
             &ldquo;Optimizer rules apply only for the first-time registration payment. All subsequent debits happen on the same terminal used for registration payment. Optimizer Rules will not be applicable for subsequent payments.&rdquo;
             <cite><a href="https://razorpay.com/docs/payments/optimizer/recurring-payments/" target="_blank" rel="noreferrer">razorpay.com/docs/payments/optimizer/recurring-payments/</a> · <strong>still live and quoted verbatim, 4 September 2026</strong></cite>
           </blockquote>
-          <p>Their Payment Downtime API detects issuer outages and is advisory only — the merchant is told, and decides alone. So a retry can fire straight into an outage Razorpay itself has already published.</p>
+          <p>That restriction concerns gateway routing. Recovery Loop explores a related but different decision: when to retry, using failure reasons and issuer-health inputs. It does not demonstrate that Razorpay&apos;s own retries ignore downtime.</p>
         </section>
 
         {/* STILL OPEN */}
         <section>
           <p className="eyb">01b — Is this still a problem?</p>
-          <h2>Razorpay says it is. Twice.</h2>
-          <p>A fair objection to any hackathon entry is that the gap may have closed while it was being built. Three independent things say it has not.</p>
+          <h2>What the documentation establishes.</h2>
+          <p>Published product descriptions motivate the experiment, but do not establish the absence of an internal capability.</p>
 
-          <h3>1. The documentation is unchanged today</h3>
-          <p>Both quotes above were re-fetched from the live pages on <strong>4 September 2026</strong> — the day this was written, not weeks earlier. The T+3 ladder still stands. The Optimizer exclusion still stands. The retry documentation still contains <strong>no mention of downtime signals, issuer health, or configurable retry logic</strong>. Nothing has been fixed while this was being built.</p>
+          <h3>1. Routing is different from retry timing</h3>
+          <p>The <a href="https://razorpay.com/docs/payments/optimizer/dynamic-routing/" target="_blank" rel="noreferrer">Priority-based Routing section</a> describes temporary gateway downtimes lasting twenty minutes when success rates fall below a threshold. Traffic moves to another gateway. Twenty minutes is the downtime duration, not a guaranteed detection or reaction time.</p>
 
-          <h3>2. Razorpay announced a product to fix it — and is still building it</h3>
-          <p>On <strong>12 March 2026</strong> Razorpay launched Agent Studio, described as built on Anthropic&apos;s Claude Agent SDK. Its catalogue still lists this as a prebuilt agent, with no general-availability or pricing page for it <strong>as of 4 September 2026</strong>:</p>
+          <h3>2. Subscription recovery is also a vendor product area</h3>
+          <p>The project&apos;s archived Agent Studio reference describes a Subscription Recovery agent. That listing is not evidence that the capability is unavailable:</p>
           <blockquote>
             &ldquo;<strong>Subscription Recovery</strong> — Analyzes failed subscription payments, apply smarter retry logic, and trigger targeted customer nudges.&rdquo;
             <cite><a href="https://razorpay.com/agent-studio/" target="_blank" rel="noreferrer">razorpay.com/agent-studio</a> · announced 12 March 2026 · <strong>catalogue checked 4 September 2026</strong></cite>
           </blockquote>
-          <p>Announced in March and still not generally available in September is a reasonable signal that the gap is open.</p>
+          <p>Recovery Loop is an independently evaluated prototype, not proof of a missing vendor product.</p>
 
-          <h3>3. What they have shipped is a rule engine, not a decision system</h3>
-          <p>Their UPI AutoPay &ldquo;Intelligent Revenue-Protect&rdquo;, announced the same day — <strong>12 March 2026</strong> — lets merchants &ldquo;configure their own retry strategies&rdquo; and &ldquo;define retry cadence, choose predefined templates, or create custom templates&rdquo;. That is a better calendar. Their published material for it mentions no downtime signal, no prediction, no confidence, and no attempt budgeting.</p>
-          <p className="dateline">This project does not claim Razorpay is unaware of the problem. It claims something narrower and checkable: the signals to solve it are already published, they are not wired to retries, and I could not find the parameter that decides whether refusing pays measured anywhere public.</p>
+          <h3>3. The question this experiment tests</h3>
+          <p>Under the stated simulation assumptions, does choosing retry times using failure reasons, issuer health and per-mandate opportunity cost improve recovery against a fixed ladder?</p>
+          <p className="dateline">The results answer that experimental question. They do not audit Razorpay&apos;s internal scheduler or establish that no comparable production system exists.</p>
         </section>
 
         {/* DATA */}
@@ -124,7 +124,7 @@ export default function Why() {
           <ol className="flow">
             <li><i>1</i><div><strong>Ingest</strong><p>Razorpay <code>payment.failed</code> and <code>payment.downtime.*</code> webhooks, HMAC-verified. Raw payloads are stored untouched.</p></div></li>
             <li><i>2</i><div><strong>Diagnose</strong><p>The failure is classified on the tuple <code>(error_source, error_step, error_reason)</code> — not the error code alone, which is a generic 400 bucket. An unmapped tuple is refused, never guessed.</p></div></li>
-            <li><i>3</i><div><strong>Check the issuer</strong><p>Is this bank in an active outage, or declining well above its own NPCI-published baseline? This is the signal nothing currently consumes.</p></div></li>
+            <li><i>3</i><div><strong>Check the issuer</strong><p>Is this bank in an active outage, or declining well above its own baseline? Recovery Loop uses these inputs to evaluate whether to defer.</p></div></li>
             <li><i>4</i><div><strong>Estimate</strong><p>Recovery probability from the failure class, issuer health, elapsed time, and proximity to the customer&apos;s salary credit.</p></div></li>
             <li><i>5</i><div><strong>Price the attempt</strong><p>With one attempt and three retries and a closing horizon, spending one now means not having it later. That opportunity cost is computed by backward induction and falls to zero at the horizon.</p></div></li>
             <li><i>6</i><div><strong>Act, or refuse</strong><p>Retry, wait and re-evaluate, or stop permanently. Hard stops are terminal; economic refusals are not. Every decision is logged with its inputs.</p></div></li>

@@ -162,12 +162,12 @@ export default function Landing({ sweep }: { sweep: Sweep }) {
       {/* PROBLEM */}
       <section>
         <p className="eyb rv">The problem</p>
-        <h2 className="rv">Three systems that never talk to each other.</h2>
-        <p className="lede rv">Every signal needed to retry intelligently already exists inside Razorpay. None of it reaches the retry scheduler.</p>
+        <h2 className="rv">Retry timing, limited attempts, and issuer health.</h2>
+        <p className="lede rv">Recovery Loop investigates whether failure reasons and issuer health can improve a fixed-calendar retry baseline. Public documentation does not establish every signal Razorpay uses internally.</p>
         <div className="prob">
           <article className="rv"><i>01</i><h3>A fixed calendar</h3><p>Subscription charges retry at T+1, T+2 and T+3, then the mandate halts. The same three days for every failure, whatever caused it.</p></article>
           <article className="rv"><i>02</i><h3>A hard budget</h3><p>NPCI allows one attempt plus three retries per UPI AutoPay mandate. Non-transferable — an attempt saved on one customer cannot be spent on another.</p></article>
-          <article className="rv"><i>03</i><h3>An unused signal</h3><p>Razorpay publishes a live issuer-downtime feed and runs an ML router that, <a href="https://razorpay.com/docs/payments/optimizer/dynamic-routing/" target="_blank" rel="noreferrer">by their own documentation</a>, reroutes within twenty minutes of a gateway degrading. Neither is wired to retries.</p></article>
+          <article className="rv"><i>03</i><h3>A routing limitation</h3><p>Razorpay&apos;s <a href="https://razorpay.com/docs/payments/optimizer/dynamic-routing/" target="_blank" rel="noreferrer">Priority-based Routing documentation</a> describes temporary gateway downtimes lasting twenty minutes when success rates drop, with traffic routed to another gateway. This is a downtime duration, not a response-time guarantee. Its <a href="https://razorpay.com/docs/payments/optimizer/recurring-payments/" target="_blank" rel="noreferrer">Recurring Payments warning</a> says Optimizer rules apply to registration, not subsequent debits.</p></article>
         </div>
       </section>
 

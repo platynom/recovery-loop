@@ -6,7 +6,7 @@ The quoted paragraphs below are the words to say. Directions in italics are reco
 
 *On screen: the local Razorpay Payment Retries capture at `docs/recording-assets/razorpay-payment-retries-2026-08-29.png`. Keep the `pending`, automatic retry, and `halted` flow visible. Show the caption `Live documentation screenshot · captured 29 August 2026`.*
 
-> “When a subscription payment fails in India, Razorpay retries it on day one, day two, day three, and then gives up. Same three days for everyone, whatever went wrong. Meanwhile Razorpay publishes a live feed of which banks are down, and runs a machine-learning router that reacts to a failing gateway inside twenty minutes. Neither of those is connected to the retry scheduler. I wanted to know what connecting them was worth.”
+> “Our baseline retries failed subscription payments on days one, two and three. Razorpay also documents performance-aware gateway routing, with temporary downtimes lasting twenty minutes—not a twenty-minute reaction guarantee. Its recurring-payment warning says Optimizer rules apply to registration, not subsequent debits. That does not reveal every internal retry signal. I wanted to test whether failure reasons and issuer health could improve retry timing.”
 
 ## 0:35–1:05 — The constraint
 

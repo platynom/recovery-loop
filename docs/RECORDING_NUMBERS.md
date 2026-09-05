@@ -5,7 +5,7 @@ This is the camera-side reference for the final demo. Headline values come from 
 | On-camera claim | Final value | Source / evidence label |
 |---|---:|---|
 | Razorpay fixed retry days | T+1, T+2, T+3 | Razorpay payment-retries documentation; external primary |
-| Optimizer reaction window | within 20 minutes | Razorpay Optimizer documentation; external primary |
+| Optimizer temporary downtime duration | 20 minutes; not a reaction-time guarantee | Razorpay Priority-based Routing documentation; external primary |
 | UPI mandate allowance | 1 original attempt + 3 retries | NPCI AutoPay circular; external primary |
 | Captured Razorpay test API entities | 20 total: 16 failed, 3 captured, 1 created | committed `data/raw_events/*.json`; Observed test-mode evidence |
 | Seed split | 5 selection; 10 validation | `EVALUATION.md`; registered before the run |
