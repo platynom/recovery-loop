@@ -146,7 +146,7 @@ export default function Landing({ sweep }: { sweep: Sweep }) {
         <div className="hero-in">
           <span className="badge"><i />Razorpay AI Buildathon · Revenue Recovery</span>
           <h1>When is it worth retrying<br />a failed payment — and<br />when is <em>refusing</em> better?</h1>
-          <p>Razorpay retries on a fixed calendar: day one, day two, day three, then it halts. NPCI gives each UPI mandate one attempt plus three retries, non-transferable. This agent decides which of them are worth spending.</p>
+          <p>Recovery Loop evaluates retry timing against a documented day-one, day-two, day-three baseline. The UPI retry allowance applies to each mandate execution sequence, not its entire lifetime. Razorpay also offers intelligent retries, which this experiment does not benchmark.</p>
           <div className="proof">
             <b>{signed(counted)}</b>
             <span>net revenue · {sweep.seeds} of {sweep.seeds} held-out seeds</span>
@@ -165,8 +165,9 @@ export default function Landing({ sweep }: { sweep: Sweep }) {
         <h2 className="rv">Retry timing, limited attempts, and issuer health.</h2>
         <p className="lede rv">Recovery Loop investigates whether failure reasons and issuer health can improve a fixed-calendar retry baseline. Public documentation does not establish every signal Razorpay uses internally.</p>
         <div className="prob">
-          <article className="rv"><i>01</i><h3>A fixed calendar</h3><p>Subscription charges retry at T+1, T+2 and T+3, then the mandate halts. The same three days for every failure, whatever caused it.</p></article>
-          <article className="rv"><i>02</i><h3>A hard budget</h3><p>NPCI allows one attempt plus three retries per UPI AutoPay mandate. Non-transferable — an attempt saved on one customer cannot be spent on another.</p></article>
+          <article className="rv"><i>01</i><h3>A documented baseline</h3><p>Razorpay&apos;s <a href="https://razorpay.com/docs/payments/subscriptions/payment-retries/" target="_blank" rel="noreferrer">Subscriptions retry model</a> lists T+1, T+2 and T+3 for UPI and cards; the subscription enters halted if all fail. This is our evaluation baseline, not a description of every Razorpay product. Razorpay also advertises <a href="https://razorpay.com/upi-autopay/" target="_blank" rel="noreferrer">intelligent UPI retries</a>, which we have not benchmarked.</p></article>
+          {/* NPCI OC 215 A: maximum 1 attempt + 3 retries per mandate (per sequence number). This is not a lifetime mandate cap. */}
+          <article className="rv"><i>02</i><h3>A per-execution limit</h3><p>The NPCI guideline limits UPI AutoPay to one original attempt plus three retries per mandate execution sequence. It is not a lifetime limit across every recurring debit. Our evaluation models one failed debit per mandate with its own remaining allowance; saved retries are not pooled across customers. Provider-specific execution windows also apply.</p></article>
           <article className="rv"><i>03</i><h3>A routing limitation</h3><p>Razorpay&apos;s <a href="https://razorpay.com/docs/payments/optimizer/dynamic-routing/" target="_blank" rel="noreferrer">Priority-based Routing documentation</a> describes temporary gateway downtimes lasting twenty minutes when success rates drop, with traffic routed to another gateway. This is a downtime duration, not a response-time guarantee. Its <a href="https://razorpay.com/docs/payments/optimizer/recurring-payments/" target="_blank" rel="noreferrer">Recurring Payments warning</a> says Optimizer rules apply to registration, not subsequent debits.</p></article>
         </div>
       </section>

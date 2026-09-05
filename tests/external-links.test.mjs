@@ -7,6 +7,8 @@ import { join } from 'node:path';
    A 404 in front of a judge is worse than a missing citation, so the
    allowlist is explicit: adding a link means verifying it first. */
 const VERIFIED = new Set([
+  // Opened and checked on 5 September 2026: live UPI AutoPay product page, including Intelligent Retry Mechanism.
+  'https://razorpay.com/upi-autopay/',
   'https://razorpay.com/docs/payments/subscriptions/payment-retries/',
   'https://razorpay.com/docs/payments/optimizer/recurring-payments/',
   'https://razorpay.com/docs/payments/optimizer/dynamic-routing/',
