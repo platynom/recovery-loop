@@ -107,6 +107,7 @@ function RailCard({ r, seeds }: { r: Rail; seeds: number }) {
       </header>
       <div className={`delta ${r.diff >= 0 ? 'win' : 'lose'}`}>{signed(r.diff)}</div>
       <div className="bar"><i className={r.diff >= 0 ? 'win' : 'lose'} style={{ width: `${pct / 2}%` }} /></div>
+      <p className="why" style={{ fontSize: 11 }}>Grey figures compare against Razorpay&apos;s fixed T+1 / T+2 / T+3 ladder.</p>
       <dl>
         <div><dt>Attempts spent</dt><dd>{mean1(r.rlAtt)}<small>vs {mean1(r.flAtt)}</small></dd></div>
         <div><dt>Payments recovered</dt><dd>{mean1(r.rlRec)}<small>vs {mean1(r.flRec)}</small></dd></div>
